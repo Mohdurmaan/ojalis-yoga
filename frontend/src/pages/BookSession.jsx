@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { IconSuccessCheck, IconClock, IconCalendar, IconSparkle } from "../components/Icons";
+import { API_URL } from "../utils/api";
 
 function BookSession() {
   const location = useLocation();
@@ -34,7 +35,7 @@ function BookSession() {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('http://localhost:5000/api/book-sessions', {
+      const response = await fetch(`${API_URL}/book-sessions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -302,3 +303,4 @@ function BookSession() {
 }
 
 export default BookSession;
+

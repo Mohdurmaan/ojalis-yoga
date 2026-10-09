@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { fetchPublic, getImageUrl } from '../utils/api';
+import { fetchPublic, getImageUrl, API_URL } from '../utils/api';
 import DOMPurify from 'dompurify';
 
 function EventDetails() {
@@ -58,7 +58,7 @@ function EventDetails() {
 
     try {
       // 1. Create order
-      const res = await fetch('http://localhost:5000/api/event-bookings/create-order', {
+      const res = await fetch(`${API_URL}/event-bookings/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -83,7 +83,7 @@ function EventDetails() {
         handler: async function (response) {
           // 3. Verify Payment
           try {
-            const verifyRes = await fetch('http://localhost:5000/api/event-bookings/verify-payment', {
+            const verifyRes = await fetch(`${API_URL}/event-bookings/verify-payment`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -231,3 +231,4 @@ function EventDetails() {
 }
 
 export default EventDetails;
+

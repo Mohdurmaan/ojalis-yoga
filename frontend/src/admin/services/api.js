@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/+$/, '');
 
 export const getToken = () => localStorage.getItem('admin_token');
 export const setToken = (token) => localStorage.setItem('admin_token', token);
@@ -6,16 +6,10 @@ export const removeToken = () => localStorage.removeItem('admin_token');
 
 export const apiFetch = async (endpoint, options = {}) => {
   const token = getToken();
-  
-  const headers = {
-    ...options.headers,
-  };
+  const headers = { ...options.headers };
 
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
+  if (token) headers.Authorization = `Bearer ${token}`;
 
-  // Only set Content-Type to JSON if we are not sending FormData
   if (!(options.body instanceof FormData)) {
     headers['Content-Type'] = 'application/json';
   }
