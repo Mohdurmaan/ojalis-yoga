@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+dist/
+dist-ssr/
+*.log
+.DS_Store
+
+frontend-git-backup/
+frontend/frontend-git-backup/
+
+frontend/dist.zip
+frontend/frontend-git-backup/
