@@ -6,9 +6,9 @@ function WhatWeTeachDetail() {
   const { slug } = useParams();
   const practice = whatWeTeachData[slug];
 
-  // If slug is not found in data, redirect to programs
+  // If slug is not found in data, redirect to what-we-teach
   if (!practice) {
-    return <Navigate to="/programs" replace />;
+    return <Navigate to="/what-we-teach" replace />;
   }
 
   // Get other offerings for exploration
@@ -99,147 +99,151 @@ function WhatWeTeachDetail() {
         </div>
       </section>
 
-      {/* 3. Core Principles */}
-      <section className="section-spacing bg-ivory">
-        <div className="container">
-          <div className="text-center" style={{ maxWidth: "700px", margin: "0 auto 48px" }}>
-            <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
-              Core Principles & Methodology
-            </span>
-            <h2 className="section-title-main" style={{ marginTop: "8px" }}>
-              How We Approach <span>{practice.title}</span>
-            </h2>
-            <p className="section-desc-main">
-              Every practice at Ojalis is anchored in anatomical safety, classical lineage, and personalized pacing.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
-            {practice.principles.map((item, idx) => (
-              <div 
-                key={idx} 
-                style={{ 
-                  background: "#ffffff", 
-                  borderRadius: "var(--radius-md)", 
-                  padding: "30px 24px", 
-                  border: "1px solid var(--ojalis-border)",
-                  boxShadow: "var(--shadow-sm)",
-                  position: "relative"
-                }}
-              >
-                <div style={{ fontSize: "13px", fontWeight: 700, color: "var(--ojalis-gold)", letterSpacing: "1px", marginBottom: "8px" }}>
-                  0{idx + 1}
-                </div>
-                <h3 style={{ fontSize: "18px", color: "var(--ojalis-burgundy)", marginBottom: "12px", fontFamily: "var(--font-serif)", fontWeight: 700 }}>
-                  {item.title}
-                </h3>
-                <p style={{ fontSize: "14px", color: "var(--ojalis-text-muted)", lineHeight: 1.6, margin: 0 }}>
-                  {item.description}
+      {practice.tag !== "Cadences" && (
+        <>
+          {/* 3. Core Principles */}
+          <section className="section-spacing bg-ivory">
+            <div className="container">
+              <div className="text-center" style={{ maxWidth: "700px", margin: "0 auto 48px" }}>
+                <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
+                  Core Principles & Methodology
+                </span>
+                <h2 className="section-title-main" style={{ marginTop: "8px" }}>
+                  How We Approach <span>{practice.title}</span>
+                </h2>
+                <p className="section-desc-main">
+                  Every practice at Ojalis is anchored in anatomical safety, classical lineage, and personalized pacing.
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 4. Curriculum & Techniques Covered */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <div className="text-center" style={{ marginBottom: "36px" }}>
-              <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
-                Curriculum Components
-              </span>
-              <h2 className="section-title-main" style={{ marginTop: "8px" }}>
-                Key Practices & Techniques Included
-              </h2>
-            </div>
-
-            <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-lg)", border: "1px solid var(--ojalis-border)", padding: "36px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "18px" }}>
-                {practice.practices.map((tech, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                    <div style={{ marginTop: "2px", color: "var(--ojalis-gold)", flexShrink: 0 }}>
-                      <IconCheckmark size={18} />
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+                {practice.principles.map((item, idx) => (
+                  <div 
+                    key={idx} 
+                    style={{ 
+                      background: "#ffffff", 
+                      borderRadius: "var(--radius-md)", 
+                      padding: "30px 24px", 
+                      border: "1px solid var(--ojalis-border)",
+                      boxShadow: "var(--shadow-sm)",
+                      position: "relative"
+                    }}
+                  >
+                    <div style={{ fontSize: "13px", fontWeight: 700, color: "var(--ojalis-gold)", letterSpacing: "1px", marginBottom: "8px" }}>
+                      0{idx + 1}
                     </div>
-                    <span style={{ fontSize: "14.5px", color: "var(--ojalis-text-main)", fontWeight: 500, lineHeight: 1.5 }}>
-                      {tech}
-                    </span>
+                    <h3 style={{ fontSize: "18px", color: "var(--ojalis-burgundy)", marginBottom: "12px", fontFamily: "var(--font-serif)", fontWeight: 700 }}>
+                      {item.title}
+                    </h3>
+                    <p style={{ fontSize: "14px", color: "var(--ojalis-text-muted)", lineHeight: 1.6, margin: 0 }}>
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* 5. Explore Other Practices */}
-      <section className="section-spacing bg-ivory">
-        <div className="container">
-          <div className="text-center" style={{ maxWidth: "600px", margin: "0 auto 40px" }}>
-            <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
-              Continuous Journey
-            </span>
-            <h3 style={{ fontSize: "28px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginTop: "6px" }}>
-              Explore Other What We Teach Offerings
-            </h3>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
-            {otherOfferings.map((item) => (
-              <Link 
-                key={item.slug} 
-                to={`/what-we-teach/${item.slug}`}
-                style={{ 
-                  background: "#ffffff", 
-                  borderRadius: "var(--radius-md)", 
-                  padding: "24px", 
-                  border: "1px solid var(--ojalis-border)",
-                  textDecoration: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "transform 0.2s ease, box-shadow 0.2s ease"
-                }}
-                className="program-card-hover"
-              >
-                <span style={{ fontSize: "12px", color: "var(--ojalis-gold-dark)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px" }}>
-                  {item.tag}
-                </span>
-                <h4 style={{ fontSize: "20px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginBottom: "8px" }}>
-                  {item.title}
-                </h4>
-                <p style={{ fontSize: "13.5px", color: "var(--ojalis-text-muted)", lineHeight: 1.5, marginBottom: "16px", flex: 1 }}>
-                  {item.headline}
-                </p>
-                <div style={{ color: "var(--ojalis-burgundy)", fontSize: "13px", fontWeight: 600, display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <span>→</span>
+          {/* 4. Curriculum & Techniques Covered */}
+          <section className="section-spacing bg-white">
+            <div className="container">
+              <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+                <div className="text-center" style={{ marginBottom: "36px" }}>
+                  <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
+                    Curriculum Components
+                  </span>
+                  <h2 className="section-title-main" style={{ marginTop: "8px" }}>
+                    Key Practices & Techniques Included
+                  </h2>
                 </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 6. Dedicated Bottom Inquire Strip */}
-      <section style={{ background: "linear-gradient(135deg, var(--ojalis-burgundy-dark) 0%, var(--ojalis-burgundy) 100%)", color: "#ffffff", padding: "64px 0", textAlign: "center" }}>
-        <div className="container" style={{ maxWidth: "720px" }}>
-          <h3 style={{ fontSize: "clamp(26px, 4vw, 36px)", fontFamily: "var(--font-serif)", color: "#ffffff", marginBottom: "14px" }}>
-            Ready to Deepen Your Practice in {practice.title}?
-          </h3>
-          <p style={{ color: "#e5d8dc", fontSize: "15.5px", lineHeight: 1.7, marginBottom: "28px" }}>
-            Whether in our studio hall or in an intimate live virtual cohort, our acharyas offer patient, individualized mentoring.
-          </p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
-            <Link to="/book-session" className="btn btn-gold">
-              Reserve a Private Session
-            </Link>
-            <Link to="/contact" className="btn btn-outline-white" style={{ borderColor: "rgba(255,255,255,0.4)", color: "#ffffff" }}>
-              Contact Our Teachers
-            </Link>
-          </div>
-        </div>
-      </section>
+                <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-lg)", border: "1px solid var(--ojalis-border)", padding: "36px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "18px" }}>
+                    {practice.practices.map((tech, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                        <div style={{ marginTop: "2px", color: "var(--ojalis-gold)", flexShrink: 0 }}>
+                          <IconCheckmark size={18} />
+                        </div>
+                        <span style={{ fontSize: "14.5px", color: "var(--ojalis-text-main)", fontWeight: 500, lineHeight: 1.5 }}>
+                          {tech}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 5. Explore Other Practices */}
+          <section className="section-spacing bg-ivory">
+            <div className="container">
+              <div className="text-center" style={{ maxWidth: "600px", margin: "0 auto 40px" }}>
+                <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
+                  Continuous Journey
+                </span>
+                <h3 style={{ fontSize: "28px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginTop: "6px" }}>
+                  Explore Other What We Teach Offerings
+                </h3>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
+                {otherOfferings.map((item) => (
+                  <Link 
+                    key={item.slug} 
+                    to={`/what-we-teach/${item.slug}`}
+                    style={{ 
+                      background: "#ffffff", 
+                      borderRadius: "var(--radius-md)", 
+                      padding: "24px", 
+                      border: "1px solid var(--ojalis-border)",
+                      textDecoration: "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      transition: "transform 0.2s ease, box-shadow 0.2s ease"
+                    }}
+                    className="program-card-hover"
+                  >
+                    <span style={{ fontSize: "12px", color: "var(--ojalis-gold-dark)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px" }}>
+                      {item.tag}
+                    </span>
+                    <h4 style={{ fontSize: "20px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginBottom: "8px" }}>
+                      {item.title}
+                    </h4>
+                    <p style={{ fontSize: "13.5px", color: "var(--ojalis-text-muted)", lineHeight: 1.5, marginBottom: "16px", flex: 1 }}>
+                      {item.headline}
+                    </p>
+                    <div style={{ color: "var(--ojalis-burgundy)", fontSize: "13px", fontWeight: 600, display: "flex", alignItems: "center", gap: "4px" }}>
+                      <span>View Details</span>
+                      <span>→</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 6. Dedicated Bottom Inquire Strip */}
+          <section style={{ background: "linear-gradient(135deg, var(--ojalis-burgundy-dark) 0%, var(--ojalis-burgundy) 100%)", color: "#ffffff", padding: "64px 0", textAlign: "center" }}>
+            <div className="container" style={{ maxWidth: "720px" }}>
+              <h3 style={{ fontSize: "clamp(26px, 4vw, 36px)", fontFamily: "var(--font-serif)", color: "#ffffff", marginBottom: "14px" }}>
+                Ready to Deepen Your Practice in {practice.title}?
+              </h3>
+              <p style={{ color: "#e5d8dc", fontSize: "15.5px", lineHeight: 1.7, marginBottom: "28px" }}>
+                Whether in our studio hall or in an intimate live virtual cohort, our acharyas offer patient, individualized mentoring.
+              </p>
+              <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+                <Link to="/book-session" className="btn btn-gold">
+                  Reserve a Private Session
+                </Link>
+                <Link to="/contact" className="btn btn-outline-white" style={{ borderColor: "rgba(255,255,255,0.4)", color: "#ffffff" }}>
+                  Contact Our Teachers
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
     </main>
   );
 }

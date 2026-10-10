@@ -413,7 +413,7 @@ function About() {
                     Whether you are taking your first conscious breath on a yoga mat or deepening years of sadhana, our teachers guide you with patience, anatomical care, and genuine warmth.
                   </p>
                   <div style={{ marginTop: "18px" }}>
-                    <Link to="/programs" className="btn btn-outline-burgundy" style={{ padding: "8px 18px", fontSize: "13px" }}>
+                    <Link to="/what-we-teach" className="btn btn-outline-burgundy" style={{ padding: "8px 18px", fontSize: "13px" }}>
                       Explore All Programs &rarr;
                     </Link>
                   </div>

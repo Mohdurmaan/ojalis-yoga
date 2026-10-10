@@ -25,7 +25,7 @@
     /* Dedicated Heading Theme Variables */
     --site-heading-color: #4F6144;
     --site-heading-accent-color: #C59B4B;
-    --site-heading-font: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+    --site-heading-font: 'Forum', serif;
 
     /* Dedicated Button Theme Variables */
     --site-button-primary-bg: #4f614436;
@@ -40,8 +40,8 @@
     --site-button-gold-hover-bg: #9B7328;
     --site-button-gold-hover-text: #FFFFFF;
 
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+    --font-serif: 'Forum', serif;
+    --font-display: 'Forum', serif;
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
     --shadow-sm: 0 2px 10px rgba(74, 21, 37, 0.05);
@@ -100,7 +100,7 @@ h5,
 h6,
 .site-heading {
     color: var(--site-heading-color, #4F6144);
-    font-family: var(--site-heading-font, var(--font-display));
+    font-family: 'Forum', serif;
     font-weight: 600;
     line-height: 1.25;
 }
@@ -113,18 +113,23 @@ h5 span,
 h6 span,
 .site-heading-accent {
     color: var(--site-heading-accent-color, #C59B4B);
+    font-family: 'Forum', serif;
 }
 
 p {
     color: var(--ojalis-text-muted);
     line-height: 1.7;
+      font-family: 'Noto Sans', sans-serif;
+
 }
+
 
 a {
     text-decoration: none;
     color: inherit;
     transition: all 0.25s ease;
 }
+
 
 button {
     font-family: var(--font-sans);
@@ -257,7 +262,7 @@ button {
     left: 49.70%;
     width: clamp(280px, 26vw, 360px);
     height: auto;
-    z-index: 3;
+    z-index: 5;
     transform: translateX(-50%) scale(0.2);
     transform-origin: center center;
     opacity: 0;
@@ -265,7 +270,7 @@ button {
 }
 
 .animate-eye-reveal {
-    animation: eyeReveal 4s ease-in-out forwards;
+    animation: eyeReveal 4s linear forwards;
 }
 
 /* Desktop & Laptop Screen Keyframes */
@@ -400,6 +405,61 @@ button {
 }
 
 /* eye animation close */
+
+/* =========================================
+   SANSKRIT TEXT OVERLAY
+========================================= */
+.shiv-text-overlay {
+    position: absolute;
+    top: 18%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    color: #fff;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 1;
+    transition: filter 0.5s ease;
+}
+
+.shiv-text-overlay.text-blurred {
+    filter: blur(8px);
+}
+
+.shiv-sanskrit {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); */
+    color: var(--ojalis-gold, #d8b36a);
+    font-family: serif;
+}
+
+.shiv-english {
+       font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .shiv-text-overlay {
+        top: 25%;
+    }
+    .shiv-sanskrit {
+        font-size: 1.5rem;
+    }
+    .shiv-english {
+        font-size: 0.9rem;
+    }
+}
+
 /* event section */
 .programs-section {
     position: relative;
@@ -2712,8 +2772,8 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #3E594A 0%, #293E33 100%);
-    color: #FAF8F5 !important;
+   background-color: #4f614436;
+    color: #4f6144 !important;
     border: 1px solid rgba(229, 184, 105, 0.45);
     padding: 12px 28px;
     border-radius: 9999px;
@@ -2726,10 +2786,9 @@ button {
 }
 
 .btn-gallery-dawn:hover {
-    background: linear-gradient(135deg, #4E6F5D 0%, #354E40 100%);
-    border-color: #E5B869;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 26px rgba(62, 89, 74, 0.32);
+       background-color: #faf7f2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.2);
 }
 
 @media (max-width: 992px) {

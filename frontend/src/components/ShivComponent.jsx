@@ -27,7 +27,6 @@ const ShivComponent = () => {
 
         }, 100);
 
-
         // Animation complete
         const endTimer = setTimeout(() => {
 
@@ -65,9 +64,6 @@ const ShivComponent = () => {
 
             {/* =================================
                 BLACK OVERLAY
-
-                Important:
-                inline opacity hata diya hai
                 ================================= */}
 
             <div
@@ -75,6 +71,16 @@ const ShivComponent = () => {
                     isDimmed ? 'active' : ''
                 }`}
             ></div>
+
+            {/* =================================
+                SANSKRIT TEXT OVERLAY
+            ================================= */}
+            <div className={`shiv-text-overlay ${isDimmed ? 'text-blurred' : ''}`}>
+                <h2 className="shiv-sanskrit">चले वाति चलं चित्तं निश्चले निश्चलं भवेत्।</h2>
+                <p className="shiv-english">
+                    When the breath moves, the mind moves. <br/>  When the breath is still, the mind is still. 
+                </p>
+            </div>
 
 
             {/* =================================

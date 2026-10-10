@@ -64,79 +64,47 @@ function OnlineClasses() {
   }, []);
 
   const EventCard = ({ item }) => (
-    <div 
-      style={{ 
-        background: "#ffffff", 
-        borderRadius: "var(--radius-lg)", 
-        border: "1px solid var(--ojalis-border)", 
-        overflow: "hidden",
-        boxShadow: "var(--shadow-sm)",
-        display: "flex",
-        flexDirection: "column",
-        position: "relative"
-      }}
-    >
-      {/* Featured Image */}
-      {item.image && (
-        <div style={{ width: '100%', height: '220px' }}>
-          <img 
-            src={getImageUrl(item.image)} 
-            alt={item.title} 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-          />
+    <div className="program-card-item">
+      <div className="program-card-thumb-wrap">
+        <img 
+          src={item.image ? getImageUrl(item.image) : "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"} 
+          alt={item.title} 
+          className="program-card-img" 
+        />
+        <span className="program-badge-tag">{item.mode}</span>
+      </div>
+
+      <div className="program-card-body">
+        <div className="program-meta-row">
+          <span>₹{item.price}</span>
         </div>
-      )}
+        
+        <h3 className="program-card-title">{item.title}</h3>
 
-      <div style={{ padding: "30px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
-        {/* Header Row */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-          <span style={{ fontSize: "11.5px", fontWeight: 700, letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--ojalis-gold-dark)" }}>
-            {item.mode}
-          </span>
-          <span style={{ fontSize: "11.5px", background: "var(--ojalis-burgundy-subtle)", color: "var(--ojalis-burgundy)", padding: "3px 10px", borderRadius: "var(--radius-full)", fontWeight: 600 }}>
-            ₹{item.price}
-          </span>
-        </div>
-
-        <h3 style={{ fontSize: "22px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginBottom: "12px", lineHeight: 1.25 }}>
-          {item.title}
-        </h3>
-
-        {/* Short description (strip html if needed, but since it's html, just show snippet) */}
         <div 
-          style={{ fontSize: "14px", color: "var(--ojalis-text-muted)", lineHeight: 1.6, marginBottom: "22px", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+          className="program-card-text"
           dangerouslySetInnerHTML={{ __html: item.description }}
         />
 
-        {/* Key Info */}
-        <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-md)", padding: "16px", marginBottom: "24px", border: "1px solid var(--ojalis-border-light)", marginTop: "auto" }}>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
-            <li style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "13px", color: "var(--ojalis-text-main)" }}>
-              <span style={{ color: "var(--ojalis-gold)", marginTop: "2px" }}>•</span>
-              <span><strong>Dates:</strong> {new Date(item.startDate).toLocaleDateString()} – {new Date(item.endDate).toLocaleDateString()}</span>
-            </li>
-            <li style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "13px", color: "var(--ojalis-text-main)" }}>
-              <span style={{ color: "var(--ojalis-gold)", marginTop: "2px" }}>•</span>
-              <span><strong>Time:</strong> {item.startTime} - {item.endTime}</span>
-            </li>
-          </ul>
+        <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-md)", padding: "12px", marginBottom: "20px", border: "1px solid var(--ojalis-border-light)", fontSize: "13px" }}>
+          <strong>Dates:</strong> {new Date(item.startDate).toLocaleDateString()} – {new Date(item.endDate).toLocaleDateString()}<br/>
+          <strong>Time:</strong> {item.startTime} - {item.endTime}
         </div>
 
-        {/* Action Buttons */}
-        <div style={{ display: "flex", gap: "12px", marginTop: "auto", borderTop: "1px solid var(--ojalis-border-light)", paddingTop: "20px" }}>
+        <div style={{ display: "flex", gap: "12px", marginTop: "auto", borderTop: "1px solid var(--ojalis-border-light)", paddingTop: "16px" }}>
           <Link 
             to={`/online-classes/${item.slug}`} 
-            className="btn btn-secondary" 
-            style={{ flex: 1, textAlign: "center", justifyContent: "center", padding: "10px" }}
+            className="program-link-cta"
+            style={{flex: 1, justifyContent: "center"}}
           >
             View Details
           </Link>
           <Link 
             to={`/online-classes/${item.slug}#book`} 
-            className="btn btn-primary" 
-            style={{ flex: 1, textAlign: "center", justifyContent: "center", padding: "10px" }}
+            className="program-link-cta"
+            style={{flex: 1, justifyContent: "center", color: "var(--ojalis-gold-dark)"}}
           >
-            Book Now
+            Book Now <span>→</span>
           </Link>
         </div>
       </div>
@@ -180,7 +148,7 @@ function OnlineClasses() {
               No upcoming events at this time.
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px" }}>
+            <div className="programs-card-grid">
               {upcomingEvents.map((item) => <EventCard key={item._id} item={item} />)}
             </div>
           )}
@@ -211,7 +179,7 @@ function OnlineClasses() {
               No active cohorts at this time.
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px" }}>
+            <div className="programs-card-grid">
               {activeCohorts.map((item) => <EventCard key={item._id} item={item} />)}
             </div>
           )}
@@ -242,7 +210,7 @@ function OnlineClasses() {
               No running online offerings at this time.
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px" }}>
+            <div className="programs-card-grid">
               {runningClasses.map((item) => <EventCard key={item._id} item={item} />)}
             </div>
           )}
@@ -267,7 +235,7 @@ function OnlineClasses() {
               </p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px" }}>
+            <div className="programs-card-grid">
               {completedEvents.map((item) => <EventCard key={item._id} item={item} />)}
             </div>
           </div>

@@ -42,36 +42,25 @@ function Blog() {
       {/* Blog Listing Grid */}
       <section className="section-spacing bg-white">
         <div className="container">
-          <div className="blog-cards-grid">
+          <div className="programs-card-grid">
             {loading ? <div style={{textAlign:"center", padding:"40px"}}>Loading journal...</div> : articles.map((article) => (
-              <article key={article.id} className="blog-card-item">
-                <div className="blog-card-thumb">
-                  <img src={article.image} alt={article.title} className="blog-card-img" />
+              <div key={article.id} className="program-card-item">
+                <div className="program-card-thumb-wrap">
+                  <img src={article.image} alt={article.title} className="program-card-img" />
+                  <span className="program-badge-tag">{article.category}</span>
                 </div>
-                <div className="blog-card-content">
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                    <span className="blog-meta-tag">{article.category}</span>
-                    <span style={{ fontSize: "12px", color: "var(--ojalis-text-light)" }}>{article.readTime}</span>
+                <div className="program-card-body">
+                  <div className="program-meta-row">
+                    <span>{article.readTime} | By {article.author}</span>
                   </div>
-                  <h2 className="blog-card-title">
-                    <Link to={`/blog/${article.id}`} style={{ color: "inherit" }}>
-                      {article.title}
-                    </Link>
-                  </h2>
-                  <p className="blog-card-summary">
-                    {article.summary}
-                  </p>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--ojalis-border-light)", paddingTop: "14px", marginTop: "auto" }}>
-                    <span style={{ fontSize: "12.5px", color: "var(--ojalis-text-muted)" }}>
-                      By {article.author}
-                    </span>
-                    <Link to={`/blog/${article.id}`} className="program-link-cta" style={{ fontSize: "13px" }}>
-                      Read Article
-                      <span>→</span>
-                    </Link>
-                  </div>
+                  <h3 className="program-card-title">{article.title}</h3>
+                  <p className="program-card-text">{article.summary}</p>
+                  <Link to={`/blog/${article.id}`} className="program-link-cta">
+                    Read Article
+                    <span>→</span>
+                  </Link>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
 

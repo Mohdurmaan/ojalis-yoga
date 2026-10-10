@@ -9,7 +9,7 @@ function BlogPost() {
   const [article, setArticle] = useState(null);
   const [otherArticles, setOtherArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showToc, setShowToc] = useState(true);
+  const [showToc, setShowToc] = useState(false);
 
   useEffect(() => {
     // Fetch all to find the active article, plus related posts
@@ -83,7 +83,7 @@ function BlogPost() {
     <main className="editorial-page bg-ivory">
       <style>{`
         .editorial-page {
-          padding-top: 80px; /* Offset for fixed header */
+          padding-top: 0;
         }
 
         /* Direct Blog Featured Image Header */
@@ -91,10 +91,12 @@ function BlogPost() {
           width: 100%;
           max-height: 480px;
           overflow: hidden;
-          background-color: #f4f4f4;
+          background-color: transparent;
           display: flex;
           justify-content: center;
           align-items: center;
+          -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
 
         .editorial-hero-img {
@@ -239,21 +241,23 @@ function BlogPost() {
           border-radius: var(--radius-full, 9999px);
           font-size: 13.5px;
           font-weight: 600;
-          background-color: #4f6144 !important;
-          color: #ffffff !important;
-          border: 1.5px solid #4f6144;
+             background-color: #4f614436;
+
+          
+             color: #4f6144 !important;
           text-decoration: none;
           transition: all 0.25s ease;
           white-space: nowrap;
-          box-shadow: 0 2px 8px rgba(79, 97, 68, 0.15);
+          border: 2px solid #4F6144;
+         
         }
 
         .editorial-toc-pill:hover {
-          background-color: #c59b4b !important;
-          border-color: #c59b4b !important;
-          color: #ffffff !important;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(197, 155, 75, 0.3);
+          background-color: #faf7f2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.2);
+    
+         
         }
 
         .editorial-content {
@@ -437,26 +441,14 @@ function BlogPost() {
 
       {/* Main 90% Reading Area */}
       <section className="editorial-main">
-        <Link to="/blog" className="editorial-back-link">
-          ← Back to Wisdom
-        </Link>
-        <span className="editorial-meta-tag">{article.category}</span>
+       
+       
         <h1 className="editorial-title">{article.title}</h1>
         
-        <div className="editorial-meta-info">
-          <span className="editorial-meta-author">By {article.author}</span>
-          <span>&bull;</span>
-          <span>{article.date}</span>
-        </div>
+        
 
         {/* Author Profile */}
-        <div className="editorial-top-author-box">
-          <img src="/logo.png" alt={article.author} className="editorial-author-img" />
-          <div className="editorial-author-info">
-            <h4>{article.author}</h4>
-            <p>Teacher & practitioner sharing the depth and healing science of classical yoga & meditation.</p>
-          </div>
-        </div>
+        
 
         {/* Collapsible Horizontal Pill Badges "In this article" TOC */}
         {article.toc && article.toc.length > 0 && (
@@ -490,6 +482,7 @@ function BlogPost() {
             )}
           </div>
         )}
+        
 
         {/* Content */}
         <div
@@ -512,9 +505,11 @@ function BlogPost() {
                     <h4 className="editorial-related-title">{item.title}</h4>
                   </div>
                 </Link>
+                
               ))}
             </div>
           </div>
+          
         </section>
       )}
     </main>

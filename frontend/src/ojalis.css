@@ -117,10 +117,12 @@
 }
 
 .section-title-main span {
-  color: var(--site-heading-accent-color, #C59B4B);
-  font-style: italic;
-  font-family: var(--font-serif);
-  font-weight: 500;
+      font-size: clamp(28px, 4vw, 44px);
+    color: var(--site-heading-color, #4F6144);
+    line-height: 1.22;
+    margin-bottom: 18px;
+    font-family: var(--site-heading-font, var(--font-display));
+    letter-spacing: -0.5px;
 }
 
 .section-desc-main {
@@ -745,7 +747,7 @@
    -------------------------------------------------------------------------- */
 /* Hero Section Below Shiv Animation */
 .hero-welcome-section {
-  padding: 72px 0 60px;
+  padding: 72px 0 30px;
   background: linear-gradient(180deg, var(--ojalis-ivory) 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
@@ -771,21 +773,23 @@
 
 /* Completely independent Hero Heading Styles */
 .hero-main-heading {
-  font-size: clamp(34px, 5.5vw, 62px);
+  font-size: clamp(34px, 5.5vw, 50px);
   color: #4f6144;
   font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.15;
+  font-weight: 500;
+  line-height: 50px;
   letter-spacing: -0.5px;
   max-width: 980px;
   margin: 0 auto 24px;
 }
 
 .hero-heading-accent {
-  color: #c59b4b;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+      font-size: clamp(28px, 4vw, 20px);
+    color: var(--site-heading-color, #4F6144);
+    line-height: 1.22;
+    margin-bottom: 18px;
+    font-family: var(--site-heading-font, var(--font-display));
+    letter-spacing: -0.5px;
 }
 
 /* Backward compatibility fallback */
@@ -808,11 +812,19 @@
 }
 
 .hero-lead-text {
-  font-size: clamp(16px, 2vw, 19px);
+  font-size: clamp(16px, 2vw, 16.5px);
   line-height: 1.7;
   color: var(--ojalis-text-muted);
   max-width: 760px;
   margin: 0 auto 36px;
+}
+.y{
+     font-size: clamp(28px, 4vw, 44px);
+    color: var(--site-heading-color, #4F6144);
+    line-height: 1.22;
+    font-family: var(--site-heading-font, var(--font-display));
+    letter-spacing: -0.5px;
+      font-weight: 500;
 }
 
 .hero-cta-group {
@@ -837,17 +849,16 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  background-color: #4f6144;
-  color: #ffffff !important;
-  border: 1.5px solid #4f6144;
+      background-color: #4f614436;
+
+      color: #4f6144 !important;
+ 
 }
 
 .hero-explore-btn:hover {
-  background-color: #3b4936;
-  border-color: #3b4936;
-  color: #ffffff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(74, 21, 37, 0.25);
+ background-color: #faf7f2;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(74, 21, 37, 0.2);
 }
 
 .hero-book-btn {
@@ -907,7 +918,7 @@
 
 /* Introduction Section */
 .intro-yoga-section {
-  padding: 100px 0;
+  padding: 40px 0 100px;
   background-color: #ffffff;
 }
 
@@ -997,7 +1008,7 @@
 
 /* Yoga Programs Section */
 .programs-overview-section {
-  padding: 100px 0;
+  padding: 40px 0 80px;
   background-color: var(--ojalis-ivory);
 }
 
@@ -1155,7 +1166,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
 
 /* Trainer Spotlight Section */
 .trainer-spotlight-section {
-  padding: 100px 0;
+  padding: 60px 0 40px;
   background: linear-gradient(180deg, var(--ojalis-cream) 0%, var(--ojalis-ivory) 100%);
 }
 
@@ -1406,16 +1417,28 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   background-position: center center;
   background-repeat: no-repeat;
   color: #e5dbde;
-  padding-top: 80px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-top: 2px solid var(--ojalis-gold-dark);
   position: relative;
+  overflow: hidden;
+}
+
+.ojalis-footer .container {
+  padding-top: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .footer-top-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 48px;
-  padding-bottom: 60px;
+  gap: 32px;
+  padding-bottom: 20px;
 }
 
 .footer-brand-summary {
@@ -1485,6 +1508,39 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
+/* Custom colors for social buttons */
+.social-instagram {
+  color: #E1306C;
+}
+.social-instagram:hover {
+  background-color: #E1306C;
+  color: #ffffff;
+}
+
+.social-youtube {
+  color: #FF0000;
+}
+.social-youtube:hover {
+  background-color: #FF0000;
+  color: #ffffff;
+}
+
+.social-facebook {
+  color: #1877F2;
+}
+.social-facebook:hover {
+  background-color: #1877F2;
+  color: #ffffff;
+}
+
+.social-linkedin {
+  color: #0A66C2;
+}
+.social-linkedin:hover {
+  background-color: #0A66C2;
+  color: #ffffff;
+}
+
 .footer-heading {
   font-size: 16px;
   font-family: var(--font-display);
@@ -1509,7 +1565,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 6px;
 }
 
 .footer-nav-list a {
@@ -2586,4 +2642,143 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   .booking-center-box {
     padding: 28px 20px;
   }
+}
+
+/* ==========================================================================
+   OM SWAMI SECTION
+   ========================================================================== */
+.om-swami-section {
+  background-color: var(--ojalis-ivory);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--ojalis-border-light);
+}
+
+.om-swami-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .om-swami-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.om-swami-text-content {
+  max-width: 520px;
+}
+
+.om-swami-title {
+  font-family: var(--site-heading-font, var(--font-display));
+  font-size: clamp(32px, 4vw, 42px);
+  color: var(--site-heading-color, #4F6144);
+  line-height: 1.2;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.om-swami-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ojalis-text-muted);
+}
+
+.om-swami-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 576px) {
+  .om-swami-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.om-swami-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  border: 1px solid var(--ojalis-border);
+  box-shadow: 0 4px 15px rgba(74, 21, 37, 0.04);
+}
+
+.om-swami-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(74, 21, 37, 0.08);
+  border-color: var(--ojalis-gold-light);
+}
+
+.om-swami-card-header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  margin-bottom: 20px;
+}
+
+.om-swami-link-icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a5568;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.om-swami-card:hover .om-swami-link-icon {
+  background-color: var(--ojalis-gold);
+  color: white;
+}
+
+.om-swami-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.om-swami-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2D3748;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.om-swami-card-text {
+  font-size: 13.5px;
+  color: #718096;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.os-me-logo {
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  font-family: var(--font-sans);
+  line-height: 1;
 }

@@ -12,64 +12,19 @@ import {
   IconSparkle
 } from "../components/Icons";
 import HomeGallerySection from "../components/HomeGallerySection";
+import SocialConnectSection from "../components/OmSwamiSection";
+import { whatWeTeachData } from "../data/whatWeTeachData";
 
 function Home() {
-  const programsData = [
-    {
-      id: "general-yoga",
-      title: "General Hatha Yoga",
-      level: "All Levels",
-      timing: "Morning & Evening Batches",
-      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
-      description: "Classical foundational postures (Asanas), steady alignment, and gentle breath coordination designed to strengthen muscles, loosen stiffness, and revitalize daily vitality.",
-      link: "/programs"
-    },
-    {
-      id: "therapeutic-yoga",
-      title: "Therapeutic Yoga",
-      level: "Customized",
-      timing: "Specialized Daily Sessions",
-      image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
-      description: "Restorative, physician-aligned yogic sequences tailored for posture correction, back ache relief, joint flexibility, and gentle rehabilitation at your body's natural pace.",
-      link: "/programs"
-    },
-    {
-      id: "pranayama-kriya",
-      title: "Pranayama & Yogic Kriya",
-      level: "All Practitioners",
-      timing: "Early Morning Sadhana",
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
-      description: "Traditional yogic cleansing and vitalizing breathwork including Kapalabhati, Nadi Shodhana, Bhastrika, and foundational kriyas to calm the nervous system.",
-      link: "/programs"
-    },
-    {
-      id: "meditation-stillness",
-      title: "Meditation & Inner Stillness",
-      level: "Beginner to Advanced",
-      timing: "Daily Twilight Slots",
-      image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
-      description: "Guided Dharana (focused concentration) and Dhyana (effortless stillness) along with Omkar resonance to dissolve mental friction and nurture inner clarity.",
-      link: "/programs"
-    },
-    {
-      id: "weight-management",
-      title: "Weight Management Yoga",
-      level: "Progressive",
-      timing: "Active Dynamic Batches",
-      image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80",
-      description: "Vinyasa flow, core toning series, and metabolic activation combined with mindful nutritional principles to build healthy, sustainable metabolic rhythm.",
-      link: "/programs"
-    },
-    {
-      id: "personal-sessions",
-      title: "Personal 1-on-1 Sessions",
-      level: "Private Coaching",
-      timing: "Flexible Scheduling",
-      image: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80",
-      description: "One-to-one dedicated mentoring with our senior teacher, focused strictly on your unique physiological objectives, recovery, and spiritual progression.",
-      link: "/programs"
-    }
-  ];
+  const programsData = Object.values(whatWeTeachData).slice(0, 6).map(item => ({
+    id: item.slug,
+    title: item.title,
+    level: item.tag || "All Levels",
+    timing: "Flexible Scheduling",
+    image: item.image,
+    description: item.lead,
+    link: `/what-we-teach/${item.slug}`
+  }));
 
   const whyChooseUsData = [
     {
@@ -167,20 +122,20 @@ function Home() {
         <div className="container">
           <div className="hero-pill-badge">
             <IconSparkle size={13} color="var(--ojalis-gold)" />
-            <span>OJALIS YOGIC KRIYA &bull; SACRED SADHANA</span>
+            <span>HOME OF THE &bull; BREATH SIGNATURE</span>
             <IconSparkle size={13} color="var(--ojalis-gold)" />
           </div>
 
           <h1 className="hero-main-heading">
-            Find Your Balance. Strengthen Your Body. <span className="hero-heading-accent">Calm Your Mind.</span>
+           Your breath has been waiting for you to notice.<span className="hero-heading-accent"><br></br>We start with your breath. Everything else grows from there.</span>
           </h1>
 
           <p className="hero-lead-text">
-            Discover a simple and meaningful approach to yoga designed to help you improve flexibility, strength, breathing and overall well-being.
+          Your breath already holds the whole story - when your shoulders rise with worry, where your exhale pauses, how quickly you return to calm. At OJALIS, we listen to that story first. That's the Breath Signature: a calm, personal session where we observe how you truly breathe. From there, every practice is chosen for you - and you alone.
           </p>
 
           <div className="hero-cta-group">
-            <Link to="/programs" className="hero-explore-btn">
+            <Link to="/what-we-teach" className="hero-explore-btn">
               Explore Our Programs
               <span className="btn-arrow">→</span>
             </Link>
@@ -224,19 +179,21 @@ function Home() {
             <div>
               <div className="section-tag-wrapper">
                 <span className="section-tag-line"></span>
-                <span className="section-tag-text">About Ojalis Yoga</span>
+                <span className="section-tag-text">About Ojalis</span>
               </div>
 
               <h2 className="section-title-main">
-                A Haven for <span>Authentic Healing</span> & Inner Presence
+                Why <span>OJALIS</span> Exists
               </h2>
 
               <p className="section-desc-main" style={{ marginBottom: "18px" }}>
-                At Ojalis Yogic Kriya, we believe yoga is not an acrobatic performance, but a sacred journey back to yourself. Rooted in ancient Vedic and classical Hatha traditions, our centre offers an authentic, peaceful sanctuary where modern individuals can step away from relentless distractions.
+              <span className="y">Y</span>
+
+               our breath has been your most faithful companion since your very first moment. It has carried you through every joy and every hard day, quietly and mostly unnoticed. OJALIS exists to help you notice it. Noticing is the whole skill, and it can be learned by anyone.
               </p>
 
               <p className="section-desc-main" style={{ marginBottom: "20px" }}>
-                Whether you wish to loosen stiff muscles, restore restful breathing, cultivate mental stillness, or seek therapy for chronic physical discomfort, we provide systematic, compassionate guidance tailored to your body.
+                OJALIS was founded by Kuldeep Dubey, who has taught yoga since 2016. Across ten years and several hundred students, one pattern shone through: the students who transformed most were the ones whose breathing transformed. That is why every journey begins with a Breath Signature.
               </p>
 
               <div className="intro-feature-check-list">
@@ -244,19 +201,19 @@ function Home() {
                   <span style={{ color: "var(--ojalis-gold-dark)", display: "inline-flex", marginTop: "2px" }}>
                     <IconCheckmark size={18} color="var(--ojalis-gold-dark)" />
                   </span>
-                  <span><strong>Who Can Join:</strong> Open to all age groups, beginners, working professionals, and seniors.</span>
+                  <span><strong>Who Can Join:</strong> students from Class 6 to college, working professionals, new mothers, and adults of every age and fitness level</span>
                 </div>
                 <div className="intro-check-item">
                   <span style={{ color: "var(--ojalis-gold-dark)", display: "inline-flex", marginTop: "2px" }}>
                     <IconCheckmark size={18} color="var(--ojalis-gold-dark)" />
                   </span>
-                  <span><strong>Our Approach:</strong> Breath-synchronized alignment, safe posture transitions, and mindful stillness.</span>
+                  <span><strong>Our Approach:</strong> slow, breath-led practice, taught live online and shaped around your own Breath Signature.</span>
                 </div>
                 <div className="intro-check-item">
                   <span style={{ color: "var(--ojalis-gold-dark)", display: "inline-flex", marginTop: "2px" }}>
                     <IconCheckmark size={18} color="var(--ojalis-gold-dark)" />
                   </span>
-                  <span><strong>Why It Matters:</strong> Long-term physical mobility, nervous system regulation, and emotional poise.</span>
+                  <span><strong>Why It Matters:</strong>sleep that comes easier, calm that returns in minutes, and a mind that stays clear through a long day.</span>
                 </div>
               </div>
 
@@ -284,7 +241,7 @@ function Home() {
               Meet Our <span>Lead Instructor</span>
             </h2>
             <p className="section-desc-main mx-auto">
-              Guided by experienced, humble teachers whose life mission is sharing the purest essence of traditional yogic wisdom.
+              Taught by a teacher who came to yoga through science, so every step is something you can observe and feel for yourself.
             </p>
           </div>
 
@@ -298,19 +255,19 @@ function Home() {
               />
             </div>
             <div className="trainer-info-content" style={{ padding: "36px 32px" }}>
-              <span className="trainer-role-badge">Founder & Lead Yogacharya</span>
-              <h3 className="trainer-full-name" style={{ fontSize: "28px" }}>Acharya Ananya Sharma</h3>
+              <span className="trainer-role-badge">FOUNDER & LEAD TEACHER</span>
+              <h3 className="trainer-full-name" style={{ fontSize: "28px" }}>Kuldeep Dubey</h3>
               <div className="trainer-qualification" style={{ color: "var(--ojalis-gold-dark)", marginBottom: "12px" }}>
-                M.Sc. Yogic Sciences &bull; 500-Hr Certified Master &bull; 14+ Years Sadhana
+                M.Sc. Mathematics &bull; Diploma in Yoga Science &bull; MDNIY (Ministry of Ayush) &bull;  250-hr Yog Teacher’s Training, Patanjali Yog Samiti
               </div>
               <blockquote className="trainer-quote-italic" style={{ fontSize: "16px", marginBottom: "16px" }}>
                 "Yoga is neither a sport nor an exercise regime. It is the conscious art of living in harmony with your breath, your mind, and your natural rhythm."
               </blockquote>
               <p className="trainer-bio-excerpt" style={{ fontSize: "14px", marginBottom: "22px" }}>
-                Trained in the traditional Himalayan ashrams and certified by premier yogic institutions, Acharya Ananya combines ancient anatomical precision with compassionate personal adjustments. Her calm demeanor has guided hundreds of students from hesitant beginners to confident, mindful practitioners.
+                Teaching yoga since 2016. Many of Kuldeep’s students arrived looking for flexibility and stayed talking about their breath. That pattern is why every OJALIS journey begins with a Breath Signature.
               </p>
               <Link to="/trainers" className="btn btn-primary" style={{ padding: "10px 22px", fontSize: "14px" }}>
-                Meet Our Faculty & Lineage
+               Meet the teachers
                 <span className="btn-arrow">→</span>
               </Link>
             </div>
@@ -350,7 +307,7 @@ function Home() {
                   </div>
                   <h3 className="program-card-title">{item.title}</h3>
                   <p className="program-card-text">{item.description}</p>
-                  <Link to="/programs" className="program-link-cta">
+                  <Link to={item.link} className="program-link-cta">
                     Learn More
                     <span>→</span>
                   </Link>
@@ -360,7 +317,7 @@ function Home() {
           </div>
 
           <div className="text-center" style={{ marginTop: "44px" }}>
-            <Link to="/programs" className="btn btn-primary">
+            <Link to="/what-we-teach" className="btn btn-primary">
               View All Programs & Detailed Schedules
               <span className="btn-arrow">→</span>
             </Link>
@@ -368,9 +325,40 @@ function Home() {
         </div>
       </section>
 
+       <section className="final-cta-section">
+        <div className="container">
+          <div className="final-cta-card-box">
+            <div className="section-tag-wrapper" style={{ justifyContent: "center" }}>
+              <span className="section-tag-line" style={{ backgroundColor: "var(--ojalis-gold-light)" }}></span>
+              <span className="section-tag-text" style={{ color: "var(--ojalis-gold-light)" }}>Begin Today</span>
+              <span className="section-tag-line" style={{ backgroundColor: "var(--ojalis-gold-light)" }}></span>
+            </div>
+
+            <h2 className="final-cta-title">
+              Your Yoga Journey <span>Starts Here</span>
+            </h2>
+
+            <p className="final-cta-desc">
+              Take the first step towards a healthier, stronger and more balanced lifestyle. Join our welcoming community for an introductory trial session.
+            </p>
+
+            <div className="final-cta-btn-group">
+              <Link to="/book-session" className="btn btn-gold">
+                Book a Session
+                <span className="btn-arrow">→</span>
+              </Link>
+              <Link to="/contact" className="btn btn-white">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* =================================================================
           5. WHY CHOOSE US SECTION
           ================================================================= */}
+         
       
 
       {/* =================================================================
@@ -436,35 +424,8 @@ function Home() {
       {/* =================================================================
           8. CALL TO ACTION SECTION
           ================================================================= */}
-      <section className="final-cta-section">
-        <div className="container">
-          <div className="final-cta-card-box">
-            <div className="section-tag-wrapper" style={{ justifyContent: "center" }}>
-              <span className="section-tag-line" style={{ backgroundColor: "var(--ojalis-gold-light)" }}></span>
-              <span className="section-tag-text" style={{ color: "var(--ojalis-gold-light)" }}>Begin Today</span>
-              <span className="section-tag-line" style={{ backgroundColor: "var(--ojalis-gold-light)" }}></span>
-            </div>
-
-            <h2 className="final-cta-title">
-              Your Yoga Journey <span>Starts Here</span>
-            </h2>
-
-            <p className="final-cta-desc">
-              Take the first step towards a healthier, stronger and more balanced lifestyle. Join our welcoming community for an introductory trial session.
-            </p>
-
-            <div className="final-cta-btn-group">
-              <Link to="/book-session" className="btn btn-gold">
-                Book a Session
-                <span className="btn-arrow">→</span>
-              </Link>
-              <Link to="/contact" className="btn btn-white">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+      <SocialConnectSection />
     </main>
   );
 }

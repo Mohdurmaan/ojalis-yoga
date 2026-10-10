@@ -247,7 +247,7 @@ function Benefits() {
                 Book a Trial Session
                 <span className="btn-arrow">→</span>
               </Link>
-              <Link to="/programs" className="btn btn-white">
+              <Link to="/what-we-teach" className="btn btn-white">
                 View Program Schedules
               </Link>
             </div>

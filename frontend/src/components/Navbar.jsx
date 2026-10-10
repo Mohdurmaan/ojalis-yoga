@@ -5,6 +5,7 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [cadenceFlyoutOpen, setCadenceFlyoutOpen] = useState(false);
   const [mobileTeachOpen, setMobileTeachOpen] = useState(false);
   const location = useLocation();
 
@@ -25,16 +26,28 @@ function Navbar() {
   useEffect(() => {
     setIsMenuOpen(false);
     setDropdownOpen(false);
+    setCadenceFlyoutOpen(false);
     setMobileTeachOpen(false);
   }, [location.pathname]);
 
   const isActive = (path) => location.pathname === path;
   const isTeachActive = location.pathname.startsWith("/what-we-teach") || location.pathname === "/meditation";
+  const isCadenceActive = location.pathname.includes("cadence") || location.pathname.includes("desk-breath") || location.pathname.includes("yoga-nidra-evening");
   const isJournalActive = location.pathname === "/journal" || location.pathname.startsWith("/blog");
   const isStudioActive = location.pathname === "/studio" || location.pathname === "/gallery";
   const isClassesActive = location.pathname === "/online-classes";
 
   const teachItems = [
+    {
+      title: "Cadences",
+      type: "submenu",
+      children: [
+        { title: "The Real Time Practice", path: "/what-we-teach/real-time-practice" },
+        { title: "The Study Breath", path: "/what-we-teach/study-breath" },
+        { title: "The Quiet Breathing", path: "/what-we-teach/quiet-breathing" },
+        { title: "The Wakeful Hours", path: "/what-we-teach/wakeful-hours" }
+      ]
+    },
     { title: "Pranayama", path: "/what-we-teach/pranayama" },
     { title: "Hatha Yoga", path: "/what-we-teach/hatha-yoga" },
     { title: "Yoga Nidra", path: "/what-we-teach/yoga-nidra" },
@@ -44,7 +57,6 @@ function Navbar() {
     { title: "Ayurvedic Lifestyle Guidance", path: "/what-we-teach/ayurvedic-lifestyle-guidance" },
     { title: "Postnatal Recovery", path: "/what-we-teach/postnatal-recovery" },
     { title: "Cycle Practice", path: "/what-we-teach/cycle-practice" },
-    { title: "Study Breath", path: "/what-we-teach/study-breath" },
     { title: "First Breath / Surya Namaskar for Children", path: "/what-we-teach/first-breath" }
   ];
 
@@ -98,15 +110,74 @@ function Navbar() {
                 className={`nav-dropdown-menu what-we-teach-menu ${dropdownOpen ? "open" : ""}`}
                 style={{ display: dropdownOpen ? "flex" : undefined }}
               >
-                {teachItems.map((item) => (
-                  <Link 
-                    key={item.path}
-                    to={item.path} 
-                    className={`nav-dropdown-item ${isActive(item.path) ? "active" : ""}`}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+                {teachItems.map((item, idx) => {
+                  if (item.type === "submenu") {
+                    return (
+                      <div 
+                        key={idx} 
+                        style={{ position: "relative" }}
+                        onMouseEnter={() => setCadenceFlyoutOpen(true)}
+                        onMouseLeave={() => setCadenceFlyoutOpen(false)}
+                      >
+                        <div 
+                          className="nav-dropdown-item" 
+                          style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", backgroundColor: cadenceFlyoutOpen ? "var(--ojalis-ivory)" : "transparent", color: cadenceFlyoutOpen ? "var(--ojalis-burgundy)" : "" }}
+                        >
+                          {item.title}
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ transform: cadenceFlyoutOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s ease", opacity: 0.7 }}>
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </div>
+                        
+                        {cadenceFlyoutOpen && (
+                          <div 
+                            style={{ 
+                              display: "flex",
+                              flexDirection: "column",
+                              padding: "8px 16px",
+                              backgroundColor: "var(--ojalis-cream)",
+                              borderLeft: "2px solid var(--ojalis-gold-border)",
+                              marginLeft: "20px",
+                              marginRight: "8px",
+                              marginTop: "4px",
+                              marginBottom: "8px",
+                              borderRadius: "0 4px 4px 0"
+                            }}
+                          >
+                            <div style={{ fontSize: "11px", fontWeight: 700, color: "var(--ojalis-gold-dark)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px", borderBottom: "1px solid var(--ojalis-border)", paddingBottom: "4px" }}>
+                              {item.title}
+                            </div>
+                            <div style={{ display: "flex", flexDirection: "column" }}>
+                              {item.children.map(child => (
+                                <Link 
+                                  key={child.path}
+                                  to={child.path} 
+                                  className={`nav-dropdown-item ${isActive(child.path) ? "active" : ""}`}
+                                  style={{ padding: "6px 8px", fontSize: "13.5px", margin: "1px 0" }}
+                                  onClick={() => {
+                                    setDropdownOpen(false);
+                                    setCadenceFlyoutOpen(false);
+                                  }}
+                                >
+                                  {child.title}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                  return (
+                    <Link 
+                      key={item.path}
+                      to={item.path} 
+                      className={`nav-dropdown-item ${isActive(item.path) ? "active" : ""}`}
+                    >
+                      {item.title}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -224,23 +295,52 @@ function Navbar() {
             
             {mobileTeachOpen && (
               <div className="mobile-submenu-list" style={{ paddingLeft: "14px", borderLeft: "2px solid var(--ojalis-gold-border)", margin: "4px 0 12px 6px", display: "flex", flexDirection: "column", gap: "6px" }}>
-                {teachItems.map((item) => (
-                  <Link 
-                    key={item.path}
-                    to={item.path} 
-                    className={`mobile-sublink-item ${isActive(item.path) ? "active" : ""}`}
-                    style={{
-                      fontSize: "14px",
-                      color: isActive(item.path) ? "var(--ojalis-burgundy)" : "var(--ojalis-text-muted)",
-                      fontWeight: isActive(item.path) ? 700 : 500,
-                      padding: "6px 0",
-                      textDecoration: "none",
-                      display: "block"
-                    }}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+                {teachItems.map((item, idx) => {
+                  if (item.type === "submenu") {
+                    return (
+                      <div key={idx} style={{ marginTop: "8px", marginBottom: "4px" }}>
+                        <div style={{ fontSize: "12px", fontWeight: 700, color: "var(--ojalis-gold-dark)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px" }}>
+                          {item.title}
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px", paddingLeft: "10px", borderLeft: "1px solid var(--ojalis-border)" }}>
+                          {item.children.map(child => (
+                            <Link 
+                              key={child.path}
+                              to={child.path} 
+                              className={`mobile-sublink-item ${isActive(child.path) ? "active" : ""}`}
+                              style={{
+                                fontSize: "13.5px",
+                                color: isActive(child.path) ? "var(--ojalis-burgundy)" : "var(--ojalis-text-muted)",
+                                fontWeight: isActive(child.path) ? 700 : 500,
+                                textDecoration: "none",
+                                display: "block"
+                              }}
+                            >
+                              {child.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <Link 
+                      key={item.path}
+                      to={item.path} 
+                      className={`mobile-sublink-item ${isActive(item.path) ? "active" : ""}`}
+                      style={{
+                        fontSize: "14px",
+                        color: isActive(item.path) ? "var(--ojalis-burgundy)" : "var(--ojalis-text-muted)",
+                        fontWeight: isActive(item.path) ? 700 : 500,
+                        padding: "6px 0",
+                        textDecoration: "none",
+                        display: "block"
+                      }}
+                    >
+                      {item.title}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>

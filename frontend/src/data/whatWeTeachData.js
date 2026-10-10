@@ -289,8 +289,8 @@ export const whatWeTeachData = {
   },
   "study-breath": {
     slug: "study-breath",
-    title: "Study Breath",
-    tag: "Cognitive Clarity & Focus",
+    title: "The Study Breath",
+    tag: "Cadences",
     headline: "Breath Practices for Mental Endurance, Concentration & Stress Relief",
     lead: "Designed specifically for students, researchers, and intensive cognitive workers, Study Breath provides actionable breath tools to dissolve mental fatigue, sharpen sustained focus, and calm test anxiety on demand.",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
@@ -358,5 +358,41 @@ export const whatWeTeachData = {
       "Quiet Cloud Visualization (Short, gentle stillness practice)"
     ],
     suitableFor: "Children and young teens (ages 6 to 16) seeking joyful flexibility, healthy posture, improved concentration in school, and natural emotional resilience."
+  },
+  "real-time-practice": {
+    slug: "real-time-practice",
+    title: "The Real Time Practice",
+    tag: "Cadences",
+    headline: "Integrate yoga seamlessly into your present moment.",
+    lead: "Experience mindful adjustments and breath awareness precisely when you need them most during your day.",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
+    introText: "The Real Time Practice is an on-the-go cadence designed for immediate grounding. It brings the essence of the mat into the reality of your daily demands.",
+    principles: [],
+    practices: [],
+    suitableFor: "Anyone seeking immediate relief and grounding during a busy day."
+  },
+  "quiet-breathing": {
+    slug: "quiet-breathing",
+    title: "The Quiet Breathing",
+    tag: "Cadences",
+    headline: "The foundation. Recommended for almost everyone.",
+    lead: "Roughly six to ten weeks, with the exact length set after your Breath Signature. A few minutes a day at home, one session a week. One breath, learned beautifully.",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
+    introText: "The Quiet Breathing Cadence is our foundational program. It is designed to establish a perfect, quiet breath that will serve as the bedrock of your practice and daily life.",
+    principles: [],
+    practices: [],
+    suitableFor: "Recommended for almost everyone seeking a foundational practice."
+  },
+  "wakeful-hours": {
+    slug: "wakeful-hours",
+    title: "The Wakeful Hours",
+    tag: "Cadences",
+    headline: "For peaceful nights and restful sleep.",
+    lead: "Eight weeks, one-to-one. A soothing evening sequence plus gentle practices you can do lying in bed, in the dark, to welcome sleep whenever the mind is still busy.",
+    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
+    introText: "Designed for those struggling with sleep or a restless mind at night, this cadence gently prepares the body and nervous system for deep rest.",
+    principles: [],
+    practices: [],
+    suitableFor: "Individuals seeking peaceful nights and restful sleep."
   }
 };
