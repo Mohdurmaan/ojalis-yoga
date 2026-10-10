@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 const User = require('./models/User');
 
 dotenv.config();
 
 const createAdmin = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('MongoDB Connected.');
+    await connectDB();
 
     const email = process.argv[2];
     const password = process.argv[3];

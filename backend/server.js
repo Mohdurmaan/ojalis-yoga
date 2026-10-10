@@ -19,18 +19,42 @@ const eventBookingRoutes = require('./routes/eventBookingRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 
+const fs = require('fs');
+
 const app = express();
+
+// Ensure uploads directory exists on server startup
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Flexible CORS setup for local dev and production
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(',').map((url) => url.trim().replace(/\/+$/, ''))
+  : ['http://localhost:5173', 'http://localhost:3000'];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (
+      allowedOrigins.includes('*') ||
+      allowedOrigins.includes(origin) ||
+      allowedOrigins.some((allowed) => allowed && origin.startsWith(allowed))
+    ) {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS error: Origin ${origin} not allowed`));
+  },
   credentials: true
 }));
 
 // Static folder for uploads
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(uploadsDir));
 
 
 // Mount routers
@@ -50,6 +74,16 @@ app.use('/api/admin/dashboard', dashboardRoutes);
 // Basic route for testing
 app.get('/', (req, res) => {
   res.json({ message: 'Ojalis Yoga API is running...' });
+});
+
+// Health check endpoint for deployment monitoring
+app.get('/api/health', (req, res) => {
+  const mongoose = require('mongoose');
+  res.json({
+    status: 'ok',
+    database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    timestamp: new Date().toISOString()
+  });
 });
 
 // Book Session routes
