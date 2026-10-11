@@ -21,12 +21,26 @@ const connectDB = async () => {
   try {
     const conn = await mongoose.connect(uri, {
       dbName: 'ojalisyoga',
-      serverSelectionTimeoutMS: 15000,
+      serverSelectionTimeoutMS: 5000,
     });
 
     console.log(`MongoDB Connected Successfully! Host: ${conn.connection.host} | Database: ${conn.connection.name}`);
   } catch (error) {
-    console.error(`MongoDB Connection Error: ${error.message}`);
+    console.warn(`MongoDB Connection Error (${uri.startsWith('mongodb+srv') ? 'Atlas' : 'Primary'}): ${error.message}`);
+    
+    // Automatic fallback to local MongoDB if Atlas connection is blocked/unreachable
+    if (uri.startsWith('mongodb+srv://')) {
+      console.log('Attempting automatic fallback to Local MongoDB (mongodb://127.0.0.1:27017/ojalisyoga)...');
+      try {
+        const localConn = await mongoose.connect('mongodb://127.0.0.1:27017/ojalisyoga', {
+          serverSelectionTimeoutMS: 3000,
+        });
+        console.log(`MongoDB Connected Successfully (Local Fallback)! Host: ${localConn.connection.host} | Database: ${localConn.connection.name}`);
+        return;
+      } catch (localErr) {
+        console.error(`Local MongoDB fallback also failed: ${localErr.message}`);
+      }
+    }
     process.exit(1);
   }
 };

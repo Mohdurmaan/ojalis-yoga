@@ -21,27 +21,25 @@ const ShivComponent = () => {
 
         // Animation start
         const startTimer = setTimeout(() => {
-
             setIsAnimating(true);
             setIsDimmed(true);
-
         }, 100);
 
-        // Animation complete
-        const endTimer = setTimeout(() => {
-
-            setShowEye(false);
+        // Jaise hi eye forehead par set ho (around 2.8s), blur aur black overlay remove hona start ho
+        const clearDimTimer = setTimeout(() => {
             setIsDimmed(false);
+        }, 2800);
 
-        }, 5200);
-
+        // Animation complete & eye unmount
+        const endTimer = setTimeout(() => {
+            setShowEye(false);
+        }, 3700);
 
         // Cleanup
         return () => {
-
             clearTimeout(startTimer);
+            clearTimeout(clearDimTimer);
             clearTimeout(endTimer);
-
         };
 
     }, []);
@@ -49,7 +47,7 @@ const ShivComponent = () => {
 
     return (
 
-        <div className="shiv-container">
+        <div className="shiv-container" style={{ minHeight: '100dvh', height: '100dvh' }}>
 
             {/* =================================
                 BACKGROUND
