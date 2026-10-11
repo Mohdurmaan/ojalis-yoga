@@ -56,6 +56,7 @@ const SocialConnectSection = () => {
             <div className="section-tag-wrapper">
               <span className="section-tag-line"></span>
               <span className="section-tag-text">Connect With Us</span>
+              <span className="section-tag-line"></span>
             </div>
             <h2 className="section-title-main">
               Join Our <span>Community</span>

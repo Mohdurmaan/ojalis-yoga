@@ -1,6 +1,60 @@
 import { Link } from "react-router-dom";
 
 function Footer() {
+  const socialIcons = (
+    <div className="footer-social-links">
+      <a
+        href="https://www.instagram.com/_the_ojalis/"
+        target="_blank"
+        rel="noreferrer"
+        className="footer-social-btn social-instagram"
+        aria-label="Instagram"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="17" cy="7" r="1" />
+        </svg>
+      </a>
+      <a
+        href="#"
+        target="_blank"
+        rel="noreferrer"
+        className="footer-social-btn social-youtube"
+        aria-label="YouTube"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+        </svg>
+      </a>
+      <a
+        href="https://www.facebook.com/ojalis.in"
+        target="_blank"
+        rel="noreferrer"
+        className="footer-social-btn social-facebook"
+        aria-label="Facebook"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/kuldeep-dubey-584628426/"
+        target="_blank"
+        rel="noreferrer"
+        className="footer-social-btn social-linkedin"
+        aria-label="LinkedIn"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+    </div>
+  );
+
   return (
     <footer className="ojalis-footer">
       <div className="container">
@@ -13,61 +67,10 @@ function Footer() {
             <p className="footer-bio-text">
               Dedicated to authentic classical yoga, sacred kriyas, and mindful meditation. Guiding seekers toward holistic health, spiritual harmony, and inner awakening.
             </p>
-            <div className="footer-social-links">
-              <a
-                href="https://www.instagram.com/_the_ojalis/"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn social-instagram"
-                aria-label="Instagram"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="17" cy="7" r="1" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn social-youtube"
-                aria-label="YouTube"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-                </svg>
-              </a>
-              <a
-                href="https://www.facebook.com/ojalis.in"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn social-facebook"
-                aria-label="Facebook"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/kuldeep-dubey-584628426/"
-                target="_blank"
-                rel="noreferrer"
-                className="footer-social-btn social-linkedin"
-                aria-label="LinkedIn"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-            </div>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="footer-col-quicklinks">
             <h4 className="footer-heading">Quick Links</h4>
             <ul className="footer-nav-list">
               <li><Link to="/">Home</Link></li>
@@ -83,7 +86,7 @@ function Footer() {
           </div>
 
           {/* Column 3: What We Teach */}
-          <div>
+          <div className="footer-col-whatweteach">
             <h4 className="footer-heading">What We Teach</h4>
             <ul className="footer-nav-list">
               <li><Link to="/what-we-teach/pranayama">Pranayama</Link></li>
@@ -101,7 +104,7 @@ function Footer() {
           </div>
 
           {/* Column 4: Contact Information */}
-          <div>
+          <div className="footer-col-contact">
             <h4 className="footer-heading">Contact & Studio</h4>
             <div className="footer-contact-item">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -133,6 +136,8 @@ function Footer() {
               </svg>
               <span>Mon – Sat: 6:00 AM – 8:30 PM<br />Sunday: Morning Sadhana only</span>
             </div>
+
+            {socialIcons}
           </div>
         </div>
 
