@@ -1,16 +1,31 @@
 const express = require('express');
 const router = express.Router();
-const { createOrder, verifyPayment, getAllBookings, getBooking, updateBookingStatus, deleteBooking, getPayoutSummary } = require('../controllers/eventBookingController');
-const { protect } = require('../middleware/authMiddleware');
+const {
+  createOrder,
+  verifyPayment,
+  getMyBookings,
+  cancelMyBooking,
+  getAllBookings,
+  getBooking,
+  updateBookingStatus,
+  deleteBooking,
+  getPayoutSummary
+} = require('../controllers/eventBookingController');
+const { protect, adminOnly, optionalAuth } = require('../middleware/authMiddleware');
 
-router.post('/create-order', createOrder);
+// Order & Payment
+router.post('/create-order', optionalAuth, createOrder);
 router.post('/verify-payment', verifyPayment);
 
-// Admin routes
-router.get('/payout-summary', protect, getPayoutSummary);
-router.get('/', protect, getAllBookings);
-router.get('/:id', protect, getBooking);
-router.put('/:id', protect, updateBookingStatus);
-router.delete('/:id', protect, deleteBooking);
+// User booking routes
+router.get('/my', protect, getMyBookings);
+router.put('/my/:id/cancel', protect, cancelMyBooking);
+
+// Admin-only management routes
+router.get('/payout-summary', protect, adminOnly, getPayoutSummary);
+router.get('/', protect, adminOnly, getAllBookings);
+router.get('/:id', protect, adminOnly, getBooking);
+router.put('/:id', protect, adminOnly, updateBookingStatus);
+router.delete('/:id', protect, adminOnly, deleteBooking);
 
 module.exports = router;

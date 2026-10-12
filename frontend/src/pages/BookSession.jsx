@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { IconSuccessCheck, IconClock, IconCalendar, IconSparkle } from "../components/Icons";
 import { API_URL } from "../utils/api";
+import { useAuth } from "../context/AuthContext";
+import { getUserToken } from "../utils/userApi";
 
 function BookSession() {
   const location = useLocation();
+  const { user } = useAuth();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,6 +22,18 @@ function BookSession() {
   const [isBooked, setIsBooked] = useState(false);
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Pre-fill user data if logged in
+  useEffect(() => {
+    if (user) {
+      setFormData((prev) => ({
+        ...prev,
+        name: prev.name || user.name || "",
+        email: prev.email || user.email || "",
+        phone: prev.phone || user.phone || ""
+      }));
+    }
+  }, [user]);
 
   // Pre-fill program if present in query params
   useEffect(() => {
@@ -35,11 +50,13 @@ function BookSession() {
     setIsSubmitting(true);
     
     try {
+      const headers = { 'Content-Type': 'application/json' };
+      const token = getUserToken();
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+
       const response = await fetch(`${API_URL}/book-sessions`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers,
         body: JSON.stringify(formData)
       });
       

@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import { fetchPublic, getImageUrl, API_URL } from '../utils/api';
+import { useAuth } from '../context/AuthContext';
+import { getUserToken } from '../utils/userApi';
 import DOMPurify from 'dompurify';
 
 function EventDetails() {
   const { slug } = useParams();
   const location = useLocation();
+  const { user, isAuthenticated } = useAuth();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,6 +16,17 @@ function EventDetails() {
   const [formData, setFormData] = useState({ customerName: '', email: '', phone: '', message: '' });
   const [bookingStatus, setBookingStatus] = useState('idle'); // idle, processing, success, error
   const [bookingError, setBookingError] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      setFormData(prev => ({
+        ...prev,
+        customerName: prev.customerName || user.name || '',
+        email: prev.email || user.email || '',
+        phone: prev.phone || user.phone || ''
+      }));
+    }
+  }, [user]);
 
   useEffect(() => {
     fetchPublic(`/events/slug/${slug}`)
@@ -58,9 +72,13 @@ function EventDetails() {
 
     try {
       // 1. Create order
+      const headers = { 'Content-Type': 'application/json' };
+      const token = getUserToken();
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+
       const res = await fetch(`${API_URL}/event-bookings/create-order`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
           eventId: event._id,
           customerName: formData.customerName,
@@ -198,6 +216,42 @@ function EventDetails() {
                 <div style={{ fontSize: '32px', marginBottom: '12px' }}>✓</div>
                 <strong>Booking Confirmed!</strong>
                 <p style={{ marginTop: '8px', fontSize: '14px' }}>Your payment was successful and your spot is reserved. We have sent the details to your email.</p>
+                <Link to="/dashboard/bookings" className="btn btn-secondary" style={{ marginTop: '16px', display: 'inline-block', fontSize: '13.5px' }}>
+                  View in My Dashboard →
+                </Link>
+              </div>
+            ) : !isAuthenticated ? (
+              <div style={{ textAlign: 'center', padding: '12px 0' }}>
+                <div style={{ width: '48px', height: '48px', margin: '0 auto 12px auto', borderRadius: '50%', background: 'rgba(79, 97, 68, 0.12)', color: 'var(--ojalis-burgundy)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <h4 style={{ fontSize: '17px', color: 'var(--ojalis-text-main)', marginBottom: '8px', fontFamily: 'var(--font-serif)' }}>
+                  Sign In Required to Book
+                </h4>
+                <p style={{ color: 'var(--ojalis-text-muted)', fontSize: '13.5px', lineHeight: 1.6, marginBottom: '20px' }}>
+                  Please sign in to your sanctuary account to reserve your spot and proceed with enrollment.
+                </p>
+                <Link
+                  to="/login"
+                  state={{ from: `/online-classes/${slug}#book` }}
+                  className="btn btn-primary"
+                  style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom: '12px' }}
+                >
+                  Sign In to Book →
+                </Link>
+                <p style={{ fontSize: '13px', color: 'var(--ojalis-text-muted)', margin: 0 }}>
+                  New practitioner?{' '}
+                  <Link
+                    to="/register"
+                    state={{ from: `/online-classes/${slug}#book` }}
+                    style={{ color: 'var(--ojalis-burgundy)', fontWeight: 600, textDecoration: 'underline' }}
+                  >
+                    Create an account
+                  </Link>
+                </p>
               </div>
             ) : (
               <form onSubmit={handleBooking}>

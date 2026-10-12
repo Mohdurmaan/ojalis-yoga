@@ -530,6 +530,30 @@
   background-color: #ffffff;
 }
 
+.ojalis-navbar.transparent.on-inner .btn-nav-book,
+.ojalis-navbar.transparent.on-inner .btn-nav-user {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.ojalis-navbar.transparent.on-inner .btn-nav-book:hover,
+.ojalis-navbar.transparent.on-inner .btn-nav-user:hover {
+  background-color: #ffffff;
+  color: var(--ojalis-burgundy) !important;
+  border-color: #ffffff;
+}
+
+.ojalis-navbar.transparent.on-inner .btn-nav-user .btn-nav-user-avatar {
+  background-color: #ffffff;
+  color: var(--ojalis-burgundy);
+}
+
+.ojalis-navbar.transparent.on-inner .btn-nav-user:hover .btn-nav-user-avatar {
+  background-color: var(--ojalis-burgundy);
+  color: #ffffff;
+}
+
 /* Scrolled Header on ALL Pages (Clean White Background) */
 .ojalis-navbar.scrolled .nav-link-item,
 .ojalis-navbar.scrolled .nav-dropdown-trigger {
@@ -3134,4 +3158,10 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   letter-spacing: -1px;
   font-family: var(--font-sans);
   line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .footer-brand-summary {
+    display: none;
+  }
 }

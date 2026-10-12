@@ -2,20 +2,22 @@ const express = require('express');
 const router = express.Router();
 const {
   createSession,
+  getMySessions,
   getSessions,
   getSession,
   updateSession,
   deleteSession
 } = require('../controllers/bookSessionController');
-const { protect } = require('../middleware/authMiddleware');
+const { protect, adminOnly, optionalAuth } = require('../middleware/authMiddleware');
 
-router.route('/')
-  .post(createSession)
-  .get(protect, getSessions);
+router.post('/', optionalAuth, createSession);
+router.get('/my', protect, getMySessions);
 
+// Admin-only management
+router.get('/', protect, adminOnly, getSessions);
 router.route('/:id')
-  .get(protect, getSession)
-  .put(protect, updateSession)
-  .delete(protect, deleteSession);
+  .get(protect, adminOnly, getSession)
+  .put(protect, adminOnly, updateSession)
+  .delete(protect, adminOnly, deleteSession);
 
 module.exports = router;

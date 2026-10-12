@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { IconLotus, IconSparkle, IconCheckmark } from "../components/Icons";
 import { fetchPublic, getImageUrl } from "../utils/api";
+import { useAuth } from "../context/AuthContext";
 
 function OnlineClasses() {
+  const { isAuthenticated } = useAuth();
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [activeCohorts, setActiveCohorts] = useState([]);
   const [runningClasses, setRunningClasses] = useState([]);
@@ -100,7 +102,8 @@ function OnlineClasses() {
             View Details
           </Link>
           <Link 
-            to={`/online-classes/${item.slug}#book`} 
+            to={isAuthenticated ? `/online-classes/${item.slug}#book` : "/login"} 
+            state={!isAuthenticated ? { from: `/online-classes/${item.slug}#book` } : undefined}
             className="program-link-cta"
             style={{flex: 1, justifyContent: "center", color: "var(--ojalis-gold-dark)"}}
           >

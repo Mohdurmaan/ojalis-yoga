@@ -1,9 +1,35 @@
 const BookSession = require('../models/BookSession');
+const User = require('../models/User');
 
 exports.createSession = async (req, res) => {
   try {
-    const session = await BookSession.create(req.body);
+    let userId = req.user ? req.user._id : undefined;
+    if (!userId && req.body.email) {
+      const user = await User.findOne({ email: req.body.email.toLowerCase().trim() });
+      if (user) userId = user._id;
+    }
+    const sessionData = {
+      ...req.body,
+      userId,
+      email: req.body.email ? req.body.email.toLowerCase().trim() : ''
+    };
+    const session = await BookSession.create(sessionData);
     res.status(201).json({ success: true, data: session });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+exports.getMySessions = async (req, res) => {
+  try {
+    const userEmail = req.user.email ? req.user.email.toLowerCase() : '';
+    const sessions = await BookSession.find({
+      $or: [
+        { userId: req.user._id },
+        { email: userEmail }
+      ]
+    }).sort('-createdAt');
+    res.status(200).json({ success: true, count: sessions.length, data: sessions });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }

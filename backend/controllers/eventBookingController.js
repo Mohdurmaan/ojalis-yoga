@@ -1,5 +1,6 @@
 const EventBooking = require('../models/EventBooking');
 const Event = require('../models/Event');
+const User = require('../models/User');
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
 
@@ -15,6 +16,13 @@ exports.createOrder = async (req, res) => {
     const event = await Event.findById(eventId);
     if (!event) return res.status(404).json({ success: false, message: 'Event not found' });
     
+    // Associate booking with user if authenticated or if email matches existing account
+    let userId = req.user ? req.user._id : undefined;
+    if (!userId && email) {
+      const user = await User.findOne({ email: email.toLowerCase().trim() });
+      if (user) userId = user._id;
+    }
+
     const amount = Math.round(event.price * 100); // in paise
     
     const options = {
@@ -26,9 +34,10 @@ exports.createOrder = async (req, res) => {
     const order = await razorpay.orders.create(options);
     
     const booking = await EventBooking.create({
+      userId,
       eventId,
       customerName,
-      email,
+      email: email ? email.toLowerCase().trim() : '',
       phone,
       message,
       amount: event.price,
@@ -70,6 +79,56 @@ exports.verifyPayment = async (req, res) => {
   }
 };
 
+// @desc    Get currently authenticated user's event bookings
+// @route   GET /api/event-bookings/my
+// @access  Private (User)
+exports.getMyBookings = async (req, res) => {
+  try {
+    const userEmail = req.user.email ? req.user.email.toLowerCase() : '';
+    const bookings = await EventBooking.find({
+      $or: [
+        { userId: req.user._id },
+        { email: userEmail }
+      ]
+    })
+    .populate('eventId', 'title slug image startDate endDate startTime endTime price location mode meetingUrl instructor category')
+    .sort('-createdAt');
+
+    res.json({ success: true, count: bookings.length, data: bookings });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+// @desc    Cancel user's own booking
+// @route   PUT /api/event-bookings/my/:id/cancel
+// @access  Private (User)
+exports.cancelMyBooking = async (req, res) => {
+  try {
+    const booking = await EventBooking.findById(req.params.id);
+    if (!booking) return res.status(404).json({ success: false, message: 'Booking not found' });
+
+    const isOwner = (booking.userId && booking.userId.toString() === req.user._id.toString()) ||
+                    (booking.email && req.user.email && booking.email.toLowerCase() === req.user.email.toLowerCase());
+
+    if (!isOwner) {
+      return res.status(403).json({ success: false, message: 'Not authorized to manage this booking' });
+    }
+
+    if (booking.bookingStatus === 'Cancelled') {
+      return res.status(400).json({ success: false, message: 'Booking is already cancelled' });
+    }
+
+    booking.bookingStatus = 'Cancelled';
+    await booking.save();
+
+    res.json({ success: true, message: 'Booking cancelled successfully', data: booking });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+// Admin handlers below
 exports.getAllBookings = async (req, res) => {
   try {
     const bookings = await EventBooking.find().populate('eventId', 'title startDate endDate price').sort('-createdAt');
@@ -112,7 +171,6 @@ exports.getPayoutSummary = async (req, res) => {
     const bookings = await EventBooking.find({ paymentStatus: 'Paid' });
     const totalCollected = bookings.reduce((sum, b) => sum + (b.amount || 0), 0);
     const successfulBookings = bookings.length;
-    // Assuming no specific fees or refunds are tracked in DB, Net Payout = Total Collected
     res.json({
       success: true,
       data: {

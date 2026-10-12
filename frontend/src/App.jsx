@@ -21,13 +21,25 @@ import BookSession from "./pages/BookSession";
 import OnlineClasses from "./pages/OnlineClasses";
 import Studio from "./pages/Studio";
 import WhatWeTeachDetail from "./pages/WhatWeTeachDetail";
+import EventDetails from "./pages/EventDetails";
+
+// User Authentication & Dashboard
+import { AuthProvider } from "./context/AuthContext";
+import UserProtectedRoute from "./components/UserProtectedRoute";
+import UserLogin from "./pages/Login";
+import Register from "./pages/Register";
+import UserDashboardLayout from "./pages/dashboard/UserDashboardLayout";
+import DashboardOverview from "./pages/dashboard/DashboardOverview";
+import UserBookings from "./pages/dashboard/UserBookings";
+import UserProfile from "./pages/dashboard/UserProfile";
 
 import "./index.css";
 import "./ojalis.css";
 
+// Admin Portal
 import AdminLayout from "./admin/layouts/AdminLayout";
 import AdminProtectedRoute from "./admin/components/AdminProtectedRoute";
-import Login from "./admin/pages/Login";
+import AdminLogin from "./admin/pages/Login";
 import Dashboard from "./admin/pages/Dashboard";
 import JournalList from "./admin/pages/journal/JournalList";
 import JournalForm from "./admin/pages/journal/JournalForm";
@@ -39,7 +51,6 @@ import TeacherList from "./admin/pages/teachers/TeacherList";
 import TeacherForm from "./admin/pages/teachers/TeacherForm";
 import BookSessionList from "./admin/pages/book-sessions/BookSessionList";
 import EventBookingList from "./admin/pages/events/EventBookingList";
-import EventDetails from "./pages/EventDetails";
 
 function AppContent() {
   const location = useLocation();
@@ -51,10 +62,11 @@ function AppContent() {
       {!isAdmin && <ScrollToTop />}
       {!isAdmin && <Navbar />}
 
-      {/* Sirf Home page par hi ShivComponent dikhega (FINAL/LOCKED APPROVED ELEMENT) */}
+      {/* Sirf Home page par hi ShivComponent dikhega */}
       {!isAdmin && isHome && <ShivComponent />}
 
       <Routes>
+        {/* PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/what-we-teach" element={<Programs />} />
@@ -69,18 +81,45 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/book-session" element={<BookSession />} />
 
-        {/* New Navigation Routes */}
+        {/* Navigation & Event Routes */}
         <Route path="/what-we-teach/meditation" element={<Meditation />} />
         <Route path="/what-we-teach/:slug" element={<WhatWeTeachDetail />} />
         <Route path="/online-classes" element={<OnlineClasses />} />
         <Route path="/online-classes/:slug" element={<EventDetails />} />
+        <Route path="/events" element={<OnlineClasses />} />
+        <Route path="/events/:slug" element={<EventDetails />} />
         <Route path="/studio" element={<Studio />} />
         <Route path="/journal" element={<Blog />} />
         <Route path="/journal/:id" element={<BlogPost />} />
 
+        {/* USER AUTHENTICATION */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<UserLogin />} />
+
+        {/* USER PROTECTED DASHBOARD */}
+        <Route
+          path="/dashboard"
+          element={
+            <UserProtectedRoute>
+              <UserDashboardLayout />
+            </UserProtectedRoute>
+          }
+        >
+          <Route index element={<DashboardOverview />} />
+          <Route path="bookings" element={<UserBookings />} />
+          <Route path="profile" element={<UserProfile />} />
+        </Route>
+
         {/* ADMIN ROUTES */}
-        <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin" element={<AdminProtectedRoute><AdminLayout /></AdminProtectedRoute>}>
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout />
+            </AdminProtectedRoute>
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="journal" element={<JournalList />} />
@@ -108,7 +147,9 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
