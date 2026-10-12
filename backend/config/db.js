@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const dns = require('dns');
 
 const connectDB = async () => {
-  const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
+  const uri = process.env.MONGODB_URI || process.env.MONGODB_URI_ATLAS || process.env.MONGO_URI;
 
   if (!uri) {
     console.error('Database Error: Neither MONGODB_URI nor MONGO_URI is defined in environment variables.');
-    process.exit(1);
+    return;
   }
 
   // Fallback to Google / Cloudflare public DNS if SRV record resolution fails in Node.js
@@ -41,7 +41,8 @@ const connectDB = async () => {
         console.error(`Local MongoDB fallback also failed: ${localErr.message}`);
       }
     }
-    process.exit(1);
+    console.error(`MongoDB connection could not be established immediately (${error.message}). Retrying in 5 seconds...`);
+    setTimeout(connectDB, 5000);
   }
 };
 
