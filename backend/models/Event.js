@@ -18,12 +18,11 @@ const eventSchema = new mongoose.Schema({
   category: { type: String, enum: ['event', 'cohort', 'class'], default: 'event' }
 }, { timestamps: true });
 
-// Pre-save to auto-generate slug if not present or changed
-eventSchema.pre('validate', function(next) {
+// Pre-validate to auto-generate slug if not present or changed
+eventSchema.pre('validate', function() {
   if (this.title && (!this.slug || this.isModified('title'))) {
     this.slug = this.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Math.floor(Math.random() * 1000);
   }
-  next();
 });
 
 module.exports = mongoose.model('Event', eventSchema);
