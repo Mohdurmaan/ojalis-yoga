@@ -17,9 +17,11 @@ export const fetchPublic = async (endpoint) => {
 export const getImageUrl = (path) => {
   if (!path) return '';
   if (path.startsWith('http')) return path;
-  if (path.startsWith('/uploads')) return `${BASE_URL}${path}`;
-  if (path.startsWith('uploads/')) return `${BASE_URL}/${path}`;
-  if (!path.startsWith('/')) return `/${path}`;
-  return path;
+  if (path.includes('uploads/')) {
+    const filename = path.split('uploads/').pop();
+    return `${BASE_URL}/uploads/${filename}`;
+  }
+  if (path.startsWith('/')) return `${BASE_URL}${path}`;
+  return `${BASE_URL}/${path}`;
 };
 

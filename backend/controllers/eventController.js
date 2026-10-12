@@ -37,7 +37,7 @@ exports.getEvent = async (req, res) => {
 exports.createEvent = async (req, res) => {
   try {
     const data = { ...req.body };
-    if (req.file) data.image = req.file.path.replace(/\\/g, '/');
+    if (req.file) data.image = 'uploads/' + req.file.filename;
     const event = await Event.create(data);
     res.status(201).json({ success: true, data: event });
   } catch (err) {
@@ -48,7 +48,7 @@ exports.createEvent = async (req, res) => {
 exports.updateEvent = async (req, res) => {
   try {
     const data = { ...req.body };
-    if (req.file) data.image = req.file.path.replace(/\\/g, '/');
+    if (req.file) data.image = 'uploads/' + req.file.filename;
     const event = await Event.findByIdAndUpdate(req.params.id, data, { new: true, runValidators: true });
     res.json({ success: true, data: event });
   } catch (err) {
