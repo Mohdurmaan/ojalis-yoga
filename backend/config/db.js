@@ -25,6 +25,23 @@ const connectDB = async () => {
     });
 
     console.log(`MongoDB Connected Successfully! Host: ${conn.connection.host} | Database: ${conn.connection.name}`);
+
+    // Auto-seed admin user if missing
+    try {
+      const User = require('../models/User');
+      const adminExists = await User.findOne({ role: 'admin' });
+      if (!adminExists) {
+        await User.create({
+          name: 'Ojalis Administrator',
+          email: 'admin@ojalis.com',
+          password: 'admin123',
+          role: 'admin'
+        });
+        console.log('Default admin initialized: admin@ojalis.com / admin123');
+      }
+    } catch (seedErr) {
+      console.warn('Admin seed check:', seedErr.message);
+    }
   } catch (error) {
     console.warn(`MongoDB Connection Error (${uri.startsWith('mongodb+srv') ? 'Atlas' : 'Primary'}): ${error.message}`);
     
