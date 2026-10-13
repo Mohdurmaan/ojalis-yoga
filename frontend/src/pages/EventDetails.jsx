@@ -264,6 +264,10 @@ function EventDetails() {
                 src={getImageUrl(event.image)}
                 alt={event.title}
                 className="event-cover-img"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80";
+                }}
               />
               <span className="event-cover-badge">
                 {event.category ? event.category.toUpperCase() : 'SPECIAL SESSION'}
