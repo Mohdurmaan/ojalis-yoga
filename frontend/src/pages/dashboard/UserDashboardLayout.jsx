@@ -23,17 +23,6 @@ export default function UserDashboardLayout() {
 
   return (
     <main className="bg-ivory">
-      {/* Page Hero Banner - Identical to all other pages */}
-      <section className="page-hero-banner user-dash-hero-banner">
-        <div className="container">
-          <span className="page-hero-tag">Practitioner Sanctuary</span>
-          <h1 className="page-hero-title">My Dashboard</h1>
-          <p className="page-hero-subtitle">
-            Welcome, {user?.name || 'Devotee of Yoga'}. Track your enrollments, sessions, and sadhana path.
-          </p>
-        </div>
-      </section>
-
       <div className="user-dash-container">
         <div className="user-dash-inner">
         {/* Sidebar */}

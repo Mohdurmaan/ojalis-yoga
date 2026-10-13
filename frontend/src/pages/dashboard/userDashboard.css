@@ -289,9 +289,9 @@
    DASHBOARD LAYOUT
    ========================================================================== */
 .user-dash-container {
-  min-height: 70vh;
+  min-height: calc(100vh - 84px);
   background-color: var(--user-cream-light);
-  padding: 48px 24px 80px 24px;
+  padding: 120px 24px 80px 24px;
   width: 100%;
   max-width: 100vw;
   box-sizing: border-box;
@@ -319,7 +319,7 @@
 
 @media (max-width: 880px) {
   .user-dash-container {
-    padding: 16px 12px 60px 12px;
+    padding: 104px 14px 60px 14px;
   }
 }
 
@@ -331,7 +331,7 @@
   padding: 28px 20px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
   position: sticky;
-  top: 120px;
+  /* top: 120px; */
 }
 
 .user-sidebar-profile {
@@ -1323,6 +1323,15 @@
   animation: fadeInDown 0.2s ease;
 }
 
+.nav-user-dropdown-box::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -1649,7 +1658,7 @@
     margin-bottom: 4px !important;
   }
   .user-dash-container {
-    padding: 12px 10px 50px 10px !important;
+    padding: 96px 12px 50px 12px !important;
   }
 }
 

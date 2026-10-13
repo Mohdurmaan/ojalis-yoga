@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
@@ -10,11 +10,16 @@ function Navbar() {
   const [cadenceFlyoutOpen, setCadenceFlyoutOpen] = useState(false);
   const [mobileTeachOpen, setMobileTeachOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [guestMenuOpen, setGuestMenuOpen] = useState(false);
   const location = useLocation();
+
+  const guestMenuRef = useRef(null);
+  const userMenuRef = useRef(null);
 
   const isHome = location.pathname === "/";
   const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
-  const isLightHeader = isHome || isAuthPage;
+  const isDashboard = location.pathname.startsWith("/dashboard");
+  const isLightHeader = isHome || isAuthPage || isDashboard;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +32,20 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (guestMenuRef.current && !guestMenuRef.current.contains(event.target)) {
+        setGuestMenuOpen(false);
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   // Close mobile drawer and dropdown on route change
   useEffect(() => {
     setIsMenuOpen(false);
@@ -34,6 +53,7 @@ function Navbar() {
     setCadenceFlyoutOpen(false);
     setMobileTeachOpen(false);
     setUserMenuOpen(false);
+    setGuestMenuOpen(false);
   }, [location.pathname]);
 
   const isActive = (path) => location.pathname === path;
@@ -225,9 +245,10 @@ function Navbar() {
               <span>Book a Session</span>
             </Link>
 
-            {/* User Account Pill / Sign In Button */}
+            {/* User Account Pill / Sign In Dropdown */}
             {isAuthenticated ? (
               <div
+                ref={userMenuRef}
                 className="nav-user-menu-wrapper"
                 onMouseEnter={() => setUserMenuOpen(true)}
                 onMouseLeave={() => setUserMenuOpen(false)}
@@ -300,13 +321,63 @@ function Navbar() {
                 )}
               </div>
             ) : (
-              <Link to="/login" className="btn-nav-user" id="navbar-login-btn">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-                <span>Sign In</span>
-              </Link>
+              <div
+                ref={guestMenuRef}
+                className="nav-user-menu-wrapper"
+                onMouseEnter={() => setGuestMenuOpen(true)}
+                onMouseLeave={() => setGuestMenuOpen(false)}
+              >
+                <button
+                  type="button"
+                  id="navbar-guest-menu-btn"
+                  className={`btn-nav-user-icon ${guestMenuOpen ? "active" : ""}`}
+                  onClick={() => setGuestMenuOpen(!guestMenuOpen)}
+                  aria-expanded={guestMenuOpen}
+                  aria-label="Account Menu"
+                  title="Account"
+                >
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </button>
+
+                {guestMenuOpen && (
+                  <div className="nav-user-dropdown-box nav-guest-dropdown">
+                    <div className="nav-guest-dropdown-header">
+                      <div className="nav-guest-dropdown-title">Account</div>
+                      <div className="nav-guest-dropdown-subtitle">Sign in or create account</div>
+                    </div>
+                    <Link
+                      to="/login"
+                      id="navbar-guest-signin-link"
+                      className="nav-user-dropdown-item"
+                      onClick={() => setGuestMenuOpen(false)}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                        <polyline points="10 17 15 12 10 7" />
+                        <line x1="15" y1="12" x2="3" y2="12" />
+                      </svg>
+                      <span>Sign In</span>
+                    </Link>
+                    <Link
+                      to="/register"
+                      id="navbar-guest-signup-link"
+                      className="nav-user-dropdown-item nav-guest-signup-item"
+                      onClick={() => setGuestMenuOpen(false)}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="8.5" cy="7" r="4" />
+                        <line x1="20" y1="8" x2="20" y2="14" />
+                        <line x1="23" y1="11" x2="17" y2="11" />
+                      </svg>
+                      <span>Sign Up</span>
+                    </Link>
+                  </div>
+                )}
+              </div>
             )}
 
             {/* Mobile Hamburger Button */}
@@ -510,7 +581,7 @@ function Navbar() {
                 Sign In
               </Link>
               <Link to="/register" onClick={() => setIsMenuOpen(false)} className="btn-nav-book" style={{ justifyContent: "center" }}>
-                Register
+                Sign Up
               </Link>
             </div>
           )}
