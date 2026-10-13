@@ -1280,6 +1280,16 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   color: var(--ojalis-text-muted);
   margin-bottom: 22px;
   flex-grow: 1;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.program-card-text * {
+  background-color: transparent !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: normal !important;
 }
 
 .program-link-cta {

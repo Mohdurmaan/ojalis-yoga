@@ -16,7 +16,18 @@ exports.getEvents = async (req, res) => {
 
 exports.getEventBySlug = async (req, res) => {
   try {
-    const event = await Event.findOne({ slug: req.params.slug, status: 'published' });
+    let event = await Event.findOne({ slug: req.params.slug, status: 'published' });
+    if (!event) {
+      // Fallback: check by ID or prefix match if slug was updated
+      if (req.params.slug.match(/^[0-9a-fA-F]{24}$/)) {
+        event = await Event.findById(req.params.slug);
+      } else {
+        const prefix = req.params.slug.split('-')[0];
+        if (prefix && prefix.length >= 4) {
+          event = await Event.findOne({ slug: new RegExp('^' + prefix, 'i'), status: 'published' });
+        }
+      }
+    }
     if (!event) return res.status(404).json({ success: false, message: 'Event not found' });
     res.json({ success: true, data: event });
   } catch (err) {

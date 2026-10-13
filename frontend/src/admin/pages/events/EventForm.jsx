@@ -263,6 +263,9 @@ function EventForm() {
               onChange={handleImageChange}
             />
           </div>
+          <small style={{ display: 'block', marginTop: '6px', color: '#666', fontSize: '12px' }}>
+            Recommended: <strong>1200 &times; 675 px</strong> (16:9 ratio) or <strong>1200 &times; 800 px</strong> (3:2 ratio). Max size: 2MB (JPG, PNG, WebP).
+          </small>
         </div>
 
         <div className="admin-form-actions">

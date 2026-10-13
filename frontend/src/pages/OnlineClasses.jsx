@@ -4,6 +4,20 @@ import { IconLotus, IconSparkle, IconCheckmark } from "../components/Icons";
 import { fetchPublic, getImageUrl } from "../utils/api";
 import { useAuth } from "../context/AuthContext";
 
+const stripHtml = (html) => {
+  if (!html) return '';
+  return html
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\u00A0/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
 function OnlineClasses() {
   const { isAuthenticated } = useAuth();
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -83,10 +97,10 @@ function OnlineClasses() {
         
         <h3 className="program-card-title">{item.title}</h3>
 
-        <div 
-          className="program-card-text"
-          dangerouslySetInnerHTML={{ __html: item.description }}
-        />
+        <p className="program-card-text">
+          {stripHtml(item.description).slice(0, 140)}
+          {stripHtml(item.description).length > 140 ? '...' : ''}
+        </p>
 
         <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-md)", padding: "12px", marginBottom: "20px", border: "1px solid var(--ojalis-border-light)", fontSize: "13px" }}>
           <strong>Dates:</strong> {new Date(item.startDate).toLocaleDateString()} – {new Date(item.endDate).toLocaleDateString()}<br/>
