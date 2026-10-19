@@ -19,7 +19,8 @@ function Navbar() {
   const isHome = location.pathname === "/";
   const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
   const isDashboard = location.pathname.startsWith("/dashboard");
-  const isLightHeader = isHome || isAuthPage || isDashboard;
+  const isTeachPage = location.pathname.startsWith("/what-we-teach");
+  const isLightHeader = isHome || isAuthPage || isDashboard || isTeachPage;
 
   useEffect(() => {
     const handleScroll = () => {

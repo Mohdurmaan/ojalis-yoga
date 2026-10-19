@@ -130,7 +130,14 @@ function TeacherList() {
                 <tr key={item._id}>
                   <td>
                     {item.profileImage ? (
-                      <img src={getImageUrl(item.profileImage)} alt={item.name} />
+                      <img 
+                        src={getImageUrl(item.profileImage)} 
+                        alt={item.name} 
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = '/logo.png';
+                        }}
+                      />
                     ) : (
                       <span style={{ color: 'var(--admin-text-muted)', fontSize: '12px' }}>No photo</span>
                     )}

@@ -1,249 +1,632 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import { whatWeTeachData } from "../data/whatWeTeachData";
-import { IconLotus, IconSparkle, IconCheckmark } from "../components/Icons";
+import "../what-we-teach.css";
 
 function WhatWeTeachDetail() {
   const { slug } = useParams();
-  const practice = whatWeTeachData[slug];
+  const location = useLocation();
 
-  // If slug is not found in data, redirect to what-we-teach
+  // If on /meditation, handle slug as meditation
+  const currentSlug = slug || (location.pathname.includes("meditation") ? "meditation" : "pranayama");
+  const practice = whatWeTeachData[currentSlug];
+
+  const [selectedStage, setSelectedStage] = useState("All Stages");
+  const [expandedRow, setExpandedRow] = useState(null);
+
+  // Scroll to top on slug change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setSelectedStage("All Stages");
+    setExpandedRow(null);
+  }, [currentSlug]);
+
   if (!practice) {
     return <Navigate to="/what-we-teach" replace />;
   }
 
-  // Get other offerings for exploration
+  // Filter techniques based on selected stage
+  const filteredTechniques = practice.techniques?.filter((tech) => {
+    if (selectedStage === "All Stages") return true;
+    return tech.stage?.toLowerCase() === selectedStage.toLowerCase();
+  }) || [];
+
+  // Get other offerings for the bottom exploration bar
   const otherOfferings = Object.values(whatWeTeachData)
-    .filter(item => item.slug !== slug)
-    .slice(0, 3);
+    .filter((item) => item.slug !== currentSlug)
+    .slice(0, 4);
+
+  const toggleRow = (index) => {
+    setExpandedRow(expandedRow === index ? null : index);
+  };
+
+  const handleScrollToExplore = (e) => {
+    e.preventDefault();
+    const target = document.getElementById("section-understand");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <main className="bg-ivory">
-      {/* 1. Page Hero Banner */}
-      <section className="page-hero-banner">
-        <div className="container">
-          <span className="page-hero-tag">{practice.tag}</span>
-          <h1 className="page-hero-title">{practice.title}</h1>
-          <p className="page-hero-subtitle">
-            {practice.lead}
-          </p>
-        </div>
-      </section>
+    <main className="wwt-page">
+      {/* =========================================================================
+          1. HERO SECTION (Matching Reference: web-layout-16)
+          ========================================================================= */}
+      <section className="wwt-hero-section">
+        <div className="wwt-container">
+          <div className="wwt-hero-grid">
+            {/* Left Column: Heading, Subtitle, Om Mantra & Actions */}
+            <div>
+              <div className="wwt-eyebrow">
+                <span className="wwt-eyebrow-line"></span>
+                <span>{practice.tag || "THE PRACTICE OF BREATH"}</span>
+              </div>
 
-      {/* 2. Introduction & Visual Two-Col */}
-      <section className="section-spacing bg-white">
-        <div className="container">
-          <div className="intro-two-col" style={{ alignItems: "center" }}>
-            {/* Visual Column */}
-            <div className="intro-visual-side">
-              <div 
-                className="intro-image-container"
-                style={{
-                  height: "440px",
-                  borderRadius: "var(--radius-lg)",
-                  overflow: "hidden",
-                  boxShadow: "var(--shadow-md)",
-                  border: "1px solid var(--ojalis-border)"
-                }}
-              >
-                <img 
-                  src={practice.image} 
-                  alt={practice.title} 
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                />
-              </div>
-              <div className="intro-stat-badge-float">
-                <div className="badge-float-icon">
-                  <IconLotus size={24} color="var(--ojalis-gold)" />
+              <h1 className="wwt-hero-title">
+                {practice.headline?.replace(practice.headlineItalic || "", "") || practice.title}
+                {practice.headlineItalic && (
+                  <span className="wwt-italic wwt-forest-text">
+                    {" "}{practice.headlineItalic}
+                  </span>
+                )}
+              </h1>
+
+              <p className="wwt-hero-lead">{practice.lead}</p>
+
+              {practice.bestFor && (
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "9999px", background: "rgba(79, 97, 68, 0.08)", border: "1px solid rgba(79, 97, 68, 0.18)", marginBottom: "20px" }}>
+                  <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--ojalis-gold-dark, #9B7328)", fontFamily: "var(--font-sans)" }}>Best for:</span>
+                  <span style={{ fontSize: "13.5px", color: "var(--site-heading-color, #4F6144)", fontWeight: 600 }}>{practice.bestFor}</span>
                 </div>
-                <div>
-                  <span className="badge-float-title">Classical Tradition</span>
-                  <span className="badge-float-sub">Taught with Care & Precision</span>
+              )}
+
+              {practice.mantraText && (
+                <div className="wwt-hero-mantra-box">
+                  <div className="wwt-om-symbol" aria-hidden="true">ॐ</div>
+                  <div className="wwt-mantra-text">
+                    "{practice.mantraText}"
+                  </div>
                 </div>
+              )}
+
+              <div className="wwt-hero-actions">
+                <Link
+                  to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                  className="wwt-btn-primary"
+                  id={`hero-book-btn-${practice.slug}`}
+                >
+                  <span>Book a Session</span>
+                  <span>→</span>
+                </Link>
+
+                <a
+                  href="#section-understand"
+                  onClick={handleScrollToExplore}
+                  className="wwt-scroll-explore"
+                >
+                  <span>Scroll to explore</span>
+                  <span>↓</span>
+                </a>
               </div>
+
+              {/* Cadence Specific Ribbon if Cadence */}
+              {practice.cadenceMeta && (
+                <div className="wwt-cadence-ribbon">
+                  {practice.cadenceMeta.length && (
+                    <div className="wwt-cadence-meta-item">
+                      <span className="wwt-cadence-meta-label">Length</span>
+                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.length}</span>
+                    </div>
+                  )}
+                  {practice.cadenceMeta.classes && (
+                    <div className="wwt-cadence-meta-item">
+                      <span className="wwt-cadence-meta-label">Classes</span>
+                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.classes}</span>
+                    </div>
+                  )}
+                  {practice.cadenceMeta.format && (
+                    <div className="wwt-cadence-meta-item">
+                      <span className="wwt-cadence-meta-label">Format</span>
+                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.format}</span>
+                    </div>
+                  )}
+                  {practice.cadenceMeta.homePractice && (
+                    <div className="wwt-cadence-meta-item">
+                      <span className="wwt-cadence-meta-label">Home Practice</span>
+                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.homePractice}</span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
-            {/* Content Column */}
-            <div>
-              <div className="section-tag-wrapper">
-                <span className="section-tag-line"></span>
-                <span className="section-tag-text">Foundational Practice</span>
-              </div>
-              <h2 className="section-title-main" style={{ fontSize: "clamp(26px, 3.5vw, 36px)", marginBottom: "16px" }}>
-                {practice.headline}
-              </h2>
-              <p className="section-desc-main" style={{ marginBottom: "20px" }}>
-                {practice.introText}
-              </p>
-              
-              <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-md)", padding: "20px 24px", border: "1px solid var(--ojalis-border)", marginTop: "24px" }}>
-                <h4 style={{ fontSize: "15px", fontWeight: 700, color: "var(--ojalis-burgundy)", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
-                  <IconSparkle size={16} color="var(--ojalis-gold)" />
-                  Who This Practice Is For
-                </h4>
-                <p style={{ fontSize: "14px", color: "var(--ojalis-text-muted)", lineHeight: 1.6, margin: 0 }}>
-                  {practice.suitableFor}
-                </p>
+            {/* Right Column: Arched Image with Floating Pill & Circular Badges */}
+            <div className="wwt-hero-visual-wrap">
+              <div className="wwt-hero-arch-frame">
+                <img
+                  src={practice.image}
+                  alt={practice.title}
+                  className="wwt-hero-arch-img"
+                  loading="eager"
+                />
               </div>
 
-              <div style={{ marginTop: "28px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                <Link to="/book-session" className="btn btn-primary">
-                  Book a Session
-                  <span className="btn-arrow">→</span>
-                </Link>
-                <Link to="/online-classes" className="btn btn-gold">
-                  Explore Online Classes
-                </Link>
+              {/* Floating Pill Badge (Top Right) */}
+              <div className="wwt-badge-floating-pill">
+                <span className="wwt-badge-dot"></span>
+                <span>{practice.heroBadgeText || "BREATHE WITH AWARENESS"}</span>
+              </div>
+
+              {/* Floating Circular Badge (Bottom Left) */}
+              <div className="wwt-badge-floating-circle">
+                <span className="wwt-circle-tag">
+                  {practice.heroCircleTag || "INHALE"}
+                </span>
+                <span className="wwt-circle-main">
+                  {practice.heroCircleWord || "slowly"}
+                </span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {practice.tag !== "Cadences" && (
-        <>
-          {/* 3. Core Principles */}
-          <section className="section-spacing bg-ivory">
-            <div className="container">
-              <div className="text-center" style={{ maxWidth: "700px", margin: "0 auto 48px" }}>
-                <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
-                  Core Principles & Methodology
-                </span>
-                <h2 className="section-title-main" style={{ marginTop: "8px" }}>
-                  How We Approach <span>{practice.title}</span>
-                </h2>
-                <p className="section-desc-main">
-                  Every practice at Ojalis is anchored in anatomical safety, classical lineage, and personalized pacing.
-                </p>
+      {/* =========================================================================
+          2. SECTION 01: UNDERSTAND THE PRACTICE (Matching Reference: web-layout-16)
+          ========================================================================= */}
+      <section id="section-understand" className="wwt-sec-understand">
+        <div className="wwt-container">
+          <div className="wwt-understand-layout">
+            {/* Left Column: Eyebrow + Gold Accent Line (Just like reference web-layout-16) */}
+            <div className="wwt-understand-sidebar">
+              <div className="wwt-eyebrow">
+                <span>01 / UNDERSTAND THE PRACTICE</span>
               </div>
-
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
-                {practice.principles.map((item, idx) => (
-                  <div 
-                    key={idx} 
-                    style={{ 
-                      background: "#ffffff", 
-                      borderRadius: "var(--radius-md)", 
-                      padding: "30px 24px", 
-                      border: "1px solid var(--ojalis-border)",
-                      boxShadow: "var(--shadow-sm)",
-                      position: "relative"
-                    }}
-                  >
-                    <div style={{ fontSize: "13px", fontWeight: 700, color: "var(--ojalis-gold)", letterSpacing: "1px", marginBottom: "8px" }}>
-                      0{idx + 1}
-                    </div>
-                    <h3 style={{ fontSize: "18px", color: "var(--ojalis-burgundy)", marginBottom: "12px", fontFamily: "var(--font-serif)", fontWeight: 700 }}>
-                      {item.title}
-                    </h3>
-                    <p style={{ fontSize: "14px", color: "var(--ojalis-text-muted)", lineHeight: 1.6, margin: 0 }}>
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <div className="wwt-understand-accent-line"></div>
             </div>
-          </section>
 
-          {/* 4. Curriculum & Techniques Covered */}
-          <section className="section-spacing bg-white">
-            <div className="container">
-              <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-                <div className="text-center" style={{ marginBottom: "36px" }}>
-                  <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
-                    Curriculum Components
-                  </span>
-                  <h2 className="section-title-main" style={{ marginTop: "8px" }}>
-                    Key Practices & Techniques Included
-                  </h2>
+            {/* Right Column: Title, Narrative, Cards Grid & Pullquote */}
+            <div className="wwt-understand-main">
+              <h2 className="wwt-understand-title">
+                {practice.title} — in simple words:{" "}
+                <span className="wwt-italic wwt-accent-text">
+                  {practice.simpleWords}
+                </span>
+              </h2>
+
+              <p className="wwt-understand-desc">{practice.leadNarrative}</p>
+
+              {practice.whereYouUseIt && (
+                <div className="wwt-where-use-box">
+                  <strong className="wwt-where-use-label">Where you use it:</strong>
+                  <span className="wwt-where-use-text">{practice.whereYouUseIt}</span>
                 </div>
+              )}
 
-                <div style={{ background: "var(--ojalis-ivory)", borderRadius: "var(--radius-lg)", border: "1px solid var(--ojalis-border)", padding: "36px" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "18px" }}>
-                    {practice.practices.map((tech, i) => (
-                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                        <div style={{ marginTop: "2px", color: "var(--ojalis-gold)", flexShrink: 0 }}>
-                          <IconCheckmark size={18} />
-                        </div>
-                        <span style={{ fontSize: "14.5px", color: "var(--ojalis-text-main)", fontWeight: 500, lineHeight: 1.5 }}>
-                          {tech}
-                        </span>
+              {/* Definition / Etymology Cards in Horizontal 2-Column Grid */}
+              {practice.etymologyCards && practice.etymologyCards.length > 0 && (
+                <div className="wwt-definition-cards-grid">
+                  {practice.etymologyCards.map((card, idx) => (
+                    <div key={idx} className="wwt-definition-card">
+                      <div
+                        className="wwt-def-word"
+                        style={{ color: card.color || "var(--site-heading-accent-color, #C59B4B)" }}
+                      >
+                        {card.word}
                       </div>
-                    ))}
-                  </div>
+                      <div className="wwt-def-meaning">{card.meaning}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {practice.pullQuote && (
+                <div className="wwt-pullquote-callout">
+                  "{practice.pullQuote}"
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          3. SECTION 02: OUR APPROACH / THE BREATH SIGNATURE (DEEP GREEN)
+          ========================================================================= */}
+      <section className="wwt-sec-approach">
+        <div className="wwt-container">
+          <div className="wwt-approach-box">
+            {/* Concentric Decorative Rings */}
+            <div className="wwt-approach-ring wwt-approach-ring-1" aria-hidden="true"></div>
+            <div className="wwt-approach-ring wwt-approach-ring-2" aria-hidden="true"></div>
+
+            <div className="wwt-approach-grid">
+              {/* Left Column: Image with Round Badge */}
+              <div className="wwt-approach-visual">
+                <div className="wwt-approach-img-frame">
+                  <img
+                    src={practice.image}
+                    alt={`${practice.title} practice immersion`}
+                    className="wwt-approach-img"
+                  />
+                </div>
+                <div className="wwt-approach-badge-circle">
+                  <span className="wwt-circle-tag">ONE BREATH</span>
+                  <span className="wwt-circle-main">at a time</span>
+                </div>
+              </div>
+
+              {/* Right Column: Philosophy & 3 Step Progression */}
+              <div>
+                <div className="wwt-eyebrow wwt-eyebrow-light">
+                  <span className="wwt-eyebrow-line wwt-eyebrow-line-light"></span>
+                  <span>02 / OUR APPROACH</span>
+                </div>
+
+                <h2 className="wwt-approach-heading">
+                  The OJALIS{" "}
+                  <span className="wwt-italic" style={{ color: "#DFBD74" }}>
+                    Breath Signature.
+                  </span>
+                </h2>
+
+                <p className="wwt-approach-desc">{practice.approachSubtitle}</p>
+
+                <div className="wwt-steps-list">
+                  {practice.approachSteps?.map((step) => (
+                    <div key={step.num} className="wwt-step-item">
+                      <div className="wwt-step-num">{step.num}</div>
+                      <div>
+                        <h4 className="wwt-step-title">{step.title}</h4>
+                        <p className="wwt-step-text">{step.text}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
-          {/* 5. Explore Other Practices */}
-          <section className="section-spacing bg-ivory">
-            <div className="container">
-              <div className="text-center" style={{ maxWidth: "600px", margin: "0 auto 40px" }}>
-                <span className="section-tag-text" style={{ color: "var(--ojalis-gold-dark)", letterSpacing: "2px", fontWeight: 700, textTransform: "uppercase", fontSize: "12px" }}>
-                  Continuous Journey
-                </span>
-                <h3 style={{ fontSize: "28px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginTop: "6px" }}>
-                  Explore Other What We Teach Offerings
-                </h3>
+      {/* =========================================================================
+          4. SECTION 03: THE LEARNING PATH (INTERACTIVE TABLE)
+          ========================================================================= */}
+      {practice.techniques && practice.techniques.length > 0 && (
+        <section className="wwt-sec-learning-path">
+          <div className="wwt-container">
+            <div className="wwt-eyebrow">
+              <span className="wwt-eyebrow-line"></span>
+              <span>{practice.learningPathEyebrow || "03 / THE LEARNING PATH"}</span>
+            </div>
+
+            <h2 className="wwt-section-title">
+              {practice.learningPathTitle || "A practice that unfolds slowly."}
+            </h2>
+
+            <p className="wwt-section-desc">
+              {practice.learningPathSubtitle || "These are the breath practices we explore together. There is no rush to master them all — each one has its own season."}
+            </p>
+
+            {/* Stage Filter Buttons */}
+            {practice.stages && practice.stages.length > 1 && (
+              <div className="wwt-filter-pills-row">
+                {practice.stages.map((stage) => (
+                  <button
+                    key={stage}
+                    className={`wwt-filter-pill ${selectedStage === stage ? "active" : ""}`}
+                    onClick={() => setSelectedStage(stage)}
+                  >
+                    {stage}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Interactive Technique Table */}
+            <div className="wwt-table-card">
+              <div className="wwt-table-header-row">
+                <span className="wwt-col-no">NO.</span>
+                <span className="wwt-col-technique">TECHNIQUE</span>
+                <span className="wwt-col-words">IN SIMPLE WORDS</span>
+                <span className="wwt-col-feeling">THE FEELING</span>
+                <span className="wwt-col-toggle"></span>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
-                {otherOfferings.map((item) => (
-                  <Link 
-                    key={item.slug} 
-                    to={`/what-we-teach/${item.slug}`}
-                    style={{ 
-                      background: "#ffffff", 
-                      borderRadius: "var(--radius-md)", 
-                      padding: "24px", 
-                      border: "1px solid var(--ojalis-border)",
-                      textDecoration: "none",
-                      display: "flex",
-                      flexDirection: "column",
-                      transition: "transform 0.2s ease, box-shadow 0.2s ease"
-                    }}
-                    className="program-card-hover"
-                  >
-                    <span style={{ fontSize: "12px", color: "var(--ojalis-gold-dark)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px" }}>
-                      {item.tag}
-                    </span>
-                    <h4 style={{ fontSize: "20px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)", marginBottom: "8px" }}>
-                      {item.title}
-                    </h4>
-                    <p style={{ fontSize: "13.5px", color: "var(--ojalis-text-muted)", lineHeight: 1.5, marginBottom: "16px", flex: 1 }}>
-                      {item.headline}
-                    </p>
-                    <div style={{ color: "var(--ojalis-burgundy)", fontSize: "13px", fontWeight: 600, display: "flex", alignItems: "center", gap: "4px" }}>
-                      <span>View Details</span>
-                      <span>→</span>
+              {filteredTechniques.map((tech, index) => {
+                const isExpanded = expandedRow === index;
+                return (
+                  <div key={tech.no || index}>
+                    <div
+                      className={`wwt-table-item-row ${isExpanded ? "expanded" : ""}`}
+                      onClick={() => toggleRow(index)}
+                      tabIndex={0}
+                      role="button"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleRow(index);
+                        }
+                      }}
+                      aria-expanded={isExpanded}
+                    >
+                      <span className="wwt-col-no">{tech.no}</span>
+                      <span className="wwt-col-technique">
+                        {tech.name}
+                        {tech.stage && (
+                          <span style={{ display: "block", fontSize: "11px", color: "var(--ojalis-gold-dark, #9B7328)", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginTop: "4px" }}>
+                            {tech.stage}
+                          </span>
+                        )}
+                      </span>
+                      <span className="wwt-col-words">{tech.words}</span>
+                      <span className="wwt-col-feeling">{tech.feeling}</span>
+                      <span className="wwt-col-toggle">
+                        <span style={{ fontSize: "11px", color: "var(--ojalis-gold-dark)", transform: isExpanded ? "rotate(180deg)" : "none", display: "inline-block", transition: "transform 0.2s" }}>
+                          ▼
+                        </span>
+                      </span>
                     </div>
+
+                    {isExpanded && tech.details && (
+                      <div style={{ padding: "16px 28px 24px 98px", background: "#FAF7F2", borderBottom: "1px solid var(--ojalis-border, #E8E0D5)" }}>
+                        <p style={{ margin: 0, fontSize: "14.5px", color: "var(--ojalis-text-muted, #6B6164)", lineHeight: 1.7 }}>
+                          {tech.details}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+          5. SECTION 04: HOW IT GROWS (TIMELINE PROGRESSION)
+          ========================================================================= */}
+      {practice.howItGrows && (
+        <section className="wwt-sec-how-it-grows">
+          <div className="wwt-container">
+            <div className="wwt-growth-grid">
+              {/* Left Column: Heading & Description */}
+              <div>
+                <div className="wwt-eyebrow">
+                  <span className="wwt-eyebrow-line"></span>
+                  <span>04 / HOW IT GROWS</span>
+                </div>
+
+                <h2 className="wwt-section-title">
+                  {practice.howItGrows.title}
+                </h2>
+
+                <p className="wwt-section-desc">
+                  {practice.howItGrows.desc}
+                </p>
+
+                <div style={{ marginTop: "32px" }}>
+                  <Link
+                    to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                    className="wwt-btn-primary"
+                  >
+                    <span>Begin your foundation</span>
+                    <span>→</span>
                   </Link>
+                </div>
+              </div>
+
+              {/* Right Column: 3 Timeline Steps */}
+              <div className="wwt-timeline-list">
+                <div className="wwt-timeline-track" aria-hidden="true"></div>
+
+                {practice.howItGrows.nodes.map((node, idx) => (
+                  <div
+                    key={node.num}
+                    className={`wwt-timeline-item ${idx === 0 ? "active" : ""}`}
+                  >
+                    <div className="wwt-timeline-node">{node.num}</div>
+                    <div>
+                      <h4 className="wwt-timeline-title">{node.title}</h4>
+                      <p className="wwt-timeline-text">{node.text}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </section>
+          </div>
+        </section>
+      )}
 
-          {/* 6. Dedicated Bottom Inquire Strip */}
-          <section style={{ background: "linear-gradient(135deg, var(--ojalis-burgundy-dark) 0%, var(--ojalis-burgundy) 100%)", color: "#ffffff", padding: "64px 0", textAlign: "center" }}>
-            <div className="container" style={{ maxWidth: "720px" }}>
-              <h3 style={{ fontSize: "clamp(26px, 4vw, 36px)", fontFamily: "var(--font-serif)", color: "#ffffff", marginBottom: "14px" }}>
-                Ready to Deepen Your Practice in {practice.title}?
-              </h3>
-              <p style={{ color: "#e5d8dc", fontSize: "15.5px", lineHeight: 1.7, marginBottom: "28px" }}>
-                Whether in our studio hall or in an intimate live virtual cohort, our acharyas offer patient, individualized mentoring.
+      {/* =========================================================================
+          6. SECTION 05: A PRACTICE FOR LIFE (4 AUDIENCE CARDS)
+          ========================================================================= */}
+      {practice.lifeCards && practice.lifeCards.length > 0 && (
+        <section className="wwt-sec-for-life">
+          <div className="wwt-container">
+            <div className="text-center" style={{ maxWidth: "680px", margin: "0 auto" }}>
+              <div className="wwt-eyebrow" style={{ justifyContent: "center" }}>
+                <span className="wwt-eyebrow-line"></span>
+                <span>05 / A PRACTICE FOR LIFE</span>
+                <span className="wwt-eyebrow-line"></span>
+              </div>
+
+              <h2 className="wwt-section-title">
+                Who this practice <span>is for.</span>
+              </h2>
+
+              <p className="wwt-section-desc" style={{ margin: "0 auto" }}>
+                Breath work meets you wherever you are in life. We shape the pace to support your daily rhythm.
               </p>
-              <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
-                <Link to="/book-session" className="btn btn-gold">
-                  Reserve a Private Session
-                </Link>
-                <Link to="/contact" className="btn btn-outline-white" style={{ borderColor: "rgba(255,255,255,0.4)", color: "#ffffff" }}>
-                  Contact Our Teachers
-                </Link>
+            </div>
+
+            <div className="wwt-cards-4-grid">
+              {practice.lifeCards.map((card) => (
+                <div key={card.num} className="wwt-life-card">
+                  <div className="wwt-card-num">{card.num}</div>
+                  <h3 className="wwt-card-title">{card.title}</h3>
+                  <p className="wwt-card-desc">{card.desc}</p>
+                  <div className="wwt-card-arrow">→</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+          7. SECTION 06: THE GUIDE (TEACHER PROFILE)
+          ========================================================================= */}
+      {practice.guide && (
+        <section className="wwt-sec-guide">
+          <div className="wwt-container">
+            <div className="wwt-guide-grid">
+              {/* Left Column: Teacher Arched Photo with Floating Badge */}
+              <div className="wwt-guide-arch-visual">
+                <div className="wwt-guide-arch-frame">
+                  <img
+                    src={practice.guide.image || "/new_instructor.png"}
+                    alt={practice.guide.name}
+                    className="wwt-guide-img"
+                    onError={(e) => {
+                      e.target.src = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80";
+                    }}
+                  />
+                </div>
+
+                <div className="wwt-guide-floating-badge">
+                  <span className="wwt-guide-badge-tag">{practice.guide.tagline || "CLASSICAL YOGA Rooted in tradition"}</span>
+                </div>
+              </div>
+
+              {/* Right Column: Teacher Bio & Lineage */}
+              <div>
+                <div className="wwt-eyebrow">
+                  <span className="wwt-eyebrow-line"></span>
+                  <span>06 / THE GUIDE</span>
+                </div>
+
+                <h2 className="wwt-guide-name">{practice.guide.name}</h2>
+
+                {practice.guide.quote && (
+                  <div className="wwt-guide-quote">
+                    "{practice.guide.quote}"
+                  </div>
+                )}
+
+                <p className="wwt-guide-bio">{practice.guide.bio}</p>
+
+                <div className="wwt-guide-badges-row">
+                  {practice.guide.badges?.map((badge, idx) => (
+                    <span key={idx} className="wwt-guide-pill-badge">
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: "32px" }}>
+                  <Link
+                    to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                    className="wwt-btn-primary"
+                  >
+                    <span>Practice with {practice.guide.name}</span>
+                    <span>→</span>
+                  </Link>
+                </div>
               </div>
             </div>
-          </section>
-        </>
+          </div>
+        </section>
       )}
+
+      {/* =========================================================================
+          8. SECTION 07: BEGIN HERE (SANCTUARY BOOKING BANNER)
+          ========================================================================= */}
+      <section className="wwt-sec-cta-banner">
+        <div className="wwt-container">
+          <div className="wwt-cta-banner-box">
+            <div className="wwt-eyebrow wwt-eyebrow-light" style={{ justifyContent: "center" }}>
+              <span className="wwt-eyebrow-line wwt-eyebrow-line-light"></span>
+              <span>07 / BEGIN HERE</span>
+              <span className="wwt-eyebrow-line wwt-eyebrow-line-light"></span>
+            </div>
+
+            <h2 className="wwt-cta-title">
+              Ready to begin your journey in <span>{practice.title}?</span>
+            </h2>
+
+            <p className="wwt-cta-subtitle">
+              Every practice at OJALIS starts with your Breath Signature — a personal assessment of your current breath pattern.
+            </p>
+
+            <div className="wwt-cta-actions-group">
+              <Link
+                to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                className="wwt-btn-gold"
+              >
+                <span>Book Breath Signature</span>
+                <span>→</span>
+              </Link>
+
+              <Link
+                to="/what-we-teach"
+                className="wwt-btn-outline-white"
+              >
+                <span>View All Teachings</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          9. EXPLORE OTHER PRACTICES
+          ========================================================================= */}
+      <section className="wwt-sec-other-offerings">
+        <div className="wwt-container">
+          <div className="text-center" style={{ maxWidth: "600px", margin: "0 auto 36px" }}>
+            <div className="wwt-eyebrow" style={{ justifyContent: "center" }}>
+              <span className="wwt-eyebrow-line"></span>
+              <span>CONTINUOUS JOURNEY</span>
+              <span className="wwt-eyebrow-line"></span>
+            </div>
+            <h3 className="wwt-section-title" style={{ fontSize: "clamp(24px, 2.6vw, 34px)" }}>
+              Explore other <span>teachings &amp; cadences</span>
+            </h3>
+          </div>
+
+          <div className="wwt-other-grid">
+            {otherOfferings.map((item) => (
+              <Link
+                key={item.slug}
+                to={`/what-we-teach/${item.slug}`}
+                className="wwt-other-card"
+              >
+                {item.image && (
+                  <div className="wwt-other-card-img-wrap">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="wwt-other-card-img"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div className="wwt-other-card-body">
+                  <span className="wwt-other-tag">{item.tag || "PRACTICE"}</span>
+                  <h4 className="wwt-other-title">{item.title}</h4>
+                  <p className="wwt-other-desc">{item.lead}</p>
+                  <div className="wwt-other-link">
+                    <span>Explore practice</span>
+                    <span className="wwt-other-arrow">→</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

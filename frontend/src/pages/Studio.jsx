@@ -229,6 +229,10 @@ function Studio() {
           <img 
             src={selectedImage.image} 
             alt={selectedImage.title}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=80";
+            }}
             style={{
               maxWidth: "100%",
               maxHeight: "80vh",

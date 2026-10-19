@@ -15,17 +15,17 @@ export default function HomeGallerySection() {
   const [slidePx, setSlidePx] = useState(0);
 
   // If studio images exist from backend, use them; otherwise show fallback placeholder images
-  const baseImages = studioImages && studioImages.length > 0 
-    ? studioImages 
+  const baseImages = studioImages && studioImages.length > 0
+    ? studioImages
     : [
-        { image: "/images/culture-1.jpg", text: "Team Harmony" },
-        { image: "/images/culture-2.jpg", text: "Sacred Sadhana" },
-        { image: "/images/culture-3.jpg", text: "Celebration of Life" }
-      ];
+      { image: "/images/culture-1.jpg", text: "Team Harmony" },
+      { image: "/images/culture-2.jpg", text: "Sacred Sadhana" },
+      { image: "/images/culture-3.jpg", text: "Celebration of Life" }
+    ];
 
   // Duplicate images so that slider can loop seamlessly
-  const displayImages = baseImages.length < 5 
-    ? [...baseImages, ...baseImages, ...baseImages, ...baseImages] 
+  const displayImages = baseImages.length < 5
+    ? [...baseImages, ...baseImages, ...baseImages, ...baseImages]
     : [...baseImages, ...baseImages];
 
   const totalSlides = displayImages.length;
@@ -119,7 +119,7 @@ export default function HomeGallerySection() {
       </div>
 
       {/* 2. NIANS PANORAMIC CURVED SLIDER CONTAINER */}
-      <div 
+      <div
         id="culture-swiper"
         className="culture-slider-wrapper"
         onMouseEnter={() => setIsPaused(true)}
@@ -132,28 +132,12 @@ export default function HomeGallerySection() {
         onMouseUp={handleTouchEnd}
       >
         {/* Navigation Buttons (Sleek blue pill tabs matching nians.com) */}
-        <button 
-          className="culture-nav-btn prev-btn" 
-          onClick={prevSlide}
-          aria-label="Previous image"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
 
-        <button 
-          className="culture-nav-btn next-btn" 
-          onClick={nextSlide}
-          aria-label="Next image"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
+
+
 
         {/* Sliding Track */}
-        <div 
+        <div
           ref={trackRef}
           className="culture-slider-track"
           style={{
@@ -162,16 +146,16 @@ export default function HomeGallerySection() {
           }}
         >
           {displayImages.map((image, index) => (
-            <div 
-              className="culture-slide" 
+            <div
+              className="culture-slide"
               key={index}
               onClick={() => setSelectedImage(image)}
               title="Click to view full image"
             >
-              <img 
-                src={image.image} 
+              <img
+                src={image.image}
                 alt={image.text || image.title || `Culture image ${index + 1}`}
-                loading="lazy" 
+                loading="lazy"
               />
               <div className="slide-overlay-hint">
                 <span>View Full</span>

@@ -153,6 +153,10 @@ function EventList() {
                       <img 
                         src={getImageUrl(item.image)} 
                         alt={item.title} 
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = '/logo.png';
+                        }}
                         style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }} 
                       />
                     ) : (

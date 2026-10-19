@@ -435,7 +435,15 @@ function BlogPost() {
       {/* Direct Featured Blog Image */}
       {article.image && (
         <div className="editorial-hero-banner">
-          <img src={article.image} alt={article.title} className="editorial-hero-img" />
+          <img 
+            src={article.image} 
+            alt={article.title} 
+            className="editorial-hero-img" 
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80";
+            }}
+          />
         </div>
       )}
 
@@ -499,7 +507,14 @@ function BlogPost() {
             <div className="editorial-related-grid">
               {otherArticles.map((item) => (
                 <Link key={item.id} to={`/blog/${item.id}`} className="editorial-related-card">
-                  <img src={item.image} alt={item.title} />
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80";
+                    }}
+                  />
                   <div className="editorial-related-card-content">
                     <span className="editorial-related-tag">{item.category}</span>
                     <h4 className="editorial-related-title">{item.title}</h4>

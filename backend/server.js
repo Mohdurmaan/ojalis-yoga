@@ -53,8 +53,8 @@ app.use(cors({
   credentials: true
 }));
 
-// Static folder for uploads
-app.use('/uploads', express.static(uploadsDir));
+// Static folder for uploads with permissive CORS
+app.use('/uploads', cors(), express.static(uploadsDir));
 
 
 // Mount routers
@@ -102,4 +102,14 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  try {
+    const { isCloudinaryConfigured } = require('./config/cloudinary');
+    if (isCloudinaryConfigured()) {
+      console.log('Image Storage Provider: Cloudinary (Persistent Cloud Storage Enabled)');
+    } else {
+      console.log('Image Storage Provider: Local Filesystem (/uploads/) [Note: Render free tier filesystem is ephemeral; set Cloudinary env vars for permanent cloud persistence]');
+    }
+  } catch (e) {
+    // Non-blocking log
+  }
 });

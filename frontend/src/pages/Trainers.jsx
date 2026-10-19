@@ -118,6 +118,10 @@ function Trainers() {
                   <img 
                     src={trainer.photo} 
                     alt={trainer.name} 
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "/logo.png";
+                    }}
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
                   />
                 </div>

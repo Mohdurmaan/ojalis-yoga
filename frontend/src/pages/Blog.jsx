@@ -46,7 +46,15 @@ function Blog() {
             {loading ? <div style={{textAlign:"center", padding:"40px"}}>Loading journal...</div> : articles.map((article) => (
               <div key={article.id} className="program-card-item">
                 <div className="program-card-thumb-wrap">
-                  <img src={article.image} alt={article.title} className="program-card-img" />
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className="program-card-img" 
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80";
+                    }}
+                  />
                   <span className="program-badge-tag">{article.category}</span>
                 </div>
                 <div className="program-card-body">

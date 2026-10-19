@@ -130,7 +130,14 @@ function StudioList() {
                 <tr key={item._id}>
                   <td>
                     {item.image ? (
-                      <img src={getImageUrl(item.image)} alt={item.title} />
+                      <img 
+                        src={getImageUrl(item.image)} 
+                        alt={item.title} 
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = '/logo.png';
+                        }} 
+                      />
                     ) : (
                       <span style={{ color: 'var(--admin-text-muted)', fontSize: '12px' }}>No image</span>
                     )}

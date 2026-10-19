@@ -24,9 +24,10 @@ const getItem = async (req, res) => {
 const createItem = async (req, res) => {
   try {
     if (req.file) {
-      req.body.image = '/uploads/' + req.file.filename;
-      req.body.featuredImage = '/uploads/' + req.file.filename;
-      req.body.profileImage = '/uploads/' + req.file.filename;
+      const fileUrl = req.file.path || req.file.url;
+      req.body.image = fileUrl;
+      req.body.featuredImage = fileUrl;
+      req.body.profileImage = fileUrl;
     }
     const item = await Teacher.create(req.body);
     res.status(201).json({ success: true, data: item });
@@ -38,9 +39,10 @@ const createItem = async (req, res) => {
 const updateItem = async (req, res) => {
   try {
     if (req.file) {
-      req.body.image = '/uploads/' + req.file.filename;
-      req.body.featuredImage = '/uploads/' + req.file.filename;
-      req.body.profileImage = '/uploads/' + req.file.filename;
+      const fileUrl = req.file.path || req.file.url;
+      req.body.image = fileUrl;
+      req.body.featuredImage = fileUrl;
+      req.body.profileImage = fileUrl;
     }
     const item = await Teacher.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
     if (!item) return res.status(404).json({ success: false, message: 'Not found' });
