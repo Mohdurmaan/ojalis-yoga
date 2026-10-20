@@ -81,7 +81,7 @@ function Meditation() {
                 In a world overflowing with screens, notifications, and unrelenting mental deadlines, your brain rarely experiences true rest. Even sleep is often restless because the nervous system remains stuck in a fight-or-flight cycle.
               </p>
               <p className="section-desc-main" style={{ marginBottom: "22px" }}>
-                Yogic meditation is not about forcefully stopping your thoughts—it is about learning to step back and become the calm, undisturbed observer. Through systematic breath regulation (Pranayama) and conscious relaxation, the turbulence of thought settles naturally, like silt resting in clear mountain water.
+                Yogic meditation is not about forcefully stopping your thoughts-it is about learning to step back and become the calm, undisturbed observer. Through systematic breath regulation (Pranayama) and conscious relaxation, the turbulence of thought settles naturally, like silt resting in clear mountain water.
               </p>
               <div className="intro-feature-check-list">
                 <div className="intro-check-item">

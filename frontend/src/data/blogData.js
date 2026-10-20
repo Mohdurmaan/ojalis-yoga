@@ -14,7 +14,7 @@ export const blogArticles = [
       <p>The first and most liberating truth of classical yoga is this: <strong>flexibility is not a prerequisite for yoga; it is simply a natural side effect of consistent, gentle practice.</strong> If you were already completely flexible and centered, you would not need the practice.</p>
 
       <h2>Week 1: Awakening Somatic Awareness</h2>
-      <p>During your initial seven days, your body will encounter unfamiliar muscle activations. You may notice muscles in your feet, inner thighs, and shoulder blades that you hadn't actively engaged in years. Mild, healthy muscular soreness is normal. The key is gentle consistency—never force a stretch to the point of sharp joint pain.</p>
+      <p>During your initial seven days, your body will encounter unfamiliar muscle activations. You may notice muscles in your feet, inner thighs, and shoulder blades that you hadn't actively engaged in years. Mild, healthy muscular soreness is normal. The key is gentle consistency-never force a stretch to the point of sharp joint pain.</p>
 
       <h2>Week 2: Synchronizing the Breath</h2>
       <p>By the second week, your instructor will encourage you to stop holding your breath during challenging postures. You will begin to notice how inhaling gently lengthens your spine, while exhaling allows your nervous system to soften tension. The practice transitions from a mechanical physical drill into a moving meditation.</p>
@@ -42,7 +42,7 @@ export const blogArticles = [
     content: `
       <h2>The Physiology of the Morning Spine</h2>
       <p>During eight hours of horizontal sleep, your intervertebral discs absorb spinal fluid through osmosis, expanding slightly. As a result, your spine is actually at its longest and stiffest when you first wake up. Jumping straight into heavy lifting or aggressive twisting can place undue shear stress on the lumbar region.</p>
-      <p>Classical gentle morning yoga—starting with Cat-Cow (Marjaryasana-Bitilasana) and gradual forward folds—slowly warms the spinal ligaments and decompresses accumulated nocturnal stiffness safely.</p>
+      <p>Classical gentle morning yoga-starting with Cat-Cow (Marjaryasana-Bitilasana) and gradual forward folds-slowly warms the spinal ligaments and decompresses accumulated nocturnal stiffness safely.</p>
 
       <h2>Cortisol Awakening Response (CAR)</h2>
       <p>Between 6:00 AM and 8:00 AM, your adrenal glands produce a natural spike in cortisol designed to wake you up. When coupled with screens, urgent emails, or loud alarms, this spike can easily tip over into morning anxiety. Morning yoga channels this natural surge into grounded physiological focus, smoothing out your circadian rhythm.</p>
@@ -67,7 +67,7 @@ export const blogArticles = [
     summary: "Explore the clinical connection between diaphragmatic breathing, vagus nerve stimulation, and how simple yogic breathwork stops the spiral of anxiety.",
     content: `
       <h2>The Breath is the Remote Control to Your Brain</h2>
-      <p>Of all your vital autonomic biological functions—heartbeat, digestion, endocrine secretion, cell division—the breath is the only system that functions automatically yet can be taken under voluntary conscious control at any instant.</p>
+      <p>Of all your vital autonomic biological functions-heartbeat, digestion, endocrine secretion, cell division-the breath is the only system that functions automatically yet can be taken under voluntary conscious control at any instant.</p>
       <p>Ancient yogis realized that the breath is the master control lever of the nervous system. When you feel alarmed, your breath turns shallow, rapid, and irregular. Conversely, when you consciously lengthen your exhalation, you send an unmistakable physiological signal to your brain stem: <em>"The danger has passed. You are safe."</em></p>
 
       <h2>The Vagus Nerve Connection</h2>

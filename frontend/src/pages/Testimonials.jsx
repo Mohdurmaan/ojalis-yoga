@@ -89,7 +89,7 @@ function Testimonials() {
                 "From Chronic Spinal Fatigue to Effortless Daily Vitality"
               </h3>
               <p className="featured-testi-quote">
-                "As a pediatrician on my feet for 10-hour hospital rounds, I had accepted lower back strain as an unavoidable career toll. Ojalis transformed my relationship with my own body. Their teachers don't push extreme contortions—they teach scientific breath synchronization and gentle spinal alignment. Within two months, my morning stiffness dissolved."
+                "As a pediatrician on my feet for 10-hour hospital rounds, I had accepted lower back strain as an unavoidable career toll. Ojalis transformed my relationship with my own body. Their teachers don't push extreme contortions-they teach scientific breath synchronization and gentle spinal alignment. Within two months, my morning stiffness dissolved."
               </p>
               <div>
                 <strong style={{ color: "var(--ojalis-burgundy)", fontSize: "16px", display: "block" }}>

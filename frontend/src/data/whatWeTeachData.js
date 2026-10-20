@@ -10,12 +10,12 @@ export const whatWeTeachData = {
     tag: "THE ART OF BREATH",
     headline: "Pranayama",
     headlineItalic: "the art of guiding your breath.",
-    lead: "Prana means life energy and ayama means to extend — pranayama is the practice of breathing with care and attention. This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
+    lead: "Prana means life energy and ayama means to extend - pranayama is the practice of breathing with care and attention. This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
     heroBadgeText: "BREATHE WITH ATTENTION",
     heroCircleTag: "INHALE",
     heroCircleWord: "slowly",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85",
-    simpleWords: "the art of guiding your breath. Prana means life energy and ayama means to extend — pranayama is the practice of breathing with care and attention.",
+    simpleWords: "the art of guiding your breath. Prana means life energy and ayama means to extend - pranayama is the practice of breathing with care and attention.",
     leadNarrative: "This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
     howItGrowsText: "You begin with slow, easy breathing. Stronger techniques like Kapalabhati and breath pauses come later, once the foundation feels natural.",
     bestFor: "everyone. Pranayama is where every OJALIS journey begins.",
@@ -103,7 +103,7 @@ export const whatWeTeachData = {
     heroCircleTag: "RESET",
     heroCircleWord: "calm",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
-    simpleWords: "short breathing techniques you can use in the exact moment you need calm — anywhere, anytime.",
+    simpleWords: "short breathing techniques you can use in the exact moment you need calm - anywhere, anytime.",
     leadNarrative: "Most practice happens on a mat, at a fixed time. Life's big moments happen everywhere else. The Real-Time Practice gives you simple breath tools you carry with you all day.",
     bestFor: "anyone with a full, fast-moving day.",
     whereYouUseIt: "at your desk, in traffic, before a phone call, or thirty seconds before you walk into an important room.",
@@ -130,7 +130,7 @@ export const whatWeTeachData = {
         name: "Box breathing",
         words: "in for 4, hold for 4, out for 4, hold for 4",
         feeling: "A steady rhythm for a busy mind.",
-        details: "In for 4, hold for 4, out for 4, hold for 4 — a steady rhythm for a busy mind."
+        details: "In for 4, hold for 4, out for 4, hold for 4 - a steady rhythm for a busy mind."
       },
       {
         no: "04",
@@ -162,7 +162,7 @@ export const whatWeTeachData = {
     image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=85",
     simpleWords: "gentle breathing and stretching made for people who sit at a screen for long hours.",
     leadNarrative: "Long hours at a desk often bring a tight neck, rounded shoulders and a shallow breath. The Desk Breath brings you back to an easy, full breath right where you sit.",
-    whatYouNeed: "your chair and the clothes you're wearing — mats and changing are optional.",
+    whatYouNeed: "your chair and the clothes you're wearing - mats and changing are optional.",
     bestFor: "students, professionals and anyone who spends the day at a screen.",
     learningPathEyebrow: "02 / WHAT HAPPENS IN A SESSION",
     learningPathTitle: "What happens in a session",
@@ -213,7 +213,7 @@ export const whatWeTeachData = {
     heroCircleTag: "REST",
     heroCircleWord: "peace",
     image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
-    simpleWords: "\"yogic sleep\" — a deeply restful, guided practice done lying down while your teacher's voice leads you.",
+    simpleWords: "\"yogic sleep\" - a deeply restful, guided practice done lying down while your teacher's voice leads you.",
     leadNarrative: "You lie comfortably on your back, close your eyes and simply listen. Your teacher guides your attention gently through the body, the breath and calm images. The body rests deeply while the mind stays softly aware.",
     whatYouNeed: "a mat, a cushion and a blanket. All you do is lie down and listen.",
     bestFor: "anyone who wants deep rest, refreshing sleep and a quieter mind.",
@@ -280,7 +280,7 @@ export const whatWeTeachData = {
     heroCircleTag: "STILLNESS",
     heroCircleWord: "peace",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=85",
-    simpleWords: "training your attention to rest calmly in one place — and at OJALIS, that place is your breath.",
+    simpleWords: "training your attention to rest calmly in one place - and at OJALIS, that place is your breath.",
     leadNarrative: "A busy mind is perfectly welcome. You begin with just a few minutes and grow at your own pace.",
     bestFor: "anyone seeking a calmer, clearer, more focused mind.",
     learningPathEyebrow: "02 / HOW IT GROWS",
@@ -295,21 +295,21 @@ export const whatWeTeachData = {
         name: "Beginning",
         words: "Watching the natural breath at the nostrils",
         feeling: "5 minutes",
-        details: "Watching the natural breath at the nostrils — 5 minutes."
+        details: "Watching the natural breath at the nostrils - 5 minutes."
       },
       {
         no: "02",
         name: "Building",
         words: "Counting breaths from 1 to 10, or silently repeating So-Hum with the breath",
         feeling: "10 minutes",
-        details: "Counting breaths from 1 to 10, or silently repeating So-Hum with the breath — 10 minutes."
+        details: "Counting breaths from 1 to 10, or silently repeating So-Hum with the breath - 10 minutes."
       },
       {
         no: "03",
         name: "Deepening",
         words: "Peaceful silent sitting after Bhramari",
         feeling: "15 minutes or more",
-        details: "Peaceful silent sitting after Bhramari — 15 minutes or more."
+        details: "Peaceful silent sitting after Bhramari - 15 minutes or more."
       }
     ],
     hideCtaBanner: true,
@@ -347,38 +347,38 @@ export const whatWeTeachData = {
         name: "Standing postures",
         words: "Such as Tadasana and Tiryak Tadasana",
         feeling: "For balance and good posture",
-        details: "Standing postures — such as Tadasana and Tiryak Tadasana — for balance and good posture."
+        details: "Standing postures - such as Tadasana and Tiryak Tadasana - for balance and good posture."
       },
       {
         no: "02",
         name: "Gentle backbends",
         words: "Such as Bhujangasana and Setu Bandhasana",
         feeling: "Open the chest and invite a fuller breath",
-        details: "Gentle backbends — such as Bhujangasana and Setu Bandhasana — to open the chest and invite a fuller breath."
+        details: "Gentle backbends - such as Bhujangasana and Setu Bandhasana - to open the chest and invite a fuller breath."
       },
       {
         no: "03",
         name: "Seated postures and twists",
         words: "Such as Vajrasana and gentle seated twists",
         feeling: "For a supple spine",
-        details: "Seated postures and twists — such as Vajrasana and gentle seated twists — for a supple spine."
+        details: "Seated postures and twists - such as Vajrasana and gentle seated twists - for a supple spine."
       },
       {
         no: "04",
         name: "Forward bends",
         words: "Gentle forward extensions",
         feeling: "For calm and flexibility",
-        details: "Forward bends — for calm and flexibility."
+        details: "Forward bends - for calm and flexibility."
       },
       {
         no: "05",
         name: "Resting postures",
         words: "Such as Makarasana and Shavasana",
         feeling: "Let the body absorb the practice",
-        details: "Resting postures — such as Makarasana and Shavasana — to let the body absorb the practice."
+        details: "Resting postures - such as Makarasana and Shavasana - to let the body absorb the practice."
       }
     ],
-    advancedPostures: "Once your practice is steady, advanced postures — such as inversions, deeper backbends and arm balances — are added whenever you ask for them, guided one step at a time.",
+    advancedPostures: "Once your practice is steady, advanced postures - such as inversions, deeper backbends and arm balances - are added whenever you ask for them, guided one step at a time.",
     hideCtaBanner: true,
     hideOtherOfferings: true
   },
@@ -399,9 +399,9 @@ export const whatWeTeachData = {
     heroCircleTag: "JOINTS",
     heroCircleWord: "release",
     image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=85",
-    simpleWords: "\"subtle exercise\" — gentle, joint-by-joint movements, each joined to the breath.",
+    simpleWords: "\"subtle exercise\" - gentle, joint-by-joint movements, each joined to the breath.",
     leadNarrative: "These simple movements warm up and loosen the whole body from head to toe, preparing it for deeper practice.",
-    whatMakesItSpecial: "it suits every age and every fitness level — children, elders, complete beginners and anyone returning after a break. It can also be done on a chair.",
+    whatMakesItSpecial: "it suits every age and every fitness level - children, elders, complete beginners and anyone returning after a break. It can also be done on a chair.",
     bestFor: "everyone, as a gentle start to every class.",
     learningPathEyebrow: "02 / WHAT YOU WILL MOVE, GENTLY",
     learningPathTitle: "What you will move, gently",
@@ -415,42 +415,42 @@ export const whatWeTeachData = {
         name: "Eyes",
         words: "Up, down, side to side, then rest with warm palms.",
         feeling: "Soothed and rested",
-        details: "Eyes — up, down, side to side, then rest with warm palms."
+        details: "Eyes - up, down, side to side, then rest with warm palms."
       },
       {
         no: "02",
         name: "Neck",
         words: "Forward, back, side to side.",
         feeling: "Released tension",
-        details: "Neck — forward, back, side to side."
+        details: "Neck - forward, back, side to side."
       },
       {
         no: "03",
         name: "Shoulders",
         words: "Lifting and rolling.",
         feeling: "Open shoulders",
-        details: "Shoulders — lifting and rolling."
+        details: "Shoulders - lifting and rolling."
       },
       {
         no: "04",
         name: "Elbows, wrists and fingers",
         words: "Bending, circling, opening and closing.",
         feeling: "Supple joints",
-        details: "Elbows, wrists and fingers — bending, circling, opening and closing."
+        details: "Elbows, wrists and fingers - bending, circling, opening and closing."
       },
       {
         no: "05",
         name: "Waist and hips",
         words: "Gentle bends, twists and circles.",
         feeling: "Spine mobility",
-        details: "Waist and hips — gentle bends, twists and circles."
+        details: "Waist and hips - gentle bends, twists and circles."
       },
       {
         no: "06",
         name: "Knees, ankles and toes",
         words: "Bending, flexing and circling.",
         feeling: "Grounded stability",
-        details: "Knees, ankles and toes — bending, flexing and circling."
+        details: "Knees, ankles and toes - bending, flexing and circling."
       }
     ],
     hideCtaBanner: true,
@@ -489,21 +489,21 @@ export const whatWeTeachData = {
         name: "Jala Neti",
         words: "Gently rinsing the nose with lukewarm salt water using a neti pot",
         feeling: "For a clear, easy breath",
-        details: "Jala Neti — gently rinsing the nose with lukewarm salt water using a neti pot, for a clear, easy breath."
+        details: "Jala Neti - gently rinsing the nose with lukewarm salt water using a neti pot, for a clear, easy breath."
       },
       {
         no: "02",
         name: "Trataka",
         words: "Steady gazing at a candle flame",
         feeling: "For focus and calm eyes",
-        details: "Trataka — steady gazing at a candle flame, for focus and calm eyes."
+        details: "Trataka - steady gazing at a candle flame, for focus and calm eyes."
       },
       {
         no: "03",
         name: "Kapalabhati",
         words: "Active out-breaths from the belly",
         feeling: "For a fresh, energised feeling",
-        details: "Kapalabhati — active out-breaths from the belly, for a fresh, energised feeling."
+        details: "Kapalabhati - active out-breaths from the belly, for a fresh, energised feeling."
       }
     ],
     hideCtaBanner: true,
@@ -588,13 +588,13 @@ export const whatWeTeachData = {
     tag: "STUDENT BREATH PRACTICE",
     headline: "The Study Breath",
     headlineItalic: "calm, focused & steady.",
-    lead: "Every year of study brings more — more syllabus, more pressure, more feelings arriving faster than words: a sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
+    lead: "Every year of study brings more - more syllabus, more pressure, more feelings arriving faster than words: a sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
     heroBadgeText: "FOR STUDENTS",
     heroCircleTag: "FOCUS",
     heroCircleWord: "clarity",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
     simpleWords: "breathing practices made for students, to stay calm, focused and steady through the years of study.",
-    leadNarrative: "Every year of study brings more — more syllabus, more pressure, more feelings arriving faster than words: a sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
+    leadNarrative: "Every year of study brings more - more syllabus, more pressure, more feelings arriving faster than words: a sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
     bestFor: "students from Class 6 to their final year of college.",
     format: "small groups of six or one-to-one, online or in person, across India and worldwide.",
     learningPathEyebrow: "02 / WHAT YOU LEARN",
@@ -609,28 +609,28 @@ export const whatWeTeachData = {
         name: "Nadi Shodhana",
         words: "For a balanced, clear mind before study.",
         feeling: "Balanced and clear",
-        details: "Nadi Shodhana — for a balanced, clear mind before study."
+        details: "Nadi Shodhana - for a balanced, clear mind before study."
       },
       {
         no: "02",
         name: "Bhramari",
         words: "To settle nerves before an exam.",
         feeling: "Calm and composed",
-        details: "Bhramari — to settle nerves before an exam."
+        details: "Bhramari - to settle nerves before an exam."
       },
       {
         no: "03",
         name: "Ujjayi and the long exhale",
         words: "For steady focus.",
         feeling: "Steady focus",
-        details: "Ujjayi and the long exhale — for steady focus."
+        details: "Ujjayi and the long exhale - for steady focus."
       },
       {
         no: "04",
         name: "A 5-minute routine",
         words: "To use before studying and before every exam.",
         feeling: "Ready and centred",
-        details: "A 5-minute routine — to use before studying and before every exam."
+        details: "A 5-minute routine - to use before studying and before every exam."
       }
     ],
     hideCtaBanner: true,
@@ -653,7 +653,7 @@ export const whatWeTeachData = {
     heroCircleTag: "JOY",
     heroCircleWord: "breath",
     image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
-    simpleWords: "Surya Namaskar (Sun Salutation) for children, taught the way it was always meant to be learned — with the breath.",
+    simpleWords: "Surya Namaskar (Sun Salutation) for children, taught the way it was always meant to be learned - with the breath.",
     leadNarrative: "Surya Namaskar is a flowing sequence of twelve steps. At OJALIS, each step is joined to its own in-breath or out-breath, so a child learns to move with the breath.",
     whatMakesItSpecial: [
       "Gentle, joyful and unhurried.",
@@ -664,7 +664,7 @@ export const whatWeTeachData = {
     format: "small groups of six or one-to-one, online or in person.",
     learningPathEyebrow: "02 / WHAT MAKES IT SPECIAL",
     learningPathTitle: "What makes it special",
-    learningPathSubtitle: "Taught the way it was always meant to be learned — with the breath.",
+    learningPathSubtitle: "Taught the way it was always meant to be learned - with the breath.",
     tableHeaderTechnique: "Element",
     tableHeaderWords: "Focus",
     tableHideFeeling: true,
@@ -706,13 +706,13 @@ export const whatWeTeachData = {
     tag: "FOUNDATION PROGRAMME",
     headline: "The Quiet Breathing Cadence",
     headlineItalic: "one calm, full breath.",
-    lead: "The foundation programme of OJALIS — learning one calm, full breath properly.",
+    lead: "The foundation programme of OJALIS - learning one calm, full breath properly.",
     cadenceIntroNote: "A Cadence is a guided programme with a clear rhythm and a set length, built around one goal. Each Cadence begins after your Breath Signature.",
     heroBadgeText: "FOUNDATION PROGRAMME",
     heroCircleTag: "CADENCE",
     heroCircleWord: "rhythm",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
-    simpleWords: "the foundation programme of OJALIS — learning one calm, full breath properly.",
+    simpleWords: "the foundation programme of OJALIS - learning one calm, full breath properly.",
     leadNarrative: "A Cadence is a guided programme with a clear rhythm and a set length, built around one goal. Each Cadence begins after your Breath Signature.",
     recommendedFor: "almost everyone.",
     cadenceMeta: {
@@ -750,7 +750,7 @@ export const whatWeTeachData = {
         details: "Weeks 5 onward: Ujjayi, a longer and smoother breath, and a short daily routine you can keep for life."
       }
     ],
-    whatYouTakeHome: "One breath, learned beautifully — slower, smoother and ready whenever you need it.",
+    whatYouTakeHome: "One breath, learned beautifully - slower, smoother and ready whenever you need it.",
     hideCtaBanner: true,
     hideOtherOfferings: true
   },
@@ -806,14 +806,14 @@ export const whatWeTeachData = {
         name: "Yoga Nidra",
         words: "Guided deep rest that eases you toward sleep.",
         feeling: "Yogic sleep",
-        details: "Yoga Nidra — guided deep rest that eases you toward sleep."
+        details: "Yoga Nidra - guided deep rest that eases you toward sleep."
       },
       {
         no: "04",
         name: "A calm night routine",
         words: "Simple habits for screens, meals and bedtime.",
         feeling: "Restful rhythm",
-        details: "A calm night routine — simple habits for screens, meals and bedtime."
+        details: "A calm night routine - simple habits for screens, meals and bedtime."
       }
     ],
     whatYouTakeHome: "A bedtime practice you can do right in bed, whenever the mind is still busy.",
@@ -972,14 +972,14 @@ export const whatWeTeachData = {
     tag: "DROP-IN EXPERIENCE",
     headline: "One evening, simply to experience it.",
     headlineItalic: "simply to experience it.",
-    lead: "One open evening to experience Yoga Nidra for yourself — the easiest way to begin with OJALIS. One evening, simply to experience it. Length: One evening. Commitment: A single drop-in session, open to all.",
+    lead: "One open evening to experience Yoga Nidra for yourself - the easiest way to begin with OJALIS. One evening, simply to experience it. Length: One evening. Commitment: A single drop-in session, open to all.",
     heroBadgeText: "DROP-IN EVENING",
     heroCircleTag: "ONE",
     heroCircleWord: "evening",
     image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
     mantraText: "Best for: anyone curious about yoga, breath or deep rest. You leave feeling light and refreshed.",
-    simpleWords: "one open evening to experience Yoga Nidra for yourself — the easiest way to begin with OJALIS.",
-    leadNarrative: "You arrive, lie down comfortably and are guided into deep rest. You leave feeling light and refreshed — and with a clear sense of what OJALIS feels like. Held in Gurugram studio and online.",
+    simpleWords: "one open evening to experience Yoga Nidra for yourself - the easiest way to begin with OJALIS.",
+    leadNarrative: "You arrive, lie down comfortably and are guided into deep rest. You leave feeling light and refreshed - and with a clear sense of what OJALIS feels like. Held in Gurugram studio and online.",
     cadenceMeta: {
       length: "One evening (60 to 75 minutes)",
       commitment: "A single drop-in session, open to all",
@@ -1194,7 +1194,7 @@ export const whatWeTeachData = {
         words: "Handling challenging moments with natural grace",
         feeling: "Spontaneous grace",
         stage: "Emotional Resilience",
-        details: "Little by little, calm is no longer something you do — it is simply who you are."
+        details: "Little by little, calm is no longer something you do - it is simply who you are."
       }
     ],
     howItGrows: {

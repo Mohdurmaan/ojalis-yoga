@@ -78,7 +78,7 @@ function Books() {
                 The Power of <span>Svadhyaya (Study)</span>
               </h2>
               <p className="section-desc-main" style={{ marginBottom: "16px" }}>
-                In traditional yoga, <em>Svadhyaya</em>—the study of spiritual and philosophical texts—is recognized as an indispensable foundation for genuine personal growth. Reading elevating words before practice calms intellectual doubts and inspires dedicated practice.
+                In traditional yoga, <em>Svadhyaya</em>-the study of spiritual and philosophical texts-is recognized as an indispensable foundation for genuine personal growth. Reading elevating words before practice calms intellectual doubts and inspires dedicated practice.
               </p>
               <p className="section-desc-main">
                 At our studio in Vasant Vihar, we maintain a quiet reference library containing classical scriptures, anatomy encyclopedias, and commentaries. All enrolled students are welcome to borrow or read quietly before and after class.
@@ -88,7 +88,7 @@ function Books() {
                   "By self-study (Svadhyaya) and contemplative reading, communion with inner wisdom is attained."
                 </p>
                 <span style={{ fontSize: "12.5px", fontWeight: 700, color: "var(--ojalis-gold-dark)", textTransform: "uppercase", letterSpacing: "1px" }}>
-                  — Yoga Sutras of Patanjali (2.44)
+                  - Yoga Sutras of Patanjali (2.44)
                 </span>
               </div>
             </div>

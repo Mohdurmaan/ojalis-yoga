@@ -144,7 +144,7 @@ function Footer() {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <div className="footer-bottom-inner">
-            <p>&copy; {new Date().getFullYear()} OJALIS — Yogic Kriya. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} OJALIS - Yogic Kriya. All rights reserved.</p>
             <div className="footer-legal-links">
               <Link to="/contact">Privacy Policy</Link>
               <Link to="/contact">Terms of Practice</Link>

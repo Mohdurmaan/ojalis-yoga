@@ -207,7 +207,7 @@ function Programs() {
           </h2>
 
           <p className="wwt-cta-subtitle">
-            Every journey at OJALIS begins with your Breath Signature — a calm personal session to understand your unique breath pattern before beginning any practice.
+            Every journey at OJALIS begins with your Breath Signature - a calm personal session to understand your unique breath pattern before beginning any practice.
           </p>
 
           <div className="wwt-cta-actions-group">

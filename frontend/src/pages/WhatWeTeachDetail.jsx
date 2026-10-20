@@ -197,7 +197,7 @@ function WhatWeTeachDetail() {
             {/* Right Column: Title, Narrative, Cards Grid & Pullquote */}
             <div className="wwt-understand-main">
               <h2 className="wwt-understand-title">
-                {practice.title} — in simple words:{" "}
+                {practice.title} - in simple words:{" "}
                 <span className="wwt-italic wwt-accent-text">
                   {practice.simpleWords}
                 </span>
@@ -380,7 +380,7 @@ function WhatWeTeachDetail() {
             </h2>
 
             <p className="wwt-section-desc">
-              {practice.learningPathSubtitle || "These are the breath practices we explore together. There is no rush to master them all — each one has its own season."}
+              {practice.learningPathSubtitle || "These are the breath practices we explore together. There is no rush to master them all - each one has its own season."}
             </p>
 
             {/* Stage Filter Buttons */}
@@ -675,7 +675,7 @@ function WhatWeTeachDetail() {
               </h2>
 
               <p className="wwt-cta-subtitle">
-                {practice.lead || "Every practice at OJALIS starts with your Breath Signature — a personal assessment of your current breath pattern."}
+                {practice.lead || "Every practice at OJALIS starts with your Breath Signature - a personal assessment of your current breath pattern."}
               </p>
 
               <div className="wwt-cta-actions-group">

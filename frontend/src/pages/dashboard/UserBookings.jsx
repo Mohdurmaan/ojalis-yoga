@@ -224,7 +224,7 @@ export default function UserBookings() {
                                 month: 'short',
                                 year: 'numeric',
                               })
-                            : '—'}
+                            : '-'}
                         </td>
                         <td>
                           {new Date(b.createdAt).toLocaleDateString('en-IN', {
@@ -468,7 +468,7 @@ export default function UserBookings() {
 
               <div className="user-detail-row">
                 <span className="user-detail-label">Phone</span>
-                <span className="user-detail-val">{selectedBooking.phone || '—'}</span>
+                <span className="user-detail-val">{selectedBooking.phone || '-'}</span>
               </div>
 
               <div className="user-detail-row">

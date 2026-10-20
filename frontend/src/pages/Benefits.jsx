@@ -22,7 +22,7 @@ function Benefits() {
       category: "Strength",
       IconComponent: IconStrength,
       title: "Balanced Isometric Muscle Tone",
-      description: "Yoga builds functional full-body strength rather than isolated cosmetic bulk. Supporting your own body weight in standing postures, arm balances, and inversions activates deep stabilizing muscles—including the transversus abdominis, rotators, and pelvic floor—creating resilient joints that resist sports injuries."
+      description: "Yoga builds functional full-body strength rather than isolated cosmetic bulk. Supporting your own body weight in standing postures, arm balances, and inversions activates deep stabilizing muscles-including the transversus abdominis, rotators, and pelvic floor-creating resilient joints that resist sports injuries."
     },
     {
       category: "Better Breathing",
@@ -58,7 +58,7 @@ function Benefits() {
       category: "Mind-Body Wellness",
       IconComponent: IconMindBody,
       title: "Interoceptive Awareness & Daily Rhythm",
-      description: "Interoception is the internal sense of the body’s physiological condition—recognizing hunger, muscle fatigue, tension, and emotional states before they escalate into burnout. Yoga fine-tunes this internal sensory radar, helping you make healthier lifestyle decisions intuitively."
+      description: "Interoception is the internal sense of the body’s physiological condition-recognizing hunger, muscle fatigue, tension, and emotional states before they escalate into burnout. Yoga fine-tunes this internal sensory radar, helping you make healthier lifestyle decisions intuitively."
     }
   ];
 

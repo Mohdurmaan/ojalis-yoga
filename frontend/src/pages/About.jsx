@@ -33,7 +33,7 @@ function About() {
                 Why OJALIS exists
               </h2>
               <p className="section-desc-main" style={{ marginBottom: "16px" }}>
-                Your breath has been your most faithful companion since your very first moment. It has carried you through every joy and every hard day — quietly, steadily, mostly unnoticed. OJALIS exists to help you notice it. Noticing is the whole skill, and it can be learned by anyone.
+                Your breath has been your most faithful companion since your very first moment. It has carried you through every joy and every hard day - quietly, steadily, mostly unnoticed. OJALIS exists to help you notice it. Noticing is the whole skill, and it can be learned by anyone.
               </p>
               <p className="section-desc-main" style={{ marginBottom: "16px" }}>
                 OJALIS was founded by Kuldeep Dubey, who has taught yoga since 2016. Many students arrived looking for flexibility and stayed talking about their breath. Across ten years and several hundred students, the ones who transformed most were the ones whose breathing transformed.
