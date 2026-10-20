@@ -228,6 +228,34 @@
   max-width: 580px;
 }
 
+.wwt-best-for-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full, 9999px);
+  background: rgba(79, 97, 68, 0.08);
+  border: 1px solid rgba(79, 97, 68, 0.18);
+  margin-bottom: 20px;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.wwt-best-for-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ojalis-gold-dark, #9B7328);
+  font-family: var(--font-sans);
+}
+
+.wwt-best-for-text {
+  font-size: 13.5px;
+  color: var(--site-heading-color, #4F6144);
+  font-weight: 600;
+}
+
 .wwt-hero-mantra-box {
   display: flex;
   align-items: flex-start;
@@ -419,6 +447,10 @@
 /* ==========================================================================
    2. SECTION 01: UNDERSTAND THE PRACTICE (Reference web-layout-16 layout)
    ========================================================================== */
+#section-understand {
+  scroll-margin-top: 100px;
+}
+
 .wwt-sec-understand {
   padding: 72px 0 80px 0;
   background-color: var(--ojalis-ivory, #faf7f2);
@@ -513,10 +545,11 @@
 
 .wwt-definition-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
   margin-bottom: 24px;
   max-width: 740px;
+  width: 100%;
 }
 
 .wwt-definition-card {
@@ -833,6 +866,20 @@
   color: var(--site-heading-color, #4F6144);
 }
 
+/* Table row expansion details */
+.wwt-table-item-details {
+  padding: 16px 28px 24px 98px;
+  background: #FAF7F2;
+  border-bottom: 1px solid var(--ojalis-border, #E8E0D5);
+}
+
+.wwt-table-item-details-text {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--ojalis-text-muted, #6B6164);
+  line-height: 1.7;
+}
+
 /* Expanded accordion content */
 .wwt-table-accordion-body {
   padding: 20px 28px 24px 28px;
@@ -870,6 +917,7 @@
   border-top: 1px solid var(--ojalis-border, #E8E0D5);
 }
 
+.wwt-growth-grid,
 .wwt-grows-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1085,17 +1133,19 @@
   color: #FFFFFF;
 }
 
+.wwt-guide-quote,
 .wwt-guide-quote-box {
   border-left: 3px solid var(--ojalis-gold, #C59B4B);
   padding-left: 20px;
   font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
-  font-size: clamp(20px, 2.4vw, 26px);
+  font-size: clamp(18px, 2.2vw, 24px);
   font-style: italic;
   color: var(--site-heading-color, #4F6144);
-  line-height: 1.4;
-  margin: 22px 0 24px 0;
+  line-height: 1.45;
+  margin: 20px 0 22px 0;
 }
 
+.wwt-guide-badges-row,
 .wwt-guide-pills-row {
   display: flex;
   gap: 10px;
@@ -1103,6 +1153,7 @@
   margin-bottom: 24px;
 }
 
+.wwt-guide-pill-badge,
 .wwt-guide-pill {
   background: #FFFFFF;
   border: 1px solid var(--ojalis-border, #E8E0D5);
@@ -1125,8 +1176,91 @@
 }
 
 /* ==========================================================================
-   8. SECTION 07: BEGIN HERE (CTA & SESSIONS CARD)
+   8. SECTION 07: BEGIN HERE (CTA & SESSIONS CARD / BANNER)
    ========================================================================== */
+.wwt-sec-cta-banner {
+  padding: 40px 0 80px 0;
+}
+
+.wwt-cta-banner-box {
+  background: var(--site-heading-color, #4F6144);
+  color: #FFFFFF;
+  border-radius: 28px;
+  padding: 64px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 44px rgba(79, 97, 68, 0.22);
+}
+
+.wwt-cta-banner-box::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.wwt-cta-title {
+  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+  font-size: clamp(28px, 4vw, 42px);
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 16px auto 16px auto;
+  max-width: 720px;
+  font-weight: 600;
+}
+
+.wwt-cta-title span {
+  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+  color: #DFBD74;
+}
+
+.wwt-cta-subtitle {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto 32px auto;
+}
+
+.wwt-cta-actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.wwt-btn-outline-white {
+  background: transparent;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  padding: 13px 28px;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.wwt-btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
 .wwt-sec-begin-here {
   padding: 40px 0 88px 0;
 }
@@ -1307,6 +1441,7 @@
 
   .wwt-understand-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .wwt-approach-grid {
@@ -1317,6 +1452,7 @@
     padding: 44px 32px;
   }
 
+  .wwt-growth-grid,
   .wwt-grows-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1346,35 +1482,214 @@
 }
 
 @media (max-width: 768px) {
+  /* Container Padding */
+  .wwt-container,
+  .wwt-container-narrow {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Section Spacing */
+  .wwt-sec-understand,
+  .wwt-sec-approach,
+  .wwt-sec-learning-path,
+  .wwt-sec-how-it-grows,
+  .wwt-sec-for-life,
+  .wwt-sec-guide,
+  .wwt-sec-cta-banner,
+  .wwt-sec-other-offerings {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  /* Hero Section */
   .wwt-hero-section {
-    padding-top: 110px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 44px;
+  }
+
+  .wwt-hero-title {
+    font-size: clamp(28px, 6.5vw, 40px);
+    margin: 12px 0 16px 0;
+  }
+
+  .wwt-hero-lead {
+    font-size: 15px;
+    margin-bottom: 22px;
+  }
+
+  .wwt-hero-actions {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .wwt-hero-visual-wrap {
+    max-width: 340px;
+    margin: 0 auto;
   }
 
   .wwt-hero-arch-frame {
-    height: 420px;
+    height: 380px;
   }
 
+  /* Keep floating badges within boundaries without negative overflow */
   .wwt-badge-floating-pill {
-    right: 0;
-    top: 16px;
+    right: 12px;
+    top: 14px;
     font-size: 10px;
-    padding: 6px 14px;
+    padding: 6px 12px;
   }
 
   .wwt-badge-floating-circle {
-    bottom: -14px;
-    left: -10px;
-    width: 96px;
-    height: 96px;
+    bottom: 12px;
+    left: 12px;
+    width: 86px;
+    height: 86px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .wwt-circle-tag {
+    font-size: 8px;
   }
 
   .wwt-circle-main {
+    font-size: 16px;
+  }
+
+  /* Section 01: Understand the Practice */
+  #section-understand {
+    scroll-margin-top: 85px;
+  }
+
+  .wwt-understand-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .wwt-understand-sidebar {
+    position: static;
+  }
+
+  .wwt-understand-accent-line {
+    margin-top: 6px;
+  }
+
+  .wwt-understand-title {
+    font-size: clamp(21px, 5.2vw, 27px);
+    margin-bottom: 16px;
+  }
+
+  .wwt-understand-desc {
+    font-size: 14.5px;
+    margin-bottom: 20px;
+  }
+
+  .wwt-where-use-box {
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+
+  .wwt-where-use-text {
+    font-size: 13.5px;
+  }
+
+  /* CRITICAL: Definition Cards Stack in 1 Column on Mobile */
+  .wwt-definition-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .wwt-definition-card {
+    padding: 18px 20px;
+    border-radius: 14px;
+  }
+
+  .wwt-def-word {
+    font-size: 21px;
+    margin-bottom: 4px;
+  }
+
+  .wwt-def-meaning {
+    font-size: 13.5px;
+  }
+
+  .wwt-pullquote-callout {
+    font-size: 16px;
+    padding-left: 16px;
+    margin-top: 14px;
+  }
+
+  /* Section 02: Approach Box */
+  .wwt-approach-box {
+    padding: 34px 20px;
+    border-radius: 20px;
+  }
+
+  .wwt-approach-visual {
+    max-width: 340px;
+  }
+
+  .wwt-approach-img-frame {
+    height: 280px;
+    border-radius: 18px;
+  }
+
+  .wwt-approach-badge-circle {
+    bottom: 12px;
+    right: 12px;
+    width: 86px;
+    height: 86px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .wwt-approach-heading {
+    font-size: clamp(26px, 6.5vw, 36px);
+    margin-bottom: 14px;
+  }
+
+  .wwt-approach-desc {
+    font-size: 14.5px;
+    margin-bottom: 24px;
+  }
+
+  .wwt-step-item {
+    padding: 16px 0;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+  }
+
+  .wwt-step-num {
+    font-size: 20px;
+  }
+
+  .wwt-step-title {
     font-size: 18px;
+  }
+
+  .wwt-step-text {
+    font-size: 13.5px;
+  }
+
+  /* Section 03: Learning Path */
+  .wwt-filter-pills-row {
+    margin: 20px 0;
+    gap: 8px;
+  }
+
+  .wwt-filter-pill {
+    padding: 7px 16px;
+    font-size: 11px;
   }
 
   .wwt-cards-4-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .wwt-table-card {
+    border-radius: 16px;
   }
 
   .wwt-table-header-row {
@@ -1387,45 +1702,249 @@
     align-items: flex-start;
     gap: 8px;
     position: relative;
-    padding: 20px 20px;
+    padding: 16px 18px;
   }
 
   .wwt-col-no {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .wwt-col-technique {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .wwt-col-words {
-    font-size: 14px;
-    padding-right: 32px;
+    font-size: 13.5px;
+    padding-right: 28px;
   }
 
   .wwt-col-feeling {
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
 
   .wwt-col-toggle {
     position: absolute;
-    top: 22px;
-    right: 20px;
+    top: 18px;
+    right: 18px;
+  }
+
+  .wwt-table-item-details {
+    padding: 14px 18px 18px 18px;
+  }
+
+  .wwt-table-item-details-text {
+    font-size: 13.5px;
   }
 
   .wwt-table-accordion-body {
     grid-template-columns: 1fr;
-    padding: 16px 20px;
+    padding: 16px 18px;
   }
 
-  .wwt-approach-box {
-    padding: 36px 20px;
+  /* Section 04: How It Grows */
+  .wwt-growth-grid,
+  .wwt-grows-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .wwt-timeline-list {
+    padding-left: 44px;
+  }
+
+  .wwt-timeline-node {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    left: -44px;
+  }
+
+  .wwt-timeline-track {
+    left: 16px;
+  }
+
+  .wwt-timeline-title {
+    font-size: 18px;
+  }
+
+  .wwt-timeline-text {
+    font-size: 13.5px;
+  }
+
+  .wwt-timeline-item {
+    padding-bottom: 26px;
+  }
+
+  /* Section 05: Life Cards */
+  .wwt-life-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .wwt-card-num {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .wwt-card-title {
+    font-size: 18px;
+  }
+
+  .wwt-card-desc {
+    font-size: 13.5px;
+    margin-bottom: 14px;
+  }
+
+  /* Section 06: Guide */
+  .wwt-guide-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .wwt-guide-arch-visual {
+    max-width: 300px;
+  }
+
+  .wwt-guide-arch-frame {
+    height: 360px;
+    border-radius: 150px 150px 20px 20px;
+  }
+
+  .wwt-guide-floating-badge {
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    padding: 10px 14px;
+  }
+
+  .wwt-guide-name {
+    font-size: clamp(26px, 6.5vw, 34px);
+  }
+
+  .wwt-guide-quote,
+  .wwt-guide-quote-box {
+    font-size: 16px;
+    padding-left: 14px;
+    margin: 14px 0 16px 0;
+  }
+
+  .wwt-guide-bio {
+    font-size: 14px;
+  }
+
+  .wwt-guide-badges-row,
+  .wwt-guide-pills-row {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .wwt-guide-pill-badge,
+  .wwt-guide-pill {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+
+  /* Section 07: CTA Banner */
+  .wwt-cta-banner-box {
+    padding: 38px 20px;
     border-radius: 20px;
+  }
+
+  .wwt-cta-title {
+    font-size: clamp(24px, 5.5vw, 32px);
+  }
+
+  .wwt-cta-subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .wwt-cta-actions-group {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .wwt-cta-actions-group a {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Section 08: Other Offerings */
+  .wwt-other-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .wwt-other-card-img-wrap {
+    height: 180px;
+  }
+
+  /* Cadence Ribbon */
+  .wwt-cadence-ribbon {
+    padding: 18px 20px;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    border-radius: 14px;
   }
 
   .wwt-begin-box {
     padding: 36px 20px;
     border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wwt-hero-arch-frame {
+    height: 310px;
+    border-radius: 140px 140px 20px 20px;
+  }
+
+  .wwt-hero-visual-wrap {
+    max-width: 270px;
+  }
+
+  .wwt-badge-floating-pill {
+    right: 8px;
+    top: 10px;
+    font-size: 9.5px;
+    padding: 5px 10px;
+  }
+
+  .wwt-badge-floating-circle {
+    bottom: 8px;
+    left: 8px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .wwt-circle-tag {
+    font-size: 7.5px;
+    letter-spacing: 1px;
+  }
+
+  .wwt-circle-main {
+    font-size: 14px;
+  }
+
+  .wwt-btn-primary,
+  .wwt-btn-gold,
+  .wwt-btn-secondary,
+  .wwt-btn-outline-white {
+    padding: 11px 22px;
+    font-size: 13.5px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wwt-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wwt-scroll-explore {
+    justify-content: center;
   }
 }
 

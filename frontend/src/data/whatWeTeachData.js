@@ -5,171 +5,86 @@ export const whatWeTeachData = {
   "pranayama": {
     slug: "pranayama",
     title: "Pranayama",
-    subtitle: "The Science & Heart of Vital Breath",
+    subtitle: "The Art of Guiding Your Breath",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "THE PRACTICE OF BREATH",
-    headline: "Come back to your breath.",
-    headlineItalic: "to your breath.",
-    lead: "Pranayama is the quiet art of meeting yourself through the breath. A steady, embodied practice for a calmer mind and a more present life.",
-    heroBadgeText: "BREATHE WITH AWARENESS",
+    tag: "THE ART OF BREATH",
+    headline: "Pranayama",
+    headlineItalic: "the art of guiding your breath.",
+    lead: "Prana means life energy and ayama means to extend — pranayama is the practice of breathing with care and attention. This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
+    heroBadgeText: "BREATHE WITH ATTENTION",
     heroCircleTag: "INHALE",
     heroCircleWord: "slowly",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "Every practice at OJALIS begins with one simple question: what is your breath doing right now?",
-    simpleWords: "the art of guiding your breath.",
-    leadNarrative: "Prana means life energy and ayama means to extend — pranayama is the practice of breathing with care and attention. This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
-    etymologyCards: [
-      {
-        word: "prana",
-        color: "#C59B4B",
-        meaning: "the energy that moves through all living things"
-      },
-      {
-        word: "ayama",
-        color: "#4F6144",
-        meaning: "to extend, expand, or gently guide"
-      }
-    ],
-    pullQuote: "At OJALIS, the breath is the heart of every journey.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "Your breath is personal. We teach techniques step by step, with a quiet attention to how they feel in your body. New practices are added only when the foundation feels steady and you are ready.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Listen first",
-        text: "We begin by noticing the breath you already have."
-      },
-      {
-        num: "02",
-        title: "Build gently",
-        text: "Simple, grounding techniques create a natural rhythm."
-      },
-      {
-        num: "03",
-        title: "Go deeper",
-        text: "More refined practices arrive when they can be received."
-      }
-    ],
-    learningPathTitle: "A practice that unfolds slowly.",
-    learningPathSubtitle: "These are the breath practices we explore together. There is no rush to master them all — each one has its own season.",
-    stages: ["All Stages", "Foundation", "Building Depth", "Inner Quiet", "Refinement"],
+    simpleWords: "the art of guiding your breath. Prana means life energy and ayama means to extend — pranayama is the practice of breathing with care and attention.",
+    leadNarrative: "This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
+    howItGrowsText: "You begin with slow, easy breathing. Stronger techniques like Kapalabhati and breath pauses come later, once the foundation feels natural.",
+    bestFor: "everyone. Pranayama is where every OJALIS journey begins.",
+    learningPathEyebrow: "02 / THE TECHNIQUES YOU WILL LEARN",
+    learningPathTitle: "The techniques you will learn",
+    learningPathSubtitle: "Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
+    tableHeaderTechnique: "Technique",
+    tableHeaderWords: "What it is, simply",
+    tableHeaderFeeling: "How it feels",
     techniques: [
       {
         no: "01",
         name: "Diaphragmatic (belly) breathing",
-        words: "Breathing deep into the belly instead of upper-chest breathing",
+        words: "Breathing deep into the belly instead of the upper chest",
         feeling: "Calm, grounded, steady",
-        stage: "Foundation",
-        details: "Re-educates your primary breathing muscle. Releases chronic tension in the chest and shoulders, allowing your autonomic nervous system to rest."
+        details: "Breathing deep into the belly instead of the upper chest."
       },
       {
         no: "02",
         name: "Full yogic breath",
         words: "One slow wave of breath through the belly, ribs and chest",
         feeling: "Spacious and complete",
-        stage: "Foundation",
-        details: "Unifies the 3 breathing chambers into an unbroken, smooth ocean-wave rhythm. Nourishes every lung lobe with oxygenated prana."
+        details: "One slow wave of breath through the belly, ribs and chest."
       },
       {
         no: "03",
         name: "Ujjayi",
         words: "A slow breath with a soft ocean-like sound in the throat",
         feeling: "Focused and warm",
-        stage: "Building Depth",
-        details: "Gentle glottis contraction warms incoming air and stimulates the vagus nerve, calming the heart rate during both stillness and movement."
+        details: "A slow breath with a soft ocean-like sound in the throat."
       },
       {
         no: "04",
         name: "Nadi Shodhana",
         words: "Alternate-nostril breathing, gently guided with the fingers",
         feeling: "Balanced and clear",
-        stage: "Building Depth",
-        details: "Balances the Ida (cooling/lunar) and Pingala (vitalizing/solar) energy pathways, harmonizing left and right cerebral hemispheres."
+        details: "Alternate-nostril breathing, gently guided with the fingers."
       },
       {
         no: "05",
         name: "Bhramari",
         words: "Breathing out with a soft humming sound, like a bee",
         feeling: "Soothing and quietening",
-        stage: "Inner Quiet",
-        details: "Cranial acoustic vibrations stimulate nitric oxide release, quiet mental agitation, and prepare the mind for unhurried stillness."
+        details: "Breathing out with a soft humming sound, like a bee."
       },
       {
         no: "06",
         name: "Sheetali / Sheetkari",
         words: "Breathing in through a rolled tongue or through the teeth",
         feeling: "Cooling and fresh",
-        stage: "Refinement",
-        details: "Cools the bodily temperature, soothes pitta digestive heat, and leaves the palate and mind refreshed after heated days."
+        details: "Breathing in through a rolled tongue or through the teeth."
       },
       {
         no: "07",
         name: "Kapalabhati",
         words: "Short, active out-breaths from the belly",
         feeling: "Energising and awake",
-        stage: "Refinement",
-        details: "Active rhythmic exhalations that clear the frontal sinuses, ignite digestive fire (jatharagni), and dissolve morning sluggishness."
+        details: "Short, active out-breaths from the belly."
       },
       {
         no: "08",
         name: "Gentle breath pauses (Kumbhaka)",
         words: "Short, easy pauses between breaths, added later in practice",
         feeling: "Still and centred",
-        stage: "Inner Quiet",
-        details: "Effortless, natural pauses where the fluctuation of thoughts ceases spontaneously. Introduced only after foundation is completely natural."
+        details: "Short, easy pauses between breaths, added later in practice."
       }
     ],
-    howItGrows: {
-      title: "Let the practice meet you.",
-      desc: "Students begin with slow, easy breathing. As the foundation becomes natural, stronger techniques such as Kapalabhati and breath pauses come later — never before the body is ready.",
-      nodes: [
-        {
-          num: "01",
-          title: "Slow & easy",
-          text: "Discover a comfortable, steady rhythm without force or strain."
-        },
-        {
-          num: "02",
-          title: "Steady & aware",
-          text: "Let attention and breath begin to move together in quiet harmony."
-        },
-        {
-          num: "03",
-          title: "Strong & still",
-          text: "Explore Kapalabhati and gentle pauses with careful supervision."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Beginners",
-        desc: "Start gently with a practice that meets you exactly where you are."
-      },
-      {
-        num: "02",
-        title: "Students",
-        desc: "Bring steadiness to study, transitions, and the changing seasons of life."
-      },
-      {
-        num: "03",
-        title: "Working professionals",
-        desc: "Create a quieter centre between meetings, commutes, and full days."
-      },
-      {
-        num: "04",
-        title: "Experienced practitioners",
-        desc: "Refine a familiar practice through attentive, classical guidance."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“The breath does not need to be conquered. It needs to be understood.”",
-      bio: "Everything below is taught by Kuldeep Dubey, in small groups of six or one-to-one, online or in person in Gurugram. Every journey starts with your Breath Signature: one calm, personal session where your teacher watches how you breathe. From that, your practice is chosen for you.",
-      badges: ["CLASSICAL YOGA LINEAGE", "PERSONAL GUIDANCE", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -181,141 +96,52 @@ export const whatWeTeachData = {
     subtitle: "Calm in the Exact Moment You Need It",
     category: "Part 1 · What OJALIS Teaches",
     tag: "CALM IN THE MOMENT",
-    headline: "The Real-Time Practice — anywhere, anytime.",
+    headline: "The Real-Time Practice",
     headlineItalic: "anywhere, anytime.",
     lead: "Most practice happens on a mat, at a fixed time. Life's big moments happen everywhere else. The Real-Time Practice gives you simple breath tools you carry with you all day.",
     heroBadgeText: "ANYWHERE, ANYTIME",
     heroCircleTag: "RESET",
     heroCircleWord: "calm",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "Most practice happens on a mat, at a fixed time. Life's big moments happen everywhere else. The Real-Time Practice gives you simple breath tools you carry with you all day.",
     simpleWords: "short breathing techniques you can use in the exact moment you need calm — anywhere, anytime.",
-    leadNarrative: "Most practice happens on a mat, at a fixed time. Life's big moments happen everywhere else. The Real-Time Practice gives you simple breath tools you carry with you all day. You don't need a yoga mat, gym clothes, or sixty spare minutes. Whether life moves fast or pressures mount, your breath remains your most accessible anchor.",
+    leadNarrative: "Most practice happens on a mat, at a fixed time. Life's big moments happen everywhere else. The Real-Time Practice gives you simple breath tools you carry with you all day.",
     bestFor: "anyone with a full, fast-moving day.",
     whereYouUseIt: "at your desk, in traffic, before a phone call, or thirty seconds before you walk into an important room.",
-    etymologyCards: [
-      {
-        word: "on-demand",
-        color: "#C59B4B",
-        meaning: "short breathing techniques for the exact moment you need calm"
-      },
-      {
-        word: "anywhere",
-        color: "#4F6144",
-        meaning: "at your desk, in traffic, or before an important room"
-      }
-    ],
-    pullQuote: "Most practice happens on a mat, at a fixed time. Life's big moments happen everywhere else.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We identify which real-time technique stabilizes your unique breath pattern so you can deploy it effortlessly in high-pressure situations.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Recognize tension",
-        text: "Spot the exact moment your breath becomes shallow, fast, or held."
-      },
-      {
-        num: "02",
-        title: "Deploy one tool",
-        text: "Use the long exhale, double sigh, or box breath for immediate physiological settling."
-      },
-      {
-        num: "03",
-        title: "Return to calm",
-        text: "Step back into your meeting, room, or conversation with quiet poise."
-      }
-    ],
-    learningPathEyebrow: "03 / WHAT YOU LEARN",
-    learningPathTitle: "What you learn — simple breath tools.",
-    learningPathSubtitle: "Short breathing techniques you can use in the exact moment you need calm — anywhere, anytime.",
-    stages: ["All Stages", "Instant Calming", "Rhythm & Focus", "Discreet"],
+    learningPathEyebrow: "02 / WHAT YOU LEARN",
+    learningPathTitle: "What you learn",
+    learningPathSubtitle: "Simple breath tools you carry with you all day.",
     techniques: [
       {
         no: "01",
         name: "The long exhale",
         words: "breathe in for 4 counts, breathe out for 6.",
         feeling: "A longer out-breath helps the body settle.",
-        stage: "Instant Calming",
-        details: "Breathe in for 4 counts, breathe out for 6. A longer out-breath helps the body settle by activating your parasympathetic calming response."
+        details: "Breathe in for 4 counts, breathe out for 6. A longer out-breath helps the body settle."
       },
       {
         no: "02",
         name: "The double sigh",
         words: "two short breaths in through the nose, one long, slow breath out through the mouth.",
-        feeling: "Instant emotional release",
-        stage: "Instant Calming",
-        details: "Two short breaths in through the nose, one long, slow breath out through the mouth. Drops acute tension in seconds."
+        feeling: "Two short breaths in through the nose, one long, slow breath out through the mouth.",
+        details: "Two short breaths in through the nose, one long, slow breath out through the mouth."
       },
       {
         no: "03",
         name: "Box breathing",
         words: "in for 4, hold for 4, out for 4, hold for 4",
         feeling: "A steady rhythm for a busy mind.",
-        stage: "Rhythm & Focus",
-        details: "In for 4, hold for 4, out for 4, hold for 4 — a steady rhythm for a busy mind when thoughts race."
+        details: "In for 4, hold for 4, out for 4, hold for 4 — a steady rhythm for a busy mind."
       },
       {
         no: "04",
         name: "The quiet hum",
         words: "a soft, private version of Bhramari you can do even in a meeting.",
-        feeling: "Soft and private calm",
-        stage: "Discreet",
-        details: "A soft, private version of Bhramari you can do even in a meeting without anyone noticing."
+        feeling: "A soft, private version of Bhramari you can do even in a meeting.",
+        details: "A soft, private version of Bhramari you can do even in a meeting."
       }
     ],
-    howItGrows: {
-      title: "From mat practice to daily instinct.",
-      desc: "Initially you practice these tools in calm moments. Within a few weeks, your body turns to them automatically the moment pressure arises.",
-      nodes: [
-        {
-          num: "01",
-          title: "Learn the tools",
-          text: "Master the 4 techniques with personal observation from Kuldeep Dubey."
-        },
-        {
-          num: "02",
-          title: "Daily touchpoints",
-          text: "Anchor each technique to daily moments: your desk, red lights, or before calls."
-        },
-        {
-          num: "03",
-          title: "Automatic calm",
-          text: "Stay composed effortlessly in high-pressure rooms and busy days."
-        }
-      ]
-    },
-    lifeSectionEyebrow: "WHERE YOU USE IT",
-    lifeSectionTitle: "Where you use it.",
-    lifeCards: [
-      {
-        num: "01",
-        title: "At Your Desk",
-        desc: "At your desk between demanding tasks, back-to-back emails, and tight deadlines."
-      },
-      {
-        num: "02",
-        title: "In Traffic",
-        desc: "In traffic when unexpected gridlock tests your patience, keeping your heartbeat steady."
-      },
-      {
-        num: "03",
-        title: "Before a Phone Call",
-        desc: "Before a phone call to ground your voice and speak with steady warmth and presence."
-      },
-      {
-        num: "04",
-        title: "Before an Important Room",
-        desc: "Thirty seconds before you walk into an important room to dissolve stage-fright and nervousness."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“The breath does not need to be conquered. It needs to be understood.”",
-      bio: "Kuldeep Dubey teaches you how to bridge ancient pranayama with fast-moving urban environments so peace is never confined to a studio.",
-      badges: ["REAL-TIME MASTERY", "INDIVIDUAL ADAPTATION", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -326,137 +152,49 @@ export const whatWeTeachData = {
     title: "The Desk Breath",
     subtitle: "Screen & Chair Breathing for Modern Life",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "DESK & SCREEN WELLNESS",
-    headline: "Easy breath right where you sit.",
+    tag: "SEATED BREATH & MOVEMENT",
+    headline: "The Desk Breath",
     headlineItalic: "right where you sit.",
-    lead: "Gentle breathing and stretching made for people who sit at a screen for long hours. Long hours at a desk often bring a tight neck, rounded shoulders and a shallow breath.",
-    heroBadgeText: "CHAIR COMPATIBLE",
-    heroCircleTag: "RELEASE",
-    heroCircleWord: "tension",
+    lead: "Long hours at a desk often bring a tight neck, rounded shoulders and a shallow breath. The Desk Breath brings you back to an easy, full breath right where you sit.",
+    heroBadgeText: "RIGHT WHERE YOU SIT",
+    heroCircleTag: "RESET",
+    heroCircleWord: "ease",
     image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "What you need: your chair and the clothes you're wearing — mats and changing are optional.",
     simpleWords: "gentle breathing and stretching made for people who sit at a screen for long hours.",
-    leadNarrative: "The Desk Breath brings you back to an easy, full breath right where you sit. When you stare at screens, you unconsciously shallow-breathe or hold your breath ('screen apnea'). The Desk Breath reverses this in minutes.",
-    etymologyCards: [
-      {
-        word: "seated",
-        color: "#C59B4B",
-        meaning: "practiced right in your office chair in normal work clothes"
-      },
-      {
-        word: "decompression",
-        color: "#4F6144",
-        meaning: "opening cervical spine, chest muscles, and carpal wrists"
-      }
-    ],
-    pullQuote: "You don't need to change clothes or lie down. You only need to breathe.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We map your workstation posture habits and customize chair breath sequences that unlock your diaphragm without disrupting your workflow.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Chair alignment",
-        text: "Finding your sit-bones and establishing an upright neutral spine."
-      },
-      {
-        num: "02",
-        title: "Synchronized mobility",
-        text: "Pairing gentle neck, shoulder, and wrist moves with the breath."
-      },
-      {
-        num: "03",
-        title: "Hourly rhythm",
-        text: "Establishing 60-second micro-breaks across your working day."
-      }
-    ],
-    learningPathTitle: "What happens in a session.",
-    learningPathSubtitle: "A sequence designed for the realities of modern computer work.",
-    stages: ["All Stages", "Postural Release", "Diaphragm", "Micro-Breaks"],
+    leadNarrative: "Long hours at a desk often bring a tight neck, rounded shoulders and a shallow breath. The Desk Breath brings you back to an easy, full breath right where you sit.",
+    whatYouNeed: "your chair and the clothes you're wearing — mats and changing are optional.",
+    bestFor: "students, professionals and anyone who spends the day at a screen.",
+    learningPathEyebrow: "02 / WHAT HAPPENS IN A SESSION",
+    learningPathTitle: "What happens in a session",
+    learningPathSubtitle: "Gentle breathing and stretching made for people who sit at a screen for long hours.",
+    tableHeaderTechnique: "Practice",
+    tableHeaderWords: "Focus",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
-        name: "Seated Neck & Shoulder Unwinding",
-        words: "Gentle head tilts, chin retractions and shoulder rolls matched to breath",
-        feeling: "Light and unburdened",
-        stage: "Postural Release",
-        details: "Releases trapped trapezius and levator scapulae tension caused by laptop hunching."
+        name: "Seated neck, shoulder and wrist movements",
+        words: "Each matched to the breath.",
+        feeling: "Released tension",
+        details: "Seated neck, shoulder and wrist movements, each matched to the breath."
       },
       {
         no: "02",
-        name: "Belly Breathing in Your Chair",
-        words: "Diaphragmatic expansion to open the ribcage and relax shoulders",
-        feeling: "Spacious and grounded",
-        stage: "Diaphragm",
-        details: "Reverses desk slouching and delivers fresh oxygenated prana into the lower lung fields."
+        name: "Belly breathing in your chair",
+        words: "To open the chest and relax the shoulders.",
+        feeling: "Open and relaxed",
+        details: "Belly breathing in your chair, to open the chest and relax the shoulders."
       },
       {
         no: "03",
-        name: "Wrist & Finger Decompression",
-        words: "Coordinated wrist rolls and tendon gliding for mouse users",
-        feeling: "Supple and fluid",
-        stage: "Postural Release",
-        details: "Prevents repetitive strain injury (RSI) and carpal tunnel stiffness."
-      },
-      {
-        no: "04",
-        name: "Short Breath Breaks",
-        words: "1-minute breath resets you repeat every hour of the working day",
-        feeling: "Clear-headed and bright",
-        stage: "Micro-Breaks",
-        details: "Prevents the afternoon 3 PM cognitive crash without relying on excess caffeine."
+        name: "Short breath breaks",
+        words: "You can repeat every hour of the working day.",
+        feeling: "Refreshed and alert",
+        details: "Short breath breaks you can repeat every hour of the working day."
       }
     ],
-    howItGrows: {
-      title: "Sustainable work endurance.",
-      desc: "Leave work with the same vitality you arrived with. No end-of-day tension headaches or stiff lower back.",
-      nodes: [
-        {
-          num: "01",
-          title: "Identify screen fatigue",
-          text: "Notice when your shoulders creep toward your ears during focus."
-        },
-        {
-          num: "02",
-          title: "60-second resets",
-          text: "Insert simple chair breaths between email batches and calls."
-        },
-        {
-          num: "03",
-          title: "End-of-day freedom",
-          text: "Arrive home with energy left for family, creative pursuits, and life."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Software Engineers",
-        desc: "Counteract 8+ hours of screen focus with wrist and neck decompression."
-      },
-      {
-        num: "02",
-        title: "Corporate Executives",
-        desc: "Stay calm and composed through high-stakes strategy discussions."
-      },
-      {
-        num: "03",
-        title: "Remote Workers",
-        desc: "Create clear mental boundaries and physical release at home workstations."
-      },
-      {
-        num: "04",
-        title: "Students & Writers",
-        desc: "Sustain mental focus and spinal comfort across long study marathons."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“The chair is not an obstacle to yoga; it is simply another asana.”",
-      bio: "Kuldeep Dubey has guided hundreds of corporate leaders and professionals across Gurugram, Delhi NCR and globally to painless, calm workdays.",
-      badges: ["WORKPLACE WELLNESS", "ERGONOMIC BREATH", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -465,147 +203,65 @@ export const whatWeTeachData = {
   "yoga-nidra": {
     slug: "yoga-nidra",
     title: "Yoga Nidra",
-    subtitle: "The Art of Conscious Yogic Sleep",
+    subtitle: "Deeply Restful Guided Yogic Sleep",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "DEEP CONSCIOUS REST",
-    headline: "Yogic sleep for deep rest.",
-    headlineItalic: "for deep rest.",
-    lead: "A deeply restful, guided practice done lying down while your teacher's voice leads you. The body rests deeply while the mind stays softly aware.",
-    heroBadgeText: "EFFORTLESS STILLNESS",
-    heroCircleTag: "RESTORE",
-    heroCircleWord: "deeply",
+    tag: "YOGIC SLEEP",
+    headline: "Yoga Nidra",
+    headlineItalic: "deeply restful yogic sleep.",
+    lead: "You lie comfortably on your back, close your eyes and simply listen. Your teacher guides your attention gently through the body, the breath and calm images. The body rests deeply while the mind stays softly aware.",
+    heroBadgeText: "DEEP REST",
+    heroCircleTag: "REST",
+    heroCircleWord: "peace",
     image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "What you need: a mat, a cushion and a blanket. All you do is lie down and listen.",
-    simpleWords: "“yogic sleep” — a deeply restful, guided practice done lying down while your teacher's voice leads you.",
+    simpleWords: "\"yogic sleep\" — a deeply restful, guided practice done lying down while your teacher's voice leads you.",
     leadNarrative: "You lie comfortably on your back, close your eyes and simply listen. Your teacher guides your attention gently through the body, the breath and calm images. The body rests deeply while the mind stays softly aware.",
-    etymologyCards: [
-      {
-        word: "yoga",
-        color: "#C59B4B",
-        meaning: "union with your calm, underlying witness awareness"
-      },
-      {
-        word: "nidra",
-        color: "#4F6144",
-        meaning: "sleep of the senses while awareness remains lucid"
-      }
-    ],
-    pullQuote: "All you do is lie down and listen. Let the body rest completely.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "Through careful initial observation, we calibrate the pacing and acoustic resonance of the guidance to match your nervous system's receptivity.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Comfortable vessel",
-        text: "Settling comfortably with warm blankets, eye pillows, and head support."
-      },
-      {
-        num: "02",
-        title: "Rotation of mind",
-        text: "Moving attention progressively through each part of the body."
-      },
-      {
-        num: "03",
-        title: "Soft return",
-        text: "Gently returning to waking reality, renewed and peaceful."
-      }
-    ],
-    learningPathTitle: "What happens in a session.",
-    learningPathSubtitle: "The five classical stages of an OJALIS Yoga Nidra journey.",
-    stages: ["All Stages", "Preparation", "Subconscious", "Awakening"],
+    whatYouNeed: "a mat, a cushion and a blanket. All you do is lie down and listen.",
+    bestFor: "anyone who wants deep rest, refreshing sleep and a quieter mind.",
+    learningPathEyebrow: "02 / WHAT HAPPENS IN A SESSION",
+    learningPathTitle: "What happens in a session",
+    learningPathSubtitle: "All you do is lie down and listen.",
+    tableHeaderTechnique: "Step",
+    tableHeaderWords: "Session Element",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
-        name: "Settling Down & Getting Comfortable",
-        words: "Arranging cushions, bolsters, and blankets until the body has zero resistance",
-        feeling: "Supported and safe",
-        stage: "Preparation",
-        details: "Eliminates all physical fidgeting so the physical body can surrender completely."
+        name: "Settling down",
+        words: "Settling down and getting comfortable.",
+        feeling: "Comfortable and settled",
+        details: "Settling down and getting comfortable."
       },
       {
         no: "02",
-        name: "Personal Intention (Sankalpa)",
-        words: "A short, positive resolve planted when the subconscious is quiet",
-        feeling: "Clear and purposeful",
-        stage: "Subconscious",
-        details: "A seed of personal transformation that takes root deep in the quiet mind."
+        name: "Personal intention (sankalpa)",
+        words: "A simple personal intention (sankalpa).",
+        feeling: "Grounded and directed",
+        details: "A simple personal intention (sankalpa)."
       },
       {
         no: "03",
-        name: "Body Rotation (Nyasa)",
-        words: "Moving attention slowly and systematically through each part of the body",
-        feeling: "Weightless and tingling",
-        stage: "Subconscious",
-        details: "Deactivates sensory cortex maps in the brain, inducing deep delta and theta relaxation."
+        name: "Body rotation",
+        words: "Moving attention slowly through each part of the body.",
+        feeling: "Total physical release",
+        details: "Moving attention slowly through each part of the body."
       },
       {
         no: "04",
-        name: "Awareness of the Breath",
-        words: "Effortlessly watching natural inhalation and exhalation",
-        feeling: "Still and undisturbed",
-        stage: "Subconscious",
-        details: "Reverse breath awareness dissolves subconscious mental loops and worry."
+        name: "Awareness of the breath",
+        words: "Awareness of the breath.",
+        feeling: "Softly aware",
+        details: "Awareness of the breath."
       },
       {
         no: "05",
-        name: "Gentle Return to the Room",
-        words: "Slowly awakening the senses, feeling deeply refreshed",
-        feeling: "Reborn and light",
-        stage: "Awakening",
-        details: "Smooth transition back into daily life with mental lucidity and quiet calm."
+        name: "Gentle return",
+        words: "A gentle return to the room, feeling refreshed.",
+        feeling: "Refreshed and renewed",
+        details: "A gentle return to the room, feeling refreshed."
       }
     ],
-    howItGrows: {
-      title: "Rest that compounds over time.",
-      desc: "One 45-minute Yoga Nidra session provides physiological recovery equivalent to 3 to 4 hours of ordinary sleep.",
-      nodes: [
-        {
-          num: "01",
-          title: "Physical surrender",
-          text: "Muscles release chronic contraction and tension melts."
-        },
-        {
-          num: "02",
-          title: "Theta state entry",
-          text: "Brainwaves slow into restorative twilight consciousness."
-        },
-        {
-          num: "03",
-          title: "Subconscious renewal",
-          text: "Old anxieties unravel without psychological confrontation."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Insomnia & Restless Sleep",
-        desc: "For those whose minds stay busy when it's time to sleep at night."
-      },
-      {
-        num: "02",
-        title: "Burnout & Overwhelm",
-        desc: "Deep somatic rest for professionals exhausted by relentless demands."
-      },
-      {
-        num: "03",
-        title: "Postnatal Mothers",
-        desc: "Essential deep restorative rest that replenishes depleted maternal energy."
-      },
-      {
-        num: "04",
-        title: "Meditation Seekers",
-        desc: "Access deep meditative stillness without fighting physical restlessness."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“In Yoga Nidra, you don't fall asleep. You wake up to silence.”",
-      bio: "Kuldeep Dubey's calm, steady cadence guides you gently into the threshold of deep rest where physical and mental strain effortlessly dissolve.",
-      badges: ["CONSCIOUS REST", "HEALING CADENCE", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -614,131 +270,50 @@ export const whatWeTeachData = {
   "meditation": {
     slug: "meditation",
     title: "Meditation",
-    subtitle: "Training Attention to Rest on the Breath",
+    subtitle: "Training Attention to Rest Calmly",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "STILLNESS & ATTENTION",
-    headline: "Rest your attention calmly.",
-    headlineItalic: "attention calmly.",
-    lead: "Training your attention to rest calmly in one place — and at OJALIS, that place is your breath. A busy mind is perfectly welcome. You begin with just a few minutes and grow at your own pace.",
-    heroBadgeText: "ZERO MENTAL FORCE",
-    heroCircleTag: "STILL",
-    heroCircleWord: "mind",
+    tag: "CALM AWARENESS",
+    headline: "Meditation",
+    headlineItalic: "anchored in the breath.",
+    lead: "A busy mind is perfectly welcome. You begin with just a few minutes and grow at your own pace.",
+    heroBadgeText: "REST CALMLY",
+    heroCircleTag: "STILLNESS",
+    heroCircleWord: "peace",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=85",
-    mantraText: "A busy mind is perfectly welcome. You begin with just a few minutes and grow at your own pace.",
     simpleWords: "training your attention to rest calmly in one place — and at OJALIS, that place is your breath.",
-    leadNarrative: "Yogic meditation is not about forcefully stopping your thoughts — it is about learning to step back and become the calm, undisturbed observer. Through systematic breath regulation, the turbulence of thought settles naturally.",
-    etymologyCards: [
-      {
-        word: "dhyana",
-        color: "#C59B4B",
-        meaning: "an unbroken, effortless stream of awareness toward one object"
-      },
-      {
-        word: "sakshi",
-        color: "#4F6144",
-        meaning: "the quiet inner witness that observes all without reacting"
-      }
-    ],
-    pullQuote: "You don't fight thoughts. You simply give attention a gentler home.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We assess your natural mental rhythm and choose the exact duration and anchor that makes sitting feel easy rather than strenuous.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Posture ease",
-        text: "Finding a comfortable upright seat supported by cushions or chair."
-      },
-      {
-        num: "02",
-        title: "Breath anchor",
-        text: "Using the cool touch of breath at the nostrils as a gentle focus."
-      },
-      {
-        num: "03",
-        title: "Natural stillness",
-        text: "Gradually extending time as quietness arises spontaneously."
-      }
-    ],
-    learningPathTitle: "How meditation grows at OJALIS.",
-    learningPathSubtitle: "A graduated progression honoring your nervous system.",
-    stages: ["All Stages", "Beginning (5m)", "Building (10m)", "Deepening (15m+)"],
+    leadNarrative: "A busy mind is perfectly welcome. You begin with just a few minutes and grow at your own pace.",
+    bestFor: "anyone seeking a calmer, clearer, more focused mind.",
+    learningPathEyebrow: "02 / HOW IT GROWS",
+    learningPathTitle: "How it grows",
+    learningPathSubtitle: "You begin with just a few minutes and grow at your own pace.",
+    tableHeaderTechnique: "Stage",
+    tableHeaderWords: "Practice",
+    tableHeaderFeeling: "Time",
     techniques: [
       {
         no: "01",
-        name: "Stage 1 · Beginning",
+        name: "Beginning",
         words: "Watching the natural breath at the nostrils",
-        feeling: "Simple, calm, unhurried",
-        stage: "Beginning (5m)",
-        details: "Time: 5 minutes. No counting, no forcing. Just feeling the natural inhalation and exhalation at the upper lip."
+        feeling: "5 minutes",
+        details: "Watching the natural breath at the nostrils — 5 minutes."
       },
       {
         no: "02",
-        name: "Stage 2 · Building",
-        words: "Counting breaths from 1 to 10, or silently repeating So-Hum with breath",
-        feeling: "Steady and focused",
-        stage: "Building (10m)",
-        details: "Time: 10 minutes. A gentle cognitive anchor that keeps wandering attention from drifting away."
+        name: "Building",
+        words: "Counting breaths from 1 to 10, or silently repeating So-Hum with the breath",
+        feeling: "10 minutes",
+        details: "Counting breaths from 1 to 10, or silently repeating So-Hum with the breath — 10 minutes."
       },
       {
         no: "03",
-        name: "Stage 3 · Deepening",
-        words: "Peaceful silent sitting after Bhramari resonance",
-        feeling: "Vast, quiet, luminous",
-        stage: "Deepening (15m+)",
-        details: "Time: 15 minutes or more. The cranial humming sound washes away thoughts, leaving pristine inner quiet."
+        name: "Deepening",
+        words: "Peaceful silent sitting after Bhramari",
+        feeling: "15 minutes or more",
+        details: "Peaceful silent sitting after Bhramari — 15 minutes or more."
       }
     ],
-    howItGrows: {
-      title: "Patience over performance.",
-      desc: "There are no exams, medals, or failures in meditation. Even five minutes of calm observation rewires your nervous system for peace.",
-      nodes: [
-        {
-          num: "01",
-          title: "Welcoming thoughts",
-          text: "Never scolding yourself for thinking. Simply smiling and returning."
-        },
-        {
-          num: "02",
-          title: "The breath anchor",
-          text: "Your breath is always with you, an infinite sanctuary in your chest."
-        },
-        {
-          num: "03",
-          title: "Daily quietude",
-          text: "Carry that stillness into your meetings, traffic, and relationships."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Busy Minds",
-        desc: "For anyone who believes 'I can never meditate because my mind never stops.'"
-      },
-      {
-        num: "02",
-        title: "Stress & Anxiety",
-        desc: "Soothe fight-or-flight overactivation with diaphragmatic witness awareness."
-      },
-      {
-        num: "03",
-        title: "Decision Makers",
-        desc: "Develop laser mental clarity, emotional steadiness, and intuitive insight."
-      },
-      {
-        num: "04",
-        title: "Spiritual Seekers",
-        desc: "Access the classical Vedic lineage of Dhyana and Sakshi Bhav."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Meditation is not doing something new. It is undoing the noise.”",
-      bio: "Kuldeep Dubey creates a safe, warm space where your mind is welcomed without judgment and guided into natural stillness.",
-      badges: ["MINDFUL ATTENTION", "CLASSICAL DHYANA", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -747,155 +322,65 @@ export const whatWeTeachData = {
   "hatha-yoga": {
     slug: "hatha-yoga",
     title: "Hatha Yoga",
-    subtitle: "Classical Postures Led by the Breath",
+    subtitle: "The Classical Yoga of Postures Led by the Breath",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "CLASSICAL ASANA",
-    headline: "Movement led by the breath.",
-    headlineItalic: "by the breath.",
-    lead: "The classical yoga of postures (asanas), practised slowly and always led by the breath. At OJALIS, hatha yoga is calm and mindful. Fewer postures are held with awareness. The breath leads; the posture follows.",
-    heroBadgeText: "STHIRA SUKHAM",
+    tag: "POSTURE & BREATH",
+    headline: "Hatha Yoga",
+    headlineItalic: "the breath leads, posture follows.",
+    lead: "At OJALIS, hatha yoga is calm and mindful. Fewer postures are held with awareness, and every movement follows the breath. The breath leads; the posture follows.",
+    heroBadgeText: "MINDFUL MOVEMENT",
     heroCircleTag: "FLOW",
-    heroCircleWord: "calm",
+    heroCircleWord: "steady",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "The breath leads; the posture follows. Fewer postures, held with awareness and ease.",
     simpleWords: "the classical yoga of postures (asanas), practised slowly and always led by the breath.",
-    leadNarrative: "At OJALIS, hatha yoga rejects aggressive fitness gymnastics in favor of classical mindfulness. Every movement follows your in-breath or out-breath. We prioritize structural alignment, joint safety, and internal quiet.",
-    etymologyCards: [
-      {
-        word: "ha",
-        color: "#C59B4B",
-        meaning: "solar energy, vitality, heat and outward action"
-      },
-      {
-        word: "tha",
-        color: "#4F6144",
-        meaning: "lunar energy, cooling, relaxation and inner calm"
-      }
-    ],
-    pullQuote: "The posture is merely an invitation. The breath is the practice.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We adapt each asana to your skeletal anatomy and respiratory capacity. Props and gentle variations ensure complete safety for every body.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Breath initiation",
-        text: "The breath starts a half-second before the physical movement."
-      },
-      {
-        num: "02",
-        title: "Mindful holding",
-        text: "Settling into the posture without straining or breath-holding."
-      },
-      {
-        num: "03",
-        title: "Restorative release",
-        text: "Exiting with control and absorbing the energetic resonance."
-      }
-    ],
-    learningPathTitle: "What you will practise.",
-    learningPathSubtitle: "A balanced, classical journey across the five posture families.",
-    stages: ["All Stages", "Standing & Spine", "Backbends & Seated", "Forward & Rest", "Advanced"],
+    leadNarrative: "At OJALIS, hatha yoga is calm and mindful. Fewer postures are held with awareness, and every movement follows the breath. The breath leads; the posture follows.",
+    bestFor: "beginners and experienced students alike",
+    learningPathEyebrow: "02 / WHAT YOU WILL PRACTISE",
+    learningPathTitle: "What you will practise",
+    learningPathSubtitle: "Fewer postures are held with awareness, and every movement follows the breath.",
+    tableHeaderTechnique: "Postures",
+    tableHeaderWords: "Examples",
+    tableHeaderFeeling: "Benefit",
     techniques: [
       {
         no: "01",
-        name: "Standing Postures",
-        words: "Tadasana, Tiryak Tadasana, and steady grounding series",
-        feeling: "Grounded, upright, balanced",
-        stage: "Standing & Spine",
-        details: "Builds upright posture, releases spinal compression, and cultivates rooted physical confidence."
+        name: "Standing postures",
+        words: "Such as Tadasana and Tiryak Tadasana",
+        feeling: "For balance and good posture",
+        details: "Standing postures — such as Tadasana and Tiryak Tadasana — for balance and good posture."
       },
       {
         no: "02",
-        name: "Gentle Backbends",
-        words: "Bhujangasana (Cobra) and Setu Bandhasana (Bridge)",
-        feeling: "Expansive and warm",
-        stage: "Backbends & Seated",
-        details: "Opens the ribcage and pectoral muscles, inviting an effortless, fuller diaphragmatic breath."
+        name: "Gentle backbends",
+        words: "Such as Bhujangasana and Setu Bandhasana",
+        feeling: "Open the chest and invite a fuller breath",
+        details: "Gentle backbends — such as Bhujangasana and Setu Bandhasana — to open the chest and invite a fuller breath."
       },
       {
         no: "03",
-        name: "Seated Postures & Twists",
-        words: "Vajrasana, Janu Sirsasana, and gentle seated spinal spirals",
-        feeling: "Supple, centered, free",
-        stage: "Backbends & Seated",
-        details: "Decompresses the lumbar vertebrae, tones abdominal organs, and relieves lower back tightness."
+        name: "Seated postures and twists",
+        words: "Such as Vajrasana and gentle seated twists",
+        feeling: "For a supple spine",
+        details: "Seated postures and twists — such as Vajrasana and gentle seated twists — for a supple spine."
       },
       {
         no: "04",
-        name: "Forward Bends",
-        words: "Unhurried forward folds honoring individual hamstring length",
-        feeling: "Surrendered and tranquil",
-        stage: "Forward & Rest",
-        details: "Soothes the central nervous system and prepares the mind for pranayama and meditation."
+        name: "Forward bends",
+        words: "Gentle forward extensions",
+        feeling: "For calm and flexibility",
+        details: "Forward bends — for calm and flexibility."
       },
       {
         no: "05",
-        name: "Resting Postures",
-        words: "Makarasana (Crocodile) and Shavasana (Corpse posture)",
-        feeling: "Deeply restored",
-        stage: "Forward & Rest",
-        details: "Allows the entire physiological system to integrate the prana awakened during practice."
-      },
-      {
-        no: "06",
-        name: "Advanced Postures on Request",
-        words: "Inversions, deeper backbends, and arm balances guided step-by-step",
-        feeling: "Strong, poised, fearless",
-        stage: "Advanced",
-        details: "Added only when your practice is steady, guided one careful step at a time."
+        name: "Resting postures",
+        words: "Such as Makarasana and Shavasana",
+        feeling: "Let the body absorb the practice",
+        details: "Resting postures — such as Makarasana and Shavasana — to let the body absorb the practice."
       }
     ],
-    howItGrows: {
-      title: "Stability before flexibility.",
-      desc: "We focus on anatomical alignment and breath steadiness. As tension releases, flexibility unfolds naturally without forcing.",
-      nodes: [
-        {
-          num: "01",
-          title: "Foundation",
-          text: "Rooting through feet and learning diaphragmatic breath coordination."
-        },
-        {
-          num: "02",
-          title: "Effortless hold",
-          text: "Holding postures in Sthira-Sukham — steadiness without tension."
-        },
-        {
-          num: "03",
-          title: "Subtle awareness",
-          text: "The posture becomes a quiet, moving meditation."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Beginners",
-        desc: "Safe, disciplined foundations free from intimidating fitness acrobatic pressure."
-      },
-      {
-        num: "02",
-        title: "Stiff & Sedentary",
-        desc: "Decompress spinal discs and release hips tight from prolonged sitting."
-      },
-      {
-        num: "03",
-        title: "Active Sadhakas",
-        desc: "Deepen classical alignment and understand the pranic anatomy of asana."
-      },
-      {
-        num: "04",
-        title: "Health & Vitality",
-        desc: "Build pain-free, functional physical longevity for decades to come."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“When the breath moves, the body follows. In that harmony is health.”",
-      bio: "Kuldeep Dubey guides each student with precision and anatomical care, ensuring every asana honors your body's natural proportions.",
-      badges: ["CLASSICAL ASANA", "ANATOMICAL SAFETY", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    advancedPostures: "Once your practice is steady, advanced postures — such as inversions, deeper backbends and arm balances — are added whenever you ask for them, guided one step at a time.",
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -904,155 +389,72 @@ export const whatWeTeachData = {
   "sukshma-vyayama": {
     slug: "sukshma-vyayama",
     title: "Sukshma Vyayama",
-    subtitle: "Subtle Joint-by-Joint Yogic Exercises",
+    subtitle: "Gentle, Joint-by-Joint Subtle Movements",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "SUBTLE YOGIC EXERCISE",
-    headline: "Loosen the whole body gently.",
-    headlineItalic: "the whole body gently.",
-    lead: "“Subtle exercise” — gentle, joint-by-joint movements, each joined to the breath. These simple movements warm up and loosen the whole body from head to toe, preparing it for deeper practice.",
-    heroBadgeText: "ALL AGES & LEVELS",
-    heroCircleTag: "FREE",
-    heroCircleWord: "joints",
+    tag: "SUBTLE EXERCISE",
+    headline: "Sukshma Vyayama",
+    headlineItalic: "gentle joint-by-joint movement.",
+    lead: "These simple movements warm up and loosen the whole body from head to toe, preparing it for deeper practice.",
+    heroBadgeText: "SUBTLE WARMUP",
+    heroCircleTag: "JOINTS",
+    heroCircleWord: "release",
     image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "What makes it special: it suits every age and every fitness level — children, elders, complete beginners and anyone returning after a break.",
-    simpleWords: "“subtle exercise” — gentle, joint-by-joint movements, each joined to the breath.",
-    leadNarrative: "Sukshma means subtle and vyayama means exercise. Working from the micro-joints of the toes and fingers up through the neck and eyes, Sukshma Vyayama releases calcification, stimulates synovial fluid, and awakens the body's micro-circulation.",
-    etymologyCards: [
-      {
-        word: "sukshma",
-        color: "#C59B4B",
-        meaning: "subtle, micro-level, targeting joint capsules and energy channels"
-      },
-      {
-        word: "vyayama",
-        color: "#4F6144",
-        meaning: "dynamic discipline, movement coordinated with breath"
-      }
-    ],
-    pullQuote: "Gentle movements that unlock the entire body without sweating or strain.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We map your joint mobility and stiffness points, tailoring micro-movements you can do either on a mat or comfortably seated in a chair.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Head to toe",
-        text: "Moving systematically from eyes down to ankles and toes."
-      },
-      {
-        num: "02",
-        title: "Breath coordination",
-        text: "Synchronizing every bend, circle, and flexion with nasal breathing."
-      },
-      {
-        num: "03",
-        title: "Daily accessibility",
-        text: "Practicing anywhere without requiring special yoga attire."
-      }
-    ],
-    learningPathTitle: "What you will move, gently.",
-    learningPathSubtitle: "A complete head-to-toe joint liberation sequence.",
-    stages: ["All Stages", "Eyes & Neck", "Shoulders & Arms", "Torso & Pelvis", "Legs & Feet"],
+    simpleWords: "\"subtle exercise\" — gentle, joint-by-joint movements, each joined to the breath.",
+    leadNarrative: "These simple movements warm up and loosen the whole body from head to toe, preparing it for deeper practice.",
+    whatMakesItSpecial: "it suits every age and every fitness level — children, elders, complete beginners and anyone returning after a break. It can also be done on a chair.",
+    bestFor: "everyone, as a gentle start to every class.",
+    learningPathEyebrow: "02 / WHAT YOU WILL MOVE, GENTLY",
+    learningPathTitle: "What you will move, gently",
+    learningPathSubtitle: "Simple movements to warm up and loosen the whole body from head to toe.",
+    tableHeaderTechnique: "Area",
+    tableHeaderWords: "Gentle Movements",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
         name: "Eyes",
-        words: "Up, down, side to side, circles, then resting with warm palms",
-        feeling: "Soothing and clear",
-        stage: "Eyes & Neck",
-        details: "Relieves digital eye strain and relaxes tense ocular and optic nerve pathways."
+        words: "Up, down, side to side, then rest with warm palms.",
+        feeling: "Soothed and rested",
+        details: "Eyes — up, down, side to side, then rest with warm palms."
       },
       {
         no: "02",
-        name: "Neck & Cervical Spine",
-        words: "Gentle forward, backward, side-to-side tilts and soft semi-circles",
-        feeling: "Weightless and open",
-        stage: "Eyes & Neck",
-        details: "Decompresses cervical vertebrae and releases tension headaches caused by screens."
+        name: "Neck",
+        words: "Forward, back, side to side.",
+        feeling: "Released tension",
+        details: "Neck — forward, back, side to side."
       },
       {
         no: "03",
         name: "Shoulders",
-        words: "Lifting, rolling backward and forward, and scapular circles",
-        feeling: "Softened and supple",
-        stage: "Shoulders & Arms",
-        details: "Opens the chest and unlocks tight shoulder capsules and clavicle attachments."
+        words: "Lifting and rolling.",
+        feeling: "Open shoulders",
+        details: "Shoulders — lifting and rolling."
       },
       {
         no: "04",
-        name: "Elbows, Wrists & Fingers",
-        words: "Bending, circling, opening and closing fist releases",
-        feeling: "Fluid and pain-free",
-        stage: "Shoulders & Arms",
-        details: "Pumps fresh prana into carpal channels, reversing keyboard and smartphone stiffness."
+        name: "Elbows, wrists and fingers",
+        words: "Bending, circling, opening and closing.",
+        feeling: "Supple joints",
+        details: "Elbows, wrists and fingers — bending, circling, opening and closing."
       },
       {
         no: "05",
-        name: "Waist & Hips",
-        words: "Gentle bends, standing pelvic circles and soft twists",
-        feeling: "Supple and free",
-        stage: "Torso & Pelvis",
-        details: "Loosens the sacrum and lower back, facilitating smooth diaphragmatic breathing."
+        name: "Waist and hips",
+        words: "Gentle bends, twists and circles.",
+        feeling: "Spine mobility",
+        details: "Waist and hips — gentle bends, twists and circles."
       },
       {
         no: "06",
-        name: "Knees, Ankles & Toes",
-        words: "Bending, flexing, ankle rotations and toe spreading",
-        feeling: "Rooted and balanced",
-        stage: "Legs & Feet",
-        details: "Awakens the peripheral nerve endings and restores springiness to foot arches."
+        name: "Knees, ankles and toes",
+        words: "Bending, flexing and circling.",
+        feeling: "Grounded stability",
+        details: "Knees, ankles and toes — bending, flexing and circling."
       }
     ],
-    howItGrows: {
-      title: "The foundation for all movement.",
-      desc: "Sukshma Vyayama is the gentle start to every OJALIS class. It ensures your body is primed, open, and injury-free before deeper asanas.",
-      nodes: [
-        {
-          num: "01",
-          title: "Warmup & awakening",
-          text: "Wakes up dormant joint tissues and clears morning stiffness."
-        },
-        {
-          num: "02",
-          title: "Chair adaptation",
-          text: "Can be performed completely in a chair for seniors or office workers."
-        },
-        {
-          num: "03",
-          title: "Lifelong mobility",
-          text: "Keeps cartilage lubricated and flexible well into golden years."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Complete Beginners",
-        desc: "The gentlest, most welcoming entry point into the world of yoga."
-      },
-      {
-        num: "02",
-        title: "Seniors & Elders",
-        desc: "Safe joint mobility that preserves independence and relieves arthritis."
-      },
-      {
-        num: "03",
-        title: "Post-Injury / Break",
-        desc: "A compassionate return to movement after illness, surgery, or hiatus."
-      },
-      {
-        num: "04",
-        title: "Daily Office Workers",
-        desc: "Quick 5-minute desk exercises to keep neck and wrists limber."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Care for the small joints, and the big spine will take care of itself.”",
-      bio: "Kuldeep Dubey teaches Sukshma Vyayama with patient precision, helping every student reclaim effortless, pain-free joint movement.",
-      badges: ["JOINT REJUVENATION", "GENTLE MOVEMENT", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -1063,137 +465,49 @@ export const whatWeTeachData = {
     title: "Shatkarma",
     subtitle: "Classical Cleansing Practices of Hatha Yoga",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "CLEANSING & PURITY",
-    headline: "Clearing the body for breath.",
-    headlineItalic: "for breath.",
-    lead: "The classical cleansing practices of hatha yoga, used for centuries to prepare the body for deeper breathing and meditation. Shat means six and karma means action.",
-    heroBadgeText: "CLASSICAL CLEANSING",
-    heroCircleTag: "CLEAR",
-    heroCircleWord: "channels",
+    tag: "CLEANSING PRACTICES",
+    headline: "Shatkarma",
+    headlineItalic: "classical cleansing practices.",
+    lead: "Shat means six and karma means action. The tradition describes six cleansing practices. At OJALIS, you begin with the gentlest ones, learned one at a time with your teacher's guidance.",
+    heroBadgeText: "CLEAR & EASY BREATH",
+    heroCircleTag: "PURIFY",
+    heroCircleWord: "clarity",
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "How it is taught: step by step, as your Breath Signature shows you're ready.",
     simpleWords: "the classical cleansing practices of hatha yoga, used for centuries to prepare the body for deeper breathing and meditation.",
-    leadNarrative: "At OJALIS, you begin with the gentlest ones, learned one at a time with your teacher's guidance. When the respiratory passages and senses are clear, pranayama and meditation become natural and effortless.",
-    etymologyCards: [
-      {
-        word: "shat",
-        color: "#C59B4B",
-        meaning: "the sacred number six in Sanskrit"
-      },
-      {
-        word: "karma",
-        color: "#4F6144",
-        meaning: "action, cleansing technique, internal purification"
-      }
-    ],
-    pullQuote: "Clear pathways invite the pure breath. Purification precedes illumination.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "Shatkarmas are never rushed. We introduce each gentle kriya only when your respiratory patterns indicate your system will benefit deeply.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Gentlest first",
-        text: "Beginning with Jala Neti and Trataka with warm teacher guidance."
-      },
-      {
-        num: "02",
-        title: "Supervised technique",
-        text: "Ensuring proper lukewarm saline ratios and hygiene protocols."
-      },
-      {
-        num: "03",
-        title: "Integration",
-        text: "Noticing the dramatic increase in breath ease and mental clarity."
-      }
-    ],
-    learningPathTitle: "Practices you may learn.",
-    learningPathSubtitle: "Authentic hatha cleansing kriyas taught safely.",
-    stages: ["All Stages", "Respiratory", "Optical & Mental", "Visceral Fire"],
+    leadNarrative: "Shat means six and karma means action. The tradition describes six cleansing practices. At OJALIS, you begin with the gentlest ones, learned one at a time with your teacher's guidance.",
+    howItIsTaught: "step by step, as your Breath Signature shows you're ready.",
+    bestFor: "students who want to deepen their pranayama and meditation",
+    learningPathEyebrow: "02 / PRACTICES YOU MAY LEARN",
+    learningPathTitle: "Practices you may learn",
+    learningPathSubtitle: "Learned one at a time with your teacher's guidance.",
+    tableHeaderTechnique: "Practice",
+    tableHeaderWords: "How it is done",
+    tableHeaderFeeling: "Benefit",
     techniques: [
       {
         no: "01",
         name: "Jala Neti",
         words: "Gently rinsing the nose with lukewarm salt water using a neti pot",
-        feeling: "Clear and easy breath",
-        stage: "Respiratory",
-        details: "Flushes dust, allergens, and mucus from nasal passages. Eliminates morning congestion and deepens natural diaphragmatic breathing."
+        feeling: "For a clear, easy breath",
+        details: "Jala Neti — gently rinsing the nose with lukewarm salt water using a neti pot, for a clear, easy breath."
       },
       {
         no: "02",
         name: "Trataka",
-        words: "Steady gazing at a candle flame without blinking",
-        feeling: "Focused and serene",
-        stage: "Optical & Mental",
-        details: "Cleanses tear ducts, strengthens optic nerves, calms erratic brain waves, and dissolves digital screen brain fog."
+        words: "Steady gazing at a candle flame",
+        feeling: "For focus and calm eyes",
+        details: "Trataka — steady gazing at a candle flame, for focus and calm eyes."
       },
       {
         no: "03",
         name: "Kapalabhati",
         words: "Active out-breaths from the belly",
-        feeling: "Fresh, energised, alive",
-        stage: "Respiratory",
-        details: "A cleansing kriya that clears carbon dioxide, stimulates the diaphragm, and awakens vitality throughout the body."
-      },
-      {
-        no: "04",
-        name: "Agnisara Kriya",
-        words: "Gentle abdominal pumping on empty breath",
-        feeling: "Warm and vitalized",
-        stage: "Visceral Fire",
-        details: "Stokes digestive fire (jatharagni), massages visceral organs, and tones the core musculature."
+        feeling: "For a fresh, energised feeling",
+        details: "Kapalabhati — active out-breaths from the belly, for a fresh, energised feeling."
       }
     ],
-    howItGrows: {
-      title: "Step-by-step guidance.",
-      desc: "Cleansing practices require patience, hygiene, and authentic guidance. Kuldeep Dubey personally supervises every step.",
-      nodes: [
-        {
-          num: "01",
-          title: "Introduction",
-          text: "Understanding the anatomical purpose and safety precautions."
-        },
-        {
-          num: "02",
-          title: "Supervised practice",
-          text: "Hands-on guidance to eliminate any anxiety or hesitation."
-        },
-        {
-          num: "03",
-          title: "Quiet mastery",
-          text: "Enjoying clear nasal breathing for meditation and sleep."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Sinus & Allergy Sufferers",
-        desc: "Natural relief from urban dust, pollution, and chronic seasonal congestion."
-      },
-      {
-        num: "02",
-        title: "Screen Fatigue",
-        desc: "Revitalize tired, dry eyes and sharp mental focus through Trataka."
-      },
-      {
-        num: "03",
-        title: "Pranayama Practitioners",
-        desc: "Clear unobstructed nostrils are essential for deep Nadi Shodhana."
-      },
-      {
-        num: "04",
-        title: "Sluggish Digestion",
-        desc: "Re-ignite sluggish metabolism and visceral peristalsis through kriya."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Internal purity creates space for the vital life force to dance.”",
-      bio: "Kuldeep Dubey teaches classical Shatkarmas with gentle care, demystifying traditional practices so they become safe and accessible.",
-      badges: ["AUTHENTIC KRIYAS", "SAFETY & HYGIENE", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -1204,145 +518,63 @@ export const whatWeTeachData = {
     title: "Ayurvedic Lifestyle Guidance",
     subtitle: "Daily Rhythms Shaped Around Your Life",
     category: "Part 1 · What OJALIS Teaches",
-    tag: "CIRCADIAN & AYURVEDIC LIVING",
-    headline: "Rhythms shaped around your life.",
-    headlineItalic: "around your life.",
+    tag: "DAILY RHYTHM",
+    headline: "Ayurvedic Lifestyle Guidance",
+    headlineItalic: "for the life you actually live.",
     lead: "Simple daily-rhythm guidance from Ayurveda, India's traditional science of healthy living, shaped around the life you actually live.",
-    heroBadgeText: "NATURAL CADENCE",
-    heroCircleTag: "HARMONY",
-    heroCircleWord: "daily",
+    heroBadgeText: "DAILY RHYTHM",
+    heroCircleTag: "BALANCE",
+    heroCircleWord: "harmony",
     image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "This guidance works hand in hand with your doctor's care, and we gladly point you toward medical support whenever it's needed.",
     simpleWords: "simple daily-rhythm guidance from Ayurveda, India's traditional science of healthy living, shaped around the life you actually live.",
-    leadNarrative: "Ayurveda and Yoga are two sides of the same sacred coin. While yoga refines your consciousness, Ayurveda provides the daily foundation of sleep, meals, and hydration that sustains your energy throughout the day.",
-    etymologyCards: [
-      {
-        word: "ayus",
-        color: "#C59B4B",
-        meaning: "longevity, life, and the daily span of vitality"
-      },
-      {
-        word: "veda",
-        color: "#4F6144",
-        meaning: "sacred knowledge, practical wisdom, science"
-      }
-    ],
-    pullQuote: "Not strict rules or guilt. Just gentle, biological harmony with nature.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We map your circadian habits — sleep hours, eating rhythm, screen time — and gently introduce small, steady micro-adjustments.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Assess your routine",
-        text: "Understanding your current schedule and points of friction."
-      },
-      {
-        num: "02",
-        title: "Gentle tweaks",
-        text: "Starting with warm morning hydration and screen-free evenings."
-      },
-      {
-        num: "03",
-        title: "Seasonal harmony",
-        text: "Adapting food and breath habits as summer and winter shift."
-      }
-    ],
-    learningPathTitle: "What it covers: 5 Areas of Daily Life.",
-    learningPathSubtitle: "Practical wisdom for modern schedules.",
-    stages: ["All Stages", "Morning", "Daytime", "Evening & Night"],
+    leadNarrative: "Simple daily-rhythm guidance from Ayurveda, India's traditional science of healthy living, shaped around the life you actually live.",
+    bestFor: "anyone who wants a calmer, healthier daily routine.",
+    medicalNote: "This guidance works hand in hand with your doctor's care, and we gladly point you toward medical support whenever it's needed.",
+    learningPathEyebrow: "02 / WHAT IT COVERS",
+    learningPathTitle: "What it covers",
+    learningPathSubtitle: "Simple daily-rhythm guidance shaped around the life you actually live.",
+    tableHeaderTechnique: "Area",
+    tableHeaderWords: "Gentle guidance",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
         name: "Waking",
         words: "Rising at a steady time, with warm water and a short practice",
-        feeling: "Fresh, unhurried, grounded",
-        stage: "Morning",
-        details: "Eliminates morning grogginess and aligns your biological clock with the natural sunrise."
+        feeling: "Grounded start",
+        details: "Rising at a steady time, with warm water and a short practice."
       },
       {
         no: "02",
         name: "Meals",
         words: "A fuller meal at midday and a light, early dinner",
-        feeling: "Light, energetic, nourished",
-        stage: "Daytime",
-        details: "Matches food intake with digestive fire (jatharagni) peak at solar noon, preventing acid reflux and sleep disruption."
+        feeling: "Optimal digestion",
+        details: "A fuller meal at midday and a light, early dinner."
       },
       {
         no: "03",
         name: "Movement",
         words: "Short movement or breath breaks through the day",
         feeling: "Continuous vitality",
-        stage: "Daytime",
-        details: "Prevents stagnation of prana caused by prolonged seated posture."
+        details: "Short movement or breath breaks through the day."
       },
       {
         no: "04",
         name: "Screens",
         words: "A screen-free half hour before bed",
-        feeling: "Mentally quiet and peaceful",
-        stage: "Evening & Night",
-        details: "Protects melatonin secretion and settles the visual cortex before sleep."
+        feeling: "Mental quiet",
+        details: "A screen-free half hour before bed."
       },
       {
         no: "05",
         name: "Sleep",
         words: "A regular bedtime with a calming breath practice",
-        feeling: "Deep, uninterrupted rest",
-        stage: "Evening & Night",
-        details: "Left-nostril breathing (Chandra Bhedana) in bed eases the transition to sleep."
+        feeling: "Restorative rest",
+        details: "A regular bedtime with a calming breath practice."
       }
     ],
-    howItGrows: {
-      title: "Sustainable habits, step by step.",
-      desc: "You don't need to overturn your life overnight. Changing one single habit — like an early dinner — transforms your sleep within days.",
-      nodes: [
-        {
-          num: "01",
-          title: "One habit at a time",
-          text: "Start with warm water and morning breath awareness."
-        },
-        {
-          num: "02",
-          title: "Meal timing",
-          text: "Shift dinner 45 minutes earlier and observe the difference in sleep."
-        },
-        {
-          num: "03",
-          title: "Natural vitality",
-          text: "Wake up energized without needing 4 cups of coffee."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Irregular Sleepers",
-        desc: "Anchor your circadian rhythms for restorative, deep nighttime sleep."
-      },
-      {
-        num: "02",
-        title: "Digestive Discomfort",
-        desc: "Relieve bloating, acidity, and sluggish digestion through eating cadence."
-      },
-      {
-        num: "03",
-        title: "Corporate Professionals",
-        desc: "Balance demanding client deadlines with realistic wellness boundaries."
-      },
-      {
-        num: "04",
-        title: "Whole Families",
-        desc: "Simple, nourishing daily habits that benefit children, parents, and elders."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Live in harmony with the sun and moon, and the body heals itself.”",
-      bio: "Kuldeep Dubey shares practical Ayurvedic wisdom that fits into real modern homes and urban work life.",
-      badges: ["AYURVEDIC RHYTHMS", "DAILY CADENCE", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -1351,139 +583,58 @@ export const whatWeTeachData = {
   "study-breath": {
     slug: "study-breath",
     title: "The Study Breath",
-    subtitle: "Breath Practices for Students & Academic Endurance",
-    category: "Part 1 · What OJALIS Teaches",
-    tag: "FOR STUDENTS & STUDY",
-    headline: "One steady anchor through study.",
-    headlineItalic: "through study.",
-    lead: "Breathing practices made for students, to stay calm, focused and steady through the years of study. Every year of study brings more — more syllabus, more pressure, more feelings arriving faster than words.",
-    heroBadgeText: "STUDENT RESILIENCE",
+    subtitle: "Breathing Practices Made for Students",
+    category: "Part 2 · Cadences & Specialized Programs",
+    tag: "STUDENT BREATH PRACTICE",
+    headline: "The Study Breath",
+    headlineItalic: "calm, focused & steady.",
+    lead: "Every year of study brings more — more syllabus, more pressure, more feelings arriving faster than words: a sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
+    heroBadgeText: "FOR STUDENTS",
     heroCircleTag: "FOCUS",
-    heroCircleWord: "study",
+    heroCircleWord: "clarity",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "Format: small groups of six or one-to-one, online or in person, across India and worldwide.",
     simpleWords: "breathing practices made for students, to stay calm, focused and steady through the years of study.",
-    leadNarrative: "A sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
-    etymologyCards: [
-      {
-        word: "anchor",
-        color: "#C59B4B",
-        meaning: "one steady physical breath you return to during exam stress"
-      },
-      {
-        word: "endurance",
-        color: "#4F6144",
-        meaning: "sustaining hours of mental clarity without burnout"
-      }
-    ],
-    pullQuote: "Learned early, carried forward through school, college, and life.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We identify your child or teen's stress response — whether freeze, race, or fatigue — and give them a personalized 5-minute pre-study tool.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Identify exam anxiety",
-        text: "Spotting shallow breathing and memory freeze early."
-      },
-      {
-        num: "02",
-        title: "Simple breath tools",
-        text: "Practicing Nadi Shodhana and Bhramari for exam room composure."
-      },
-      {
-        num: "03",
-        title: "Daily study habit",
-        text: "Doing 5 minutes before opening books every afternoon."
-      }
-    ],
-    learningPathTitle: "What you learn.",
-    learningPathSubtitle: "A dedicated toolkit for students from Class 6 to college.",
-    stages: ["All Stages", "Focus", "Exam Nerves", "Daily Routine"],
+    leadNarrative: "Every year of study brings more — more syllabus, more pressure, more feelings arriving faster than words: a sudden mood, a racing mind before an exam, a new side of yourself appearing. The Study Breath gives you one steady anchor to return to, learned early and carried forward.",
+    bestFor: "students from Class 6 to their final year of college.",
+    format: "small groups of six or one-to-one, online or in person, across India and worldwide.",
+    learningPathEyebrow: "02 / WHAT YOU LEARN",
+    learningPathTitle: "What you learn",
+    learningPathSubtitle: "Breathing practices to stay calm, focused and steady through the years of study.",
+    tableHeaderTechnique: "Practice",
+    tableHeaderWords: "How it helps",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
         name: "Nadi Shodhana",
-        words: "For a balanced, clear mind before study",
-        feeling: "Clear and receptive",
-        stage: "Focus",
-        details: "Calms brain hyperactivity and primes both hemispheres for reading and analytical comprehension."
+        words: "For a balanced, clear mind before study.",
+        feeling: "Balanced and clear",
+        details: "Nadi Shodhana — for a balanced, clear mind before study."
       },
       {
         no: "02",
         name: "Bhramari",
-        words: "To settle nerves before an exam",
-        feeling: "Soothed and confident",
-        stage: "Exam Nerves",
-        details: "A soft cranial humming sound that drops cortisol in sixty seconds when panic starts creeping in."
+        words: "To settle nerves before an exam.",
+        feeling: "Calm and composed",
+        details: "Bhramari — to settle nerves before an exam."
       },
       {
         no: "03",
-        name: "Ujjayi and the Long Exhale",
-        words: "For steady focus and mental endurance",
-        feeling: "Laser-focused and calm",
-        stage: "Focus",
-        details: "Sustains alertness across 3-hour exam sessions without fatigue."
+        name: "Ujjayi and the long exhale",
+        words: "For steady focus.",
+        feeling: "Steady focus",
+        details: "Ujjayi and the long exhale — for steady focus."
       },
       {
         no: "04",
-        name: "A 5-Minute Routine",
-        words: "To use before studying and before every exam",
-        feeling: "Centred and ready",
-        stage: "Daily Routine",
-        details: "A compact routine students can memorize and execute anywhere, even inside an exam hall."
+        name: "A 5-minute routine",
+        words: "To use before studying and before every exam.",
+        feeling: "Ready and centred",
+        details: "A 5-minute routine — to use before studying and before every exam."
       }
     ],
-    howItGrows: {
-      title: "Lifelong student confidence.",
-      desc: "When students realize they have control over their physiological state, exams shift from terrifying hurdles to calm demonstrations of knowledge.",
-      nodes: [
-        {
-          num: "01",
-          title: "Small groups of 6",
-          text: "Safe, non-competitive cohorts where students feel heard."
-        },
-        {
-          num: "02",
-          title: "Exam day readiness",
-          text: "Discreet tools that can be done at an exam desk without drawing eyes."
-        },
-        {
-          num: "03",
-          title: "Academic ease",
-          text: "Clear thinking that shines through grades and emotional well-being."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Middle School (Classes 6–8)",
-        desc: "Early habits that build steady posture and calm emotional self-regulation."
-      },
-      {
-        num: "02",
-        title: "Board Exam Students (10 & 12)",
-        desc: "Manage high-stakes syllabus pressure and dissolve memory freeze."
-      },
-      {
-        num: "03",
-        title: "Competitive Exam Aspirants",
-        desc: "Sustained mental stamina for JEE, NEET, UPSC, CA and law preparations."
-      },
-      {
-        num: "04",
-        title: "College & Postgrads",
-        desc: "Balance thesis research, internships, and interview anxiety."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“A calm mind remembers everything it studied. Fear forgets.”",
-      bio: "Kuldeep Dubey mentors young students with genuine warmth and patience, helping them discover calm steadiness during academic years.",
-      badges: ["STUDENT MENTORING", "EXAM CALM", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -1492,139 +643,56 @@ export const whatWeTeachData = {
   "first-breath": {
     slug: "first-breath",
     title: "The First Breath",
-    subtitle: "Surya Namaskar for Children",
-    category: "Part 1 · What OJALIS Teaches",
-    tag: "CHILDREN & YOUTH SADHANA",
-    headline: "Surya Namaskar for children, with breath.",
-    headlineItalic: "with breath.",
-    lead: "Surya Namaskar (Sun Salutation) for children, taught the way it was always meant to be learned — with the breath. Surya Namaskar is a flowing sequence of twelve steps.",
-    heroBadgeText: "JOYFUL & UNHURRIED",
-    heroCircleTag: "YOUTH",
-    heroCircleWord: "joy",
+    subtitle: "Surya Namaskar for Children, Learned with the Breath",
+    category: "Part 2 · Cadences & Specialized Programs",
+    tag: "YOGA FOR CHILDREN",
+    headline: "The First Breath",
+    headlineItalic: "Surya Namaskar for children.",
+    lead: "Surya Namaskar is a flowing sequence of twelve steps. At OJALIS, each step is joined to its own in-breath or out-breath, so a child learns to move with the breath.",
+    heroBadgeText: "FOR CHILDREN",
+    heroCircleTag: "JOY",
+    heroCircleWord: "breath",
     image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "Best for: young children beginning their very first yoga, and parents looking for a calm, joyful activity.",
     simpleWords: "Surya Namaskar (Sun Salutation) for children, taught the way it was always meant to be learned — with the breath.",
-    leadNarrative: "At OJALIS, each step is joined to its own in-breath or out-breath, so a child learns to move with the breath. Gentle, joyful and unhurried. Each of the twelve steps is learned correctly before adding speed or rounds.",
-    etymologyCards: [
-      {
-        word: "surya",
-        color: "#C59B4B",
-        meaning: "the sun, vitality, warmth and cheerful radiance"
-      },
-      {
-        word: "namaskar",
-        color: "#4F6144",
-        meaning: "reverent greeting, joyful harmony with the body"
-      }
+    leadNarrative: "Surya Namaskar is a flowing sequence of twelve steps. At OJALIS, each step is joined to its own in-breath or out-breath, so a child learns to move with the breath.",
+    whatMakesItSpecial: [
+      "Gentle, joyful and unhurried.",
+      "Each of the twelve steps learned correctly before adding speed or rounds.",
+      "Builds good posture, focus and calm breathing habits at the age when habits form most naturally."
     ],
-    pullQuote: "Builds good posture, focus and calm breathing habits at the age when habits form most naturally.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We introduce children to yoga with playful animal imagery, stories, and zero sports competition, fostering natural love for mindful movement.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Step-by-step mastery",
-        text: "Learning each of the 12 steps properly before increasing pace."
-      },
-      {
-        num: "02",
-        title: "Breath matching",
-        text: "Connecting every stretch to an in-breath, every fold to an out-breath."
-      },
-      {
-        num: "03",
-        title: "Joyful habit",
-        text: "Creating a daily ritual of energy, posture, and quiet confidence."
-      }
-    ],
-    learningPathTitle: "What makes it special.",
-    learningPathSubtitle: "A sequence crafted specifically for young bodies and curious minds.",
-    stages: ["All Stages", "Foundation Steps", "Rhythm", "Postural Growth"],
+    bestFor: "young children beginning their very first yoga, and parents looking for a calm, joyful activity.",
+    format: "small groups of six or one-to-one, online or in person.",
+    learningPathEyebrow: "02 / WHAT MAKES IT SPECIAL",
+    learningPathTitle: "What makes it special",
+    learningPathSubtitle: "Taught the way it was always meant to be learned — with the breath.",
+    tableHeaderTechnique: "Element",
+    tableHeaderWords: "Focus",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
-        name: "Gentle, Joyful & Unhurried",
-        words: "Zero athletic pressure, screaming, or competitive grading",
-        feeling: "Fun, happy, safe",
-        stage: "Foundation Steps",
-        details: "Children discover that yoga is an adventure of exploring their own breath and body."
+        name: "Gentle, joyful and unhurried",
+        words: "A playful, calm atmosphere where children feel comfortable and safe.",
+        feeling: "Joyful",
+        details: "Gentle, joyful and unhurried practice pace."
       },
       {
         no: "02",
-        name: "The 12 Classical Steps",
-        words: "Each step learned with anatomical precision",
-        feeling: "Graceful and supple",
-        stage: "Foundation Steps",
-        details: "Mountain, upward salute, forward fold, equestrian lunge, plank, eight-limbed salute, cobra, downward dog, and back."
+        name: "Twelve steps learned correctly",
+        words: "Each of the twelve steps learned with precision before adding speed or rounds.",
+        feeling: "Mindful precision",
+        details: "Each of the twelve steps learned correctly before adding speed or rounds."
       },
       {
         no: "03",
-        name: "Breath-Synchronized Movement",
-        words: "Each movement paired to natural inhalation or exhalation",
-        feeling: "Harmonious flow",
-        stage: "Rhythm",
-        details: "Prevents children from holding their breath during physical activity."
-      },
-      {
-        no: "04",
-        name: "Healthy Habit Formation",
-        words: "Counters tablet hunching, heavy backpacks, and sitting in school",
-        feeling: "Upright and tall",
-        stage: "Postural Growth",
-        details: "Builds upright spine, hamstring flexibility, and confident posture early in life."
+        name: "Habits for life",
+        words: "Builds good posture, focus and calm breathing habits at the age when habits form most naturally.",
+        feeling: "Lifelong foundation",
+        details: "Builds good posture, focus and calm breathing habits at the age when habits form most naturally."
       }
     ],
-    howItGrows: {
-      title: "Playful wisdom that lasts a lifetime.",
-      desc: "Surya Namaskar learned with the breath becomes a lifelong friend. Children carry it with them into adulthood.",
-      nodes: [
-        {
-          num: "01",
-          title: "Warmup with games",
-          text: "Animal poses and joyful breathing stories."
-        },
-        {
-          num: "02",
-          title: "12 steps with breath",
-          text: "Slow, clear instruction in small cohorts of six."
-        },
-        {
-          num: "03",
-          title: "Calm relaxation",
-          text: "Short, soothing savasana cloud visualizations."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Ages 6 to 10",
-        desc: "Playful introduction that develops balance, coordination, and focus."
-      },
-      {
-        num: "02",
-        title: "Ages 11 to 14",
-        desc: "Counters school fatigue, tablet slouching, and emotional turbulence."
-      },
-      {
-        num: "03",
-        title: "Parents & Children",
-        desc: "A calm, joyful activity families can practice together at home."
-      },
-      {
-        num: "04",
-        title: "Young Athletes",
-        desc: "Prevent sports injuries and build supple flexibility for gymnastics, dance, or football."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Teach a child to breathe with awareness, and they will never be a stranger to peace.”",
-      bio: "Kuldeep Dubey connects effortlessly with children, teaching with warmth, humor, and classical integrity.",
-      badges: ["CHILDREN'S YOGA", "SMALL GROUPS OF 6", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -1636,135 +704,55 @@ export const whatWeTeachData = {
     subtitle: "The Foundation Programme of OJALIS",
     category: "Part 2 · Cadences",
     tag: "FOUNDATION PROGRAMME",
-    headline: "One breath, learned beautifully.",
-    headlineItalic: "learned beautifully.",
-    lead: "The foundation programme of OJALIS — learning one calm, full breath properly. Recommended for almost everyone. Length: About 6 to 10 weeks, set after your Breath Signature.",
-    heroBadgeText: "6–10 WEEK CADENCE",
-    heroCircleTag: "ONE",
-    heroCircleWord: "breath",
+    headline: "The Quiet Breathing Cadence",
+    headlineItalic: "one calm, full breath.",
+    lead: "The foundation programme of OJALIS — learning one calm, full breath properly.",
+    cadenceIntroNote: "A Cadence is a guided programme with a clear rhythm and a set length, built around one goal. Each Cadence begins after your Breath Signature.",
+    heroBadgeText: "FOUNDATION PROGRAMME",
+    heroCircleTag: "CADENCE",
+    heroCircleWord: "rhythm",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "What you take home: one breath, learned beautifully — slower, smoother and ready whenever you need it.",
     simpleWords: "the foundation programme of OJALIS — learning one calm, full breath properly.",
-    leadNarrative: "A Cadence is a guided programme with a clear rhythm and a set length, built around one goal. Each Cadence begins after your Breath Signature. The Quiet Breathing Cadence is our core journey.",
+    leadNarrative: "A Cadence is a guided programme with a clear rhythm and a set length, built around one goal. Each Cadence begins after your Breath Signature.",
+    recommendedFor: "almost everyone.",
     cadenceMeta: {
-      length: "About 6 to 10 weeks (set after Breath Signature)",
+      length: "About 6 to 10 weeks, set after your Breath Signature",
       classes: "One session a week",
       homePractice: "A few minutes every day",
-      format: "One-to-one or small group, online or in person",
-      takeHome: "One breath, learned beautifully — slower, smoother and ready whenever you need it."
+      format: "One-to-one or small group, online or in person"
     },
-    etymologyCards: [
-      {
-        word: "cadence",
-        color: "#C59B4B",
-        meaning: "a guided programme with a clear rhythm and set length, built around one goal"
-      },
-      {
-        word: "quietude",
-        color: "#4F6144",
-        meaning: "a breath so gentle and steady that even a feather wouldn't flutter"
-      }
-    ],
-    pullQuote: "Roughly six to ten weeks. A few minutes a day. One breath, learned beautifully.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "Before your cadence begins, Kuldeep Dubey watches how you breathe in a 1-on-1 session to calibrate the exact weekly curriculum for you.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Breath Signature",
-        text: "One calm session evaluating inhalation depth, rhythm, and tension."
-      },
-      {
-        num: "02",
-        title: "Weekly mentoring",
-        text: "One weekly guided session plus a custom 5-minute home sadhana."
-      },
-      {
-        num: "03",
-        title: "Lifelong habit",
-        text: "Graduating with a calm breath that stays with you forever."
-      }
-    ],
-    learningPathTitle: "What you learn, step by step.",
-    learningPathSubtitle: "The three progressive stages of The Quiet Breathing Cadence.",
-    stages: ["All Stages", "Weeks 1–2", "Weeks 3–4", "Weeks 5+"],
+    learningPathEyebrow: "02 / WHAT YOU LEARN, STEP BY STEP",
+    learningPathTitle: "What you learn, step by step",
+    learningPathSubtitle: "A guided programme with a clear rhythm and a set length.",
+    tableHeaderTechnique: "Phase",
+    tableHeaderWords: "Practices Learned",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
-        name: "Weeks 1–2 · Foundation Awareness",
-        words: "Noticing the breath, then belly breathing and the full yogic breath",
-        feeling: "Grounded and spacious",
-        stage: "Weeks 1–2",
-        details: "Re-educating the natural diaphragmatic wave. Reversing shallow chest breathing habits."
+        name: "Weeks 1–2",
+        words: "Noticing the breath, then belly breathing and the full yogic breath.",
+        feeling: "Foundation",
+        details: "Weeks 1–2: noticing the breath, then belly breathing and the full yogic breath."
       },
       {
         no: "02",
-        name: "Weeks 3–4 · Regulation & Balance",
-        words: "The long exhale, Nadi Shodhana and soothing Bhramari",
-        feeling: "Balanced and settled",
-        stage: "Weeks 3–4",
-        details: "Lengthening out-breath to a 4:6 ratio, harmonizing nasal channels and cooling the mind."
+        name: "Weeks 3–4",
+        words: "The long exhale, Nadi Shodhana and Bhramari.",
+        feeling: "Refinement",
+        details: "Weeks 3–4: the long exhale, Nadi Shodhana and Bhramari."
       },
       {
         no: "03",
-        name: "Weeks 5 onward · Mastery for Life",
-        words: "Ujjayi, a longer smoother breath, and a short daily routine you can keep for life",
-        feeling: "Mastered for life",
-        stage: "Weeks 5+",
-        details: "Consolidating your signature daily sequence so calm becomes your natural baseline."
+        name: "Weeks 5 onward",
+        words: "Ujjayi, a longer and smoother breath, and a short daily routine you can keep for life.",
+        feeling: "Mastery",
+        details: "Weeks 5 onward: Ujjayi, a longer and smoother breath, and a short daily routine you can keep for life."
       }
     ],
-    howItGrows: {
-      title: "How it grows week by week.",
-      desc: "Little by little, this becomes simply who you are. One day you notice how gracefully you handled a moment that once would have shaken you.",
-      nodes: [
-        {
-          num: "01",
-          title: "Weeks 1–2",
-          text: "Sleep arrives more easily. Shoulders and jaw soften."
-        },
-        {
-          num: "02",
-          title: "Weeks 3–4",
-          text: "Calm returns in minutes after a busy or tense moment."
-        },
-        {
-          num: "03",
-          title: "Weeks 5+",
-          text: "Your mind stays clear and bright through a long day."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Every Beginner",
-        desc: "The recommended starting point for almost everyone coming to OJALIS."
-      },
-      {
-        num: "02",
-        title: "Chronic Stress",
-        desc: "Reset a nervous system trapped in fight-or-flight back to ease."
-      },
-      {
-        num: "03",
-        title: "Shallow Breathers",
-        desc: "Re-expand lung capacity and restore natural diaphragmatic depth."
-      },
-      {
-        num: "04",
-        title: "Continuing Sadhakas",
-        desc: "Ground an existing yoga practice in genuine classical breath precision."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Learn one breath properly, and all of yoga opens up to you.”",
-      bio: "Kuldeep Dubey personally oversees every Quiet Breathing cohort, ensuring every student's breath signature is respected and nurtured.",
-      badges: ["FOUNDATION CADENCE", "WEEKLY MENTORSHIP", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    whatYouTakeHome: "One breath, learned beautifully — slower, smoother and ready whenever you need it.",
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================
@@ -1774,145 +762,63 @@ export const whatWeTeachData = {
     slug: "wakeful-hours",
     title: "The Wakeful Hours Cadence",
     subtitle: "For Peaceful Nights and Restful Sleep",
-    category: "Part 2 · Cadences",
+    category: "Part 2 · Cadences & Specialized Programs",
     tag: "FOR RESTFUL SLEEP",
-    headline: "Peaceful nights and restful sleep.",
-    headlineItalic: "and restful sleep.",
-    lead: "A gentle programme for peaceful nights and restful sleep. For people whose mind stays busy when it's time to sleep. Length: Eight weeks, one-to-one.",
-    heroBadgeText: "8 WEEKS · 1-ON-1",
-    heroCircleTag: "SLEEP",
-    heroCircleWord: "peaceful",
-    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
-    mantraText: "What you take home: a bedtime practice you can do right in bed, whenever the mind is still busy.",
-    simpleWords: "a gentle programme for peaceful nights and restful sleep.",
-    leadNarrative: "You lie in bed exhausted, yet the mind begins racing through tomorrow's tasks or replaying today. The Wakeful Hours Cadence offers a soothing evening sequence plus practices done lying in bed in the dark to welcome sleep naturally.",
+    headline: "The Wakeful Hours Cadence",
+    headlineItalic: "for peaceful nights & restful sleep.",
+    lead: "A gentle programme for peaceful nights and restful sleep.",
+    targetAudience: "For people whose mind stays busy when it's time to sleep.",
     cadenceMeta: {
       length: "Eight weeks",
       classes: "One-to-one",
       homePractice: "A short evening routine every night",
-      format: "Online or in person in Gurugram",
-      takeHome: "A bedtime practice you can do right in bed, whenever the mind is still busy."
+      format: "Online or in person"
     },
-    etymologyCards: [
-      {
-        word: "somnolence",
-        color: "#C59B4B",
-        meaning: "natural, unforced drowsiness that arrives without medication"
-      },
-      {
-        word: "savasana",
-        color: "#4F6144",
-        meaning: "complete surrender of muscular holding before entering dreamless sleep"
-      }
-    ],
-    pullQuote: "No counting sheep. Just welcoming sleep right from your bed.",
-    approachTitle: "The OJALIS Breath Signature.",
-    approachSubtitle: "We map your evening sleep rituals, blue-light exposure, and bedtime breathing patterns to craft a gentle sequence tailored to your sleep architecture.",
-    approachSteps: [
-      {
-        num: "01",
-        title: "Evening unwind",
-        text: "Gentle physical movement and slow breathing to wind down the day."
-      },
-      {
-        num: "02",
-        title: "In-bed practices",
-        text: "Techniques done in the dark, under your blankets, with zero effort."
-      },
-      {
-        num: "03",
-        title: "Lasting sleep rhythm",
-        text: "Waking refreshed every morning without grogginess."
-      }
-    ],
-    learningPathTitle: "What you learn in eight weeks.",
-    learningPathSubtitle: "A 4-pillar bedtime system for deep, peaceful sleep.",
-    stages: ["All Stages", "Evening Unwind", "In-Bed Breath", "Yoga Nidra", "Sleep Habits"],
+    heroBadgeText: "RESTFUL SLEEP",
+    heroCircleTag: "NIGHT",
+    heroCircleWord: "peace",
+    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1200&q=85",
+    simpleWords: "a gentle programme for peaceful nights and restful sleep.",
+    leadNarrative: "A gentle programme for peaceful nights and restful sleep, designed especially for people whose mind stays busy when it's time to sleep.",
+    learningPathEyebrow: "02 / WHAT YOU LEARN",
+    learningPathTitle: "What you learn",
+    learningPathSubtitle: "A soothing evening sequence and bedtime breath practices.",
+    tableHeaderTechnique: "Practice",
+    tableHeaderWords: "Details",
+    tableHideFeeling: true,
     techniques: [
       {
         no: "01",
-        name: "A Soothing Evening Sequence",
-        words: "Gentle movement and slow breathing to wind down the day",
-        feeling: "Softened and relaxed",
-        stage: "Evening Unwind",
-        details: "Decompresses physical spine and signals the nervous system that daytime vigilance is over."
+        name: "A soothing evening sequence",
+        words: "Gentle movement and slow breathing to wind down the day.",
+        feeling: "Unwind",
+        details: "Gentle movement and slow breathing to wind down the day."
       },
       {
         no: "02",
-        name: "Bedtime Breath Practices",
-        words: "Chandra Bhedana (left-nostril breathing) and Bhramari lying in bed in the dark",
-        feeling: "Cool, quiet, sleepy",
-        stage: "In-Bed Breath",
-        details: "Directly activates the parasympathetic brake, dropping core body temperature and heart rate."
+        name: "Bedtime breath practices",
+        words: "Such as Chandra Bhedana (left-nostril breathing) and Bhramari, done lying in bed, in the dark.",
+        feeling: "Deep calm",
+        details: "Such as Chandra Bhedana (left-nostril breathing) and Bhramari, done lying in bed, in the dark."
       },
       {
         no: "03",
-        name: "Bedside Yoga Nidra",
-        words: "Guided deep somatic rest that eases you toward sleep",
-        feeling: "Weightless surrender",
-        stage: "Yoga Nidra",
-        details: "Audio guidance you can listen to with lights off to drift smoothly into delta brainwave sleep."
+        name: "Yoga Nidra",
+        words: "Guided deep rest that eases you toward sleep.",
+        feeling: "Yogic sleep",
+        details: "Yoga Nidra — guided deep rest that eases you toward sleep."
       },
       {
         no: "04",
-        name: "A Calm Night Routine",
-        words: "Simple habits for screens, meals and bedtime",
-        feeling: "Orderly and restful",
-        stage: "Sleep Habits",
-        details: "Removes hidden sleep saboteurs and creates an environment where sleep arrives effortlessly."
+        name: "A calm night routine",
+        words: "Simple habits for screens, meals and bedtime.",
+        feeling: "Restful rhythm",
+        details: "A calm night routine — simple habits for screens, meals and bedtime."
       }
     ],
-    howItGrows: {
-      title: "From insomnia to peaceful nights.",
-      desc: "Within 2 to 3 weeks, the dread of bedtime dissolves as sleep begins arriving naturally within minutes of lights-out.",
-      nodes: [
-        {
-          num: "01",
-          title: "Weeks 1–2",
-          text: "Releasing anxiety around falling asleep; gentle evening wind-down."
-        },
-        {
-          num: "02",
-          title: "Weeks 3–5",
-          text: "Mastering in-bed Chandra Bhedana and guided sleep nidra."
-        },
-        {
-          num: "03",
-          title: "Weeks 6–8",
-          text: "Waking with clear, bright energy through the entire day."
-        }
-      ]
-    },
-    lifeCards: [
-      {
-        num: "01",
-        title: "Racing Minds at Bedtime",
-        desc: "For those who lie awake watching the clock tick past 1 AM."
-      },
-      {
-        num: "02",
-        title: "Frequent Night Waking",
-        desc: "Tools to return to sleep immediately without reaching for your phone."
-      },
-      {
-        num: "03",
-        title: "Shift & Travel Workers",
-        desc: "Overcome jet lag and changing time zones with conscious breath."
-      },
-      {
-        num: "04",
-        title: "High-Stress Executives",
-        desc: "Disconnect from work emails and high-stakes worry before sleep."
-      }
-    ],
-    guide: {
-      name: "Kuldeep Dubey",
-      tagline: "CLASSICAL YOGA Rooted in tradition",
-      quote: "“Sleep is not something you force. Sleep is something you allow.”",
-      bio: "Kuldeep Dubey works one-to-one with you to understand your specific sleep struggles and craft a bespoke nocturnal cadence.",
-      badges: ["1-ON-1 SLEEP CARE", "RESTFUL NIGHTS", "GURUGRAM & ONLINE"],
-      image: "/new_instructor.png"
-    }
+    whatYouTakeHome: "A bedtime practice you can do right in bed, whenever the mind is still busy.",
+    hideCtaBanner: true,
+    hideOtherOfferings: true
   },
 
   // =========================================================================

@@ -7,12 +7,12 @@ import {
   IconBreathing,
   IconBalance,
   IconCheckmark,
-  IconStar,
   IconLotus,
   IconSparkle
 } from "../components/Icons";
 import HomeGallerySection from "../components/HomeGallerySection";
 import SocialConnectSection from "../components/OmSwamiSection";
+import TestimonialSlider from "../components/TestimonialSlider";
 import { whatWeTeachData } from "../data/whatWeTeachData";
 
 function Home() {
@@ -92,26 +92,7 @@ function Home() {
     }
   ];
 
-  const testimonialsData = [
-    {
-      quote: "Joining Ojalis was the best decision for my persistent lower back stiffness. The instructors watch every posture with genuine care and patience. I feel lighter and centered every morning.",
-      name: "Sunita Sharma",
-      program: "General Yoga & Therapeutic Sessions",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
-    },
-    {
-      quote: "The pranayama and meditation guidance here is authentic and profoundly calming. As an IT professional working 10-hour desk shifts, these sessions have revived my energy and mental clarity.",
-      name: "Rajesh Kulkarni",
-      program: "Pranayama & Yogic Kriya",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
-    },
-    {
-      quote: "Warm, peaceful, and zero pretentiousness. Ojalis feels like a real sanctuary where you can truly slow down, breathe properly, and build genuine inner strength. Highly recommended.",
-      name: "Priyanka Mehra",
-      program: "Meditation & Stillness",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
-    }
-  ];
+
 
   return (
     <main>
@@ -390,27 +371,7 @@ function Home() {
             </p>
           </div>
 
-          <div className="testimonials-cards-grid">
-            {testimonialsData.map((item, idx) => (
-              <div key={idx} className="testimonial-card-single">
-                <div>
-                  <div style={{ display: "flex", gap: "3px", marginBottom: "14px" }}>
-                    {[...Array(5)].map((_, starIdx) => (
-                      <IconStar key={starIdx} size={15} color="#F5A623" />
-                    ))}
-                  </div>
-                  <p className="testimonial-quote-text">"{item.quote}"</p>
-                </div>
-                <div className="testimonial-student-meta">
-                  <img src={item.avatar} alt={item.name} className="student-avatar-img" />
-                  <div>
-                    <div className="student-name-text">{item.name}</div>
-                    <div className="student-program-tag">{item.program}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialSlider />
 
           <div className="text-center" style={{ marginTop: "36px" }}>
             <Link to="/testimonials" className="btn btn-outline-burgundy">
