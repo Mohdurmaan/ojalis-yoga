@@ -108,11 +108,11 @@ function Home() {
           </div>
 
           <h1 className="hero-main-heading">
-           Your breath has been waiting for you to notice.<span className="hero-heading-accent"><br></br>We start with your breath. Everything else grows from there.</span>
+           Your breath has been waiting for you to notice.<span className="hero-heading-accent"></span>
           </h1>
 
           <p className="hero-lead-text">
-          Your breath already holds the whole story - when your shoulders rise with worry, where your exhale pauses, how quickly you return to calm. At OJALIS, we listen to that story first. That's the Breath Signature: a calm, personal session where we observe how you truly breathe. From there, every practice is chosen for you - and you alone.
+          We start with your breath. Everything else grows from there. Your breath already holds the whole story - when your shoulders rise with worry, where your exhale pauses, how quickly you return to calm. At OJALIS, we listen to that story first. That's the Breath Signature: a calm, personal session where we observe how you truly breathe. From there, every practice is chosen for you - and you alone.
           </p>
 
           <div className="hero-cta-group">

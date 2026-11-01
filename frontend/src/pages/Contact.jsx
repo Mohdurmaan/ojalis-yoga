@@ -54,7 +54,7 @@ function Contact() {
                 </div>
                 <div>
                   <div className="contact-label">Studio Location</div>
-                  <div className="contact-val">Ojalis Yogic Centre, Shanti Marg, Vasant Vihar, New Delhi - 110057</div>
+                  <div className="contact-val">Shanti Marg, Vasant Vihar, New Delhi - 110057</div>
                 </div>
               </div>
 
