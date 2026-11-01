@@ -82,7 +82,6 @@ function AppContent() {
         <Route path="/book-session" element={<BookSession />} />
 
         {/* Navigation & Event Routes */}
-        <Route path="/what-we-teach/meditation" element={<Meditation />} />
         <Route path="/what-we-teach/:slug" element={<WhatWeTeachDetail />} />
         <Route path="/online-classes" element={<OnlineClasses />} />
         <Route path="/online-classes/:slug" element={<EventDetails />} />

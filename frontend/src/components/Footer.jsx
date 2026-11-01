@@ -76,7 +76,7 @@ function Footer() {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/what-we-teach">What We Teach</Link></li>
-              <li><Link to="/meditation">Meditation & Kriya</Link></li>
+              <li><Link to="/what-we-teach/meditation">Meditation & Kriya</Link></li>
               <li><Link to="/trainers">Our Trainers</Link></li>
               <li><Link to="/benefits">Benefits of Yoga</Link></li>
               <li><Link to="/studio">Studio</Link></li>
