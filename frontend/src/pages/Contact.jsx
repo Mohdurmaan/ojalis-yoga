@@ -252,7 +252,7 @@ function Contact() {
             }}
           >
             <iframe 
-              title="Ojalis Yogic Centre Location Map"
+              title="Location Map"
               src="https://maps.google.com/maps?q=Vasant%20Vihar%2C%20New%20Delhi%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"

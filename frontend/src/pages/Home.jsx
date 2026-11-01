@@ -103,7 +103,7 @@ function Home() {
         <div className="container">
           <div className="hero-pill-badge">
             <IconSparkle size={13} color="var(--ojalis-gold)" />
-            <span>HOME OF THE &bull; BREATH SIGNATURE</span>
+            <span>HOME OF THE BREATH SIGNATURE</span>
             <IconSparkle size={13} color="var(--ojalis-gold)" />
           </div>
 
