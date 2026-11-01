@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { blogArticles as fallbackArticles } from "../data/blogData";
-import { fetchPublic, getImageUrl } from "../utils/api";
+import { fetchPublic, getImageUrl, toSlug } from "../utils/api";
 
 function Blog() {
-  const [articles, setArticles] = useState(fallbackArticles);
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,15 +12,23 @@ function Blog() {
       if (data && data.length > 0) {
         // Map backend fields to frontend expected fields
         const mapped = data.map(item => ({
-          id: item._id,
+          id: item._id || item.id,
+          slug: item.slug || toSlug(item.title) || String(item._id || item.id),
           title: item.title,
           category: item.category || "Journal",
           readTime: "5 min read",
           summary: item.excerpt || "",
-          author: item.author,
+          author: item.author || "Ojalis Team",
           image: getImageUrl(item.featuredImage)
         }));
         setArticles(mapped);
+      } else {
+        setArticles(fallbackArticles.map(item => ({
+          ...item,
+          slug: item.slug || item.id || toSlug(item.title),
+          readTime: item.readTime || "5 min read",
+          author: item.author || "Ojalis Team"
+        })));
       }
       setLoading(false);
     });
@@ -44,26 +52,32 @@ function Blog() {
         <div className="container">
           <div className="programs-card-grid">
             {loading ? <div style={{textAlign:"center", padding:"40px"}}>Loading journal...</div> : articles.map((article) => (
-              <div key={article.id} className="program-card-item">
+              <div key={article.id || article.slug} className="program-card-item">
                 <div className="program-card-thumb-wrap">
-                  <img 
-                    src={article.image} 
-                    alt={article.title} 
-                    className="program-card-img" 
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80";
-                    }}
-                  />
+                  <Link to={`/blog/${article.slug || article.id}`}>
+                    <img 
+                      src={article.image} 
+                      alt={article.title} 
+                      className="program-card-img" 
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80";
+                      }}
+                    />
+                  </Link>
                   <span className="program-badge-tag">{article.category}</span>
                 </div>
                 <div className="program-card-body">
                   <div className="program-meta-row">
                     <span>{article.readTime} | By {article.author}</span>
                   </div>
-                  <h3 className="program-card-title">{article.title}</h3>
+                  <h3 className="program-card-title">
+                    <Link to={`/blog/${article.slug || article.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+                      {article.title}
+                    </Link>
+                  </h3>
                   <p className="program-card-text">{article.summary}</p>
-                  <Link to={`/blog/${article.id}`} className="program-link-cta">
+                  <Link to={`/blog/${article.slug || article.id}`} className="program-link-cta">
                     Read Article
                     <span>→</span>
                   </Link>

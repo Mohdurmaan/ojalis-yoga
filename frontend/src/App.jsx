@@ -70,14 +70,14 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/what-we-teach" element={<Programs />} />
-        <Route path="/meditation" element={<Meditation />} />
+        <Route path="/meditation" element={<WhatWeTeachDetail />} />
         <Route path="/benefits" element={<Benefits />} />
         <Route path="/trainers" element={<Trainers />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/books" element={<Books />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/book-session" element={<BookSession />} />
 
@@ -90,7 +90,7 @@ function AppContent() {
         <Route path="/events/:slug" element={<EventDetails />} />
         <Route path="/studio" element={<Studio />} />
         <Route path="/journal" element={<Blog />} />
-        <Route path="/journal/:id" element={<BlogPost />} />
+        <Route path="/journal/:slug" element={<BlogPost />} />
 
         {/* USER AUTHENTICATION */}
         <Route path="/register" element={<Register />} />

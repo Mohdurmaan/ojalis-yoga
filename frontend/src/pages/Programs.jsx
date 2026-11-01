@@ -44,12 +44,7 @@ function Programs() {
             >
               All Teachings ({programsList.length})
             </button>
-            <button
-              className={`wwt-filter-pill ${filter === "foundational" ? "active" : ""}`}
-              onClick={() => setFilter("foundational")}
-            >
-              Foundational Practices
-            </button>
+           
             <button
               className={`wwt-filter-pill ${filter === "cadences" ? "active" : ""}`}
               onClick={() => setFilter("cadences")}
@@ -62,112 +57,47 @@ function Programs() {
 
       {/* 2. PROGRAM CARDS GRID */}
       <section className="wwt-container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))",
-            gap: "28px"
-          }}
-        >
+        <div className="wwt-programs-grid">
           {filteredPrograms.map((item) => (
             <div
               key={item.slug}
-              style={{
-                background: "#FFFFFF",
-                borderRadius: "20px",
-                border: "1px solid var(--ojalis-border, #E8E0D5)",
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                transition: "transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease",
-                boxShadow: "0 6px 20px rgba(0, 0, 0, 0.03)"
-              }}
-              className="program-card-item-hover"
+              className="program-card-item-hover wwt-program-card"
             >
               {/* Card Image Banner */}
-              <div style={{ height: "230px", position: "relative", overflow: "hidden" }}>
+              <div className="wwt-program-card-thumb">
                 <img
                   src={item.image}
                   alt={item.title}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    display: "block"
-                  }}
+                  className="wwt-program-card-img"
                   loading="lazy"
                 />
-                <span
-                  style={{
-                    position: "absolute",
-                    top: "14px",
-                    left: "14px",
-                    background: "rgba(255, 255, 255, 0.94)",
-                    color: "var(--site-heading-color, #4F6144)",
-                    fontSize: "10.5px",
-                    fontWeight: 700,
-                    letterSpacing: "1.2px",
-                    padding: "5px 12px",
-                    borderRadius: "9999px",
-                    textTransform: "uppercase",
-                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
-                    border: "1px solid var(--ojalis-border, #E8E0D5)"
-                  }}
-                >
+                <span className="wwt-program-card-badge">
                   {item.tag || "Foundational Practice"}
                 </span>
               </div>
 
               {/* Card Body */}
-              <div style={{ padding: "28px 26px", display: "flex", flexDirection: "column", flex: 1 }}>
-                <h2
-                  style={{
-                    fontFamily: "var(--site-heading-font, var(--font-display, 'Forum', serif))",
-                    fontSize: "23px",
-                    color: "var(--site-heading-color, #4F6144)",
-                    margin: "0 0 10px 0",
-                    fontWeight: 600
-                  }}
-                >
+              <div className="wwt-program-card-body">
+                <h2 className="wwt-program-card-title">
                   {item.title}
                 </h2>
 
-                <p
-                  style={{
-                    fontFamily: "'Noto Sans', sans-serif",
-                    fontSize: "14.5px",
-                    color: "var(--ojalis-text-muted, #6B6164)",
-                    lineHeight: 1.65,
-                    marginBottom: "18px",
-                    flex: 1
-                  }}
-                >
+                <p className="wwt-program-card-text">
                   {item.lead || item.simpleWords}
                 </p>
 
                 {item.bestFor && (
-                  <div
-                    style={{
-                      background: "#faf7f2",
-                      border: "1px solid var(--ojalis-border, #E8E0D5)",
-                      borderRadius: "10px",
-                      padding: "8px 12px",
-                      fontSize: "13px",
-                      color: "var(--ojalis-text-muted, #6B6164)",
-                      marginBottom: "20px"
-                    }}
-                  >
+                  <div className="wwt-program-card-bestfor">
                     <strong style={{ color: "var(--site-heading-color, #4F6144)", marginRight: "6px" }}>Best for:</strong>
                     {item.bestFor}
                   </div>
                 )}
 
                 {/* Actions */}
-                <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap", marginTop: "auto" }}>
+                <div className="wwt-program-card-actions">
                   <Link
                     to={`/what-we-teach/${item.slug}`}
-                    className="wwt-btn-primary"
-                    style={{ padding: "10px 20px", fontSize: "13.5px" }}
+                    className="wwt-btn-primary wwt-card-explore-btn"
                   >
                     <span>Explore Practice</span>
                     <span>→</span>
@@ -175,14 +105,7 @@ function Programs() {
 
                   <Link
                     to={`/book-session?program=${encodeURIComponent(item.title)}`}
-                    style={{
-                      fontFamily: "var(--font-sans, 'Plus Jakarta Sans', sans-serif)",
-                      fontSize: "13.5px",
-                      fontWeight: 600,
-                      color: "var(--site-heading-color, #4F6144)",
-                      textDecoration: "none",
-                      padding: "10px 16px"
-                    }}
+                    className="wwt-card-book-btn"
                   >
                     Book Session
                   </Link>

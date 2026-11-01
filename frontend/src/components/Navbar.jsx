@@ -65,6 +65,7 @@ function Navbar() {
   const isClassesActive = location.pathname === "/online-classes";
 
   const teachItems = [
+    { title: "Overview / All Teachings", path: "/what-we-teach" },
     {
       title: "Cadences",
       type: "submenu",
@@ -114,24 +115,19 @@ function Navbar() {
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              <div 
-                className={`nav-dropdown-trigger ${isTeachActive ? "active" : ""}`}
-                role="button"
-                tabIndex={0}
+              <Link 
+                to="/what-we-teach"
+                className={`nav-link-item nav-dropdown-trigger ${isTeachActive ? "active" : ""}`}
                 aria-haspopup="true"
                 aria-expanded={dropdownOpen}
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    setDropdownOpen(!dropdownOpen);
-                  }
-                }}
+                onClick={() => setDropdownOpen(false)}
+                style={{ textDecoration: "none" }}
               >
                 <span>What We Teach</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
-              </div>
+              </Link>
 
               <div 
                 className={`nav-dropdown-menu what-we-teach-menu ${dropdownOpen ? "open" : ""}`}
@@ -432,28 +428,43 @@ function Navbar() {
 
           {/* 2. What We Teach (Accordion Dropdown) */}
           <div className="mobile-accordion-group">
-            <button 
-              className={`mobile-link-item mobile-accordion-trigger ${isTeachActive ? "active" : ""}`}
-              onClick={() => setMobileTeachOpen(!mobileTeachOpen)}
-              aria-expanded={mobileTeachOpen}
-              style={{ width: "100%", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "center", background: "none", border: "none", cursor: "pointer" }}
+            <div 
+              className={`mobile-link-item ${isTeachActive ? "active" : ""}`}
+              style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: 0 }}
             >
-              <span>What We Teach</span>
-              <svg 
-                width="15" 
-                height="15" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2.5"
-                style={{ 
-                  transform: mobileTeachOpen ? "rotate(180deg)" : "rotate(0deg)", 
-                  transition: "transform 0.25s ease" 
-                }}
+              <Link 
+                to="/what-we-teach"
+                onClick={() => setIsMenuOpen(false)}
+                style={{ flex: 1, padding: "12px 0", color: "inherit", textDecoration: "none" }}
               >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
+                What We Teach
+              </Link>
+              <button 
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setMobileTeachOpen(!mobileTeachOpen);
+                }}
+                aria-expanded={mobileTeachOpen}
+                aria-label="Toggle What We Teach Submenu"
+                style={{ background: "none", border: "none", padding: "10px 14px", cursor: "pointer", display: "inline-flex", alignItems: "center", color: "inherit" }}
+              >
+                <svg 
+                  width="15" 
+                  height="15" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2.5"
+                  style={{ 
+                    transform: mobileTeachOpen ? "rotate(180deg)" : "rotate(0deg)", 
+                    transition: "transform 0.25s ease" 
+                  }}
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+            </div>
             
             {mobileTeachOpen && (
               <div className="mobile-submenu-list" style={{ paddingLeft: "14px", borderLeft: "2px solid var(--ojalis-gold-border)", margin: "4px 0 12px 6px", display: "flex", flexDirection: "column", gap: "6px" }}>

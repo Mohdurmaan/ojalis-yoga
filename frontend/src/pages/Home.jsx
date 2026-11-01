@@ -297,7 +297,7 @@ function Home() {
             ))}
           </div>
 
-          <div className="text-center" style={{ marginTop: "44px" }}>
+          <div className="text-center home-programs-view-all-wrap" style={{ marginTop: "28px" }}>
             <Link to="/what-we-teach" className="btn btn-primary">
               View All Programs & Detailed Schedules
               <span className="btn-arrow">→</span>

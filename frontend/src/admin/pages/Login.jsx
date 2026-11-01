@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setToken, getToken, apiFetch } from '../services/api';
+import { setToken, getToken, getAdminUser, setAdminUser, removeToken, apiFetch } from '../services/api';
 import '../admin.css';
 
 function Login() {
@@ -12,9 +12,16 @@ function Login() {
 
   useEffect(() => {
     document.body.classList.add('admin-body');
-    if (getToken()) {
+
+    const params = new URLSearchParams(window.location.search);
+    const errorParam = params.get('error');
+
+    if (errorParam) {
+      setError(errorParam);
+    } else if (getToken() && getAdminUser()?.role === 'admin') {
       navigate('/admin/dashboard');
     }
+
     return () => document.body.classList.remove('admin-body');
   }, [navigate]);
 
@@ -26,13 +33,21 @@ function Login() {
     try {
       const res = await apiFetch('/auth/login', {
         method: 'POST',
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
-      
+
+      // Role check: Only users with role === 'admin' can access admin dashboard
+      if (!res.user || res.user.role !== 'admin') {
+        removeToken();
+        setError('You are not an admin');
+        return;
+      }
+
       setToken(res.token);
+      setAdminUser(res.user);
       navigate('/admin/dashboard');
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -45,15 +60,15 @@ function Login() {
           <img src="/logo.png" alt="Ojalis Logo" style={{ maxWidth: '130px', height: 'auto' }} />
           <h2 style={{ marginTop: '16px', fontSize: '20px', fontWeight: 600, color: 'var(--admin-text)' }}>Admin Login</h2>
         </div>
-        
+
         {error && <div className="admin-error">{error}</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="admin-form-group">
             <label className="admin-label">Email Address</label>
-            <input 
-              type="email" 
-              className="admin-input" 
+            <input
+              type="email"
+              className="admin-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -62,9 +77,9 @@ function Login() {
           </div>
           <div className="admin-form-group">
             <label className="admin-label">Password</label>
-            <input 
-              type="password" 
-              className="admin-input" 
+            <input
+              type="password"
+              className="admin-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

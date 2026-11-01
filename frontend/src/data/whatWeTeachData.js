@@ -282,6 +282,8 @@ export const whatWeTeachData = {
     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=85",
     simpleWords: "training your attention to rest calmly in one place - and at OJALIS, that place is your breath.",
     leadNarrative: "A busy mind is perfectly welcome. You begin with just a few minutes and grow at your own pace.",
+    whereYouUseIt: "Early morning at dawn, evening twilight, or whenever you need mental stillness.",
+    whatYouNeed: "A comfortable seat on a cushion or chair, and quiet space.",
     bestFor: "anyone seeking a calmer, clearer, more focused mind.",
     learningPathEyebrow: "02 / HOW IT GROWS",
     learningPathTitle: "How it grows",

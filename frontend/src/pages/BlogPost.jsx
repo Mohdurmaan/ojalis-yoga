@@ -1,28 +1,35 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import DOMPurify from "dompurify";
 import { blogArticles as fallbackArticles } from "../data/blogData";
-import { fetchPublic, getImageUrl } from "../utils/api";
+import { fetchPublic, getImageUrl, toSlug } from "../utils/api";
 
 function BlogPost() {
-  const { id } = useParams();
+  const { slug, id } = useParams();
+  const identifier = slug || id;
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [article, setArticle] = useState(null);
   const [otherArticles, setOtherArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showToc, setShowToc] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Fetch all to find the active article, plus related posts
     fetchPublic("/journals").then(data => {
       let mapped = [];
       if (data && data.length > 0) {
         mapped = data.map(item => ({
-          id: item._id,
+          id: String(item._id || item.id),
+          slug: item.slug || toSlug(item.title) || String(item._id || item.id),
           title: item.title,
           category: item.category || "Wisdom",
           summary: item.excerpt || "",
           content: item.content,
           author: item.author || "Ojalis Team",
+          readTime: "5 min read",
           date: new Date(item.publishedAt || item.createdAt).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -31,10 +38,29 @@ function BlogPost() {
           image: getImageUrl(item.featuredImage)
         }));
       } else {
-        mapped = fallbackArticles.map(item => ({...item, date: item.date || "Recent"}));
+        mapped = fallbackArticles.map(item => ({
+          ...item,
+          id: String(item.id),
+          slug: item.slug || item.id || toSlug(item.title),
+          readTime: item.readTime || "5 min read",
+          author: item.author || "Ojalis Team",
+          summary: item.summary || item.excerpt || "",
+          date: item.date || "Recent"
+        }));
       }
       
-      const found = mapped.find(item => item.id === id) || mapped[0];
+      const found = mapped.find(item => 
+        (item.slug && item.slug.toLowerCase() === identifier?.toLowerCase()) || 
+        String(item.id) === String(identifier)
+      ) || mapped[0];
+
+      if (found) {
+        // If the URL has primary ID (e.g. /blog/2) instead of the slug, replace URL with slug
+        if (found.slug && identifier !== found.slug) {
+          const basePath = location.pathname.startsWith("/journal") ? "/journal" : "/blog";
+          navigate(`${basePath}/${found.slug}`, { replace: true });
+        }
+      }
       
       // Process Table of Contents & clean non-breaking spaces (\u00a0 / &nbsp;)
       if (found && found.content) {
@@ -58,10 +84,12 @@ function BlogPost() {
       }
 
       setArticle(found);
-      setOtherArticles(mapped.filter(item => item.id !== found.id).slice(0, 3));
+      if (found) {
+        setOtherArticles(mapped.filter(item => String(item.id) !== String(found.id) && item.slug !== found.slug).slice(0, 3));
+      }
       setLoading(false);
     });
-  }, [id]);
+  }, [identifier]);
 
   if (loading || !article) return (
     <div style={{ textAlign: "center", padding: "120px 20px", minHeight: "60vh", fontFamily: "system-ui, sans-serif", color: "#666" }}>
@@ -356,79 +384,24 @@ function BlogPost() {
         }
 
         .editorial-related {
-          background-color: #faf9f6;
-          padding: 72px 24px;
-          border-top: 1px solid #f0ede6;
+          background-color: var(--ojalis-ivory, #FAF8F5);
+          padding: 80px 24px;
+          border-top: 1px solid var(--ojalis-border, #f0ede6);
         }
 
         .editorial-related-inner {
           width: 90%;
-          max-width: 1100px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
         .editorial-related h3 {
-          font-size: 26px;
+          font-size: 32px;
           text-align: center;
-          margin-bottom: 40px;
+          margin-bottom: 8px;
           font-weight: 700;
-          color: #1a1a1a;
-        }
-
-        .editorial-related-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 32px;
-        }
-
-        @media (min-width: 768px) {
-          .editorial-related-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-
-        .editorial-related-card {
-          text-decoration: none;
-          color: inherit;
-          display: block;
-          background: #ffffff;
-          border-radius: 12px;
-          overflow: hidden;
-          border: 1px solid #eaeaea;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .editorial-related-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-        }
-
-        .editorial-related-card img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
-
-        .editorial-related-card-content {
-          padding: 20px;
-        }
-
-        .editorial-related-tag {
-          font-size: 11px;
-          text-transform: uppercase;
-          color: #e67e22;
-          letter-spacing: 1px;
-          font-weight: 700;
-          display: block;
-          margin-bottom: 6px;
-        }
-
-        .editorial-related-title {
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 1.35;
-          margin: 0;
-          color: #1a1a1a;
+          color: var(--ojalis-burgundy, #4a1525);
+          font-family: var(--font-serif, Georgia, serif);
         }
       `}</style>
 
@@ -503,28 +476,45 @@ function BlogPost() {
       {otherArticles.length > 0 && (
         <section className="editorial-related">
           <div className="editorial-related-inner">
-            <h3>Read More Wisdom</h3>
-            <div className="editorial-related-grid">
+            <h3 style={{ fontSize: "28px", textAlign: "center", marginBottom: "32px", color: "var(--ojalis-burgundy)", fontFamily: "var(--font-serif)" }}>
+              Read More Wisdom
+            </h3>
+            <div className="programs-card-grid">
               {otherArticles.map((item) => (
-                <Link key={item.id} to={`/blog/${item.id}`} className="editorial-related-card">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80";
-                    }}
-                  />
-                  <div className="editorial-related-card-content">
-                    <span className="editorial-related-tag">{item.category}</span>
-                    <h4 className="editorial-related-title">{item.title}</h4>
+                <div key={item.id || item.slug} className="program-card-item">
+                  <div className="program-card-thumb-wrap">
+                    <Link to={`/blog/${item.slug || item.id}`}>
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="program-card-img" 
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80";
+                        }}
+                      />
+                    </Link>
+                    <span className="program-badge-tag">{item.category}</span>
                   </div>
-                </Link>
-                
+                  <div className="program-card-body">
+                    <div className="program-meta-row">
+                      <span>{item.readTime || "5 min read"} | By {item.author || "Ojalis Team"}</span>
+                    </div>
+                    <h3 className="program-card-title">
+                      <Link to={`/blog/${item.slug || item.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+                        {item.title}
+                      </Link>
+                    </h3>
+                    <p className="program-card-text">{item.summary}</p>
+                    <Link to={`/blog/${item.slug || item.id}`} className="program-link-cta">
+                      Read Article
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-          
         </section>
       )}
     </main>

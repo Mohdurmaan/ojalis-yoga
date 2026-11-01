@@ -6,7 +6,10 @@ export const removeUserToken = () => localStorage.removeItem('ojalis_user_token'
 
 export const userApiFetch = async (endpoint, options = {}) => {
   const token = getUserToken();
-  const headers = { ...options.headers };
+  const headers = {
+    Accept: 'application/json',
+    ...options.headers,
+  };
 
   if (token) {
     headers.Authorization = `Bearer ${token}`;

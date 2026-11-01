@@ -4,7 +4,11 @@ export const BASE_URL = API_URL.replace(/\/api$/, '');
 
 export const fetchPublic = async (endpoint) => {
   try {
-    const res = await fetch(`${API_BASE_URL}${endpoint}`);
+    const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
     if (!res.ok) throw new Error('API Error');
     const json = await res.json();
     return json.data;
@@ -58,3 +62,15 @@ export const getImageUrl = (path) => {
   }
   return `/${normalized}`;
 };
+
+export const toSlug = (text) => {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
+

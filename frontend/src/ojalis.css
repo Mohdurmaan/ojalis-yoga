@@ -930,7 +930,7 @@
    -------------------------------------------------------------------------- */
 /* Hero Section Below Shiv Animation */
 .hero-welcome-section {
-  padding: 72px 0 30px;
+  padding: 60px 0 16px;
   background: linear-gradient(180deg, var(--ojalis-ivory) 0%, #ffffff 100%);
   position: relative;
   overflow: hidden;
@@ -1016,7 +1016,7 @@
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-bottom: 24px;
 }
 
 /* Completely independent Hero Buttons Styles */
@@ -1101,7 +1101,7 @@
 
 /* Introduction Section */
 .intro-yoga-section {
-  padding: 40px 0 100px;
+  padding: 24px 0 72px;
   background-color: #ffffff;
 }
 
@@ -1191,7 +1191,7 @@
 
 /* Yoga Programs Section */
 .programs-overview-section {
-  padding: 40px 0 80px;
+  padding: 36px 0 36px;
   background-color: var(--ojalis-ivory);
 }
 
@@ -1556,7 +1556,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
 
 /* Call to Action Section */
 .final-cta-section {
-  padding: 96px 0;
+  padding: 36px 0 64px;
   background-color: #ffffff;
 }
 
@@ -2983,18 +2983,98 @@ border: 1px solid rgba(0, 0, 0, 0.05);
     padding-bottom: 60px;
   }
 
+  .hero-welcome-section {
+    padding: 36px 0 12px !important;
+  }
+
+  .hero-cta-group {
+    margin-bottom: 16px !important;
+  }
+
+  .intro-yoga-section {
+    padding: 16px 0 44px !important;
+  }
+
+  .programs-overview-section {
+    padding: 24px 0 24px !important;
+  }
+
+  .final-cta-section {
+    padding: 20px 0 36px !important;
+  }
+
+  .home-programs-view-all-wrap {
+    margin-top: 20px !important;
+  }
+
   .hero-highlights-strip {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
 
-  .programs-card-grid,
   .why-grid-layout,
   .benefits-cards-grid,
   .testimonials-cards-grid,
-  .gallery-cards-grid,
-  .blog-cards-grid {
+  .gallery-cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* 2 CARDS PER ROW ON MOBILE FOR PROGRAMS & BLOG GRIDS */
+  .programs-card-grid,
+  .blog-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+
+  .program-card-item {
+    border-radius: 14px !important;
+  }
+
+  .program-card-thumb-wrap {
+    height: 120px !important;
+  }
+
+  .program-badge-tag {
+    top: 6px !important;
+    left: 6px !important;
+    font-size: 8px !important;
+    padding: 2px 7px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .program-card-body {
+    padding: 12px 10px !important;
+  }
+
+  .program-meta-row {
+    font-size: 9.5px !important;
+    margin-bottom: 4px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .program-card-title {
+    font-size: 13.5px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .program-card-text {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .program-link-cta {
+    font-size: 11.5px !important;
+    gap: 4px !important;
+    margin-top: auto !important;
   }
 
   .form-grid-2col {

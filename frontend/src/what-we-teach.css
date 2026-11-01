@@ -2404,4 +2404,204 @@
   color: var(--ojalis-gold-dark, #9B7328);
 }
 
+/* ==========================================================================
+   WHAT WE TEACH - MAIN PROGRAMS GRID & 2-COLUMN MOBILE RESPONSIVENESS
+   ========================================================================== */
+.wwt-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.wwt-program-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--ojalis-border, #E8E0D5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+}
+
+.wwt-program-card-thumb {
+  height: 230px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wwt-program-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wwt-program-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--site-heading-color, #4F6144);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--ojalis-border, #E8E0D5);
+}
+
+.wwt-program-card-body {
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wwt-program-card-title {
+  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+  font-size: 23px;
+  color: var(--site-heading-color, #4F6144);
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.wwt-program-card-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14.5px;
+  color: var(--ojalis-text-muted, #6B6164);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.wwt-program-card-bestfor {
+  background: #faf7f2;
+  border: 1px solid var(--ojalis-border, #E8E0D5);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--ojalis-text-muted, #6B6164);
+  margin-bottom: 20px;
+}
+
+.wwt-program-card-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.wwt-card-explore-btn {
+  padding: 10px 20px;
+  font-size: 13.5px;
+}
+
+.wwt-card-book-btn {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--site-heading-color, #4F6144);
+  text-decoration: none;
+  padding: 10px 16px;
+}
+
+/* 2 CARDS PER ROW ON MOBILE VIEW */
+@media (max-width: 768px) {
+  .wwt-programs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .wwt-program-card {
+    border-radius: 14px !important;
+  }
+
+  .wwt-program-card-thumb {
+    height: 120px !important;
+  }
+
+  .wwt-program-card-badge {
+    top: 6px !important;
+    left: 6px !important;
+    font-size: 8px !important;
+    padding: 2px 6px !important;
+    letter-spacing: 0.4px !important;
+  }
+
+  .wwt-program-card-body {
+    padding: 12px 10px !important;
+  }
+
+  .wwt-program-card-title {
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  .wwt-program-card-text {
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .wwt-program-card-bestfor {
+    display: none !important;
+  }
+
+  .wwt-program-card-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    margin-top: auto !important;
+  }
+
+  .wwt-card-explore-btn {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .wwt-card-book-btn {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .wwt-programs-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .wwt-container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .wwt-program-card-thumb {
+    height: 105px !important;
+  }
+
+  .wwt-program-card-body {
+    padding: 10px 8px !important;
+  }
+
+  .wwt-program-card-title {
+    font-size: 13px !important;
+  }
+}
+
+
 
