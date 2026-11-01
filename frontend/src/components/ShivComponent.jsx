@@ -74,9 +74,9 @@ const ShivComponent = () => {
                 SANSKRIT TEXT OVERLAY
             ================================= */}
             <div className={`shiv-text-overlay ${isDimmed ? 'text-blurred' : ''}`}>
-                <h2 className="shiv-sanskrit">चले वाति चलं चित्तं निश्चले निश्चलं भवेत्।</h2>
+                <h2 className="shiv-sanskrit">चले वाते चलं चित्तं निश्चले निश्चलं भवेत्।</h2>
                 <p className="shiv-english">
-                    When the breath moves, the mind moves. <br/>  When the breath is still, the mind is still. 
+                    Calm your breath, and your mind will follow
                 </p>
             </div>
 

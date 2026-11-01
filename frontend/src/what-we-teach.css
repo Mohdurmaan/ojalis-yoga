@@ -201,8 +201,23 @@
 .wwt-hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 56px;
-  align-items: center;
+  column-gap: 56px;
+  align-items: start;
+}
+
+.wwt-hero-left-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.wwt-hero-header-block {
+  margin: 0;
+  padding: 0;
+}
+
+.wwt-hero-content-block {
+  margin: 0;
+  padding: 0;
 }
 
 .wwt-hero-title {
@@ -212,7 +227,7 @@
   font-weight: 600;
   color: var(--site-heading-color, #4F6144);
   letter-spacing: -0.5px;
-  margin: 16px 0 24px 0;
+  margin: 14px 0 16px 0;
 }
 
 .wwt-hero-title span {
@@ -309,26 +324,26 @@
   color: var(--site-heading-color, #4F6144);
 }
 
-/* Hero Visual & Arched Image */
+/* Hero Visual & Modern Rounded Rectangle Image Frame matching Image 2 */
 .wwt-hero-visual-wrap {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
-.wwt-hero-arch-frame {
+.wwt-hero-rect-frame {
+  position: relative;
   width: 100%;
-  height: 520px;
-  border-radius: 220px 220px 28px 28px;
+  height: 480px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 48px rgba(79, 97, 68, 0.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--ojalis-border, #E8E0D5);
   background-color: #EAE6DC;
-  position: relative;
 }
 
-.wwt-hero-arch-img {
+.wwt-hero-rect-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -336,75 +351,50 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.wwt-hero-arch-frame:hover .wwt-hero-arch-img {
+.wwt-hero-rect-frame:hover .wwt-hero-rect-img {
   transform: scale(1.03);
 }
 
-/* Floating Badges */
-.wwt-badge-floating-pill {
+/* Floating Stat Badge exactly matching Image 2 */
+.wwt-hero-stat-badge {
   position: absolute;
-  top: 24px;
-  right: -16px;
+  bottom: 24px;
+  right: 24px;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  padding: 8px 18px;
-  border-radius: var(--radius-full, 9999px);
-  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--site-heading-color, #4F6144);
+  backdrop-filter: blur(10px);
+  padding: 16px 22px;
+  border-radius: 14px;
   border: 1px solid var(--ojalis-border, #E8E0D5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  gap: 14px;
   z-index: 2;
+  max-width: calc(100% - 48px);
 }
 
-.wwt-badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--ojalis-gold, #C59B4B);
-}
-
-.wwt-badge-floating-circle {
-  position: absolute;
-  bottom: -20px;
-  left: -20px;
-  width: 114px;
-  height: 114px;
-  border-radius: 50%;
-  background: var(--site-heading-color, #4F6144);
-  color: #FFFFFF;
+.wwt-stat-badge-icon {
+  font-size: 24px;
+  color: var(--ojalis-gold, #c59b4b);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 12px 32px rgba(79, 97, 68, 0.3);
-  border: 3px solid var(--ojalis-ivory, #faf7f2);
-  z-index: 2;
+  flex-shrink: 0;
 }
 
-.wwt-circle-tag {
-  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ojalis-gold-light, #DFBD74);
+.wwt-stat-badge-title {
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 2px;
+  color: var(--ojalis-burgundy, #4a1525);
+  display: block;
+  line-height: 1.25;
 }
 
-.wwt-circle-main {
-  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
-  font-size: 21px;
-  font-style: italic;
-  line-height: 1;
-  color: #FFFFFF;
+.wwt-stat-badge-sub {
+  font-size: 12px;
+  color: var(--ojalis-text-muted, #6B6164);
+  display: block;
+  line-height: 1.35;
+  margin-top: 2px;
 }
 
 /* ==========================================================================
@@ -1430,13 +1420,58 @@
    ========================================================================== */
 @media (max-width: 1024px) {
   .wwt-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     text-align: left;
   }
 
+  .wwt-hero-left-col {
+    display: contents;
+  }
+
+  /* 1. Heading first on mobile */
+  .wwt-hero-header-block {
+    order: 1;
+  }
+
+  /* 2. Image second on mobile */
   .wwt-hero-visual-wrap {
-    max-width: 400px;
+    order: 2;
+    max-width: 100%;
+    margin: 4px 0 10px;
+  }
+
+  .wwt-hero-rect-frame {
+    height: 340px;
+    border-radius: 20px;
+  }
+
+  .wwt-hero-stat-badge {
+    bottom: 14px;
+    right: 14px;
+    padding: 10px 16px;
+    gap: 10px;
+    border-radius: 12px;
+    max-width: calc(100% - 28px);
+  }
+
+  .wwt-stat-badge-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .wwt-stat-badge-title {
+    font-size: 13px;
+  }
+
+  .wwt-stat-badge-sub {
+    font-size: 11px;
+  }
+
+  /* 3. Paragraph and other content third on mobile */
+  .wwt-hero-content-block {
+    order: 3;
   }
 
   .wwt-understand-layout {
@@ -1523,37 +1558,9 @@
     margin-bottom: 24px;
   }
 
-  .wwt-hero-visual-wrap {
-    max-width: 340px;
-    margin: 0 auto;
-  }
-
-  .wwt-hero-arch-frame {
-    height: 380px;
-  }
-
-  /* Keep floating badges within boundaries without negative overflow */
-  .wwt-badge-floating-pill {
-    right: 12px;
-    top: 14px;
-    font-size: 10px;
-    padding: 6px 12px;
-  }
-
-  .wwt-badge-floating-circle {
-    bottom: 12px;
-    left: 12px;
-    width: 86px;
-    height: 86px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  .wwt-circle-tag {
-    font-size: 8px;
-  }
-
-  .wwt-circle-main {
-    font-size: 16px;
+  .wwt-hero-rect-frame {
+    height: 300px;
+    border-radius: 18px;
   }
 
   /* Section 01: Understand the Practice */
@@ -1896,36 +1903,24 @@
 }
 
 @media (max-width: 480px) {
-  .wwt-hero-arch-frame {
-    height: 310px;
-    border-radius: 140px 140px 20px 20px;
+  .wwt-hero-rect-frame {
+    height: 250px;
+    border-radius: 16px;
   }
 
-  .wwt-hero-visual-wrap {
-    max-width: 270px;
+  .wwt-hero-stat-badge {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    gap: 8px;
   }
 
-  .wwt-badge-floating-pill {
-    right: 8px;
-    top: 10px;
-    font-size: 9.5px;
-    padding: 5px 10px;
+  .wwt-stat-badge-title {
+    font-size: 12px;
   }
 
-  .wwt-badge-floating-circle {
-    bottom: 8px;
-    left: 8px;
-    width: 76px;
-    height: 76px;
-  }
-
-  .wwt-circle-tag {
-    font-size: 7.5px;
-    letter-spacing: 1px;
-  }
-
-  .wwt-circle-main {
-    font-size: 14px;
+  .wwt-stat-badge-sub {
+    font-size: 10px;
   }
 
   .wwt-btn-primary,

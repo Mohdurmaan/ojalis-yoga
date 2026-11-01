@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import { whatWeTeachData } from "../data/whatWeTeachData";
+import { IconLotus } from "../components/Icons";
 import "../what-we-teach.css";
 
 function WhatWeTeachDetail() {
@@ -51,131 +52,137 @@ function WhatWeTeachDetail() {
   return (
     <main className="wwt-page">
       {/* =========================================================================
-          1. HERO SECTION (Matching Reference: web-layout-16)
+          1. HERO SECTION
           ========================================================================= */}
       <section className="wwt-hero-section">
         <div className="wwt-container">
           <div className="wwt-hero-grid">
-            {/* Left Column: Heading, Subtitle, Om Mantra & Actions */}
-            <div>
-              <div className="wwt-eyebrow">
-                <span className="wwt-eyebrow-line"></span>
-                <span>{practice.tag || "THE PRACTICE OF BREATH"}</span>
-              </div>
-
-              {practice.cadenceIntroNote && (
-                <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 18px", borderRadius: "12px", background: "rgba(79, 97, 68, 0.08)", border: "1px solid rgba(79, 97, 68, 0.18)", marginBottom: "16px", maxWidth: "600px" }}>
-                  <span style={{ fontSize: "13px", color: "var(--site-heading-color, #4F6144)", fontStyle: "italic", lineHeight: 1.5 }}>
-                    {practice.cadenceIntroNote}
-                  </span>
+            
+            {/* Left Column: Heading and Paragraph/Content together in 1 parent div */}
+            <div className="wwt-hero-left-col">
+              {/* 1. Header / Title Block */}
+              <div className="wwt-hero-header-block">
+                <div className="wwt-eyebrow">
+                  <span className="wwt-eyebrow-line"></span>
+                  <span>{practice.tag || "THE PRACTICE OF BREATH"}</span>
                 </div>
-              )}
 
-              <h1 className="wwt-hero-title">
-                {practice.headline?.replace(practice.headlineItalic || "", "") || practice.title}
-                {practice.headlineItalic && (
-                  <span className="wwt-italic wwt-forest-text">
-                    {" "}{practice.headlineItalic}
-                  </span>
-                )}
-              </h1>
-
-              <p className="wwt-hero-lead">{practice.lead}</p>
-
-              {practice.bestFor && (
-                <div className="wwt-best-for-pill">
-                  <span className="wwt-best-for-label">Best for:</span>
-                  <span className="wwt-best-for-text">{practice.bestFor}</span>
-                </div>
-              )}
-
-              {practice.mantraText && (
-                <div className="wwt-hero-mantra-box">
-                  <div className="wwt-om-symbol" aria-hidden="true">ॐ</div>
-                  <div className="wwt-mantra-text">
-                    "{practice.mantraText}"
+                {practice.cadenceIntroNote && (
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 18px", borderRadius: "12px", background: "rgba(79, 97, 68, 0.08)", border: "1px solid rgba(79, 97, 68, 0.18)", marginBottom: "16px", maxWidth: "600px" }}>
+                    <span style={{ fontSize: "13px", color: "var(--site-heading-color, #4F6144)", fontStyle: "italic", lineHeight: 1.5 }}>
+                      {practice.cadenceIntroNote}
+                    </span>
                   </div>
-                </div>
-              )}
+                )}
 
-              <div className="wwt-hero-actions">
-                <Link
-                  to={`/book-session?program=${encodeURIComponent(practice.title)}`}
-                  className="wwt-btn-primary"
-                  id={`hero-book-btn-${practice.slug}`}
-                >
-                  <span>Book a Session</span>
-                  <span>→</span>
-                </Link>
-
-                <a
-                  href="#section-understand"
-                  onClick={handleScrollToExplore}
-                  className="wwt-scroll-explore"
-                >
-                  <span>Scroll to explore</span>
-                  <span>↓</span>
-                </a>
+                <h1 className="wwt-hero-title">
+                  {practice.headline?.replace(practice.headlineItalic || "", "") || practice.title}
+                  {practice.headlineItalic && (
+                    <span className="wwt-italic wwt-forest-text">
+                      {" "}{practice.headlineItalic}
+                    </span>
+                  )}
+                </h1>
               </div>
 
-              {/* Cadence Specific Ribbon if Cadence */}
-              {practice.cadenceMeta && (
-                <div className="wwt-cadence-ribbon">
-                  {practice.cadenceMeta.length && (
-                    <div className="wwt-cadence-meta-item">
-                      <span className="wwt-cadence-meta-label">Length</span>
-                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.length}</span>
+              {/* 3. Content Block (Paragraph, Best for, Mantra, Actions, Cadence ribbon) */}
+              <div className="wwt-hero-content-block">
+                <p className="wwt-hero-lead">{practice.lead}</p>
+
+                {practice.bestFor && (
+                  <div className="wwt-best-for-pill">
+                    <span className="wwt-best-for-label">Best for:</span>
+                    <span className="wwt-best-for-text">{practice.bestFor}</span>
+                  </div>
+                )}
+
+                {practice.mantraText && (
+                  <div className="wwt-hero-mantra-box">
+                    <div className="wwt-om-symbol" aria-hidden="true">ॐ</div>
+                    <div className="wwt-mantra-text">
+                      "{practice.mantraText}"
                     </div>
-                  )}
-                  {practice.cadenceMeta.classes && (
-                    <div className="wwt-cadence-meta-item">
-                      <span className="wwt-cadence-meta-label">Classes</span>
-                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.classes}</span>
-                    </div>
-                  )}
-                  {practice.cadenceMeta.format && (
-                    <div className="wwt-cadence-meta-item">
-                      <span className="wwt-cadence-meta-label">Format</span>
-                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.format}</span>
-                    </div>
-                  )}
-                  {practice.cadenceMeta.homePractice && (
-                    <div className="wwt-cadence-meta-item">
-                      <span className="wwt-cadence-meta-label">Home Practice</span>
-                      <span className="wwt-cadence-meta-val">{practice.cadenceMeta.homePractice}</span>
-                    </div>
-                  )}
+                  </div>
+                )}
+
+                <div className="wwt-hero-actions">
+                  <Link
+                    to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                    className="wwt-btn-primary"
+                    id={`hero-book-btn-${practice.slug}`}
+                  >
+                    <span>Book a Session</span>
+                    <span>→</span>
+                  </Link>
+
+                  <a
+                    href="#section-understand"
+                    onClick={handleScrollToExplore}
+                    className="wwt-scroll-explore"
+                  >
+                    <span>Scroll to explore</span>
+                    <span>↓</span>
+                  </a>
                 </div>
-              )}
+
+                {/* Cadence Specific Ribbon if Cadence */}
+                {practice.cadenceMeta && (
+                  <div className="wwt-cadence-ribbon">
+                    {practice.cadenceMeta.length && (
+                      <div className="wwt-cadence-meta-item">
+                        <span className="wwt-cadence-meta-label">Length</span>
+                        <span className="wwt-cadence-meta-val">{practice.cadenceMeta.length}</span>
+                      </div>
+                    )}
+                    {practice.cadenceMeta.classes && (
+                      <div className="wwt-cadence-meta-item">
+                        <span className="wwt-cadence-meta-label">Classes</span>
+                        <span className="wwt-cadence-meta-val">{practice.cadenceMeta.classes}</span>
+                      </div>
+                    )}
+                    {practice.cadenceMeta.format && (
+                      <div className="wwt-cadence-meta-item">
+                        <span className="wwt-cadence-meta-label">Format</span>
+                        <span className="wwt-cadence-meta-val">{practice.cadenceMeta.format}</span>
+                      </div>
+                    )}
+                    {practice.cadenceMeta.homePractice && (
+                      <div className="wwt-cadence-meta-item">
+                        <span className="wwt-cadence-meta-label">Home Practice</span>
+                        <span className="wwt-cadence-meta-val">{practice.cadenceMeta.homePractice}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
-            {/* Right Column: Arched Image with Floating Pill & Circular Badges */}
+            {/* 2. Visual / Image Block (Styled like Image 2: rounded rectangle with floating badge) */}
             <div className="wwt-hero-visual-wrap">
-              <div className="wwt-hero-arch-frame">
+              <div className="wwt-hero-rect-frame">
                 <img
                   src={practice.image}
                   alt={practice.title}
-                  className="wwt-hero-arch-img"
+                  className="wwt-hero-rect-img"
                   loading="eager"
                 />
-              </div>
 
-              {/* Floating Pill Badge (Top Right) */}
-              <div className="wwt-badge-floating-pill">
-                <span className="wwt-badge-dot"></span>
-                <span>{practice.heroBadgeText || "BREATHE WITH AWARENESS"}</span>
-              </div>
-
-              {/* Floating Circular Badge (Bottom Left) */}
-              <div className="wwt-badge-floating-circle">
-                <span className="wwt-circle-tag">
-                  {practice.heroCircleTag || "INHALE"}
-                </span>
-                <span className="wwt-circle-main">
-                  {practice.heroCircleWord || "slowly"}
-                </span>
+                <div className="wwt-hero-stat-badge">
+                  <div className="wwt-stat-badge-icon">
+                    <IconLotus size={24} color="var(--ojalis-gold, #c59b4b)" />
+                  </div>
+                  <div>
+                    <span className="wwt-stat-badge-title">
+                      {practice.heroBadgeText || "Classical Yogic Tradition"}
+                    </span>
+                    <span className="wwt-stat-badge-sub">
+                      {practice.subtitle || "Grounding Body, Breath & Spirit"}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
