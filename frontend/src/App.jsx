@@ -8,11 +8,8 @@ import ShivComponent from "./components/ShivComponent";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
-import Meditation from "./pages/Meditation";
-import Benefits from "./pages/Benefits";
 import Trainers from "./pages/Trainers";
 import Gallery from "./pages/Gallery";
-import Testimonials from "./pages/Testimonials";
 import Books from "./pages/Books";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -71,10 +68,8 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/what-we-teach" element={<Programs />} />
         <Route path="/meditation" element={<WhatWeTeachDetail />} />
-        <Route path="/benefits" element={<Benefits />} />
         <Route path="/trainers" element={<Trainers />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/books" element={<Books />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />

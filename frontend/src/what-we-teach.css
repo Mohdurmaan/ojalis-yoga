@@ -227,7 +227,7 @@
   font-weight: 600;
   color: var(--site-heading-color, #4F6144);
   letter-spacing: -0.5px;
-  margin: 14px 0 16px 0;
+  margin: 0 0 16px 0;
 }
 
 .wwt-hero-title span {
@@ -448,40 +448,15 @@
 }
 
 .wwt-understand-layout {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 56px;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .wwt-understand-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-.wwt-understand-sidebar {
-  position: sticky;
-  top: 100px;
-}
-
-@media (max-width: 900px) {
-  .wwt-understand-sidebar {
-    position: static;
-  }
-}
-
-.wwt-understand-accent-line {
-  width: 44px;
-  height: 2px;
-  background-color: var(--ojalis-gold, #C59B4B);
-  margin-top: 10px;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .wwt-understand-main {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .wwt-understand-title {
@@ -504,7 +479,7 @@
   color: var(--ojalis-text-muted, #6B6164);
   line-height: 1.7;
   margin-bottom: 24px;
-  max-width: 740px;
+  max-width: 100%;
 }
 
 .wwt-where-use-box {
@@ -516,7 +491,7 @@
   border: 1px solid var(--ojalis-border, #E8E0D5);
   border-radius: 12px;
   margin-bottom: 24px;
-  max-width: 740px;
+  max-width: 100%;
 }
 
 .wwt-where-use-label {
@@ -1474,11 +1449,6 @@
     order: 3;
   }
 
-  .wwt-understand-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
   .wwt-approach-grid {
     grid-template-columns: 1fr;
   }
@@ -1566,19 +1536,6 @@
   /* Section 01: Understand the Practice */
   #section-understand {
     scroll-margin-top: 85px;
-  }
-
-  .wwt-understand-layout {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .wwt-understand-sidebar {
-    position: static;
-  }
-
-  .wwt-understand-accent-line {
-    margin-top: 6px;
   }
 
   .wwt-understand-title {

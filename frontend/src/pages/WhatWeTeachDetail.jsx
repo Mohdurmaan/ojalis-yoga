@@ -62,11 +62,6 @@ function WhatWeTeachDetail() {
             <div className="wwt-hero-left-col">
               {/* 1. Header / Title Block */}
               <div className="wwt-hero-header-block">
-                <div className="wwt-eyebrow">
-                  <span className="wwt-eyebrow-line"></span>
-                  <span>{practice.tag || "THE PRACTICE OF BREATH"}</span>
-                </div>
-
                 {practice.cadenceIntroNote && (
                   <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "8px 18px", borderRadius: "12px", background: "rgba(79, 97, 68, 0.08)", border: "1px solid rgba(79, 97, 68, 0.18)", marginBottom: "16px", maxWidth: "600px" }}>
                     <span style={{ fontSize: "13px", color: "var(--site-heading-color, #4F6144)", fontStyle: "italic", lineHeight: 1.5 }}>
@@ -188,20 +183,12 @@ function WhatWeTeachDetail() {
       </section>
 
       {/* =========================================================================
-          2. SECTION 01: UNDERSTAND THE PRACTICE (Matching Reference: web-layout-16)
+          2. SECTION 01: UNDERSTAND THE PRACTICE
           ========================================================================= */}
       <section id="section-understand" className="wwt-sec-understand">
         <div className="wwt-container">
           <div className="wwt-understand-layout">
-            {/* Left Column: Eyebrow + Gold Accent Line (Just like reference web-layout-16) */}
-            <div className="wwt-understand-sidebar">
-              <div className="wwt-eyebrow">
-                <span>01 / UNDERSTAND THE PRACTICE</span>
-              </div>
-              <div className="wwt-understand-accent-line"></div>
-            </div>
-
-            {/* Right Column: Title, Narrative, Cards Grid & Pullquote */}
+            {/* Centered Main Content: Title, Narrative, Cards Grid & Pullquote */}
             <div className="wwt-understand-main">
               <h2 className="wwt-understand-title">
                 {practice.title} - in simple words:{" "}

@@ -76,34 +76,13 @@ function Footer() {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/what-we-teach">What We Teach</Link></li>
-              <li><Link to="/what-we-teach/meditation">Meditation & Kriya</Link></li>
               <li><Link to="/trainers">Our Trainers</Link></li>
-              <li><Link to="/benefits">Benefits of Yoga</Link></li>
               <li><Link to="/studio">Studio</Link></li>
-              <li><Link to="/testimonials">Testimonials</Link></li>
               <li><Link to="/journal">Journal</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: What We Teach */}
-          <div className="footer-col-whatweteach">
-            <h4 className="footer-heading">What We Teach</h4>
-            <ul className="footer-nav-list">
-              <li><Link to="/what-we-teach/pranayama">Pranayama</Link></li>
-              <li><Link to="/what-we-teach/hatha-yoga">Hatha Yoga</Link></li>
-              <li><Link to="/what-we-teach/yoga-nidra">Yoga Nidra</Link></li>
-              <li><Link to="/what-we-teach/meditation">Meditation</Link></li>
-              <li><Link to="/what-we-teach/sukshma-vyayama">Sukshma Vyayama</Link></li>
-              <li><Link to="/what-we-teach/shatkarma">Shatkarma</Link></li>
-              <li><Link to="/what-we-teach/ayurvedic-lifestyle-guidance">Ayurvedic Lifestyle Guidance</Link></li>
-              <li><Link to="/what-we-teach/postnatal-recovery">Postnatal Recovery</Link></li>
-              <li><Link to="/what-we-teach/cycle-practice">Cycle Practice</Link></li>
-              <li><Link to="/what-we-teach/study-breath">Study Breath</Link></li>
-              <li><Link to="/what-we-teach/first-breath">First Breath / Surya Namaskar for Children</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Contact Information */}
+          {/* Column 3: Contact Information */}
           <div className="footer-col-contact">
             <h4 className="footer-heading">Contact & Studio</h4>
             <div className="footer-contact-item">
@@ -144,7 +123,7 @@ function Footer() {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <div className="footer-bottom-inner">
-            <p>&copy; {new Date().getFullYear()} OJALIS - Yogic Kriya. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} OJALIS - Digital Raja. All rights reserved.</p>
             <div className="footer-legal-links">
               <Link to="/contact">Privacy Policy</Link>
               <Link to="/contact">Terms of Practice</Link>

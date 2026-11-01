@@ -4,7 +4,6 @@ import "./NiansGallery.css";
 
 export default function HomeGallerySection() {
   const { images: studioImages, loading } = useStudioImages();
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const touchStartX = useRef(0);
@@ -23,12 +22,18 @@ export default function HomeGallerySection() {
       { image: "/images/culture-3.jpg", text: "Celebration of Life" }
     ];
 
-  // Duplicate images so that slider can loop seamlessly
-  const displayImages = baseImages.length < 5
-    ? [...baseImages, ...baseImages, ...baseImages, ...baseImages]
-    : [...baseImages, ...baseImages];
-
+  // Duplicate images so that slider can loop seamlessly on all viewports
+  const repeatCount = Math.max(3, Math.ceil(12 / (baseImages.length || 1)));
+  const displayImages = Array.from({ length: repeatCount }, () => baseImages).flat();
   const totalSlides = displayImages.length;
+
+  // On mobile start at index 1 so slide 0 is on left (30%), slide 1 is in center (100%), slide 2 is on right (30%)
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    if (typeof window !== "undefined" && window.innerWidth <= 768) {
+      return 1;
+    }
+    return 0;
+  });
 
   // Measure dynamic slide pixel width
   useEffect(() => {
@@ -48,12 +53,24 @@ export default function HomeGallerySection() {
   }, [displayImages.length]);
 
   const [offsetPx, setOffsetPx] = useState(0);
-  const maxIndex = Math.max(0, totalSlides - 3);
+  const maxDesktopIndex = Math.max(0, totalSlides - 3);
 
   useEffect(() => {
     const updateOffset = () => {
       if (trackRef.current && trackRef.current.children[currentIndex]) {
-        setOffsetPx(trackRef.current.children[currentIndex].offsetLeft);
+        const slide = trackRef.current.children[currentIndex];
+        const container = trackRef.current.parentElement;
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile && container) {
+          // Center the active slide in mobile viewport:
+          // Left slide shows ~30%, active middle slide shows 100%, right slide shows ~30%
+          const centerOffset = (slide.offsetLeft + slide.offsetWidth / 2) - (container.offsetWidth / 2);
+          setOffsetPx(centerOffset);
+        } else {
+          // Desktop: standard left-aligned 3-card sliding
+          setOffsetPx(slide.offsetLeft);
+        }
       }
     };
     updateOffset();
@@ -62,12 +79,22 @@ export default function HomeGallerySection() {
   }, [currentIndex]);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  }, [maxIndex]);
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    if (isMobile) {
+      setCurrentIndex((prev) => (prev >= totalSlides - 2 ? 1 : prev + 1));
+    } else {
+      setCurrentIndex((prev) => (prev >= maxDesktopIndex ? 0 : prev + 1));
+    }
+  }, [totalSlides, maxDesktopIndex]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  }, [maxIndex]);
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    if (isMobile) {
+      setCurrentIndex((prev) => (prev <= 1 ? totalSlides - 2 : prev - 1));
+    } else {
+      setCurrentIndex((prev) => (prev <= 0 ? maxDesktopIndex : prev - 1));
+    }
+  }, [totalSlides, maxDesktopIndex]);
 
   // Autoplay slider effect (pauses on mouse hover or touch)
   useEffect(() => {
@@ -81,7 +108,9 @@ export default function HomeGallerySection() {
 
   // Touch and drag handlers for mobile swipe & mouse drag
   const handleTouchStart = (e) => {
-    touchStartX.current = e.touches ? e.touches[0].clientX : e.clientX;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    touchStartX.current = x;
+    touchEndX.current = x;
     isDragging.current = true;
   };
 

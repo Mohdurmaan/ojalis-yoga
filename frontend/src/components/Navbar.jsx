@@ -65,7 +65,7 @@ function Navbar() {
   const isClassesActive = location.pathname === "/online-classes";
 
   const teachItems = [
-    { title: "Overview / All Teachings", path: "/what-we-teach" },
+    { title: "", path: "/what-we-teach" },
     {
       title: "Cadences",
       type: "submenu",
@@ -95,10 +95,10 @@ function Navbar() {
         <div className="container navbar-content">
           {/* Logo & Brand Mark (No duplicate text, aspect ratio preserved) */}
           <Link to="/" className="brand-identity-link" aria-label="Ojalis The Breath Signature Home">
-            <img 
-              src="/logo.png" 
-              alt="Ojalis - The Breath Signature Logo" 
-              className="brand-logo-img" 
+            <img
+              src={!isScrolled && !isLightHeader ? "/logo-light.png" : "/logo.png"}
+              alt="Ojalis - The Breath Signature Logo"
+              className="brand-logo-img"
             />
           </Link>
 
@@ -110,12 +110,12 @@ function Navbar() {
             </Link>
 
             {/* 2. What We Teach (Dropdown) */}
-            <div 
+            <div
               className="nav-dropdown-wrapper"
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              <Link 
+              <Link
                 to="/what-we-teach"
                 className={`nav-link-item nav-dropdown-trigger ${isTeachActive ? "active" : ""}`}
                 aria-haspopup="true"
@@ -129,21 +129,21 @@ function Navbar() {
                 </svg>
               </Link>
 
-              <div 
+              <div
                 className={`nav-dropdown-menu what-we-teach-menu ${dropdownOpen ? "open" : ""}`}
                 style={{ display: dropdownOpen ? "flex" : undefined }}
               >
                 {teachItems.map((item, idx) => {
                   if (item.type === "submenu") {
                     return (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         style={{ position: "relative" }}
                         onMouseEnter={() => setCadenceFlyoutOpen(true)}
                         onMouseLeave={() => setCadenceFlyoutOpen(false)}
                       >
-                        <div 
-                          className="nav-dropdown-item" 
+                        <div
+                          className="nav-dropdown-item"
                           style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", backgroundColor: cadenceFlyoutOpen ? "var(--ojalis-ivory)" : "transparent", color: cadenceFlyoutOpen ? "var(--ojalis-burgundy)" : "" }}
                         >
                           {item.title}
@@ -151,10 +151,10 @@ function Navbar() {
                             <polyline points="6 9 12 15 18 9" />
                           </svg>
                         </div>
-                        
+
                         {cadenceFlyoutOpen && (
-                          <div 
-                            style={{ 
+                          <div
+                            style={{
                               display: "flex",
                               flexDirection: "column",
                               padding: "8px 16px",
@@ -172,9 +172,9 @@ function Navbar() {
                             </div>
                             <div style={{ display: "flex", flexDirection: "column" }}>
                               {item.children.map(child => (
-                                <Link 
+                                <Link
                                   key={child.path}
-                                  to={child.path} 
+                                  to={child.path}
                                   className={`nav-dropdown-item ${isActive(child.path) ? "active" : ""}`}
                                   style={{ padding: "6px 8px", fontSize: "13.5px", margin: "1px 0" }}
                                   onClick={() => {
@@ -192,9 +192,9 @@ function Navbar() {
                     );
                   }
                   return (
-                    <Link 
+                    <Link
                       key={item.path}
-                      to={item.path} 
+                      to={item.path}
                       className={`nav-dropdown-item ${isActive(item.path) ? "active" : ""}`}
                     >
                       {item.title}
@@ -378,7 +378,7 @@ function Navbar() {
             )}
 
             {/* Mobile Hamburger Button */}
-            <button 
+            <button
               className={`btn-mobile-hamburger ${isMenuOpen ? "open" : ""}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Navigation Menu"
@@ -392,7 +392,7 @@ function Navbar() {
       </header>
 
       {/* ================= MOBILE NAVIGATION DRAWER ================= */}
-      <div 
+      <div
         className={`mobile-drawer-overlay ${isMenuOpen ? "open" : ""}`}
         onClick={() => setIsMenuOpen(false)}
       ></div>
@@ -400,15 +400,15 @@ function Navbar() {
       <div className={`mobile-nav-drawer ${isMenuOpen ? "open" : ""}`}>
         <div className="mobile-drawer-header">
           <Link to="/" className="brand-identity-link" onClick={() => setIsMenuOpen(false)}>
-            <img 
-              src="/logo.png" 
-              alt="Ojalis Logo" 
-              className="brand-logo-img" 
-              style={{ maxHeight: 72, width: "auto" }} 
+            <img
+              src="/logo.png"
+              alt="Ojalis Logo"
+              className="brand-logo-img"
+              style={{ maxHeight: 72, width: "auto" }}
             />
           </Link>
-          <button 
-            className="mobile-nav-close" 
+          <button
+            className="mobile-nav-close"
             onClick={() => setIsMenuOpen(false)}
             aria-label="Close Navigation"
             style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}
@@ -428,18 +428,18 @@ function Navbar() {
 
           {/* 2. What We Teach (Accordion Dropdown) */}
           <div className="mobile-accordion-group">
-            <div 
+            <div
               className={`mobile-link-item ${isTeachActive ? "active" : ""}`}
               style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: 0 }}
             >
-              <Link 
+              <Link
                 to="/what-we-teach"
                 onClick={() => setIsMenuOpen(false)}
                 style={{ flex: 1, padding: "12px 0", color: "inherit", textDecoration: "none" }}
               >
                 What We Teach
               </Link>
-              <button 
+              <button
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -449,23 +449,23 @@ function Navbar() {
                 aria-label="Toggle What We Teach Submenu"
                 style={{ background: "none", border: "none", padding: "10px 14px", cursor: "pointer", display: "inline-flex", alignItems: "center", color: "inherit" }}
               >
-                <svg 
-                  width="15" 
-                  height="15" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
                   strokeWidth="2.5"
-                  style={{ 
-                    transform: mobileTeachOpen ? "rotate(180deg)" : "rotate(0deg)", 
-                    transition: "transform 0.25s ease" 
+                  style={{
+                    transform: mobileTeachOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.25s ease"
                   }}
                 >
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>
             </div>
-            
+
             {mobileTeachOpen && (
               <div className="mobile-submenu-list" style={{ paddingLeft: "14px", borderLeft: "2px solid var(--ojalis-gold-border)", margin: "4px 0 12px 6px", display: "flex", flexDirection: "column", gap: "6px" }}>
                 {teachItems.map((item, idx) => {
@@ -477,9 +477,9 @@ function Navbar() {
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", gap: "6px", paddingLeft: "10px", borderLeft: "1px solid var(--ojalis-border)" }}>
                           {item.children.map(child => (
-                            <Link 
+                            <Link
                               key={child.path}
-                              to={child.path} 
+                              to={child.path}
                               className={`mobile-sublink-item ${isActive(child.path) ? "active" : ""}`}
                               style={{
                                 fontSize: "13.5px",
@@ -497,9 +497,9 @@ function Navbar() {
                     );
                   }
                   return (
-                    <Link 
+                    <Link
                       key={item.path}
-                      to={item.path} 
+                      to={item.path}
                       className={`mobile-sublink-item ${isActive(item.path) ? "active" : ""}`}
                       style={{
                         fontSize: "14px",

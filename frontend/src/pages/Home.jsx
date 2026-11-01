@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  IconFlexibility,
-  IconStrength,
-  IconStressManagement,
-  IconSleep,
-  IconBreathing,
-  IconBalance,
   IconCheckmark,
   IconLotus,
   IconSparkle
@@ -58,41 +52,6 @@ function Home() {
       description: "No superficial quick-fixes. We cultivate sustainable breathing habits, spinal longevity, emotional resilience, and lifelong physical grace."
     }
   ];
-
-  const benefitsData = [
-    {
-      IconComponent: IconFlexibility,
-      title: "Improved Flexibility",
-      description: "Gently lengthen tight hamstrings, hips, and shoulders, restoring natural range of motion and effortless posture."
-    },
-    {
-      IconComponent: IconStrength,
-      title: "Better Strength & Mobility",
-      description: "Build balanced functional core strength, joint stability, and muscular endurance using your own body weight."
-    },
-    {
-      IconComponent: IconStressManagement,
-      title: "Stress Management",
-      description: "Regulate the autonomic nervous system, lower cortisol levels, and bring natural ease into challenging days."
-    },
-    {
-      IconComponent: IconSleep,
-      title: "Better Sleep Quality",
-      description: "Unwind accumulated nervous tension through evening restorative asanas and breathwork for deep, undisturbed sleep."
-    },
-    {
-      IconComponent: IconBreathing,
-      title: "Improved Breathing",
-      description: "Expand diaphragmatic lung capacity, clear congested airways, and cultivate calm, oxygen-rich breathing."
-    },
-    {
-      IconComponent: IconBalance,
-      title: "Mind & Body Balance",
-      description: "Bridge cognitive focus with somatic awareness to experience rooted emotional steadiness and mental peace."
-    }
-  ];
-
-
 
   return (
     <main>
@@ -372,13 +331,6 @@ function Home() {
           </div>
 
           <TestimonialSlider />
-
-          <div className="text-center" style={{ marginTop: "36px" }}>
-            <Link to="/testimonials" className="btn btn-outline-burgundy">
-              Read More Student Stories
-              <span className="btn-arrow">→</span>
-            </Link>
-          </div>
         </div>
       </section>
 
