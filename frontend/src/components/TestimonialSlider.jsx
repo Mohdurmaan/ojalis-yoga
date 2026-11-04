@@ -245,9 +245,9 @@ export default function TestimonialSlider({ items = testimonialsData }) {
         {/* LEFT COLUMN: The Curved Arc with Personas (Desktop) */}
         <div className="nians-arc-col" aria-label="Reviewers on arc">
           {/* Background SVG Curve */}
-          <svg className="nians-arc-svg" viewBox="0 0 200 420" preserveAspectRatio="none">
+          <svg className="nians-arc-svg" viewBox="0 0 220 440" preserveAspectRatio="none">
             <path
-              d="M 15 20 C 145 90, 145 330, 15 400"
+              d="M 15 10 C 145 90, 145 350, 15 430"
               fill="none"
               stroke="rgba(79, 97, 68, 0.28)"
               strokeWidth="1.75"

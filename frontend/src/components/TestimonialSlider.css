@@ -188,8 +188,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 180px;
-  height: 100%;
+  width: 220px;
+  height: 440px;
   pointer-events: none;
   z-index: 1;
 }
@@ -213,20 +213,20 @@
 
 /* Node Positioning on the Curve */
 .nians-arc-node.node-top {
-  top: 24px;
-  left: 12px;
+  top: 35px;
+  left: 43px;
   opacity: 0.85;
 }
 
 .nians-arc-node.node-center {
-  top: 180px;
-  left: 70px;
+  top: 184px;
+  left: 77px;
   z-index: 3;
 }
 
 .nians-arc-node.node-bottom {
-  top: 340px;
-  left: 12px;
+  top: 361px;
+  left: 43px;
   opacity: 0.85;
 }
 

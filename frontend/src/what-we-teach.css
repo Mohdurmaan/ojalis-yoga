@@ -442,13 +442,13 @@
 }
 
 .wwt-sec-understand {
-  padding: 72px 0 80px 0;
+  padding: 56px 0 20px 0;
   background-color: var(--ojalis-ivory, #faf7f2);
   border-top: 1px solid var(--ojalis-border, #E8E0D5);
 }
 
 .wwt-understand-layout {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   width: 100%;
 }
@@ -461,51 +461,100 @@
 
 .wwt-understand-title {
   font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
-  font-size: clamp(22px, 2.3vw, 32px);
-  line-height: 1.32;
-  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.35;
+  font-weight: 600;
   color: var(--site-heading-color, #4F6144);
-  letter-spacing: -0.2px;
-  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+  margin: 14px 0 16px 0;
 }
 
-.wwt-understand-title span {
-  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+.wwt-understand-title-sub {
+  font-weight: 400;
+  color: var(--site-heading-color, #4F6144);
 }
 
 .wwt-understand-desc {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 15px;
+  font-size: 15.5px;
   color: var(--ojalis-text-muted, #6B6164);
-  line-height: 1.7;
-  margin-bottom: 24px;
+  line-height: 1.75;
+  margin-bottom: 20px;
   max-width: 100%;
 }
 
-.wwt-where-use-box {
+/* Key Metadata Summary Card - Clean, Warm & Grounded */
+.wwt-meta-summary-card {
+  background: #F4EFE6;
+  border: 1px solid #E6DEC8;
+  border-left: 3.5px solid var(--site-heading-color, #4F6144);
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin: 16px 0 0 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 12px 18px;
-  background: #FFFFFF;
-  border: 1px solid var(--ojalis-border, #E8E0D5);
-  border-radius: 12px;
-  margin-bottom: 24px;
+  gap: 14px;
   max-width: 100%;
+}
+
+.wwt-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wwt-meta-label {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ojalis-gold-dark, #9B7328);
+}
+
+.wwt-meta-value {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14.5px;
+  color: #3A3536;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.wwt-meta-list {
+  margin: 4px 0 0 0;
+  padding-left: 18px;
+  color: #3A3536;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Backward compatibility for wwt-where-use-box */
+.wwt-where-use-box {
+  background: #F4EFE6;
+  border: 1px solid #E6DEC8;
+  border-left: 3.5px solid var(--site-heading-color, #4F6144);
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .wwt-where-use-label {
-  color: var(--site-heading-color, #4F6144);
-  font-size: 11.5px;
+  color: var(--ojalis-gold-dark, #9B7328);
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: 700;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
 }
 
 .wwt-where-use-text {
-  color: var(--ojalis-text-muted, #6B6164);
-  font-size: 14px;
-  line-height: 1.5;
+  color: #3A3536;
+  font-size: 14.5px;
+  line-height: 1.55;
+  font-weight: 500;
 }
 
 .wwt-definition-cards-grid {
@@ -702,26 +751,32 @@
 }
 
 /* ==========================================================================
-   4. SECTION 03: THE LEARNING PATH (INTERACTIVE CURRICULUM TABLE)
+   4. SECTION 03: THE LEARNING PATH (NORMAL CLASSIC CURRICULUM TABLE)
    ========================================================================== */
 .wwt-sec-learning-path {
-  padding: 80px 0;
+  padding: 24px 0 72px 0;
+}
+
+.wwt-curriculum-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .wwt-filter-pills-row {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin: 32px 0 28px 0;
+  margin: 24px 0 20px 0;
 }
 
 .wwt-filter-pill {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  padding: 9px 20px;
+  padding: 8px 18px;
   border-radius: var(--radius-full, 9999px);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -743,38 +798,41 @@
   box-shadow: 0 4px 14px rgba(79, 97, 68, 0.25);
 }
 
-/* Curriculum Table */
+/* Normal Classic Syllabus Table */
 .wwt-table-card {
   background: #FFFFFF;
-  border: 1px solid var(--ojalis-border, #E8E0D5);
-  border-radius: 22px;
+  border: 1px solid #E6DEC8;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm, 0 2px 10px rgba(74, 21, 37, 0.05));
+  box-shadow: none;
+  margin-top: 24px;
 }
 
 .wwt-table-header-row {
   display: grid;
-  grid-template-columns: 70px 1.4fr 2fr 1.2fr 44px;
-  padding: 16px 28px;
-  background: var(--ojalis-ivory, #faf7f2);
-  border-bottom: 1px solid var(--ojalis-border, #E8E0D5);
+  padding: 13px 22px;
+  background: #F4EFE6;
+  border-bottom: 1.5px solid #DDD3BE;
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
-  color: var(--ojalis-gold-dark, #9B7328);
+  color: var(--site-heading-color, #4F6144);
   align-items: center;
 }
 
 .wwt-table-item-row {
   display: grid;
-  grid-template-columns: 70px 1.4fr 2fr 1.2fr 44px;
-  padding: 22px 28px;
-  border-bottom: 1px solid var(--ojalis-border, #E8E0D5);
-  align-items: center;
-  cursor: pointer;
+  padding: 18px 22px;
+  border-bottom: 1px solid #EDE7DB;
+  align-items: start;
+  background: #FAF7F2;
   transition: background 0.2s ease;
+}
+
+.wwt-table-item-row:nth-child(even) {
+  background: #FFFFFF;
 }
 
 .wwt-table-item-row:last-child {
@@ -782,81 +840,103 @@
 }
 
 .wwt-table-item-row:hover {
-  background: #faf7f2;
-}
-
-.wwt-table-item-row.expanded {
-  background: #faf7f2;
+  background: #F7F3EB;
 }
 
 .wwt-col-no {
   font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--ojalis-gold-dark, #9B7328);
+  line-height: 1.4;
 }
 
 .wwt-col-technique {
   font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--site-heading-color, #4F6144);
-  line-height: 1.25;
+  line-height: 1.35;
+  padding-right: 14px;
+}
+
+.wwt-tech-name {
+  display: block;
+}
+
+.wwt-tech-stage {
+  display: inline-block;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 10.5px;
+  color: var(--ojalis-gold-dark, #9B7328);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
 }
 
 .wwt-col-words {
   font-family: 'Noto Sans', sans-serif;
   font-size: 14.5px;
-  color: var(--ojalis-text-muted, #6B6164);
-  line-height: 1.5;
+  color: #4A4244;
+  line-height: 1.6;
   padding-right: 16px;
+}
+
+.wwt-tech-subdetail {
+  display: block;
+  font-size: 13.5px;
+  color: var(--ojalis-text-muted, #6B6164);
+  margin-top: 6px;
+  line-height: 1.5;
 }
 
 .wwt-col-feeling {
   font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
-  font-size: 16.5px;
+  font-size: 15.5px;
+  font-style: italic;
+  color: #8C7335;
+  line-height: 1.4;
+}
+
+/* What You Take Home & Note Cards */
+.wwt-takehome-card {
+  margin-top: 24px;
+  padding: 18px 24px;
+  background: #F4EFE6;
+  border: 1px solid #E6DEC8;
+  border-left: 3.5px solid var(--site-heading-color, #4F6144);
+  border-radius: 8px;
+}
+
+.wwt-takehome-card.wwt-medical-note-card {
+  border-left-color: var(--ojalis-gold, #C59B4B);
+}
+
+.wwt-takehome-label {
+  display: block;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ojalis-gold-dark, #9B7328);
+  margin-bottom: 6px;
+}
+
+.wwt-takehome-text {
+  margin: 0;
+  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+  font-size: clamp(16px, 1.8vw, 19px);
   font-style: italic;
   color: var(--site-heading-color, #4F6144);
+  line-height: 1.6;
 }
 
-.wwt-col-toggle {
+.wwt-table-cta-wrap {
+  margin-top: 36px;
   display: flex;
   justify-content: center;
-  color: var(--ojalis-text-muted, #6B6164);
-  transition: transform 0.25s ease;
-}
-
-.wwt-table-item-row.expanded .wwt-col-toggle {
-  transform: rotate(180deg);
-  color: var(--site-heading-color, #4F6144);
-}
-
-/* Table row expansion details */
-.wwt-table-item-details {
-  padding: 16px 28px 24px 98px;
-  background: #FAF7F2;
-  border-bottom: 1px solid var(--ojalis-border, #E8E0D5);
-}
-
-.wwt-table-item-details-text {
-  margin: 0;
-  font-size: 14.5px;
-  color: var(--ojalis-text-muted, #6B6164);
-  line-height: 1.7;
-}
-
-/* Expanded accordion content */
-.wwt-table-accordion-body {
-  padding: 20px 28px 24px 28px;
-  background: #faf7f2;
-  border-bottom: 1px solid var(--ojalis-border, #E8E0D5);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 14px;
-  color: var(--ojalis-text-muted, #6B6164);
-  line-height: 1.6;
 }
 
 .wwt-accordion-pill {
@@ -1481,8 +1561,7 @@
 
   .wwt-table-header-row,
   .wwt-table-item-row {
-    grid-template-columns: 50px 1.2fr 1.5fr 1fr 34px;
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
 }
 
@@ -1504,6 +1583,16 @@
   .wwt-sec-cta-banner,
   .wwt-sec-other-offerings {
     padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .wwt-sec-understand {
+    padding-top: 40px;
+    padding-bottom: 16px;
+  }
+
+  .wwt-sec-learning-path {
+    padding-top: 16px;
     padding-bottom: 48px;
   }
 
@@ -1653,7 +1742,7 @@
   }
 
   .wwt-table-card {
-    border-radius: 16px;
+    border-radius: 8px;
   }
 
   .wwt-table-header-row {
@@ -1664,40 +1753,26 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
     position: relative;
     padding: 16px 18px;
   }
 
   .wwt-col-no {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .wwt-col-technique {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .wwt-col-words {
-    font-size: 13.5px;
-    padding-right: 28px;
+    font-size: 14px;
+    padding-right: 0;
   }
 
   .wwt-col-feeling {
     font-size: 14.5px;
-  }
-
-  .wwt-col-toggle {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-  }
-
-  .wwt-table-item-details {
-    padding: 14px 18px 18px 18px;
-  }
-
-  .wwt-table-item-details-text {
-    font-size: 13.5px;
   }
 
   .wwt-table-accordion-body {
