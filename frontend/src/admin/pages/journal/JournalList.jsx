@@ -23,7 +23,8 @@ function JournalList() {
   const fetchItems = async () => {
     try {
       const res = await apiFetch('/admin/journals');
-      setItems(res.data);
+      const list = Array.isArray(res) ? res : (Array.isArray(res?.data) ? res.data : []);
+      setItems(list);
     } catch (err) {
       alert(err.message);
     } finally {
@@ -43,9 +44,14 @@ function JournalList() {
 
   // Filter Logic
   const filteredItems = useMemo(() => {
+    if (!Array.isArray(items)) return [];
     return items.filter(item => {
-      const titleMatch = item.title?.toLowerCase().includes(searchTitle.toLowerCase());
-      const categoryMatch = item.category?.toLowerCase().includes(searchCategory.toLowerCase());
+      const titleMatch = !searchTitle.trim() || Boolean(
+        item.title && item.title.toLowerCase().includes(searchTitle.trim().toLowerCase())
+      );
+      const categoryMatch = !searchCategory.trim() || Boolean(
+        item.category && item.category.toLowerCase().includes(searchCategory.trim().toLowerCase())
+      );
       const statusMatch = filterStatus ? item.status === filterStatus : true;
       return titleMatch && categoryMatch && statusMatch;
     });

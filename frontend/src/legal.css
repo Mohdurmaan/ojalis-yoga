@@ -1,0 +1,243 @@
+/* ==========================================================================
+   OJALIS - LEGAL & ETHICAL PRACTICE STYLES (Privacy Policy & Terms of Practice)
+   ========================================================================== */
+
+.legal-page-wrap {
+  min-height: 100vh;
+  background-color: var(--ojalis-ivory, #FAF8F5);
+}
+
+.legal-content-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px 24px 100px;
+}
+
+.legal-document-card {
+  background-color: #ffffff;
+  border: 1px solid var(--ojalis-border, rgba(46, 75, 53, 0.12));
+  border-radius: var(--radius-lg, 16px);
+  padding: 48px 56px;
+  box-shadow: 0 4px 20px rgba(46, 75, 53, 0.04);
+}
+
+@media (max-width: 768px) {
+  .legal-content-container {
+    padding: 36px 16px 64px;
+  }
+  .legal-document-card {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+}
+
+/* Document Meta Badge */
+.legal-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--ojalis-border, rgba(46, 75, 53, 0.1));
+}
+
+.legal-effective-date {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ojalis-gold-dark, #A17E45);
+  letter-spacing: 0.5px;
+}
+
+.legal-doc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(161, 126, 69, 0.08);
+  border: 1px solid rgba(161, 126, 69, 0.25);
+  color: var(--ojalis-burgundy, #2E4B35);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* Quick Navigation Links */
+.legal-nav-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+  padding: 16px 20px;
+  background-color: var(--ojalis-ivory, #FAF8F5);
+  border-radius: 8px;
+  border: 1px solid var(--ojalis-border, rgba(46, 75, 53, 0.08));
+}
+
+.legal-nav-strip a {
+  color: var(--ojalis-burgundy, #2E4B35);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.legal-nav-strip a:hover {
+  background-color: #ffffff;
+  color: var(--ojalis-gold-dark, #A17E45);
+}
+
+/* Sections */
+.legal-section {
+  margin-bottom: 36px;
+  scroll-margin-top: 100px;
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.legal-section-title {
+  font-family: var(--font-serif, "Cinzel", Georgia, serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ojalis-burgundy, #2E4B35);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.legal-section-title .section-num {
+  color: var(--ojalis-gold-dark, #A17E45);
+  font-family: inherit;
+  font-size: 18px;
+}
+
+.legal-paragraph {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ojalis-text, #2c332d);
+  margin-bottom: 14px;
+}
+
+.legal-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.legal-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 14px 0;
+}
+
+.legal-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ojalis-text, #2c332d);
+}
+
+.legal-list li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--ojalis-gold, #C5A059);
+}
+
+.legal-list li strong {
+  color: var(--ojalis-burgundy, #2E4B35);
+  font-weight: 600;
+}
+
+/* Callout Box (Grievance Officer / Studio Info / Contact) */
+.legal-callout-box {
+  background: linear-gradient(135deg, rgba(250, 248, 245, 0.9), rgba(245, 240, 232, 0.9));
+  border: 1px solid var(--ojalis-gold-border, rgba(161, 126, 69, 0.25));
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 16px;
+}
+
+.legal-callout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.legal-callout-item {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.legal-callout-item .label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ojalis-gold-dark, #A17E45);
+  margin-bottom: 4px;
+}
+
+.legal-callout-item .value {
+  color: var(--ojalis-burgundy, #2E4B35);
+  font-weight: 500;
+}
+
+.legal-callout-item a {
+  color: var(--ojalis-burgundy, #2E4B35);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.legal-callout-item a:hover {
+  color: var(--ojalis-gold-dark, #A17E45);
+}
+
+/* Footer Switcher */
+.legal-switcher-box {
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--ojalis-border, rgba(46, 75, 53, 0.1));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legal-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ojalis-burgundy, #2E4B35);
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: var(--ojalis-ivory, #FAF8F5);
+  border: 1px solid var(--ojalis-border, rgba(46, 75, 53, 0.15));
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.legal-switcher-btn:hover {
+  background-color: var(--ojalis-burgundy, #2E4B35);
+  color: #ffffff;
+  border-color: var(--ojalis-burgundy, #2E4B35);
+}
+

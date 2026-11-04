@@ -19,6 +19,8 @@ import OnlineClasses from "./pages/OnlineClasses";
 import Studio from "./pages/Studio";
 import WhatWeTeachDetail from "./pages/WhatWeTeachDetail";
 import EventDetails from "./pages/EventDetails";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfPractice from "./pages/TermsOfPractice";
 
 // User Authentication & Dashboard
 import { AuthProvider } from "./context/AuthContext";
@@ -85,6 +87,12 @@ function AppContent() {
         <Route path="/studio" element={<Studio />} />
         <Route path="/journal" element={<Blog />} />
         <Route path="/journal/:slug" element={<BlogPost />} />
+
+        {/* Legal & Policies */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-practice" element={<TermsOfPractice />} />
+        <Route path="/terms" element={<TermsOfPractice />} />
 
         {/* USER AUTHENTICATION */}
         <Route path="/register" element={<Register />} />

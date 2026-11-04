@@ -23,7 +23,8 @@ function EventList() {
   const fetchItems = async () => {
     try {
       const res = await apiFetch('/admin/events');
-      setItems(res.data);
+      const list = Array.isArray(res) ? res : (Array.isArray(res?.data) ? res.data : []);
+      setItems(list);
     } catch (err) {
       alert(err.message);
     } finally {
@@ -51,8 +52,11 @@ function EventList() {
 
   // Filter Logic
   const filteredItems = useMemo(() => {
+    if (!Array.isArray(items)) return [];
     return items.filter(item => {
-      const titleMatch = item.title?.toLowerCase().includes(searchTitle.toLowerCase());
+      const titleMatch = !searchTitle.trim() || Boolean(
+        item.title && item.title.toLowerCase().includes(searchTitle.trim().toLowerCase())
+      );
       const categoryMatch = filterCategory ? item.category === filterCategory : true;
       const statusMatch = filterStatus ? item.status === filterStatus : true;
       return titleMatch && categoryMatch && statusMatch;

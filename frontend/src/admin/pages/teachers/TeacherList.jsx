@@ -23,7 +23,8 @@ function TeacherList() {
   const fetchItems = async () => {
     try {
       const res = await apiFetch('/admin/teachers');
-      setItems(res.data);
+      const list = Array.isArray(res) ? res : (Array.isArray(res?.data) ? res.data : []);
+      setItems(list);
     } catch (err) {
       alert(err.message);
     } finally {
@@ -43,9 +44,18 @@ function TeacherList() {
 
   // Filter Logic
   const filteredItems = useMemo(() => {
+    if (!Array.isArray(items)) return [];
     return items.filter(item => {
-      const nameMatch = item.name?.toLowerCase().includes(searchName.toLowerCase());
-      const specMatch = item.specializations?.toLowerCase().includes(searchSpec.toLowerCase());
+      const nameMatch = !searchName.trim() || Boolean(
+        item.name && item.name.toLowerCase().includes(searchName.trim().toLowerCase())
+      );
+      const specMatch = !searchSpec.trim() || Boolean(
+        item.specializations && (
+          Array.isArray(item.specializations)
+            ? item.specializations.some(s => s && s.toLowerCase().includes(searchSpec.trim().toLowerCase()))
+            : String(item.specializations).toLowerCase().includes(searchSpec.trim().toLowerCase())
+        )
+      );
       const statusMatch = filterStatus ? item.status === filterStatus : true;
       return nameMatch && specMatch && statusMatch;
     });
@@ -71,22 +81,22 @@ function TeacherList() {
 
       {/* Filters Section */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', marginBottom: '24px' }}>
-        <input 
-          type="text" 
-          placeholder="Search Name" 
-          value={searchName} 
+        <input
+          type="text"
+          placeholder="Search Name"
+          value={searchName}
           onChange={e => { setSearchName(e.target.value); setCurrentPage(1); }}
           style={{ padding: '8px', border: '1px solid var(--ojalis-border)', borderRadius: '4px' }}
         />
-        <input 
-          type="text" 
-          placeholder="Search Specialization" 
-          value={searchSpec} 
+        <input
+          type="text"
+          placeholder="Search Specialization"
+          value={searchSpec}
           onChange={e => { setSearchSpec(e.target.value); setCurrentPage(1); }}
           style={{ padding: '8px', border: '1px solid var(--ojalis-border)', borderRadius: '4px' }}
         />
-        <select 
-          value={filterStatus} 
+        <select
+          value={filterStatus}
           onChange={e => { setFilterStatus(e.target.value); setCurrentPage(1); }}
           style={{ padding: '8px', border: '1px solid var(--ojalis-border)', borderRadius: '4px' }}
         >
@@ -94,7 +104,7 @@ function TeacherList() {
           <option value="published">Published</option>
           <option value="draft">Draft</option>
         </select>
-        <button 
+        <button
           onClick={() => {
             setSearchName('');
             setSearchSpec('');
@@ -126,41 +136,44 @@ function TeacherList() {
                 </td>
               </tr>
             ) : (
-              currentItems.map(item => (
-                <tr key={item._id}>
-                  <td>
-                    {item.profileImage ? (
-                      <img 
-                        src={getImageUrl(item.profileImage)} 
-                        alt={item.name} 
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = '/logo.png';
-                        }}
-                      />
-                    ) : (
-                      <span style={{ color: 'var(--admin-text-muted)', fontSize: '12px' }}>No photo</span>
-                    )}
-                  </td>
-                  <td style={{ fontWeight: 500 }}>{item.name}</td>
-                  <td>{item.specializations || '-'}</td>
-                  <td>
-                    <span className={'admin-badge ' + (item.status || 'draft')}>
-                      {item.status}
-                    </span>
-                  </td>
-                  <td>
-                    <div className="admin-actions-cell">
-                      <Link to={'/admin/teachers/edit/' + item._id} className="admin-btn admin-btn-secondary">
-                        Edit
-                      </Link>
-                      <button onClick={() => handleDelete(item._id)} className="admin-btn admin-btn-danger">
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))
+              currentItems.map(item => {
+                const itemId = item._id || item.id;
+                return (
+                  <tr key={itemId}>
+                    <td>
+                      {item.profileImage ? (
+                        <img
+                          src={getImageUrl(item.profileImage)}
+                          alt={item.name}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = '/logo.png';
+                          }}
+                        />
+                      ) : (
+                        <span style={{ color: 'var(--admin-text-muted)', fontSize: '12px' }}>No photo</span>
+                      )}
+                    </td>
+                    <td style={{ fontWeight: 500 }}>{item.name}</td>
+                    <td>{item.specializations || '-'}</td>
+                    <td>
+                      <span className={'admin-badge ' + (item.status || 'draft')}>
+                        {item.status}
+                      </span>
+                    </td>
+                    <td>
+                      <div className="admin-actions-cell">
+                        <Link to={'/admin/teachers/edit/' + itemId} className="admin-btn admin-btn-secondary">
+                          Edit
+                        </Link>
+                        <button onClick={() => handleDelete(itemId)} className="admin-btn admin-btn-danger">
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })
             )}
           </tbody>
         </table>
@@ -169,7 +182,7 @@ function TeacherList() {
       {/* Pagination Controls */}
       {totalPages > 1 && (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px', marginTop: '24px' }}>
-          <button 
+          <button
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
             disabled={currentPage === 1}
             className="admin-btn admin-btn-secondary"
@@ -178,7 +191,7 @@ function TeacherList() {
             Prev
           </button>
           <span>Page {currentPage} of {totalPages}</span>
-          <button 
+          <button
             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
             disabled={currentPage === totalPages}
             className="admin-btn admin-btn-secondary"

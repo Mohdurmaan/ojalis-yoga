@@ -201,7 +201,7 @@ function Home() {
                 M.Sc. Mathematics &bull; Diploma in Yoga Science &bull; MDNIY (Ministry of Ayush) &bull;  250-hr Yog Teacher’s Training, Patanjali Yog Samiti
               </div>
               <blockquote className="trainer-quote-italic" style={{ fontSize: "16px", marginBottom: "16px" }}>
-                "Yoga is neither a sport nor an exercise regime. It is the conscious art of living in harmony with your breath, your mind, and your natural rhythm."
+                "Your breath already knows the way home. Yoga is simply learning to follow it."
               </blockquote>
               <p className="trainer-bio-excerpt" style={{ fontSize: "14px", marginBottom: "22px" }}>
                 Teaching yoga since 2016. Many of Kuldeep’s students arrived looking for flexibility and stayed talking about their breath. That pattern is why every OJALIS journey begins with a Breath Signature.
@@ -312,24 +312,10 @@ function Home() {
      
 
       {/* =================================================================
-          7. TESTIMONIALS SECTION (Zero Emojis, Pure SVG Stars)
+          7. TESTIMONIALS SECTION (Nians Arc Style with Dual-Column)
           ================================================================= */}
-      <section className="testimonials-home-section">
+      <section className="testimonials-home-section" id="testimonials">
         <div className="container">
-          <div className="text-center mx-auto" style={{ maxWidth: 700 }}>
-            <div className="section-tag-wrapper">
-              <span className="section-tag-line"></span>
-              <span className="section-tag-text">Voices of Experience</span>
-              <span className="section-tag-line"></span>
-            </div>
-            <h2 className="section-title-main">
-              What Our <span>Students Share</span>
-            </h2>
-            <p className="section-desc-main mx-auto">
-              Real reflections from regular practitioners who have discovered healing, mobility, and peaceful presence with Ojalis.
-            </p>
-          </div>
-
           <TestimonialSlider />
         </div>
       </section>

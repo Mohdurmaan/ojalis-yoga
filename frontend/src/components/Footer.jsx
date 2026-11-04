@@ -125,8 +125,8 @@ function Footer() {
           <div className="footer-bottom-inner">
             <p>&copy; {new Date().getFullYear()} OJALIS - Digital Raja. All rights reserved.</p>
             <div className="footer-legal-links">
-              <Link to="/contact">Privacy Policy</Link>
-              <Link to="/contact">Terms of Practice</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/terms-of-practice">Terms of Practice</Link>
               <Link to="/contact">Contact Support</Link>
             </div>
           </div>

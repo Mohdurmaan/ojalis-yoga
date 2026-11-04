@@ -23,7 +23,8 @@ function StudioList() {
   const fetchItems = async () => {
     try {
       const res = await apiFetch('/admin/studio');
-      setItems(res.data);
+      const list = Array.isArray(res) ? res : (Array.isArray(res?.data) ? res.data : []);
+      setItems(list);
     } catch (err) {
       alert(err.message);
     } finally {
@@ -43,9 +44,14 @@ function StudioList() {
 
   // Filter Logic
   const filteredItems = useMemo(() => {
+    if (!Array.isArray(items)) return [];
     return items.filter(item => {
-      const titleMatch = item.title?.toLowerCase().includes(searchTitle.toLowerCase());
-      const categoryMatch = item.category?.toLowerCase().includes(searchCategory.toLowerCase());
+      const titleMatch = !searchTitle.trim() || Boolean(
+        item.title && item.title.toLowerCase().includes(searchTitle.trim().toLowerCase())
+      );
+      const categoryMatch = !searchCategory.trim() || Boolean(
+        item.category && item.category.toLowerCase().includes(searchCategory.trim().toLowerCase())
+      );
       const statusMatch = filterStatus ? item.status === filterStatus : true;
       return titleMatch && categoryMatch && statusMatch;
     });
@@ -126,41 +132,44 @@ function StudioList() {
                 </td>
               </tr>
             ) : (
-              currentItems.map(item => (
-                <tr key={item._id}>
-                  <td>
-                    {item.image ? (
-                      <img 
-                        src={getImageUrl(item.image)} 
-                        alt={item.title} 
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = '/logo.png';
-                        }} 
-                      />
-                    ) : (
-                      <span style={{ color: 'var(--admin-text-muted)', fontSize: '12px' }}>No image</span>
-                    )}
-                  </td>
-                  <td style={{ fontWeight: 500 }}>{item.title}</td>
-                  <td>{item.category || '-'}</td>
-                  <td>
-                    <span className={'admin-badge ' + (item.status || 'draft')}>
-                      {item.status}
-                    </span>
-                  </td>
-                  <td>
-                    <div className="admin-actions-cell">
-                      <Link to={'/admin/studio/edit/' + item._id} className="admin-btn admin-btn-secondary">
-                        Edit
-                      </Link>
-                      <button onClick={() => handleDelete(item._id)} className="admin-btn admin-btn-danger">
-                        Delete
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))
+              currentItems.map(item => {
+                const itemId = item._id || item.id;
+                return (
+                  <tr key={itemId}>
+                    <td>
+                      {item.image ? (
+                        <img 
+                          src={getImageUrl(item.image)} 
+                          alt={item.title} 
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = '/logo.png';
+                          }} 
+                        />
+                      ) : (
+                        <span style={{ color: 'var(--admin-text-muted)', fontSize: '12px' }}>No image</span>
+                      )}
+                    </td>
+                    <td style={{ fontWeight: 500 }}>{item.title}</td>
+                    <td>{item.category || '-'}</td>
+                    <td>
+                      <span className={'admin-badge ' + (item.status || 'draft')}>
+                        {item.status}
+                      </span>
+                    </td>
+                    <td>
+                      <div className="admin-actions-cell">
+                        <Link to={'/admin/studio/edit/' + itemId} className="admin-btn admin-btn-secondary">
+                          Edit
+                        </Link>
+                        <button onClick={() => handleDelete(itemId)} className="admin-btn admin-btn-danger">
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })
             )}
           </tbody>
         </table>
