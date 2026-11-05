@@ -288,6 +288,12 @@
   box-shadow: 0 24px 60px -30px rgba(79, 97, 68, 0.35);
   position: relative;
   z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+.em-framed-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197, 155, 75, 0.45);
+  box-shadow: 0 32px 70px -25px rgba(79, 97, 68, 0.45);
 }
 .em-framed-img {
   width: 100%;
@@ -359,11 +365,18 @@
   background: linear-gradient(180deg, rgba(197, 155, 75, 0.08) 0%, #faf7f2 100%);
   padding: 48px 24px;
   text-align: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -8px rgba(79, 97, 68, 0.08);
 }
 @media (min-width: 640px) {
   .em-sutra-card {
     padding: 64px 48px;
   }
+}
+.em-sutra-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(197, 155, 75, 0.65);
+  box-shadow: 0 24px 60px -25px rgba(79, 97, 68, 0.28), 0 0 0 1px rgba(197, 155, 75, 0.2);
 }
 .em-sutra-verse {
   font-family: 'Noto Serif Devanagari', serif !important;
@@ -637,11 +650,19 @@
   border: 1px solid rgba(197, 155, 75, 0.35);
   background: rgba(197, 155, 75, 0.06);
   padding: 24px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px -6px rgba(79, 97, 68, 0.06);
 }
 @media (min-width: 640px) {
   .em-who-card {
     padding: 28px;
   }
+}
+.em-who-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197, 155, 75, 0.65);
+  background: rgba(197, 155, 75, 0.09);
+  box-shadow: 0 20px 48px -20px rgba(79, 97, 68, 0.25), 0 0 0 1px rgba(197, 155, 75, 0.2);
 }
 .em-who-tag {
   font-size: 13.5px;
@@ -889,11 +910,18 @@
   padding: 48px 24px;
   text-align: center;
   position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -8px rgba(79, 97, 68, 0.08);
 }
 @media (min-width: 640px) {
   .em-quote-card {
     padding: 64px 48px;
   }
+}
+.em-quote-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(197, 155, 75, 0.65);
+  box-shadow: 0 24px 60px -25px rgba(79, 97, 68, 0.28), 0 0 0 1px rgba(197, 155, 75, 0.2);
 }
 .em-quote-mark {
   display: none !important;

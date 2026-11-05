@@ -92,6 +92,17 @@
   box-shadow: 0 2px 8px rgba(79, 97, 68, 0.1);
   transition: all 0.2s ease;
   z-index: 2;
+  user-select: none;
+}
+
+.nians-pill-arrow-btn svg {
+  pointer-events: none;
+}
+
+.nians-pill-arrow-btn:hover {
+  background: #edf3ea;
+  border-color: var(--ojalis-burgundy, #4F6144);
+  transform: scale(1.05);
 }
 
 .nians-pill-arrow-btn:active {

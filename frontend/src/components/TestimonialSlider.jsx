@@ -78,11 +78,26 @@ export default function TestimonialSlider({ items = testimonialsData }) {
 
   const pillsBarRef = useRef(null);
   const pillRefs = useRef([]);
+  const pauseTimerRef = useRef(null);
   const total = items.length;
+
+  const triggerTemporaryPause = useCallback(() => {
+    setIsPaused(true);
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    pauseTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 6000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    };
+  }, []);
 
   const handlePrev = useCallback(() => {
     setAnimating(true);
-    setActiveIndex((prev) => (prev - 1 + total) % total);
+    setActiveIndex((prev) => ((prev - 1) % total + total) % total);
     setTimeout(() => setAnimating(false), 300);
   }, [total]);
 
@@ -96,7 +111,7 @@ export default function TestimonialSlider({ items = testimonialsData }) {
     if (idx === activeIndex) return;
     setAnimating(true);
     setActiveIndex(idx);
-    setIsPaused(true);
+    triggerTemporaryPause();
     setTimeout(() => setAnimating(false), 300);
   };
 
@@ -105,17 +120,18 @@ export default function TestimonialSlider({ items = testimonialsData }) {
     const pill = pillRefs.current[activeIndex];
     const bar = pillsBarRef.current;
     if (pill && bar) {
-      const pillLeft = pill.offsetLeft;
-      const pillWidth = pill.offsetWidth;
-      const barWidth = bar.offsetWidth;
+      const barRect = bar.getBoundingClientRect();
+      const pillRect = pill.getBoundingClientRect();
+      const currentScroll = bar.scrollLeft;
+      const targetScroll = currentScroll + (pillRect.left - barRect.left) - (barRect.width / 2) + (pillRect.width / 2);
       bar.scrollTo({
-        left: pillLeft - (barWidth / 2) + (pillWidth / 2),
+        left: targetScroll,
         behavior: "smooth"
       });
     }
   }, [activeIndex]);
 
-  // Auto-play interval (6s), pauses on hover or user touch
+  // Auto-play interval (6s), pauses on hover or user touch, then resumes
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -133,14 +149,14 @@ export default function TestimonialSlider({ items = testimonialsData }) {
   const currItem = items[currIdx];
   const nextItem = items[nextIdx];
 
-  // Touch swipe support for mobile review card
+  // Touch swipe support for mobile review card & pills bar
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
     touchEndX.current = e.touches[0].clientX;
-    setIsPaused(true);
+    triggerTemporaryPause();
   };
 
   const handleTouchMove = (e) => {
@@ -151,24 +167,15 @@ export default function TestimonialSlider({ items = testimonialsData }) {
     if (touchStartX.current === null || touchEndX.current === null) return;
     const diff = touchStartX.current - touchEndX.current;
     if (Math.abs(diff) > 40) {
-      if (diff > 0) handleNext();
-      else handlePrev();
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+      triggerTemporaryPause();
     }
     touchStartX.current = null;
     touchEndX.current = null;
-  };
-
-  // Scroll mobile pills bar manually
-  const scrollPillsLeft = () => {
-    if (pillsBarRef.current) {
-      pillsBarRef.current.scrollBy({ left: -180, behavior: "smooth" });
-    }
-  };
-
-  const scrollPillsRight = () => {
-    if (pillsBarRef.current) {
-      pillsBarRef.current.scrollBy({ left: 180, behavior: "smooth" });
-    }
   };
 
   return (
@@ -195,12 +202,20 @@ export default function TestimonialSlider({ items = testimonialsData }) {
       </div>
 
       {/* 2. Mobile Avatar Slider Bar (Scrollable Pill Track with Arrow Controls) */}
-      <div className="nians-mobile-pills-slider-container">
+      <div 
+        className="nians-mobile-pills-slider-container"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <button 
           type="button"
-          onClick={scrollPillsLeft}
+          onClick={() => {
+            handlePrev();
+            triggerTemporaryPause();
+          }}
           className="nians-pill-arrow-btn prev"
-          aria-label="Scroll students left"
+          aria-label="Previous student review"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="15 18 9 12 15 6"></polyline>
@@ -225,9 +240,12 @@ export default function TestimonialSlider({ items = testimonialsData }) {
 
         <button 
           type="button"
-          onClick={scrollPillsRight}
+          onClick={() => {
+            handleNext();
+            triggerTemporaryPause();
+          }}
           className="nians-pill-arrow-btn next"
-          aria-label="Scroll students right"
+          aria-label="Next student review"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="9 18 15 12 9 6"></polyline>
@@ -364,7 +382,10 @@ export default function TestimonialSlider({ items = testimonialsData }) {
             <div className="nians-mobile-card-controls">
               <button 
                 type="button"
-                onClick={handlePrev}
+                onClick={() => {
+                  handlePrev();
+                  triggerTemporaryPause();
+                }}
                 className="nians-mobile-card-nav-btn"
                 aria-label="Previous testimonial"
               >
@@ -388,7 +409,10 @@ export default function TestimonialSlider({ items = testimonialsData }) {
 
               <button 
                 type="button"
-                onClick={handleNext}
+                onClick={() => {
+                  handleNext();
+                  triggerTemporaryPause();
+                }}
                 className="nians-mobile-card-nav-btn"
                 aria-label="Next testimonial"
               >
