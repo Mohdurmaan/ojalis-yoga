@@ -329,11 +329,6 @@ function WhatWeTeachDetail() {
 
               {/* Right Column: Philosophy & 3 Step Progression */}
               <div>
-                <div className="wwt-eyebrow wwt-eyebrow-light">
-                  <span className="wwt-eyebrow-line wwt-eyebrow-line-light"></span>
-                  <span>02 / OUR APPROACH</span>
-                </div>
-
                 <h2 className="wwt-approach-heading">
                   The OJALIS{" "}
                   <span className="wwt-italic" style={{ color: "#DFBD74" }}>
@@ -371,11 +366,6 @@ function WhatWeTeachDetail() {
             <section className="wwt-sec-article-content">
               <div className="wwt-container">
                 <div className="wwt-article-layout">
-                  <div className="wwt-eyebrow">
-                    <span className="wwt-eyebrow-line"></span>
-                    <span>02 / THE ESSENCE &amp; PHILOSOPHY</span>
-                  </div>
-
                   <h2 className="wwt-section-title">
                     Understanding Pranayama: The Art of Breath Mastery
                   </h2>
@@ -387,9 +377,6 @@ function WhatWeTeachDetail() {
                   <div className="wwt-article-blocks-list">
                     {practice.contentSections.map((sec, idx) => (
                       <article key={sec.id || idx} className="wwt-article-block">
-                        {sec.tag && (
-                          <span className="wwt-article-tag">{sec.tag}</span>
-                        )}
                         <h3 className="wwt-article-heading">{sec.heading}</h3>
                         {sec.paragraphs.map((p, pIdx) => (
                           <p key={pIdx} className="wwt-article-paragraph">
@@ -409,11 +396,6 @@ function WhatWeTeachDetail() {
             <section className="wwt-sec-benefits">
               <div className="wwt-container">
                 <div className="wwt-benefits-layout">
-                  <div className="wwt-eyebrow">
-                    <span className="wwt-eyebrow-line"></span>
-                    <span>03 / TRANSFORMATIVE IMPACT</span>
-                  </div>
-
                   <h2 className="wwt-section-title">
                     Key Benefits of Authentic Pranayama
                   </h2>
@@ -422,17 +404,21 @@ function WhatWeTeachDetail() {
                     When practiced with precise alignment and patient progression, conscious breathwork transforms physical vitality and mental poise from within.
                   </p>
 
-                  <div className="wwt-benefits-grid">
+                  <ul className="wwt-benefits-list">
                     {practice.benefits.map((benefit, bIdx) => (
-                      <div key={bIdx} className="wwt-benefit-card">
-                        <div className="wwt-benefit-card-header">
-                          <span className="wwt-benefit-num">{benefit.number}</span>
+                      <li key={bIdx} className="wwt-benefit-list-item">
+                        <div className="wwt-benefit-list-marker" aria-hidden="true">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
                         </div>
-                        <h3 className="wwt-benefit-title">{benefit.title}</h3>
-                        <p className="wwt-benefit-desc">{benefit.description}</p>
-                      </div>
+                        <div className="wwt-benefit-list-body">
+                          <h3 className="wwt-benefit-list-title">{benefit.title}</h3>
+                          <p className="wwt-benefit-list-desc">{benefit.description}</p>
+                        </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             </section>
@@ -443,11 +429,6 @@ function WhatWeTeachDetail() {
             <section className="wwt-sec-faq">
               <div className="wwt-container">
                 <div className="wwt-faq-layout">
-                  <div className="wwt-eyebrow">
-                    <span className="wwt-eyebrow-line"></span>
-                    <span>04 / FREQUENTLY ASKED QUESTIONS</span>
-                  </div>
-
                   <h2 className="wwt-section-title">
                     Frequently Asked Questions
                   </h2>
@@ -524,11 +505,6 @@ function WhatWeTeachDetail() {
           <section className="wwt-sec-learning-path">
             <div className="wwt-container">
               <div className="wwt-curriculum-layout">
-                <div className="wwt-eyebrow">
-                  <span className="wwt-eyebrow-line"></span>
-                  <span>{practice.learningPathEyebrow || "02 / THE LEARNING PATH"}</span>
-                </div>
-
                 <h2 className="wwt-section-title">
                   {practice.learningPathTitle || "A practice that unfolds slowly."}
                 </h2>
@@ -639,11 +615,6 @@ function WhatWeTeachDetail() {
             <div className="wwt-growth-grid wwt-grows-grid">
               {/* Left Column: Heading & Description */}
               <div>
-                <div className="wwt-eyebrow">
-                  <span className="wwt-eyebrow-line"></span>
-                  <span>04 / HOW IT GROWS</span>
-                </div>
-
                 <h2 className="wwt-section-title">
                   {practice.howItGrows.title}
                 </h2>
@@ -692,12 +663,6 @@ function WhatWeTeachDetail() {
         <section className="wwt-sec-for-life">
           <div className="wwt-container">
             <div className="text-center" style={{ maxWidth: "680px", margin: "0 auto" }}>
-              <div className="wwt-eyebrow" style={{ justifyContent: "center" }}>
-                <span className="wwt-eyebrow-line"></span>
-                <span>05 / A PRACTICE FOR LIFE</span>
-                <span className="wwt-eyebrow-line"></span>
-              </div>
-
               <h2 className="wwt-section-title">
                 Who this practice <span>is for.</span>
               </h2>
@@ -748,11 +713,6 @@ function WhatWeTeachDetail() {
 
               {/* Right Column: Teacher Bio & Lineage */}
               <div>
-                <div className="wwt-eyebrow">
-                  <span className="wwt-eyebrow-line"></span>
-                  <span>06 / THE GUIDE</span>
-                </div>
-
                 <h2 className="wwt-guide-name">{practice.guide.name}</h2>
 
                 {practice.guide.quote && (
@@ -795,12 +755,6 @@ function WhatWeTeachDetail() {
         <section className="wwt-sec-cta-banner">
           <div className="wwt-container">
             <div className="wwt-cta-banner-box">
-              <div className="wwt-eyebrow wwt-eyebrow-light" style={{ justifyContent: "center" }}>
-                <span className="wwt-eyebrow-line wwt-eyebrow-line-light"></span>
-                <span>BEGIN YOUR PRACTICE</span>
-                <span className="wwt-eyebrow-line wwt-eyebrow-line-light"></span>
-              </div>
-
               <h2 className="wwt-cta-title">
                 Ready to begin your journey in <span>{practice.title}?</span>
               </h2>
@@ -837,11 +791,6 @@ function WhatWeTeachDetail() {
         <section className="wwt-sec-other-offerings">
           <div className="wwt-container">
             <div className="text-center" style={{ maxWidth: "600px", margin: "0 auto 36px" }}>
-              <div className="wwt-eyebrow" style={{ justifyContent: "center" }}>
-                <span className="wwt-eyebrow-line"></span>
-                <span>CONTINUOUS JOURNEY</span>
-                <span className="wwt-eyebrow-line"></span>
-              </div>
               <h3 className="wwt-section-title" style={{ fontSize: "clamp(24px, 2.6vw, 34px)" }}>
                 Explore other <span>teachings &amp; cadences</span>
               </h3>
