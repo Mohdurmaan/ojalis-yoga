@@ -100,17 +100,7 @@ export default function PranayamaLanding() {
           />
 
           {/* Sanskrit Watermark */}
-          <span
-            aria-hidden="true"
-            className="em-watermark"
-            style={{
-              position: "absolute",
-              bottom: "-40px",
-              right: "-20px",
-              fontSize: "24vw",
-              lineHeight: 1,
-            }}
-          >
+          <span aria-hidden="true" className="em-watermark">
             प्राणायाम
           </span>
 

@@ -3,6 +3,19 @@ import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import { whatWeTeachData } from "../data/whatWeTeachData";
 import { IconLotus } from "../components/Icons";
 import PranayamaLanding from "./PranayamaLanding";
+import RealTimePracticeLanding from "./RealTimePracticeLanding";
+import StudyBreathLanding from "./StudyBreathLanding";
+import QuietBreathingLanding from "./QuietBreathingLanding";
+import WakefulHoursLanding from "./WakefulHoursLanding";
+import HathaYogaLanding from "./HathaYogaLanding";
+import YogaNidraLanding from "./YogaNidraLanding";
+import MeditationLanding from "./MeditationLanding";
+import SukshmaVyayamaLanding from "./SukshmaVyayamaLanding";
+import ShatkarmaLanding from "./ShatkarmaLanding";
+import AyurvedicLifestyleLanding from "./AyurvedicLifestyleLanding";
+import PostnatalRecoveryLanding from "./PostnatalRecoveryLanding";
+import CyclePracticeLanding from "./CyclePracticeLanding";
+import FirstBreathLanding from "./FirstBreathLanding";
 import "../what-we-teach.css";
 
 function WhatWeTeachDetail() {
@@ -32,6 +45,58 @@ function WhatWeTeachDetail() {
 
   if (currentSlug === "pranayama") {
     return <PranayamaLanding />;
+  }
+
+  if (currentSlug === "real-time-practice") {
+    return <RealTimePracticeLanding />;
+  }
+
+  if (currentSlug === "study-breath") {
+    return <StudyBreathLanding />;
+  }
+
+  if (currentSlug === "quiet-breathing") {
+    return <QuietBreathingLanding />;
+  }
+
+  if (currentSlug === "wakeful-hours") {
+    return <WakefulHoursLanding />;
+  }
+
+  if (currentSlug === "hatha-yoga") {
+    return <HathaYogaLanding />;
+  }
+
+  if (currentSlug === "yoga-nidra") {
+    return <YogaNidraLanding />;
+  }
+
+  if (currentSlug === "meditation") {
+    return <MeditationLanding />;
+  }
+
+  if (currentSlug === "sukshma-vyayama") {
+    return <SukshmaVyayamaLanding />;
+  }
+
+  if (currentSlug === "shatkarma") {
+    return <ShatkarmaLanding />;
+  }
+
+  if (currentSlug === "ayurvedic-lifestyle-guidance") {
+    return <AyurvedicLifestyleLanding />;
+  }
+
+  if (currentSlug === "postnatal-recovery" || currentSlug === "postnatal") {
+    return <PostnatalRecoveryLanding />;
+  }
+
+  if (currentSlug === "cycle-practice" || currentSlug === "the-cycle-practice") {
+    return <CyclePracticeLanding />;
+  }
+
+  if (currentSlug === "first-breath" || currentSlug === "the-first-breath" || currentSlug === "surya-namaskar-for-children") {
+    return <FirstBreathLanding />;
   }
 
   if (!practice) {
