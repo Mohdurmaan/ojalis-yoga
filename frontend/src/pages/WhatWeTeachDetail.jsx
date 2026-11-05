@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import { whatWeTeachData } from "../data/whatWeTeachData";
 import { IconLotus } from "../components/Icons";
+import PranayamaLanding from "./PranayamaLanding";
 import "../what-we-teach.css";
 
 function WhatWeTeachDetail() {
@@ -28,6 +29,10 @@ function WhatWeTeachDetail() {
     setSelectedStage("All Stages");
     setOpenFaqs({ 0: true, 1: true });
   }, [currentSlug]);
+
+  if (currentSlug === "pranayama") {
+    return <PranayamaLanding />;
+  }
 
   if (!practice) {
     return <Navigate to="/what-we-teach" replace />;

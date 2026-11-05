@@ -83,6 +83,77 @@ body {
     line-height: 1.65;
 }
 
+/* ---- Emergent Course Landing Page Tokens & Utility Classes ---- */
+.ojalis-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 28px;
+    border-radius: 9999px;
+    border: 1.5px solid #4f6144;
+    background: rgba(79, 97, 68, 0.21);
+    color: #4f6144;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ojalis-btn:hover {
+    background: #4f6144;
+    color: #faf7f2;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px -14px rgba(79, 97, 68, 0.55);
+}
+.ojalis-btn-light {
+    border: 1.5px solid #faf7f2;
+    background: #faf7f2;
+    color: #4f6144;
+}
+.ojalis-btn-light:hover {
+    background: #dfbd74;
+    border-color: #dfbd74;
+    color: #2c2426;
+    box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.4);
+}
+
+.ojalis-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9b7328;
+}
+
+.ojalis-watermark {
+    font-family: "Noto Serif Devanagari", serif;
+    color: rgba(79, 97, 68, 0.05);
+    white-space: nowrap;
+}
+
+.ojalis-rule {
+    width: 56px;
+    height: 1px;
+    background: #c59b4b;
+    display: inline-block;
+}
+
+.font-deva {
+    font-family: "Noto Serif Devanagari", serif !important;
+}
+
+.font-display {
+    font-family: "Forum", Georgia, serif !important;
+}
+
+.shadow-sage {
+    box-shadow: 0 24px 60px -30px rgba(79, 97, 68, 0.35);
+}
+
 #root {
     width: 100%;
     min-height: 100vh;
