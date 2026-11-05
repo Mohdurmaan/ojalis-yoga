@@ -19,6 +19,99 @@ export const whatWeTeachData = {
     leadNarrative: "This is the heart of OJALIS. Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",
     howItGrowsText: "You begin with slow, easy breathing. Stronger techniques like Kapalabhati and breath pauses come later, once the foundation feels natural.",
     bestFor: "everyone. Pranayama is where every OJALIS journey begins.",
+    hasCustomArticle: true,
+    contentSections: [
+      {
+        id: "science-of-prana",
+        tag: "THE SCIENCE OF PRANA",
+        heading: "What is Pranayama? The Science of Prana & Conscious Breath",
+        paragraphs: [
+          "Pranayama is composed of two sacred Sanskrit roots: 'Prana'—the vital cosmic life force that energizes every cell, organ, and thought—and 'Ayama', meaning to consciously expand, regulate, and master. In authentic classical yoga, the breath is recognized as the direct physical mirror and master key of the human mind.",
+          "When modern life brings chronic deadlines, screen fatigue, or emotional turbulence, respiration reflexively turns shallow, rapid, and restricted to the upper chest, locking the nervous system in prolonged stress. By intentionally guiding the cadence, depth, and smooth flow of your breath, Pranayama instantly communicates safety to the central nervous system, cleanses subtle nadis (vital pathways), and establishes deep emotional composure."
+        ]
+      },
+      {
+        id: "four-pillars",
+        tag: "SACRED PHASES",
+        heading: "The Four Classical Pillars of Yogic Breathwork",
+        paragraphs: [
+          "Authentic classical Pranayama is not generic hyperventilation or commercial 'breath hacking.' Rooted in Patanjali's Yoga Sutras and the Hatha Yoga Pradipika, every classical practice is anchored in four intentional rhythmic dimensions:",
+          "1. Puraka (Conscious Inhalation): Drawing in fresh, life-giving prana smoothly, rhythmically, and without muscular tension.\n2. Antar Kumbhaka (Internal Retention): Gently holding the breath with serene awareness, allowing tissues and cells to absorb vital oxygen.\n3. Rechaka (Controlled Exhalation): Lengthening the release of the breath to soothe the vagus nerve and release deeply rooted mental fatigue.\n4. Bahir Kumbhaka (External Suspension): The quiet pause of stillness after exhalation where mental turbulence settles into profound peace.",
+          "At OJALIS, beginners begin strictly with gentle diaphragmatic training and extended exhalations. Breath retention (Kumbhaka) is introduced only after your foundation is naturally steady and relaxed."
+        ]
+      },
+      {
+        id: "breath-signature-approach",
+        tag: "INDIVIDUALIZED SADHANA",
+        heading: "The OJALIS Personalized Breath Signature Approach",
+        paragraphs: [
+          "Because your breathing cadence is intimately connected to your physical posture, sleep history, and unique Ayurvedic constitution (Prakriti), breathwork can never be taught as a one-size-fits-all group routine. One practitioner may arrive with an overstimulated sympathetic nervous system requiring cooling, while another may feel lethargic and need gentle activation.",
+          "Every sadhaka at OJALIS begins with a one-to-one Breath Signature evaluation. Our experienced acharyas observe your natural tidal breathing, diaphragmatic movement, and heart rate variability before crafting an intentional, progressive breath curriculum designed specifically for your life."
+        ]
+      },
+      {
+        id: "core-disciplines",
+        tag: "LIFELONG PRACTICES",
+        heading: "Classical Breath Disciplines We Cultivate Together",
+        paragraphs: [
+          "Throughout your journey, you will progressively master the classical disciplines: Nadi Shodhana (Alternate Nostril Breathing) to harmonize brain hemispheres and clear mental fog; Bhramari (Humming Bee Breath) to immediately soothe the vagus nerve; Sheetali & Sheetkari to cool systemic digestive heat; Ujjayi (Victorious Ocean Breath) to steady internal focus; and gentle Kapalabhati to awaken vital energy and purify respiratory passages."
+        ]
+      }
+    ],
+    benefits: [
+      {
+        number: "01",
+        title: "Nervous System & Vagus Nerve Regulation",
+        description: "Engages the parasympathetic 'rest-and-digest' mechanism, lowering resting heart rate, stabilizing blood pressure, and reducing stress hormones like cortisol."
+      },
+      {
+        number: "02",
+        title: "Expanded Lung Capacity & Oxygenation",
+        description: "Retrains the diaphragm and intercostal muscles, maximizing oxygen transfer into deep lung lobes and cleansing stale residual air."
+      },
+      {
+        number: "03",
+        title: "Profound Mental Clarity & Emotional Balance",
+        description: "Calms uncontrollable thought loops (chitta vritti), sharpens mental acuity, reduces anxiety spikes, and dissolves brain fog."
+      },
+      {
+        number: "04",
+        title: "Restorative, Deep Nighttime Sleep",
+        description: "Lengthened evening exhalation routines release neuromuscular tension, triggering effortless transitions into restorative sleep cycles."
+      },
+      {
+        number: "05",
+        title: "Digestive Fire & Metabolic Health",
+        description: "Rhythmic abdominal respiration stimulates the vagal digestive axis, easing visceral stagnation and revitalizing internal metabolic fire (Jatharagni)."
+      },
+      {
+        number: "06",
+        title: "Inner Stillness & Gateway to Meditation",
+        description: "Steadies sensory distractions (Pratyahara), turning attention inward so meditation (Dhyana) happens effortlessly without mental struggle."
+      }
+    ],
+    faqs: [
+      {
+        question: "Is prior yoga or physical flexibility required to practice Pranayama?",
+        answer: "No prior yoga experience, physical fitness, or flexibility is required. Pranayama is purely breath awareness and can be practiced comfortably sitting on a yoga mat with cushions, or seated upright on a sturdy chair. We adapt every posture to your body's comfort."
+      },
+      {
+        question: "What is the best time of day to practice Pranayama?",
+        answer: "Traditionally, early morning around sunrise (Brahma Muhurta) on an empty stomach is considered ideal, as both the atmospheric air and mind are fresh and peaceful. However, calming breathwork like gentle belly breathing or slow Nadi Shodhana can also be practiced in the evening before dinner or right before bed."
+      },
+      {
+        question: "Can I practice Pranayama if I have high blood pressure, asthma, or anxiety?",
+        answer: "Yes, absolutely—in fact, Pranayama is deeply therapeutic for these conditions when taught properly. Soothing techniques like diaphragmatic breathing, Sheetali, and slow Nadi Shodhana are wonderful for blood pressure and anxiety. Forceful practices like rapid Kapalabhati or breath retentions (Kumbhaka) are avoided until your instructor confirms your body is ready."
+      },
+      {
+        question: "How is authentic Pranayama different from simple deep breathing?",
+        answer: "While modern deep breathing simply pulls larger volumes of oxygen into the chest, classical Pranayama is a precise yogic science. It works with subtle energy channels (nadis), balances autonomic nervous system tone, regulates carbon dioxide tolerance, and systematically harmonizes both brain hemispheres."
+      },
+      {
+        question: "How long does a typical Pranayama session take?",
+        answer: "A complete guided session at OJALIS lasts between 45 to 60 minutes. This includes gentle spinal loosening and neck movements (Sukshma Vyayama) to open the chest, guided progressive breathing techniques, and 10 minutes of quiet integration (Shavasana) to absorb the pranic calm."
+      }
+    ],
     learningPathEyebrow: "02 / THE TECHNIQUES YOU WILL LEARN",
     learningPathTitle: "The techniques you will learn",
     learningPathSubtitle: "Each technique is taught step by step, and new ones are added as your Breath Signature shows you're ready.",

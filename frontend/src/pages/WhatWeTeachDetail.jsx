@@ -13,11 +13,20 @@ function WhatWeTeachDetail() {
   const practice = whatWeTeachData[currentSlug];
 
   const [selectedStage, setSelectedStage] = useState("All Stages");
+  const [openFaqs, setOpenFaqs] = useState({ 0: true, 1: true });
+
+  const toggleFaq = (index) => {
+    setOpenFaqs((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
 
   // Scroll to top on slug change
   useEffect(() => {
     window.scrollTo(0, 0);
     setSelectedStage("All Stages");
+    setOpenFaqs({ 0: true, 1: true });
   }, [currentSlug]);
 
   if (!practice) {
@@ -184,11 +193,6 @@ function WhatWeTeachDetail() {
           <div className="wwt-understand-layout">
             {/* Centered Main Content: Title, Narrative, Highlights Card & Quotes */}
             <div className="wwt-understand-main">
-              <div className="wwt-eyebrow">
-                <span className="wwt-eyebrow-line"></span>
-                <span>01 / UNDERSTAND THE PRACTICE</span>
-              </div>
-
               <h2 className="wwt-understand-title">
                 {practice.title}
                 {practice.simpleWords && (
@@ -358,115 +362,272 @@ function WhatWeTeachDetail() {
       )}
 
       {/* =========================================================================
-          4. SECTION 03: THE LEARNING PATH (NORMAL CLASSIC CURRICULUM TABLE)
+          4. SECTION 03: CONTENT / ARTICLE LAYOUT OR STANDARD SYLLABUS TABLE
           ========================================================================= */}
-      {practice.techniques && practice.techniques.length > 0 && (
-        <section className="wwt-sec-learning-path">
-          <div className="wwt-container">
-            <div className="wwt-curriculum-layout">
-              <div className="wwt-eyebrow">
-                <span className="wwt-eyebrow-line"></span>
-                <span>{practice.learningPathEyebrow || "02 / THE LEARNING PATH"}</span>
+      {practice.hasCustomArticle ? (
+        <>
+          {/* 1. In-depth Narrative Article Sections (3 to 4 Headings with Paragraphs) */}
+          {practice.contentSections && practice.contentSections.length > 0 && (
+            <section className="wwt-sec-article-content">
+              <div className="wwt-container">
+                <div className="wwt-article-layout">
+                  <div className="wwt-eyebrow">
+                    <span className="wwt-eyebrow-line"></span>
+                    <span>02 / THE ESSENCE &amp; PHILOSOPHY</span>
+                  </div>
+
+                  <h2 className="wwt-section-title">
+                    Understanding Pranayama: The Art of Breath Mastery
+                  </h2>
+
+                  <p className="wwt-section-desc">
+                    Explore the classical philosophy, physiology, and individual approach that define authentic yogic breathwork.
+                  </p>
+
+                  <div className="wwt-article-blocks-list">
+                    {practice.contentSections.map((sec, idx) => (
+                      <article key={sec.id || idx} className="wwt-article-block">
+                        {sec.tag && (
+                          <span className="wwt-article-tag">{sec.tag}</span>
+                        )}
+                        <h3 className="wwt-article-heading">{sec.heading}</h3>
+                        {sec.paragraphs.map((p, pIdx) => (
+                          <p key={pIdx} className="wwt-article-paragraph">
+                            {p}
+                          </p>
+                        ))}
+                      </article>
+                    ))}
+                  </div>
+                </div>
               </div>
+            </section>
+          )}
 
-              <h2 className="wwt-section-title">
-                {practice.learningPathTitle || "A practice that unfolds slowly."}
-              </h2>
+          {/* 2. Key Benefits Section */}
+          {practice.benefits && practice.benefits.length > 0 && (
+            <section className="wwt-sec-benefits">
+              <div className="wwt-container">
+                <div className="wwt-benefits-layout">
+                  <div className="wwt-eyebrow">
+                    <span className="wwt-eyebrow-line"></span>
+                    <span>03 / TRANSFORMATIVE IMPACT</span>
+                  </div>
 
-              <p className="wwt-section-desc">
-                {practice.learningPathSubtitle || "These are the breath practices we explore together. There is no rush to master them all - each one has its own season."}
-              </p>
+                  <h2 className="wwt-section-title">
+                    Key Benefits of Authentic Pranayama
+                  </h2>
 
-              {/* Stage Filter Buttons */}
-              {practice.stages && practice.stages.length > 1 && (
-                <div className="wwt-filter-pills-row">
-                  {practice.stages.map((stage) => (
-                    <button
-                      key={stage}
-                      className={`wwt-filter-pill ${selectedStage === stage ? "active" : ""}`}
-                      onClick={() => setSelectedStage(stage)}
+                  <p className="wwt-section-desc">
+                    When practiced with precise alignment and patient progression, conscious breathwork transforms physical vitality and mental poise from within.
+                  </p>
+
+                  <div className="wwt-benefits-grid">
+                    {practice.benefits.map((benefit, bIdx) => (
+                      <div key={bIdx} className="wwt-benefit-card">
+                        <div className="wwt-benefit-card-header">
+                          <span className="wwt-benefit-num">{benefit.number}</span>
+                        </div>
+                        <h3 className="wwt-benefit-title">{benefit.title}</h3>
+                        <p className="wwt-benefit-desc">{benefit.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* 3. Frequently Asked Questions (FAQ Accordion matching reference) */}
+          {practice.faqs && practice.faqs.length > 0 && (
+            <section className="wwt-sec-faq">
+              <div className="wwt-container">
+                <div className="wwt-faq-layout">
+                  <div className="wwt-eyebrow">
+                    <span className="wwt-eyebrow-line"></span>
+                    <span>04 / FREQUENTLY ASKED QUESTIONS</span>
+                  </div>
+
+                  <h2 className="wwt-section-title">
+                    Frequently Asked Questions
+                  </h2>
+
+                  <p className="wwt-section-desc">
+                    Clear answers to common questions about beginning, practicing, and benefiting from classical Pranayama.
+                  </p>
+
+                  <div className="wwt-faq-list">
+                    {practice.faqs.map((faq, fIdx) => {
+                      const isOpen = !!openFaqs[fIdx];
+                      return (
+                        <div
+                          key={fIdx}
+                          className={`wwt-faq-item ${isOpen ? "open" : ""}`}
+                        >
+                          <button
+                            type="button"
+                            className="wwt-faq-question-btn"
+                            onClick={() => toggleFaq(fIdx)}
+                            aria-expanded={isOpen}
+                          >
+                            <span className="wwt-faq-question-text">
+                              {faq.question}
+                            </span>
+                            <span className="wwt-faq-chevron" aria-hidden="true">
+                              {isOpen ? (
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                  <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                              ) : (
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                  <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                              )}
+                            </span>
+                          </button>
+
+                          {isOpen && (
+                            <div className="wwt-faq-active-bar" aria-hidden="true"></div>
+                          )}
+
+                          {isOpen && (
+                            <div className="wwt-faq-answer">
+                              <p className="wwt-faq-answer-text">
+                                {faq.answer}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Action button to book a session */}
+                  <div className="wwt-table-cta-wrap" style={{ marginTop: "44px" }}>
+                    <Link
+                      to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                      className="wwt-btn-primary"
+                      id={`custom-book-btn-${practice.slug}`}
                     >
-                      {stage}
-                    </button>
-                  ))}
+                      <span>Book a Session in {practice.title}</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
                 </div>
-              )}
-
-              {/* Clean, Normal Syllabus Table */}
-              <div className="wwt-table-card">
-                <div
-                  className="wwt-table-header-row"
-                  style={practice.tableHideFeeling ? { gridTemplateColumns: "70px 1.4fr 2.6fr" } : { gridTemplateColumns: "60px 1.4fr 2fr 1.2fr" }}
-                >
-                  <span className="wwt-col-no">{practice.tableHeaderNo || "NO."}</span>
-                  <span className="wwt-col-technique">{practice.tableHeaderTechnique || "TECHNIQUE"}</span>
-                  <span className="wwt-col-words">{practice.tableHeaderWords || "IN SIMPLE WORDS"}</span>
-                  {!practice.tableHideFeeling && (
-                    <span className="wwt-col-feeling">{practice.tableHeaderFeeling || "THE FEELING"}</span>
-                  )}
+              </div>
+            </section>
+          )}
+        </>
+      ) : (
+        /* Standard techniques table for other pages */
+        practice.techniques && practice.techniques.length > 0 && (
+          <section className="wwt-sec-learning-path">
+            <div className="wwt-container">
+              <div className="wwt-curriculum-layout">
+                <div className="wwt-eyebrow">
+                  <span className="wwt-eyebrow-line"></span>
+                  <span>{practice.learningPathEyebrow || "02 / THE LEARNING PATH"}</span>
                 </div>
 
-                {filteredTechniques.map((tech, index) => (
+                <h2 className="wwt-section-title">
+                  {practice.learningPathTitle || "A practice that unfolds slowly."}
+                </h2>
+
+                <p className="wwt-section-desc">
+                  {practice.learningPathSubtitle || "These are the breath practices we explore together. There is no rush to master them all - each one has its own season."}
+                </p>
+
+                {/* Stage Filter Buttons */}
+                {practice.stages && practice.stages.length > 1 && (
+                  <div className="wwt-filter-pills-row">
+                    {practice.stages.map((stage) => (
+                      <button
+                        key={stage}
+                        className={`wwt-filter-pill ${selectedStage === stage ? "active" : ""}`}
+                        onClick={() => setSelectedStage(stage)}
+                      >
+                        {stage}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Clean, Normal Syllabus Table */}
+                <div className="wwt-table-card">
                   <div
-                    key={tech.no || index}
-                    className="wwt-table-item-row"
+                    className="wwt-table-header-row"
                     style={practice.tableHideFeeling ? { gridTemplateColumns: "70px 1.4fr 2.6fr" } : { gridTemplateColumns: "60px 1.4fr 2fr 1.2fr" }}
                   >
-                    <span className="wwt-col-no">{tech.no}</span>
-                    <span className="wwt-col-technique">
-                      <span className="wwt-tech-name">{tech.name}</span>
-                      {tech.stage && (
-                        <span className="wwt-tech-stage">{tech.stage}</span>
-                      )}
-                    </span>
-                    <span className="wwt-col-words">
-                      <span>{tech.words}</span>
-                      {tech.details && tech.details !== tech.words && !tech.details.startsWith(tech.name) && (
-                        <span className="wwt-tech-subdetail">{tech.details}</span>
-                      )}
-                    </span>
+                    <span className="wwt-col-no">{practice.tableHeaderNo || "NO."}</span>
+                    <span className="wwt-col-technique">{practice.tableHeaderTechnique || "TECHNIQUE"}</span>
+                    <span className="wwt-col-words">{practice.tableHeaderWords || "IN SIMPLE WORDS"}</span>
                     {!practice.tableHideFeeling && (
-                      <span className="wwt-col-feeling">{tech.feeling}</span>
+                      <span className="wwt-col-feeling">{practice.tableHeaderFeeling || "THE FEELING"}</span>
                     )}
                   </div>
-                ))}
-              </div>
 
-              {practice.whatYouTakeHome && (
-                <div className="wwt-takehome-card">
-                  <span className="wwt-takehome-label">What you take home</span>
-                  <p className="wwt-takehome-text">"{practice.whatYouTakeHome}"</p>
+                  {filteredTechniques.map((tech, index) => (
+                    <div
+                      key={tech.no || index}
+                      className="wwt-table-item-row"
+                      style={practice.tableHideFeeling ? { gridTemplateColumns: "70px 1.4fr 2.6fr" } : { gridTemplateColumns: "60px 1.4fr 2fr 1.2fr" }}
+                    >
+                      <span className="wwt-col-no">{tech.no}</span>
+                      <span className="wwt-col-technique">
+                        <span className="wwt-tech-name">{tech.name}</span>
+                        {tech.stage && (
+                          <span className="wwt-tech-stage">{tech.stage}</span>
+                        )}
+                      </span>
+                      <span className="wwt-col-words">
+                        <span>{tech.words}</span>
+                        {tech.details && tech.details !== tech.words && !tech.details.startsWith(tech.name) && (
+                          <span className="wwt-tech-subdetail">{tech.details}</span>
+                        )}
+                      </span>
+                      {!practice.tableHideFeeling && (
+                        <span className="wwt-col-feeling">{tech.feeling}</span>
+                      )}
+                    </div>
+                  ))}
                 </div>
-              )}
 
-              {practice.advancedPostures && (
-                <div className="wwt-takehome-card" style={{ marginTop: "18px" }}>
-                  <span className="wwt-takehome-label">Advanced postures on request</span>
-                  <p className="wwt-takehome-text">{practice.advancedPostures}</p>
+                {practice.whatYouTakeHome && (
+                  <div className="wwt-takehome-card">
+                    <span className="wwt-takehome-label">What you take home</span>
+                    <p className="wwt-takehome-text">"{practice.whatYouTakeHome}"</p>
+                  </div>
+                )}
+
+                {practice.advancedPostures && (
+                  <div className="wwt-takehome-card" style={{ marginTop: "18px" }}>
+                    <span className="wwt-takehome-label">Advanced postures on request</span>
+                    <p className="wwt-takehome-text">{practice.advancedPostures}</p>
+                  </div>
+                )}
+
+                {practice.medicalNote && (
+                  <div className="wwt-takehome-card wwt-medical-note-card" style={{ marginTop: "18px" }}>
+                    <span className="wwt-takehome-label">Medical Note</span>
+                    <p className="wwt-takehome-text">{practice.medicalNote}</p>
+                  </div>
+                )}
+
+                {/* Action button to book a session */}
+                <div className="wwt-table-cta-wrap">
+                  <Link
+                    to={`/book-session?program=${encodeURIComponent(practice.title)}`}
+                    className="wwt-btn-primary"
+                    id={`table-book-btn-${practice.slug}`}
+                  >
+                    <span>Book a Session</span>
+                    <span>→</span>
+                  </Link>
                 </div>
-              )}
-
-              {practice.medicalNote && (
-                <div className="wwt-takehome-card wwt-medical-note-card" style={{ marginTop: "18px" }}>
-                  <span className="wwt-takehome-label">Medical Note</span>
-                  <p className="wwt-takehome-text">{practice.medicalNote}</p>
-                </div>
-              )}
-
-              {/* Action button to book a session */}
-              <div className="wwt-table-cta-wrap">
-                <Link
-                  to={`/book-session?program=${encodeURIComponent(practice.title)}`}
-                  className="wwt-btn-primary"
-                  id={`table-book-btn-${practice.slug}`}
-                >
-                  <span>Book a Session</span>
-                  <span>→</span>
-                </Link>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )
       )}
 
       {/* =========================================================================

@@ -939,6 +939,255 @@
   justify-content: center;
 }
 
+/* ==========================================================================
+   CUSTOM ARTICLE CONTENT SECTIONS (3 to 4 Headings with Paragraphs)
+   ========================================================================== */
+.wwt-sec-article-content {
+  padding: 56px 0 64px 0;
+  background-color: var(--ojalis-ivory, #faf7f2);
+  border-top: 1px solid var(--ojalis-border, #E8E0D5);
+}
+
+.wwt-article-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wwt-article-blocks-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+}
+
+.wwt-article-block {
+  padding: 32px 0;
+  border-bottom: 1px solid #E6DEC8;
+}
+
+.wwt-article-block:first-child {
+  padding-top: 0;
+}
+
+.wwt-article-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.wwt-article-tag {
+  display: inline-block;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ojalis-gold-dark, #9B7328);
+  margin-bottom: 10px;
+}
+
+.wwt-article-heading {
+  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+  font-size: clamp(22px, 2.5vw, 29px);
+  color: var(--site-heading-color, #4F6144);
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+.wwt-article-paragraph {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #554D4F;
+  margin-bottom: 14px;
+  white-space: pre-line;
+}
+
+.wwt-article-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   CUSTOM BENEFITS SECTION
+   ========================================================================== */
+.wwt-sec-benefits {
+  padding: 64px 0 72px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--ojalis-border, #E8E0D5);
+}
+
+.wwt-benefits-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wwt-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+@media (max-width: 768px) {
+  .wwt-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.wwt-benefit-card {
+  background: #FAF7F2;
+  border: 1px solid #E6DEC8;
+  border-left: 3.5px solid var(--site-heading-color, #4F6144);
+  border-radius: 8px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wwt-benefit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(79, 97, 68, 0.08);
+}
+
+.wwt-benefit-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.wwt-benefit-num {
+  font-family: var(--site-heading-font, 'Forum', serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ojalis-gold-dark, #9B7328);
+  letter-spacing: 1px;
+}
+
+.wwt-benefit-title {
+  font-family: var(--site-heading-font, var(--font-display, 'Forum', serif));
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--site-heading-color, #4F6144);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.wwt-benefit-desc {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #554D4F;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CUSTOM FAQ SECTION (Exact Image 2 Reference)
+   ========================================================================== */
+.wwt-sec-faq {
+  padding: 64px 0 80px 0;
+  background-color: var(--ojalis-ivory, #faf7f2);
+  border-top: 1px solid var(--ojalis-border, #E8E0D5);
+}
+
+.wwt-faq-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wwt-faq-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+}
+
+.wwt-faq-item {
+  border-bottom: 1.5px solid #DDD3BE;
+  padding: 22px 0;
+  transition: all 0.2s ease;
+}
+
+.wwt-faq-item:first-child {
+  padding-top: 0;
+}
+
+.wwt-faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.wwt-faq-question-text {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--site-heading-color, #4F6144);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.wwt-faq-question-btn:hover .wwt-faq-question-text {
+  color: var(--ojalis-gold-dark, #9B7328);
+}
+
+.wwt-faq-chevron {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--site-heading-color, #4F6144);
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.wwt-faq-item.open .wwt-faq-chevron {
+  color: var(--ojalis-gold-dark, #9B7328);
+}
+
+.wwt-faq-active-bar {
+  width: 70px;
+  height: 3px;
+  background-color: var(--site-heading-color, #4F6144);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.wwt-faq-answer {
+  padding: 14px 0 6px 0;
+  animation: fadeInFaq 0.25s ease-out;
+}
+
+@keyframes fadeInFaq {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wwt-faq-answer-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #554D4F;
+  margin: 0;
+}
+
 .wwt-accordion-pill {
   display: inline-block;
   background: rgba(79, 97, 68, 0.12);

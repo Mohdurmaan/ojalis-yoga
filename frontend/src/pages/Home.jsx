@@ -198,7 +198,7 @@ function Home() {
               <span className="trainer-role-badge">FOUNDER & LEAD TEACHER</span>
               <h3 className="trainer-full-name" style={{ fontSize: "28px" }}>Kuldeep Dubey</h3>
               <div className="trainer-qualification" style={{ color: "var(--ojalis-gold-dark)", marginBottom: "12px" }}>
-                M.Sc. Mathematics &bull; Diploma in Yoga Science &bull; MDNIY (Ministry of Ayush) &bull;  250-hr Yog Teacher’s Training, Patanjali Yog Samiti
+                M.Sc. Mathematics &bull; Diploma in Yoga Science &bull; MDNIY (Ministry of Ayush) &bull;  250 hours Yog Teacher’s Training, Patanjali Yog Samiti
               </div>
               <blockquote className="trainer-quote-italic" style={{ fontSize: "16px", marginBottom: "16px" }}>
                 "Your breath already knows the way home. Yoga is simply learning to follow it."
